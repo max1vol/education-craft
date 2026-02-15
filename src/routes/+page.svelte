@@ -168,7 +168,7 @@
   let controls;
   let animationFrame;
   let THREE;
-  let PointerLockControlsModule;
+  let PointerLockControls;
   let raycaster;
   let tileMeshes = [];
 
@@ -320,11 +320,23 @@
     }
   }
 
+  let fallbackMode = false;
+
   onMount(async () => {
-    THREE = await import('https://unpkg.com/three@0.179.1/build/three.module.js');
-    PointerLockControlsModule = await import(
-      'https://unpkg.com/three@0.179.1/examples/jsm/controls/PointerLockControls.js'
-    );
+    const [threeLoad, pointerLoad] = await Promise.allSettled([
+      import('https://unpkg.com/three@0.179.1/build/three.module.js'),
+      import('https://unpkg.com/three@0.179.1/examples/jsm/controls/PointerLockControls.js')
+    ]);
+
+    if (threeLoad.status !== 'fulfilled' || pointerLoad.status !== 'fulfilled') {
+      fallbackMode = true;
+      message =
+        '3D renderer could not load in this network. You can still see the world map below instead of a black screen.';
+      return () => {};
+    }
+
+    THREE = threeLoad.value;
+    PointerLockControls = pointerLoad.value.PointerLockControls;
 
     raycaster = new THREE.Raycaster();
 
@@ -340,7 +352,7 @@
     renderer.shadowMap.enabled = true;
     sceneHost.appendChild(renderer.domElement);
 
-    controls = new PointerLockControlsModule.PointerLockControls(camera, renderer.domElement);
+    controls = new PointerLockControls(camera, renderer.domElement);
     scene.add(controls.getObject());
 
     const { spawnX, spawnZ } = worldCenterSpawn();
@@ -479,13 +491,29 @@
   <div class="overlay hud">
     <p><strong>Score:</strong> {score}</p>
     <button on:click={resetWorld}>Generate new world</button>
-    <button on:click={() => controls?.lock()}>Play (lock mouse)</button>
+    <button on:click={() => controls?.lock()} disabled={fallbackMode}>Play (lock mouse)</button>
   </div>
 
   <p class="overlay message">{message}</p>
 
-  <div class="crosshair" aria-hidden="true">+</div>
-  <div class="scene" bind:this={sceneHost} aria-label="3D game world"></div>
+  {#if !fallbackMode}
+    <div class="crosshair" aria-hidden="true">+</div>
+    <div class="scene" bind:this={sceneHost} aria-label="3D game world"></div>
+  {:else}
+    <section class="fallback-map" aria-label="2D world map fallback">
+      {#each world as worldRow}
+        <div class="fallback-row">
+          {#each worldRow as cellType}
+            <span
+              class="fallback-cell"
+              style={`background: #${tileCatalog[cellType].color.toString(16).padStart(6, '0')}`}
+              title={tileCatalog[cellType].name}
+            ></span>
+          {/each}
+        </div>
+      {/each}
+    </section>
+  {/if}
 
   <section class="overlay legend">
     <h2>Protected Site Guide</h2>
@@ -571,6 +599,11 @@
     font-weight: 600;
   }
 
+  button:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+  }
+
   .message {
     top: 11.2rem;
     left: 1rem;
@@ -636,6 +669,29 @@
     color: #ffd1d1;
     font-style: normal;
     font-size: 0.8rem;
+  }
+
+  .fallback-map {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    display: grid;
+    place-content: center;
+    gap: 0.2rem;
+    background: linear-gradient(180deg, #88b9ff 0%, #9ed27f 58%, #6fa04b 100%);
+  }
+
+  .fallback-row {
+    display: flex;
+    gap: 0.2rem;
+  }
+
+  .fallback-cell {
+    width: min(5.2vw, 2.1rem);
+    height: min(5.2vw, 2.1rem);
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    border-radius: 3px;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.14);
   }
 
   @media (max-width: 900px) {
