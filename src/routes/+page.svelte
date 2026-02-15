@@ -51,17 +51,34 @@
 
   let world = createWorld();
   let score = 0;
-  let message = 'Click blocks in the 3D world to mine terrain. Prehistoric monuments are protected.';
+  let message = 'Click Play to lock the mouse. Use WASD, SPACE to jump, and click to mine.';
 
   let sceneHost;
   let renderer;
   let scene;
   let camera;
+  let controls;
   let animationFrame;
   let THREE;
+  let PointerLockControlsModule;
   let raycaster;
-  let mouse;
   let tileMeshes = [];
+
+  const playerHeight = 1.6;
+  const gravity = 22;
+  const jumpSpeed = 8.5;
+  const moveSpeed = 4.6;
+
+  let velocityY = 0;
+  let isGrounded = false;
+
+  const keyState = {
+    KeyW: false,
+    KeyA: false,
+    KeyS: false,
+    KeyD: false,
+    Space: false
+  };
 
   function tileToPosition(row, col, height) {
     return {
@@ -69,6 +86,18 @@
       y: height / 2,
       z: (row - rows / 2) * blockSize + blockSize / 2
     };
+  }
+
+  function groundHeightAt(x, z) {
+    const col = Math.floor(x / blockSize + cols / 2);
+    const row = Math.floor(z / blockSize + rows / 2);
+
+    if (row < 0 || row >= rows || col < 0 || col >= cols) {
+      return 0;
+    }
+
+    const type = world[row][col];
+    return tileCatalog[type]?.height ?? 0;
   }
 
   function removeTiles() {
@@ -130,16 +159,20 @@
     rebuildTiles();
   }
 
-  function handlePointerDown(event) {
-    const rect = renderer.domElement.getBoundingClientRect();
-    mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
-    mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+  function mineInCrosshair() {
+    if (!controls?.isLocked) {
+      message = 'Click Play or press Enter to lock pointer first.';
+      return;
+    }
 
-    raycaster.setFromCamera(mouse, camera);
-    const intersections = raycaster.intersectObjects(tileMeshes.map((item) => item.mesh));
+    raycaster.setFromCamera({ x: 0, y: 0 }, camera);
+    const intersections = raycaster.intersectObjects(
+      tileMeshes.map((item) => item.mesh),
+      false
+    );
 
     if (!intersections.length) {
-      message = 'Aim at a block and click to mine it.';
+      message = 'Move closer and keep the target in your crosshair.';
       return;
     }
 
@@ -151,21 +184,29 @@
     world = createWorld();
     score = 0;
     message = 'Fresh 3D map generated. Monuments are still protected.';
-    if (scene) rebuildTiles();
+    if (scene) {
+      rebuildTiles();
+      const spawnX = 0;
+      const spawnZ = rows / 2;
+      const spawnY = groundHeightAt(spawnX, spawnZ) + playerHeight + 0.01;
+      controls.getObject().position.set(spawnX, spawnY, spawnZ);
+      velocityY = 0;
+    }
   }
 
   onMount(async () => {
     THREE = await import('https://unpkg.com/three@0.179.1/build/three.module.js');
+    PointerLockControlsModule = await import(
+      'https://unpkg.com/three@0.179.1/examples/jsm/controls/PointerLockControls.js'
+    );
+
     raycaster = new THREE.Raycaster();
-    mouse = new THREE.Vector2();
 
     scene = new THREE.Scene();
     scene.background = new THREE.Color(0x87ceeb);
-    scene.fog = new THREE.Fog(0x87ceeb, 12, 34);
+    scene.fog = new THREE.Fog(0x87ceeb, 12, 38);
 
-    camera = new THREE.PerspectiveCamera(65, sceneHost.clientWidth / sceneHost.clientHeight, 0.1, 100);
-    camera.position.set(0, 12, 12);
-    camera.lookAt(0, 0, 0);
+    camera = new THREE.PerspectiveCamera(70, sceneHost.clientWidth / sceneHost.clientHeight, 0.1, 100);
 
     renderer = new THREE.WebGLRenderer({ antialias: true });
     renderer.setSize(sceneHost.clientWidth, sceneHost.clientHeight);
@@ -173,7 +214,15 @@
     renderer.shadowMap.enabled = true;
     sceneHost.appendChild(renderer.domElement);
 
-    const sun = new THREE.DirectionalLight(0xffffff, 1.4);
+    controls = new PointerLockControlsModule.PointerLockControls(camera, renderer.domElement);
+    scene.add(controls.getObject());
+
+    const spawnX = 0;
+    const spawnZ = rows / 2;
+    const spawnY = groundHeightAt(spawnX, spawnZ) + playerHeight + 0.01;
+    controls.getObject().position.set(spawnX, spawnY, spawnZ);
+
+    const sun = new THREE.DirectionalLight(0xffffff, 1.25);
     sun.position.set(8, 14, 6);
     scene.add(sun);
 
@@ -181,7 +230,7 @@
     scene.add(fill);
 
     const ground = new THREE.Mesh(
-      new THREE.PlaneGeometry(cols + 8, rows + 8),
+      new THREE.PlaneGeometry(cols + 18, rows + 18),
       new THREE.MeshStandardMaterial({ color: 0x5c913b, roughness: 1 })
     );
     ground.rotation.x = -Math.PI / 2;
@@ -189,12 +238,47 @@
 
     rebuildTiles();
 
+    let lastFrame = performance.now();
+    const direction = new THREE.Vector3();
+    const sideways = new THREE.Vector3();
+
     const renderLoop = () => {
       animationFrame = requestAnimationFrame(renderLoop);
-      const t = performance.now() * 0.00015;
-      camera.position.x = Math.sin(t) * 14;
-      camera.position.z = Math.cos(t) * 14;
-      camera.lookAt(0, 0, 0);
+
+      const now = performance.now();
+      const delta = Math.min((now - lastFrame) / 1000, 0.05);
+      lastFrame = now;
+
+      if (controls.isLocked) {
+        direction.set(0, 0, 0);
+        if (keyState.KeyW) direction.z -= 1;
+        if (keyState.KeyS) direction.z += 1;
+        if (keyState.KeyA) direction.x -= 1;
+        if (keyState.KeyD) direction.x += 1;
+
+        if (direction.lengthSq() > 0) {
+          direction.normalize();
+          controls.moveForward(direction.z * -moveSpeed * delta);
+          controls.moveRight(direction.x * moveSpeed * delta);
+        }
+
+        if (isGrounded && keyState.Space) {
+          velocityY = jumpSpeed;
+          isGrounded = false;
+        }
+      }
+
+      velocityY -= gravity * delta;
+      controls.getObject().position.y += velocityY * delta;
+
+      sideways.set(controls.getObject().position.x, 0, controls.getObject().position.z);
+      const floor = groundHeightAt(sideways.x, sideways.z) + playerHeight;
+      if (controls.getObject().position.y <= floor) {
+        controls.getObject().position.y = floor;
+        velocityY = 0;
+        isGrounded = true;
+      }
+
       renderer.render(scene, camera);
     };
 
@@ -206,13 +290,52 @@
       renderer.setSize(sceneHost.clientWidth, sceneHost.clientHeight);
     };
 
+    const handlePointerDown = () => {
+      if (!controls.isLocked) {
+        controls.lock();
+        return;
+      }
+      mineInCrosshair();
+    };
+
+    const handleKeyDown = (event) => {
+      if (event.code in keyState) {
+        keyState[event.code] = true;
+      }
+      if (event.code === 'Enter' && !controls.isLocked) {
+        controls.lock();
+      }
+    };
+
+    const handleKeyUp = (event) => {
+      if (event.code in keyState) {
+        keyState[event.code] = false;
+      }
+    };
+
+    controls.addEventListener('lock', () => {
+      message = 'Pointer locked. Explore with WASD, jump with SPACE, click to mine.';
+    });
+
+    controls.addEventListener('unlock', () => {
+      message = 'Pointer unlocked. Click Play or press Enter to keep exploring.';
+      Object.keys(keyState).forEach((k) => {
+        keyState[k] = false;
+      });
+    });
+
     window.addEventListener('resize', handleResize);
+    window.addEventListener('keydown', handleKeyDown);
+    window.addEventListener('keyup', handleKeyUp);
     renderer.domElement.addEventListener('pointerdown', handlePointerDown);
 
     return () => {
       cancelAnimationFrame(animationFrame);
       window.removeEventListener('resize', handleResize);
+      window.removeEventListener('keydown', handleKeyDown);
+      window.removeEventListener('keyup', handleKeyUp);
       renderer.domElement.removeEventListener('pointerdown', handlePointerDown);
+      controls.disconnect();
       removeTiles();
       renderer.dispose();
       sceneHost.removeChild(renderer.domElement);
@@ -221,29 +344,31 @@
 </script>
 
 <main>
-  <h1>Prehistoric Monument Craft 3D</h1>
-  <p class="subtitle">Voxel-inspired terrain, Minecraft-style blocks, and protected prehistoric monuments.</p>
-
-  <section class="hud">
-    <p><strong>Score:</strong> {score}</p>
-    <button on:click={resetWorld}>Generate new world</button>
-  </section>
-
-  <p class="message">{message}</p>
-
-  <div class="scene-wrap">
-    <div class="scene" bind:this={sceneHost} aria-label="3D game world"></div>
+  <div class="overlay top">
+    <h1>Prehistoric Monument Craft 3D</h1>
+    <p class="subtitle">First-person mode: WASD move, SPACE jump, mouse to look, click to mine.</p>
   </div>
 
-  <section class="legend">
-    <h2>Blocks</h2>
+  <div class="overlay hud">
+    <p><strong>Score:</strong> {score}</p>
+    <button on:click={resetWorld}>Generate new world</button>
+    <button on:click={() => controls?.lock()}>Play (lock mouse)</button>
+  </div>
+
+  <p class="overlay message">{message}</p>
+
+  <div class="crosshair" aria-hidden="true">+</div>
+  <div class="scene" bind:this={sceneHost} aria-label="3D game world"></div>
+
+  <section class="overlay legend">
+    <h2>Protected Site Guide</h2>
     <ul>
       {#each Object.entries(tileCatalog) as [, tileInfo]}
         <li>
           <span class="swatch" style={`background: #${tileInfo.color.toString(16).padStart(6, '0')}`}></span>
           {tileInfo.name}
           {#if tileInfo.prehistoric}
-            <em>(protected monument)</em>
+            <em>(protected)</em>
           {/if}
         </li>
       {/each}
@@ -255,89 +380,145 @@
   :global(body) {
     margin: 0;
     font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(#a8d6ff, #dff0ff 40%, #f2eee2);
-    color: #1f2d1c;
+    background: #000;
+    color: #f4ffef;
+    overflow: hidden;
   }
 
   main {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 1.25rem;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .scene {
+    width: 100%;
+    height: 100%;
+    cursor: none;
+  }
+
+  .overlay {
+    position: absolute;
+    z-index: 2;
+    background: rgba(18, 33, 15, 0.72);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 10px;
+    backdrop-filter: blur(2px);
+  }
+
+  .top {
+    top: 1rem;
+    left: 1rem;
+    max-width: 38rem;
+    padding: 0.75rem 1rem;
   }
 
   h1 {
-    margin-bottom: 0.3rem;
+    margin: 0;
+    font-size: 1.35rem;
   }
 
   .subtitle {
-    margin-top: 0;
-    color: #3a4f2f;
+    margin: 0.3rem 0 0;
+    color: #cfe8bf;
+    font-size: 0.95rem;
   }
 
   .hud {
+    top: 6.7rem;
+    left: 1rem;
+    padding: 0.65rem;
     display: flex;
     align-items: center;
-    gap: 1rem;
-    margin: 1rem 0;
+    gap: 0.6rem;
+    flex-wrap: wrap;
   }
 
   button {
     border: 0;
     background: #3f6f2f;
     color: #fff;
-    border-radius: 10px;
-    padding: 0.65rem 1rem;
+    border-radius: 8px;
+    padding: 0.55rem 0.8rem;
     cursor: pointer;
     font-weight: 600;
   }
 
   .message {
-    background: #f7fff4;
-    border-left: 4px solid #3f6f2f;
-    padding: 0.65rem;
-    min-height: 1.4rem;
+    top: 11.2rem;
+    left: 1rem;
+    max-width: 30rem;
+    padding: 0.65rem 0.75rem;
+    margin: 0;
+    color: #f3ffec;
   }
 
-  .scene-wrap {
-    border: 4px solid #7f5f3e;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
-    margin: 1rem 0 1.5rem;
+  .crosshair {
+    position: absolute;
+    z-index: 3;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.55rem;
+    text-shadow: 0 0 5px #000;
+    color: #fff;
+    user-select: none;
+    pointer-events: none;
   }
 
-  .scene {
-    width: 100%;
-    height: 580px;
-    cursor: crosshair;
+  .legend {
+    right: 1rem;
+    top: 1rem;
+    width: min(26rem, 38vw);
+    max-height: calc(100vh - 2rem);
+    overflow: auto;
+    padding: 0.75rem;
+  }
+
+  .legend h2 {
+    margin: 0 0 0.5rem;
+    font-size: 1rem;
   }
 
   .legend ul {
     list-style: none;
+    margin: 0;
     padding: 0;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-    gap: 0.45rem;
+    gap: 0.4rem;
   }
 
   .legend li {
     display: flex;
     align-items: center;
-    gap: 0.45rem;
-    background: #fff;
-    border-radius: 8px;
-    padding: 0.45rem 0.6rem;
+    gap: 0.4rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    padding: 0.35rem 0.45rem;
+    font-size: 0.9rem;
   }
 
   .swatch {
-    width: 14px;
-    height: 14px;
-    border: 1px solid #222;
+    width: 13px;
+    height: 13px;
+    border: 1px solid #fff;
+    flex-shrink: 0;
   }
 
   em {
-    color: #6a2f2f;
+    color: #ffd1d1;
     font-style: normal;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
+  }
+
+  @media (max-width: 900px) {
+    .legend {
+      width: min(21rem, 55vw);
+    }
+
+    .message {
+      top: 13.8rem;
+      max-width: 20rem;
+    }
   }
 </style>
