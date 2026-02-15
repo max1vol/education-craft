@@ -5,8 +5,8 @@
 <script>
   import { onMount } from 'svelte';
 
-  const rows = 8;
-  const cols = 12;
+  const rows = 10;
+  const cols = 14;
   const blockSize = 1;
 
   const tileCatalog = {
@@ -14,37 +14,145 @@
     tree: { name: 'Tree', color: 0x38761d, destroyable: true, prehistoric: false, height: 2 },
     stone: { name: 'Stone', color: 0x7f8c8d, destroyable: true, prehistoric: false, height: 1.1 },
     water: { name: 'Water', color: 0x3d85c6, destroyable: true, prehistoric: false, height: 0.7 },
-    stonehenge: { name: 'Stonehenge', color: 0xb7b7b7, destroyable: false, prehistoric: true, height: 2.6 },
-    woodhenge: { name: 'Woodhenge', color: 0x8b5a2b, destroyable: false, prehistoric: true, height: 2.3 },
-    avebury: { name: 'Avebury Circle', color: 0xd9d2c3, destroyable: false, prehistoric: true, height: 2.1 },
-    skara_brae: { name: 'Skara Brae', color: 0xc69c6d, destroyable: false, prehistoric: true, height: 1.6 },
-    silbury_hill: { name: 'Silbury Hill', color: 0x93c47d, destroyable: false, prehistoric: true, height: 2.8 }
+    stonehenge: { name: 'Stonehenge Ring Stone', color: 0xb7b7b7, destroyable: false, prehistoric: true, height: 2.7 },
+    stonehenge_center: {
+      name: 'Stonehenge Altar',
+      color: 0xc9c9c9,
+      destroyable: false,
+      prehistoric: true,
+      height: 1.4
+    },
+    woodhenge: { name: 'Woodhenge Post', color: 0x8b5a2b, destroyable: false, prehistoric: true, height: 2.4 },
+    woodhenge_center: {
+      name: 'Woodhenge Hearth',
+      color: 0x6f4a24,
+      destroyable: false,
+      prehistoric: true,
+      height: 1.3
+    },
+    avebury: { name: 'Avebury Standing Stone', color: 0xd9d2c3, destroyable: false, prehistoric: true, height: 2.2 },
+    skara_brae: { name: 'Skara Brae House', color: 0xc69c6d, destroyable: false, prehistoric: true, height: 1.7 },
+    skara_wall: { name: 'Skara Brae Wall', color: 0xae8c63, destroyable: false, prehistoric: true, height: 1.3 },
+    silbury_hill: { name: 'Silbury Hill Slope', color: 0x93c47d, destroyable: false, prehistoric: true, height: 2.5 },
+    silbury_peak: { name: 'Silbury Hill Peak', color: 0xa7d38e, destroyable: false, prehistoric: true, height: 3.6 }
   };
 
   const prehistoricTypes = Object.keys(tileCatalog).filter((type) => tileCatalog[type].prehistoric);
+
+  const monumentBlueprints = [
+    {
+      label: 'Stonehenge',
+      tiles: [
+        [-1, -1, 'stonehenge'],
+        [-1, 0, 'stonehenge'],
+        [-1, 1, 'stonehenge'],
+        [0, -1, 'stonehenge'],
+        [0, 1, 'stonehenge'],
+        [1, -1, 'stonehenge'],
+        [1, 0, 'stonehenge'],
+        [1, 1, 'stonehenge'],
+        [0, 0, 'stonehenge_center']
+      ]
+    },
+    {
+      label: 'Woodhenge',
+      tiles: [
+        [-1, -1, 'woodhenge'],
+        [-1, 0, 'woodhenge'],
+        [-1, 1, 'woodhenge'],
+        [0, -1, 'woodhenge'],
+        [0, 1, 'woodhenge'],
+        [1, -1, 'woodhenge'],
+        [1, 0, 'woodhenge'],
+        [1, 1, 'woodhenge'],
+        [0, 0, 'woodhenge_center']
+      ]
+    },
+    {
+      label: 'Avebury Circle',
+      tiles: [
+        [-2, 0, 'avebury'],
+        [2, 0, 'avebury'],
+        [0, -2, 'avebury'],
+        [0, 2, 'avebury'],
+        [-1, -1, 'avebury'],
+        [-1, 1, 'avebury'],
+        [1, -1, 'avebury'],
+        [1, 1, 'avebury']
+      ]
+    },
+    {
+      label: 'Skara Brae',
+      tiles: [
+        [-1, -1, 'skara_wall'],
+        [-1, 0, 'skara_wall'],
+        [-1, 1, 'skara_wall'],
+        [0, -1, 'skara_wall'],
+        [0, 0, 'skara_brae'],
+        [0, 1, 'skara_wall'],
+        [1, -1, 'skara_wall'],
+        [1, 0, 'skara_wall'],
+        [1, 1, 'skara_wall']
+      ]
+    },
+    {
+      label: 'Silbury Hill',
+      tiles: [
+        [-1, -1, 'silbury_hill'],
+        [-1, 0, 'silbury_hill'],
+        [-1, 1, 'silbury_hill'],
+        [0, -1, 'silbury_hill'],
+        [0, 0, 'silbury_peak'],
+        [0, 1, 'silbury_hill'],
+        [1, -1, 'silbury_hill'],
+        [1, 0, 'silbury_hill'],
+        [1, 1, 'silbury_hill']
+      ]
+    }
+  ];
+
+  function canPlaceMonument(world, centerRow, centerCol, blueprint) {
+    return blueprint.tiles.every(([rowOffset, colOffset]) => {
+      const row = centerRow + rowOffset;
+      const col = centerCol + colOffset;
+      if (row < 0 || row >= rows || col < 0 || col >= cols) {
+        return false;
+      }
+      return !prehistoricTypes.includes(world[row][col]);
+    });
+  }
+
+  function placeMonument(world, centerRow, centerCol, blueprint) {
+    blueprint.tiles.forEach(([rowOffset, colOffset, type]) => {
+      world[centerRow + rowOffset][centerCol + colOffset] = type;
+    });
+  }
 
   function createWorld() {
     const world = Array.from({ length: rows }, () =>
       Array.from({ length: cols }, () => {
         const roll = Math.random();
-        if (roll < 0.15) return 'tree';
-        if (roll < 0.25) return 'stone';
-        if (roll < 0.3) return 'water';
+        if (roll < 0.14) return 'tree';
+        if (roll < 0.23) return 'stone';
+        if (roll < 0.28) return 'water';
         return 'grass';
       })
     );
 
-    const monuments = [
-      { row: 1, col: 2, type: 'stonehenge' },
-      { row: 2, col: 7, type: 'woodhenge' },
-      { row: 5, col: 4, type: 'avebury' },
-      { row: 4, col: 9, type: 'skara_brae' },
-      { row: 6, col: 1, type: 'silbury_hill' }
+    const anchors = [
+      [2, 2],
+      [2, cols - 3],
+      [rows - 3, 2],
+      [rows - 3, cols - 3],
+      [Math.floor(rows / 2), Math.floor(cols / 2)]
     ];
 
-    for (const monument of monuments) {
-      world[monument.row][monument.col] = monument.type;
-    }
+    monumentBlueprints.forEach((blueprint, index) => {
+      const [baseRow, baseCol] = anchors[index];
+      if (canPlaceMonument(world, baseRow, baseCol, blueprint)) {
+        placeMonument(world, baseRow, baseCol, blueprint);
+      }
+    });
 
     return world;
   }
@@ -68,6 +176,7 @@
   const gravity = 22;
   const jumpSpeed = 8.5;
   const moveSpeed = 4.6;
+  const mineRange = 5;
 
   let velocityY = 0;
   let isGrounded = false;
@@ -86,6 +195,23 @@
       y: height / 2,
       z: (row - rows / 2) * blockSize + blockSize / 2
     };
+  }
+
+  function worldCenterSpawn() {
+    const spawnRow = Math.floor(rows / 2);
+    const spawnCol = Math.floor(cols / 2);
+    const spawnX = (spawnCol - cols / 2) * blockSize + blockSize / 2;
+    const spawnZ = (spawnRow - rows / 2) * blockSize + blockSize / 2;
+    return { spawnX, spawnZ };
+  }
+
+  function clampToWorldBounds(position) {
+    const minX = -cols / 2 + blockSize / 2;
+    const maxX = cols / 2 - blockSize / 2;
+    const minZ = -rows / 2 + blockSize / 2;
+    const maxZ = rows / 2 - blockSize / 2;
+    position.x = Math.max(minX, Math.min(maxX, position.x));
+    position.z = Math.max(minZ, Math.min(maxZ, position.z));
   }
 
   function groundHeightAt(x, z) {
@@ -121,8 +247,8 @@
         const material = new THREE.MeshStandardMaterial({
           color: config.color,
           roughness: 0.9,
-          metalness: config.prehistoric ? 0.1 : 0.02,
-          emissive: config.prehistoric ? 0x220c0c : 0x000000
+          metalness: config.prehistoric ? 0.13 : 0.02,
+          emissive: config.prehistoric ? 0x24100d : 0x000000
         });
 
         const mesh = new THREE.Mesh(geometry, material);
@@ -166,6 +292,7 @@
     }
 
     raycaster.setFromCamera({ x: 0, y: 0 }, camera);
+    raycaster.far = mineRange;
     const intersections = raycaster.intersectObjects(
       tileMeshes.map((item) => item.mesh),
       false
@@ -183,11 +310,10 @@
   function resetWorld() {
     world = createWorld();
     score = 0;
-    message = 'Fresh 3D map generated. Monuments are still protected.';
-    if (scene) {
+    message = 'Fresh 3D map generated with full-size monuments. They are still protected.';
+    if (scene && controls) {
       rebuildTiles();
-      const spawnX = 0;
-      const spawnZ = rows / 2;
+      const { spawnX, spawnZ } = worldCenterSpawn();
       const spawnY = groundHeightAt(spawnX, spawnZ) + playerHeight + 0.01;
       controls.getObject().position.set(spawnX, spawnY, spawnZ);
       velocityY = 0;
@@ -217,8 +343,7 @@
     controls = new PointerLockControlsModule.PointerLockControls(camera, renderer.domElement);
     scene.add(controls.getObject());
 
-    const spawnX = 0;
-    const spawnZ = rows / 2;
+    const { spawnX, spawnZ } = worldCenterSpawn();
     const spawnY = groundHeightAt(spawnX, spawnZ) + playerHeight + 0.01;
     controls.getObject().position.set(spawnX, spawnY, spawnZ);
 
@@ -267,6 +392,8 @@
           isGrounded = false;
         }
       }
+
+      clampToWorldBounds(controls.getObject().position);
 
       velocityY -= gravity * delta;
       controls.getObject().position.y += velocityY * delta;
@@ -469,7 +596,7 @@
   .legend {
     right: 1rem;
     top: 1rem;
-    width: min(26rem, 38vw);
+    width: min(28rem, 40vw);
     max-height: calc(100vh - 2rem);
     overflow: auto;
     padding: 0.75rem;
