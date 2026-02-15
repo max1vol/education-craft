@@ -307,6 +307,11 @@
     destroyTile(hit.row, hit.col);
   }
 
+  function webglSupported() {
+    const canvas = document.createElement('canvas');
+    return Boolean(canvas.getContext('webgl2') || canvas.getContext('webgl'));
+  }
+
   function resetWorld() {
     world = createWorld();
     score = 0;
@@ -321,22 +326,42 @@
   }
 
   let fallbackMode = false;
+  let isLoading3D = true;
 
   onMount(async () => {
-    const [threeLoad, pointerLoad] = await Promise.allSettled([
+    const loaderTimeout = new Promise((resolve) => {
+      setTimeout(() => {
+        resolve([
+          { status: 'rejected', reason: new Error('three.js load timeout') },
+          { status: 'rejected', reason: new Error('pointer controls load timeout') }
+        ]);
+      }, 7000);
+    });
+
+    const [threeLoad, pointerLoad] = await Promise.race([Promise.allSettled([
       import('https://unpkg.com/three@0.179.1/build/three.module.js'),
       import('https://unpkg.com/three@0.179.1/examples/jsm/controls/PointerLockControls.js')
-    ]);
+    ]), loaderTimeout]);
 
     if (threeLoad.status !== 'fulfilled' || pointerLoad.status !== 'fulfilled') {
       fallbackMode = true;
+      isLoading3D = false;
       message =
-        '3D renderer could not load in this network. You can still see the world map below instead of a black screen.';
+        '3D renderer could not load in this network. A safe 2D map is shown so you do not get a blackout screen.';
       return () => {};
     }
 
+    isLoading3D = false;
+
     THREE = threeLoad.value;
     PointerLockControls = pointerLoad.value.PointerLockControls;
+
+    if (!webglSupported()) {
+      fallbackMode = true;
+      message =
+        'Your browser cannot run WebGL, so a safe 2D map is shown instead of a black screen.';
+      return () => {};
+    }
 
     raycaster = new THREE.Raycaster();
 
@@ -497,8 +522,12 @@
   <p class="overlay message">{message}</p>
 
   {#if !fallbackMode}
-    <div class="crosshair" aria-hidden="true">+</div>
     <div class="scene" bind:this={sceneHost} aria-label="3D game world"></div>
+    {#if isLoading3D}
+      <p class="overlay loading">Loading 3D renderer… if this takes too long we will switch to safe map mode.</p>
+    {:else}
+      <div class="crosshair" aria-hidden="true">+</div>
+    {/if}
   {:else}
     <section class="fallback-map" aria-label="2D world map fallback">
       {#each world as worldRow}
@@ -550,6 +579,7 @@
     width: 100%;
     height: 100%;
     cursor: none;
+    background: radial-gradient(circle at 50% 35%, #9fd0ff 0%, #86b7f2 40%, #4d6f96 100%);
   }
 
   .overlay {
@@ -611,6 +641,17 @@
     padding: 0.65rem 0.75rem;
     margin: 0;
     color: #f3ffec;
+  }
+
+
+  .loading {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    padding: 0.75rem 1rem;
+    text-align: center;
+    max-width: 25rem;
   }
 
   .crosshair {
