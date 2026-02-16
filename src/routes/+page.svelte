@@ -159,7 +159,8 @@
 
   let world = createWorld();
   let score = 0;
-  let message = 'Click Play to lock the mouse. Use WASD, SPACE to jump, and click to mine.';
+  let message =
+    'Use WASD to move, SPACE to jump, and E/click to mine. Mouse lock is optional (Play or Enter).';
 
   let sceneHost;
   let renderer;
@@ -286,8 +287,8 @@
   }
 
   function mineInCrosshair() {
-    if (!controls?.isLocked) {
-      message = 'Click Play or press Enter to lock pointer first.';
+    if (!camera || !raycaster || !tileMeshes.length) {
+      message = 'Mining tools are not ready yet.';
       return;
     }
 
@@ -411,23 +412,21 @@
       const delta = Math.min((now - lastFrame) / 1000, 0.05);
       lastFrame = now;
 
-      if (controls.isLocked) {
-        direction.set(0, 0, 0);
-        if (keyState.KeyW) direction.z -= 1;
-        if (keyState.KeyS) direction.z += 1;
-        if (keyState.KeyA) direction.x -= 1;
-        if (keyState.KeyD) direction.x += 1;
+      direction.set(0, 0, 0);
+      if (keyState.KeyW) direction.z -= 1;
+      if (keyState.KeyS) direction.z += 1;
+      if (keyState.KeyA) direction.x -= 1;
+      if (keyState.KeyD) direction.x += 1;
 
-        if (direction.lengthSq() > 0) {
-          direction.normalize();
-          controls.moveForward(direction.z * -moveSpeed * delta);
-          controls.moveRight(direction.x * moveSpeed * delta);
-        }
+      if (direction.lengthSq() > 0) {
+        direction.normalize();
+        controls.moveForward(direction.z * -moveSpeed * delta);
+        controls.moveRight(direction.x * moveSpeed * delta);
+      }
 
-        if (isGrounded && keyState.Space) {
-          velocityY = jumpSpeed;
-          isGrounded = false;
-        }
+      if (isGrounded && keyState.Space) {
+        velocityY = jumpSpeed;
+        isGrounded = false;
       }
 
       clampToWorldBounds(controls.getObject().position);
@@ -466,6 +465,9 @@
       if (event.code in keyState) {
         keyState[event.code] = true;
       }
+      if (event.code === 'KeyE') {
+        mineInCrosshair();
+      }
       if (event.code === 'Enter' && !controls.isLocked) {
         controls.lock();
       }
@@ -482,7 +484,7 @@
     });
 
     controls.addEventListener('unlock', () => {
-      message = 'Pointer unlocked. Click Play or press Enter to keep exploring.';
+      message = 'Pointer unlocked. You can still move (WASD) and mine (E/click).';
       Object.keys(keyState).forEach((k) => {
         keyState[k] = false;
       });
@@ -510,13 +512,14 @@
 <main>
   <div class="overlay top">
     <h1>Prehistoric Monument Craft 3D</h1>
-    <p class="subtitle">First-person mode: WASD move, SPACE jump, mouse to look, click to mine.</p>
+    <p class="subtitle">WASD move, SPACE jump, mouse look (optional lock), and E/click to mine.</p>
   </div>
 
   <div class="overlay hud">
     <p><strong>Score:</strong> {score}</p>
     <button on:click={resetWorld}>Generate new world</button>
     <button on:click={() => controls?.lock()} disabled={fallbackMode}>Play (lock mouse)</button>
+    <button on:click={mineInCrosshair} disabled={fallbackMode || isLoading3D}>Mine target (E)</button>
   </div>
 
   <p class="overlay message">{message}</p>
