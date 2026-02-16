@@ -427,8 +427,8 @@
   }
 
   function mineInCrosshair() {
-    if (!controls?.isLocked) {
-      message = 'Click Play or press Enter to lock the pointer first.';
+    if (!camera || !raycaster || !tileMeshes.length) {
+      message = 'Mining tools are not ready yet.';
       return;
     }
 
@@ -605,6 +605,7 @@
 
     const handleKeyDown = (event) => {
       if (event.code in keyState) keyState[event.code] = true;
+      if (event.code === 'KeyE') mineInCrosshair();
       if (event.code === 'Enter' && !controls.isLocked) controls.lock();
     };
 
@@ -613,11 +614,12 @@
     };
 
     controls.addEventListener('lock', () => {
-      message = 'Pointer locked. Classic controls active: WASD/Arrows, Space jump, Shift sprint, click mine.';
+      message =
+        'Pointer locked. Classic Roblox controls enabled: WASD/Arrows move, SPACE jump, Shift sprint, click mine.';
     });
 
     controls.addEventListener('unlock', () => {
-      message = 'Pointer unlocked. Click Play or press Enter to keep exploring.';
+      message = 'Pointer unlocked. You can still move (WASD) and mine (E/click).';
       Object.keys(keyState).forEach((k) => {
         keyState[k] = false;
       });
@@ -653,6 +655,7 @@
     <p><strong>Score:</strong> {score}</p>
     <button on:click={resetWorld}>Generate new world</button>
     <button on:click={() => controls?.lock()} disabled={fallbackMode}>Play (lock mouse)</button>
+    <button on:click={mineInCrosshair} disabled={fallbackMode || isLoading3D}>Mine target (E)</button>
   </div>
 
   <p class="overlay message">{message}</p>
