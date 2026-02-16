@@ -1,0 +1,642 @@
+[
+  {
+    "slug": "abu-simbel",
+    "startYear": -1264,
+    "peakYear": -1244,
+    "endYear": -500,
+    "rediscoveryYear": 1813,
+    "culture": "New Kingdom Egypt",
+    "idea": "Royal monumentality",
+    "originStory": "Ramesses II commissioned colossal temples to project authority."
+  },
+  {
+    "slug": "acropolis-of-athens",
+    "startYear": -500,
+    "peakYear": -440,
+    "endYear": 267,
+    "rediscoveryYear": 1835,
+    "culture": "Classical Athens",
+    "idea": "Sacred hilltop planning",
+    "originStory": "Athens rebuilt the Acropolis after wars, linking religion and civic identity."
+  },
+  {
+    "slug": "akrotiri-thera",
+    "startYear": -2000,
+    "peakYear": -1600,
+    "endYear": -1600,
+    "rediscoveryYear": 1967,
+    "culture": "Bronze Age Aegean",
+    "idea": "Town planning and trade",
+    "originStory": "Akrotiri thrived as an Aegean town before a major volcanic event."
+  },
+  {
+    "slug": "aksum-obelisks",
+    "startYear": 100,
+    "peakYear": 350,
+    "endYear": 700,
+    "rediscoveryYear": 1906,
+    "culture": "Kingdom of Aksum",
+    "idea": "Monumental stela traditions",
+    "originStory": "Aksumite rulers erected carved stelae as statements of royal and funerary power."
+  },
+  {
+    "slug": "angkor-thom",
+    "startYear": 1181,
+    "peakYear": 1200,
+    "endYear": 1431,
+    "rediscoveryYear": 1860,
+    "culture": "Khmer Empire",
+    "idea": "Walled imperial capital",
+    "originStory": "Angkor Thom represented a planned royal city with monumental gates."
+  },
+  {
+    "slug": "angkor-wat",
+    "startYear": 1113,
+    "peakYear": 1150,
+    "endYear": 1431,
+    "rediscoveryYear": 1860,
+    "culture": "Khmer Empire",
+    "idea": "Temple-city engineering",
+    "originStory": "Angkor Wat integrated religion, kingship and hydraulic management."
+  },
+  {
+    "slug": "avebury-henge",
+    "startYear": -2850,
+    "peakYear": -2400,
+    "endYear": -2000,
+    "rediscoveryYear": 1930,
+    "culture": "Neolithic Britain",
+    "idea": "Monumental earthworks",
+    "originStory": "Avebury was planned as a giant henge complex around settlement and ceremony."
+  },
+  {
+    "slug": "ayutthaya",
+    "startYear": 1351,
+    "peakYear": 1600,
+    "endYear": 1767,
+    "rediscoveryYear": 1900,
+    "culture": "Siamese kingdom",
+    "idea": "Riverine capital strategy",
+    "originStory": "Ayutthaya grew as a diplomatic and commercial capital at river junctions."
+  },
+  {
+    "slug": "babylon",
+    "startYear": -1894,
+    "peakYear": -575,
+    "endYear": -100,
+    "rediscoveryYear": 1899,
+    "culture": "Mesopotamian empires",
+    "idea": "Imperial city tradition",
+    "originStory": "Babylon grew through multiple dynasties into a symbol of imperial urbanism."
+  },
+  {
+    "slug": "bagan",
+    "startYear": 849,
+    "peakYear": 1100,
+    "endYear": 1287,
+    "rediscoveryYear": 1885,
+    "culture": "Pagan Kingdom",
+    "idea": "Temple plain urbanism",
+    "originStory": "Bagan's rulers sponsored thousands of Buddhist monuments across the plain."
+  },
+  {
+    "slug": "borobudur",
+    "startYear": 780,
+    "peakYear": 825,
+    "endYear": 1000,
+    "rediscoveryYear": 1814,
+    "culture": "Sailendra Java",
+    "idea": "Buddhist narrative monument",
+    "originStory": "Borobudur was built as a terraced mandala with relief storytelling."
+  },
+  {
+    "slug": "cahokia-mounds",
+    "startYear": 900,
+    "peakYear": 1100,
+    "endYear": 1350,
+    "rediscoveryYear": 1811,
+    "culture": "Mississippian North America",
+    "idea": "Earthen mound urbanism",
+    "originStory": "Cahokia organized large plazas, mounds and regional exchange."
+  },
+  {
+    "slug": "carthage",
+    "startYear": -814,
+    "peakYear": -300,
+    "endYear": 698,
+    "rediscoveryYear": 1850,
+    "culture": "Phoenician and Punic world",
+    "idea": "Maritime empire building",
+    "originStory": "Carthage rose from Phoenician foundations into a major sea power."
+  },
+  {
+    "slug": "chan-chan",
+    "startYear": 850,
+    "peakYear": 1350,
+    "endYear": 1470,
+    "rediscoveryYear": 1851,
+    "culture": "Chimu coast of Peru",
+    "idea": "Adobe capital planning",
+    "originStory": "Chan Chan expanded through walled compounds and administrative districts."
+  },
+  {
+    "slug": "chichen-itza",
+    "startYear": 600,
+    "peakYear": 900,
+    "endYear": 1200,
+    "rediscoveryYear": 1841,
+    "culture": "Postclassic Maya",
+    "idea": "Regional political-religious center",
+    "originStory": "Chichen Itza integrated civic, ritual and astronomical architecture."
+  },
+  {
+    "slug": "circus-maximus",
+    "startYear": -600,
+    "peakYear": 50,
+    "endYear": 549,
+    "rediscoveryYear": 1930,
+    "culture": "Roman Republic and Empire",
+    "idea": "Mass sporting venue",
+    "originStory": "The circus hosted major chariot races and state festivals."
+  },
+  {
+    "slug": "colossus-of-rhodes",
+    "startYear": -280,
+    "peakYear": -280,
+    "endYear": -226,
+    "rediscoveryYear": 1880,
+    "culture": "Hellenistic Greece",
+    "idea": "Civic victory monument",
+    "originStory": "The colossal statue celebrated military survival and city pride."
+  },
+  {
+    "slug": "copan",
+    "startYear": 426,
+    "peakYear": 750,
+    "endYear": 822,
+    "rediscoveryYear": 1839,
+    "culture": "Classic Maya",
+    "idea": "Sculptural kingship records",
+    "originStory": "Copan's monuments document dynastic history and ritual authority."
+  },
+  {
+    "slug": "cusco-inca-capital",
+    "startYear": 1200,
+    "peakYear": 1500,
+    "endYear": 1572,
+    "rediscoveryYear": 1911,
+    "culture": "Inca Andes",
+    "idea": "Administrative and ritual capital",
+    "originStory": "Cusco organized imperial roads, administration and ceremonial life."
+  },
+  {
+    "slug": "delphi-sanctuary",
+    "startYear": -800,
+    "peakYear": -500,
+    "endYear": 390,
+    "rediscoveryYear": 1892,
+    "culture": "Archaic and Classical Greece",
+    "idea": "Oracle and pilgrimage",
+    "originStory": "Delphi became a pan-Hellenic place for consultation and offerings."
+  },
+  {
+    "slug": "great-pyramid-of-giza",
+    "startYear": -2580,
+    "peakYear": -2560,
+    "endYear": -2500,
+    "rediscoveryYear": 1880,
+    "culture": "Old Kingdom Egypt",
+    "idea": "Royal tomb engineering",
+    "originStory": "The pyramid was commissioned as a pharaoh's eternal tomb and built with enormous state coordination."
+  },
+  {
+    "slug": "great-zimbabwe",
+    "startYear": 1100,
+    "peakYear": 1300,
+    "endYear": 1450,
+    "rediscoveryYear": 1871,
+    "culture": "Medieval southern Africa",
+    "idea": "Stone-built urban authority",
+    "originStory": "Great Zimbabwe developed as a regional political and trading center."
+  },
+  {
+    "slug": "hadrians-wall",
+    "startYear": 122,
+    "peakYear": 200,
+    "endYear": 410,
+    "rediscoveryYear": 1740,
+    "culture": "Roman Britain",
+    "idea": "Frontier control",
+    "originStory": "The wall organized movement, customs and defense on Rome's northern frontier."
+  },
+  {
+    "slug": "hanging-gardens-of-babylon",
+    "startYear": -600,
+    "peakYear": -575,
+    "endYear": -500,
+    "rediscoveryYear": 1899,
+    "culture": "Neo-Babylonian Mesopotamia",
+    "idea": "Terraced royal garden traditions",
+    "originStory": "Later writers described monumental gardens tied to royal prestige and irrigation skill."
+  },
+  {
+    "slug": "harappa",
+    "startYear": -2600,
+    "peakYear": -2300,
+    "endYear": -1900,
+    "rediscoveryYear": 1921,
+    "culture": "Indus Valley Civilization",
+    "idea": "Craft and administration",
+    "originStory": "Harappa shows organized neighborhoods and long-distance exchange."
+  },
+  {
+    "slug": "jerash-gerasa",
+    "startYear": -100,
+    "peakYear": 150,
+    "endYear": 749,
+    "rediscoveryYear": 1925,
+    "culture": "Roman Levant",
+    "idea": "Planned provincial city",
+    "originStory": "Gerasa flourished with colonnaded streets and civic monuments."
+  },
+  {
+    "slug": "karnak-temple",
+    "startYear": -2000,
+    "peakYear": -1400,
+    "endYear": 356,
+    "rediscoveryYear": 1850,
+    "culture": "New Kingdom Egypt",
+    "idea": "Temple complex expansion",
+    "originStory": "Generations of rulers added pylons, courts and sanctuaries at Karnak."
+  },
+  {
+    "slug": "lalibela-churches",
+    "startYear": 1180,
+    "peakYear": 1220,
+    "endYear": 1400,
+    "rediscoveryYear": 1880,
+    "culture": "Medieval Ethiopia",
+    "idea": "Rock-cut sacred architecture",
+    "originStory": "Lalibela's churches were carved to create a pilgrimage landscape."
+  },
+  {
+    "slug": "leptis-magna",
+    "startYear": -700,
+    "peakYear": 200,
+    "endYear": 650,
+    "rediscoveryYear": 1920,
+    "culture": "Punic and Roman North Africa",
+    "idea": "Port city prosperity",
+    "originStory": "Leptis Magna expanded as a trading and imperial urban center."
+  },
+  {
+    "slug": "lighthouse-of-alexandria",
+    "startYear": -280,
+    "peakYear": -250,
+    "endYear": 1303,
+    "rediscoveryYear": 1968,
+    "culture": "Ptolemaic Egypt",
+    "idea": "Maritime navigation",
+    "originStory": "The Pharos lighthouse signaled Alexandria's role as a Mediterranean port."
+  },
+  {
+    "slug": "luxor-temple",
+    "startYear": -1400,
+    "peakYear": -1250,
+    "endYear": 300,
+    "rediscoveryYear": 1880,
+    "culture": "New Kingdom Egypt",
+    "idea": "Ritual kingship ceremonies",
+    "originStory": "Luxor Temple supported festivals connecting kingship and divinity."
+  },
+  {
+    "slug": "machu-picchu",
+    "startYear": 1450,
+    "peakYear": 1500,
+    "endYear": 1572,
+    "rediscoveryYear": 1911,
+    "culture": "Inca Andes",
+    "idea": "Highland estate planning",
+    "originStory": "Machu Picchu linked ritual architecture to Andean landscape engineering."
+  },
+  {
+    "slug": "mausoleum-at-halicarnassus",
+    "startYear": -353,
+    "peakYear": -350,
+    "endYear": -140,
+    "rediscoveryYear": 1856,
+    "culture": "Hellenistic Anatolia",
+    "idea": "Dynastic memory",
+    "originStory": "The tomb was raised to honor Mausolus and became a model for later mausolea."
+  },
+  {
+    "slug": "memphis-ancient-egypt",
+    "startYear": -3000,
+    "peakYear": -1500,
+    "endYear": -100,
+    "rediscoveryYear": 1850,
+    "culture": "Pharaonic Egypt",
+    "idea": "Early state capital",
+    "originStory": "Memphis anchored administration near Nile floodplain and necropolis zones."
+  },
+  {
+    "slug": "mesa-verde-cliff-palace",
+    "startYear": 600,
+    "peakYear": 1200,
+    "endYear": 1300,
+    "rediscoveryYear": 1888,
+    "culture": "Ancestral Puebloan Southwest",
+    "idea": "Cliff dwelling communities",
+    "originStory": "Cliff Palace reflects adapted architecture in canyon environments."
+  },
+  {
+    "slug": "mohenjo-daro",
+    "startYear": -2600,
+    "peakYear": -2300,
+    "endYear": -1900,
+    "rediscoveryYear": 1922,
+    "culture": "Indus Valley Civilization",
+    "idea": "Urban planning and drainage",
+    "originStory": "The city is known for gridded streets and advanced water management."
+  },
+  {
+    "slug": "mycenae",
+    "startYear": -1600,
+    "peakYear": -1300,
+    "endYear": -1100,
+    "rediscoveryYear": 1874,
+    "culture": "Mycenaean Greece",
+    "idea": "Citadel kingship",
+    "originStory": "Mycenae developed fortified palaces and elite tomb traditions."
+  },
+  {
+    "slug": "nalanda-mahavihara",
+    "startYear": 427,
+    "peakYear": 700,
+    "endYear": 1200,
+    "rediscoveryYear": 1861,
+    "culture": "Classical and medieval India",
+    "idea": "Monastic learning network",
+    "originStory": "Nalanda grew into a major Buddhist center of scholarship."
+  },
+  {
+    "slug": "palace-of-knossos",
+    "startYear": -2000,
+    "peakYear": -1600,
+    "endYear": -1100,
+    "rediscoveryYear": 1900,
+    "culture": "Minoan Crete",
+    "idea": "Palatial administration",
+    "originStory": "Knossos organized storage, ceremony and administration in Bronze Age Crete."
+  },
+  {
+    "slug": "palenque",
+    "startYear": 200,
+    "peakYear": 700,
+    "endYear": 850,
+    "rediscoveryYear": 1787,
+    "culture": "Classic Maya",
+    "idea": "Dynastic temple city",
+    "originStory": "Palenque is known for inscriptions and royal architectural programs."
+  },
+  {
+    "slug": "palmyra",
+    "startYear": -200,
+    "peakYear": 200,
+    "endYear": 273,
+    "rediscoveryYear": 1920,
+    "culture": "Syrian desert caravan networks",
+    "idea": "Oasis trade hub",
+    "originStory": "Palmyra linked caravan routes between the Mediterranean and Mesopotamia."
+  },
+  {
+    "slug": "pantheon-rome",
+    "startYear": -27,
+    "peakYear": 126,
+    "endYear": 609,
+    "rediscoveryYear": 1740,
+    "culture": "Imperial Rome",
+    "idea": "Temple engineering and reuse",
+    "originStory": "Rebuilt under Hadrian, the Pantheon became a landmark of Roman concrete design."
+  },
+  {
+    "slug": "parthenon",
+    "startYear": -447,
+    "peakYear": -432,
+    "endYear": 1687,
+    "rediscoveryYear": 1830,
+    "culture": "Classical Athens",
+    "idea": "Temple proportion and symbolism",
+    "originStory": "The Parthenon honored Athena and represented Athenian confidence."
+  },
+  {
+    "slug": "pergamon-acropolis",
+    "startYear": -300,
+    "peakYear": -180,
+    "endYear": 300,
+    "rediscoveryYear": 1878,
+    "culture": "Hellenistic Pergamon",
+    "idea": "Royal hilltop urbanism",
+    "originStory": "Pergamon's rulers built a dramatic acropolis of temples and civic buildings."
+  },
+  {
+    "slug": "persepolis",
+    "startYear": -518,
+    "peakYear": -486,
+    "endYear": -330,
+    "rediscoveryYear": 1931,
+    "culture": "Achaemenid Persia",
+    "idea": "Imperial ceremony",
+    "originStory": "Persepolis functioned as a ceremonial stage for empire-wide diplomacy."
+  },
+  {
+    "slug": "petra",
+    "startYear": -400,
+    "peakYear": 100,
+    "endYear": 663,
+    "rediscoveryYear": 1812,
+    "culture": "Nabataean kingdom",
+    "idea": "Rock-cut urban design",
+    "originStory": "Petra developed as a caravan capital with engineered water systems."
+  },
+  {
+    "slug": "pompeii",
+    "startYear": -600,
+    "peakYear": 79,
+    "endYear": 79,
+    "rediscoveryYear": 1748,
+    "culture": "Roman Campania",
+    "idea": "Urban life frozen by eruption",
+    "originStory": "Pompeii preserves everyday life after Vesuvius erupted in 79 CE."
+  },
+  {
+    "slug": "prambanan",
+    "startYear": 850,
+    "peakYear": 900,
+    "endYear": 950,
+    "rediscoveryYear": 1811,
+    "culture": "Mataram Java",
+    "idea": "Hindu temple cosmology",
+    "originStory": "Prambanan expressed Hindu cosmology in a monumental temple complex."
+  },
+  {
+    "slug": "roman-colosseum",
+    "startYear": 72,
+    "peakYear": 80,
+    "endYear": 523,
+    "rediscoveryYear": 1749,
+    "culture": "Imperial Rome",
+    "idea": "Mass entertainment architecture",
+    "originStory": "Built by the Flavian emperors, the amphitheater staged imperial spectacles."
+  },
+  {
+    "slug": "roman-forum",
+    "startYear": -700,
+    "peakYear": 100,
+    "endYear": 600,
+    "rediscoveryYear": 1800,
+    "culture": "Roman Republic and Empire",
+    "idea": "Civic and legal center",
+    "originStory": "The Forum evolved into Rome's political, legal and religious core."
+  },
+  {
+    "slug": "sanchi-stupa",
+    "startYear": -300,
+    "peakYear": 100,
+    "endYear": 1200,
+    "rediscoveryYear": 1818,
+    "culture": "Mauryan and post-Mauryan India",
+    "idea": "Stupa worship traditions",
+    "originStory": "Sanchi evolved through repeated building and patronage phases."
+  },
+  {
+    "slug": "saqqara-necropolis",
+    "startYear": -2650,
+    "peakYear": -2600,
+    "endYear": -30,
+    "rediscoveryYear": 1850,
+    "culture": "Old Kingdom Egypt",
+    "idea": "Early pyramid experimentation",
+    "originStory": "Saqqara records the shift from mastaba tombs to step pyramid architecture."
+  },
+  {
+    "slug": "sigiriya",
+    "startYear": 477,
+    "peakYear": 495,
+    "endYear": 800,
+    "rediscoveryYear": 1831,
+    "culture": "Sri Lankan kingdoms",
+    "idea": "Fortress and palace landscape",
+    "originStory": "Sigiriya combined defensive design, palatial planning and gardens."
+  },
+  {
+    "slug": "skara-brae",
+    "startYear": -3180,
+    "peakYear": -3000,
+    "endYear": -2500,
+    "rediscoveryYear": 1850,
+    "culture": "Neolithic Orkney",
+    "idea": "Village life and adaptation",
+    "originStory": "The village shows planned homes, storage and hearth-based community life."
+  },
+  {
+    "slug": "statue-of-zeus-at-olympia",
+    "startYear": -435,
+    "peakYear": -430,
+    "endYear": 391,
+    "rediscoveryYear": 1875,
+    "culture": "Classical Greece",
+    "idea": "Sacred festival art",
+    "originStory": "The statue was created for the sanctuary that hosted the Olympic Games."
+  },
+  {
+    "slug": "stonehenge",
+    "startYear": -3000,
+    "peakYear": -2500,
+    "endYear": -1600,
+    "rediscoveryYear": 1666,
+    "culture": "Neolithic Britain",
+    "idea": "Ceremonial landscape planning",
+    "originStory": "Stonehenge grew over centuries as a ritual and gathering landscape."
+  },
+  {
+    "slug": "temple-of-artemis-at-ephesus",
+    "startYear": -550,
+    "peakYear": -430,
+    "endYear": 401,
+    "rediscoveryYear": 1869,
+    "culture": "Ionian Greek world",
+    "idea": "Temple city identity",
+    "originStory": "Ephesus developed this temple as a major religious and trading landmark."
+  },
+  {
+    "slug": "teotihuacan",
+    "startYear": -100,
+    "peakYear": 250,
+    "endYear": 550,
+    "rediscoveryYear": 1884,
+    "culture": "Classic Mesoamerica",
+    "idea": "Planned avenue city",
+    "originStory": "Teotihuacan developed monumental pyramids along a planned urban axis."
+  },
+  {
+    "slug": "terracotta-army-mausoleum",
+    "startYear": -246,
+    "peakYear": -210,
+    "endYear": -206,
+    "rediscoveryYear": 1974,
+    "culture": "Qin China",
+    "idea": "Imperial funerary program",
+    "originStory": "The mausoleum complex projected Qin imperial authority into the afterlife."
+  },
+  {
+    "slug": "theatre-of-epidaurus",
+    "startYear": -340,
+    "peakYear": -300,
+    "endYear": 400,
+    "rediscoveryYear": 1881,
+    "culture": "Classical Greece",
+    "idea": "Performance and healing sanctuary",
+    "originStory": "The theater served festivals linked to the nearby healing sanctuary."
+  },
+  {
+    "slug": "tikal",
+    "startYear": -400,
+    "peakYear": 750,
+    "endYear": 900,
+    "rediscoveryYear": 1848,
+    "culture": "Classic Maya",
+    "idea": "Dynastic metropolis",
+    "originStory": "Tikal grew into a major Maya political and ceremonial center."
+  },
+  {
+    "slug": "troy",
+    "startYear": -3000,
+    "peakYear": -1250,
+    "endYear": -500,
+    "rediscoveryYear": 1870,
+    "culture": "Bronze Age Anatolia",
+    "idea": "Fortified trade crossroads",
+    "originStory": "Layered settlements show repeated rebuilding at a strategic route."
+  },
+  {
+    "slug": "tulum",
+    "startYear": 1200,
+    "peakYear": 1450,
+    "endYear": 1550,
+    "rediscoveryYear": 1841,
+    "culture": "Postclassic Maya",
+    "idea": "Coastal trade fortification",
+    "originStory": "Tulum combined defensive walls with maritime trade access."
+  },
+  {
+    "slug": "ziggurat-of-ur",
+    "startYear": -2100,
+    "peakYear": -2040,
+    "endYear": -500,
+    "rediscoveryYear": 1922,
+    "culture": "Sumerian and Babylonian Mesopotamia",
+    "idea": "Temple platform authority",
+    "originStory": "The ziggurat expressed royal and religious authority in urban Mesopotamia."
+  }
+]

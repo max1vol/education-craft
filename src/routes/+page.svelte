@@ -511,6 +511,7 @@
   <div class="overlay top">
     <h1>Prehistoric Monument Craft 3D</h1>
     <p class="subtitle">First-person mode: WASD move, SPACE jump, mouse to look, click to mine.</p>
+    <p class="sites-link-wrap"><a class="sites-link" href="/sites">Browse Reconstruction Timeline →</a></p>
   </div>
 
   <div class="overlay hud">
@@ -607,6 +608,20 @@
     margin: 0.3rem 0 0;
     color: #cfe8bf;
     font-size: 0.95rem;
+  }
+
+  .sites-link-wrap {
+    margin: 0.5rem 0 0;
+  }
+
+  .sites-link {
+    color: #8ee8ff;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .sites-link:hover {
+    text-decoration: underline;
   }
 
   .hud {

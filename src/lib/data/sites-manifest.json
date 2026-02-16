@@ -1,0 +1,514 @@
+[
+  {
+    "slug": "abu-simbel",
+    "name": "Abu Simbel",
+    "region": "Egypt",
+    "blurb": "Rock-cut temples of Ramesses II.",
+    "count": 2,
+    "hero": "001.jpg"
+  },
+  {
+    "slug": "acropolis-of-athens",
+    "name": "Acropolis of Athens",
+    "region": "Greece",
+    "blurb": "Fortified hill with major classical temples.",
+    "count": 12,
+    "hero": "001.jpg"
+  },
+  {
+    "slug": "akrotiri-thera",
+    "name": "Akrotiri (Thera)",
+    "region": "Greece",
+    "blurb": "Bronze Age town buried by volcanic ash.",
+    "count": 11,
+    "hero": "001.jpg"
+  },
+  {
+    "slug": "aksum-obelisks",
+    "name": "Aksum Obelisks",
+    "region": "Ethiopia",
+    "blurb": "Monumental stelae from the Kingdom of Aksum.",
+    "count": 23,
+    "hero": "001.jpg"
+  },
+  {
+    "slug": "angkor-thom",
+    "name": "Angkor Thom",
+    "region": "Cambodia",
+    "blurb": "Khmer walled city including Bayon.",
+    "count": 8,
+    "hero": "001.jpg"
+  },
+  {
+    "slug": "angkor-wat",
+    "name": "Angkor Wat",
+    "region": "Cambodia",
+    "blurb": "Vast Khmer temple complex.",
+    "count": 27,
+    "hero": "001.jpg"
+  },
+  {
+    "slug": "avebury-henge",
+    "name": "Avebury Henge",
+    "region": "United Kingdom",
+    "blurb": "Massive Neolithic henge with stone circles.",
+    "count": 3,
+    "hero": "001.jpg"
+  },
+  {
+    "slug": "ayutthaya",
+    "name": "Ayutthaya",
+    "region": "Thailand",
+    "blurb": "Former Siamese capital and temple city.",
+    "count": 4,
+    "hero": "001.jpg"
+  },
+  {
+    "slug": "babylon",
+    "name": "Babylon",
+    "region": "Iraq",
+    "blurb": "Ancient Mesopotamian imperial city.",
+    "count": 24,
+    "hero": "001.jpg"
+  },
+  {
+    "slug": "bagan",
+    "name": "Bagan",
+    "region": "Myanmar",
+    "blurb": "Plain with thousands of historic Buddhist monuments.",
+    "count": 33,
+    "hero": "001.jpg"
+  },
+  {
+    "slug": "borobudur",
+    "name": "Borobudur",
+    "region": "Indonesia",
+    "blurb": "Large Buddhist monument with terraces and stupas.",
+    "count": 21,
+    "hero": "001.jpg"
+  },
+  {
+    "slug": "cahokia-mounds",
+    "name": "Cahokia Mounds",
+    "region": "USA",
+    "blurb": "Mississippian urban and ceremonial center.",
+    "count": 40,
+    "hero": "001.jpg"
+  },
+  {
+    "slug": "carthage",
+    "name": "Carthage",
+    "region": "Tunisia",
+    "blurb": "Phoenician and Punic city-state near modern Tunis.",
+    "count": 31,
+    "hero": "001.jpg"
+  },
+  {
+    "slug": "chan-chan",
+    "name": "Chan Chan",
+    "region": "Peru",
+    "blurb": "Adobe capital of the Chimu kingdom.",
+    "count": 7,
+    "hero": "001.png"
+  },
+  {
+    "slug": "chichen-itza",
+    "name": "Chichen Itza",
+    "region": "Mexico",
+    "blurb": "Maya city with temples and observatories.",
+    "count": 17,
+    "hero": "001.jpg"
+  },
+  {
+    "slug": "circus-maximus",
+    "name": "Circus Maximus",
+    "region": "Italy",
+    "blurb": "Large Roman chariot-racing stadium.",
+    "count": 7,
+    "hero": "001.jpg"
+  },
+  {
+    "slug": "colossus-of-rhodes",
+    "name": "Colossus of Rhodes",
+    "region": "Greece",
+    "blurb": "Bronze statue of Helios at the harbor of Rhodes.",
+    "count": 12,
+    "hero": "001.jpg"
+  },
+  {
+    "slug": "copan",
+    "name": "Copan",
+    "region": "Honduras",
+    "blurb": "Maya city known for carved monuments.",
+    "count": 14,
+    "hero": "001.jpg"
+  },
+  {
+    "slug": "cusco-inca-capital",
+    "name": "Cusco (Inca Capital)",
+    "region": "Peru",
+    "blurb": "Historic capital of the Inca Empire.",
+    "count": 1,
+    "hero": "001.jpg"
+  },
+  {
+    "slug": "delphi-sanctuary",
+    "name": "Delphi Sanctuary",
+    "region": "Greece",
+    "blurb": "Pan-Hellenic sanctuary of Apollo.",
+    "count": 45,
+    "hero": "001.jpg"
+  },
+  {
+    "slug": "great-pyramid-of-giza",
+    "name": "Great Pyramid of Giza",
+    "region": "Egypt",
+    "blurb": "Old Kingdom pyramid complex at Giza.",
+    "count": 20,
+    "hero": "001.jpg"
+  },
+  {
+    "slug": "great-zimbabwe",
+    "name": "Great Zimbabwe",
+    "region": "Zimbabwe",
+    "blurb": "Stone-built medieval city of southern Africa.",
+    "count": 9,
+    "hero": "001.jpg"
+  },
+  {
+    "slug": "hadrians-wall",
+    "name": "Hadrian's Wall",
+    "region": "United Kingdom",
+    "blurb": "Roman frontier wall across northern Britain.",
+    "count": 14,
+    "hero": "001.jpg"
+  },
+  {
+    "slug": "hanging-gardens-of-babylon",
+    "name": "Hanging Gardens of Babylon",
+    "region": "Mesopotamia",
+    "blurb": "Legendary terraced gardens of ancient Babylon.",
+    "count": 1,
+    "hero": "001.jpeg"
+  },
+  {
+    "slug": "harappa",
+    "name": "Harappa",
+    "region": "Pakistan",
+    "blurb": "Key city of the Indus civilization.",
+    "count": 13,
+    "hero": "001.jpg"
+  },
+  {
+    "slug": "jerash-gerasa",
+    "name": "Jerash (Gerasa)",
+    "region": "Jordan",
+    "blurb": "Well-preserved Greco-Roman city.",
+    "count": 18,
+    "hero": "001.jpg"
+  },
+  {
+    "slug": "karnak-temple",
+    "name": "Karnak Temple",
+    "region": "Egypt",
+    "blurb": "Vast temple complex at Thebes.",
+    "count": 15,
+    "hero": "001.jpg"
+  },
+  {
+    "slug": "lalibela-churches",
+    "name": "Lalibela Churches",
+    "region": "Ethiopia",
+    "blurb": "Rock-hewn medieval churches.",
+    "count": 13,
+    "hero": "001.jpg"
+  },
+  {
+    "slug": "leptis-magna",
+    "name": "Leptis Magna",
+    "region": "Libya",
+    "blurb": "Major Roman city on North Africa's coast.",
+    "count": 21,
+    "hero": "001.jpg"
+  },
+  {
+    "slug": "lighthouse-of-alexandria",
+    "name": "Lighthouse of Alexandria",
+    "region": "Egypt",
+    "blurb": "Pharos lighthouse that guided ships into Alexandria.",
+    "count": 6,
+    "hero": "001.jpg"
+  },
+  {
+    "slug": "luxor-temple",
+    "name": "Luxor Temple",
+    "region": "Egypt",
+    "blurb": "New Kingdom temple in ancient Thebes.",
+    "count": 11,
+    "hero": "001.jpg"
+  },
+  {
+    "slug": "machu-picchu",
+    "name": "Machu Picchu",
+    "region": "Peru",
+    "blurb": "Inca mountain citadel.",
+    "count": 5,
+    "hero": "001.jpg"
+  },
+  {
+    "slug": "mausoleum-at-halicarnassus",
+    "name": "Mausoleum at Halicarnassus",
+    "region": "Turkey",
+    "blurb": "Grand tomb built for Mausolus.",
+    "count": 2,
+    "hero": "001.jpg"
+  },
+  {
+    "slug": "memphis-ancient-egypt",
+    "name": "Memphis (Ancient Egypt)",
+    "region": "Egypt",
+    "blurb": "Ancient capital near Saqqara and Giza.",
+    "count": 21,
+    "hero": "001.jpg"
+  },
+  {
+    "slug": "mesa-verde-cliff-palace",
+    "name": "Mesa Verde Cliff Palace",
+    "region": "USA",
+    "blurb": "Ancestral Pueblo cliff dwellings.",
+    "count": 4,
+    "hero": "001.jpg"
+  },
+  {
+    "slug": "mohenjo-daro",
+    "name": "Mohenjo-daro",
+    "region": "Pakistan",
+    "blurb": "Major Indus Valley urban center.",
+    "count": 19,
+    "hero": "001.jpg"
+  },
+  {
+    "slug": "mycenae",
+    "name": "Mycenae",
+    "region": "Greece",
+    "blurb": "Citadel of the Mycenaean civilization.",
+    "count": 25,
+    "hero": "001.jpg"
+  },
+  {
+    "slug": "nalanda-mahavihara",
+    "name": "Nalanda Mahavihara",
+    "region": "India",
+    "blurb": "Major Buddhist monastic university complex.",
+    "count": 5,
+    "hero": "001.jpg"
+  },
+  {
+    "slug": "palace-of-knossos",
+    "name": "Palace of Knossos",
+    "region": "Greece",
+    "blurb": "Minoan palace complex on Crete.",
+    "count": 15,
+    "hero": "001.jpg"
+  },
+  {
+    "slug": "palenque",
+    "name": "Palenque",
+    "region": "Mexico",
+    "blurb": "Classic Maya city in Chiapas.",
+    "count": 29,
+    "hero": "001.jpg"
+  },
+  {
+    "slug": "palmyra",
+    "name": "Palmyra",
+    "region": "Syria",
+    "blurb": "Oasis city with Roman-period colonnades and temples.",
+    "count": 15,
+    "hero": "001.jpg"
+  },
+  {
+    "slug": "pantheon-rome",
+    "name": "Pantheon (Rome)",
+    "region": "Italy",
+    "blurb": "Roman temple and later church with a giant dome.",
+    "count": 40,
+    "hero": "001.jpg"
+  },
+  {
+    "slug": "parthenon",
+    "name": "Parthenon",
+    "region": "Greece",
+    "blurb": "Temple of Athena on the Athenian Acropolis.",
+    "count": 4,
+    "hero": "001.jpg"
+  },
+  {
+    "slug": "pergamon-acropolis",
+    "name": "Pergamon Acropolis",
+    "region": "Turkey",
+    "blurb": "Hellenistic and Roman hilltop city complex.",
+    "count": 29,
+    "hero": "001.jpg"
+  },
+  {
+    "slug": "persepolis",
+    "name": "Persepolis",
+    "region": "Iran",
+    "blurb": "Ceremonial capital of the Achaemenid Empire.",
+    "count": 45,
+    "hero": "001.jpg"
+  },
+  {
+    "slug": "petra",
+    "name": "Petra",
+    "region": "Jordan",
+    "blurb": "Nabataean city carved into rose-red rock.",
+    "count": 41,
+    "hero": "001.jpg"
+  },
+  {
+    "slug": "pompeii",
+    "name": "Pompeii",
+    "region": "Italy",
+    "blurb": "Roman city buried by the eruption of Vesuvius.",
+    "count": 60,
+    "hero": "001.jpg"
+  },
+  {
+    "slug": "prambanan",
+    "name": "Prambanan",
+    "region": "Indonesia",
+    "blurb": "Hindu temple complex in Central Java.",
+    "count": 23,
+    "hero": "001.jpg"
+  },
+  {
+    "slug": "roman-colosseum",
+    "name": "Roman Colosseum",
+    "region": "Italy",
+    "blurb": "Flavian amphitheater used for public spectacles.",
+    "count": 89,
+    "hero": "001.jpg"
+  },
+  {
+    "slug": "roman-forum",
+    "name": "Roman Forum",
+    "region": "Italy",
+    "blurb": "Civic and religious center of ancient Rome.",
+    "count": 43,
+    "hero": "001.png"
+  },
+  {
+    "slug": "sanchi-stupa",
+    "name": "Sanchi Stupa",
+    "region": "India",
+    "blurb": "Ancient Buddhist stupa complex.",
+    "count": 19,
+    "hero": "001.jpg"
+  },
+  {
+    "slug": "saqqara-necropolis",
+    "name": "Saqqara Necropolis",
+    "region": "Egypt",
+    "blurb": "Burial complex including the Step Pyramid.",
+    "count": 6,
+    "hero": "001.jpg"
+  },
+  {
+    "slug": "sigiriya",
+    "name": "Sigiriya",
+    "region": "Sri Lanka",
+    "blurb": "Rock fortress and palace complex.",
+    "count": 13,
+    "hero": "001.jpg"
+  },
+  {
+    "slug": "skara-brae",
+    "name": "Skara Brae",
+    "region": "United Kingdom",
+    "blurb": "Neolithic village in Orkney.",
+    "count": 1,
+    "hero": "001.jpg"
+  },
+  {
+    "slug": "statue-of-zeus-at-olympia",
+    "name": "Statue of Zeus at Olympia",
+    "region": "Greece",
+    "blurb": "Giant seated statue in the sanctuary at Olympia.",
+    "count": 9,
+    "hero": "001.jpg"
+  },
+  {
+    "slug": "stonehenge",
+    "name": "Stonehenge",
+    "region": "United Kingdom",
+    "blurb": "Neolithic stone circle on Salisbury Plain.",
+    "count": 8,
+    "hero": "001.png"
+  },
+  {
+    "slug": "temple-of-artemis-at-ephesus",
+    "name": "Temple of Artemis at Ephesus",
+    "region": "Turkey",
+    "blurb": "Huge Ionic temple dedicated to Artemis.",
+    "count": 11,
+    "hero": "001.jpg"
+  },
+  {
+    "slug": "teotihuacan",
+    "name": "Teotihuacan",
+    "region": "Mexico",
+    "blurb": "Planned ancient city with pyramids.",
+    "count": 8,
+    "hero": "001.jpg"
+  },
+  {
+    "slug": "terracotta-army-mausoleum",
+    "name": "Terracotta Army Mausoleum",
+    "region": "China",
+    "blurb": "Mausoleum complex of Qin Shi Huang.",
+    "count": 10,
+    "hero": "001.jpg"
+  },
+  {
+    "slug": "theatre-of-epidaurus",
+    "name": "Theatre of Epidaurus",
+    "region": "Greece",
+    "blurb": "Famous ancient Greek theater.",
+    "count": 4,
+    "hero": "001.jpg"
+  },
+  {
+    "slug": "tikal",
+    "name": "Tikal",
+    "region": "Guatemala",
+    "blurb": "Major Maya city with towering temples.",
+    "count": 12,
+    "hero": "001.jpg"
+  },
+  {
+    "slug": "troy",
+    "name": "Troy",
+    "region": "Turkey",
+    "blurb": "Layered Bronze Age and classical city site.",
+    "count": 1,
+    "hero": "001.jpg"
+  },
+  {
+    "slug": "tulum",
+    "name": "Tulum",
+    "region": "Mexico",
+    "blurb": "Walled Maya coastal city.",
+    "count": 10,
+    "hero": "001.jpg"
+  },
+  {
+    "slug": "ziggurat-of-ur",
+    "name": "Ziggurat of Ur",
+    "region": "Iraq",
+    "blurb": "Monumental stepped temple platform at Ur.",
+    "count": 23,
+    "hero": "001.jpg"
+  }
+]

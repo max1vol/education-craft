@@ -1,0 +1,42 @@
+[
+  {
+    "index": 1,
+    "file": "001.jpg",
+    "caption": "Architecture - Public domain book illustration from French encyclopedia Larousse du XXème siècle 1932 (Artist: EN NOIR & BLANC | License: CC0)",
+    "title": "Architecture - Public domain book illustration from French encyclopedia Larousse du XXème siècle 1932.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Architecture_-_Public_domain_book_illustration_from_French_encyclopedia_Larousse_du_XX%C3%A8me_si%C3%A8cle_1932.jpg",
+    "query": "Parthenon reconstruction",
+    "score": 13,
+    "license": "CC0"
+  },
+  {
+    "index": 2,
+    "file": "002.jpg",
+    "caption": "Archaeological Site of Eleusis - Telesterion 10 (Artist: TimeTravelRome | License: CC BY 2.0)",
+    "title": "Archaeological Site of Eleusis - Telesterion 10.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Archaeological_Site_of_Eleusis_-_Telesterion_10.jpg",
+    "query": "Parthenon reconstruction",
+    "score": 9,
+    "license": "CC BY 2.0"
+  },
+  {
+    "index": 3,
+    "file": "003.jpg",
+    "caption": "Study for Reconstruction of West Pediment of the Parthenon (Artist: John Flaxman | License: CC0)",
+    "title": "John Flaxman, Study for Reconstruction of West Pediment of the Parthenon, in or after 1805, NGA 58238.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:John_Flaxman,_Study_for_Reconstruction_of_West_Pediment_of_the_Parthenon,_in_or_after_1805,_NGA_58238.jpg",
+    "query": "Parthenon reconstruction",
+    "score": 9,
+    "license": "CC0"
+  },
+  {
+    "index": 4,
+    "file": "004.jpg",
+    "caption": "Parthenon colour (Artist: Twospoonfuls | License: CC BY-SA 4.0)",
+    "title": "Parthenon colour.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Parthenon_colour.jpg",
+    "query": "Parthenon reconstruction",
+    "score": 9,
+    "license": "CC BY-SA 4.0"
+  }
+]

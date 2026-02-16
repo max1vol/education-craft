@@ -10,7 +10,7 @@
     "deploy": "wrangler deploy"
   },
   "devDependencies": {
-    "@sveltejs/adapter-cloudflare": "^7.2.7",
+    "@sveltejs/adapter-auto": "^7.0.1",
     "@sveltejs/kit": "^2.52.0",
     "svelte": "^5.51.1",
     "vite": "^7.3.1",
