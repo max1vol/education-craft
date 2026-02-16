@@ -314,16 +314,16 @@
     placeCursus(world);
 
     const anchors = [
-      [Math.floor(rows * 0.42), Math.floor(cols * 0.48)],
-      [Math.floor(rows * 0.55), Math.floor(cols * 0.5)],
-      [Math.floor(rows * 0.12), Math.floor(cols * 0.8)],
-      [Math.floor(rows * 0.1), Math.floor(cols * 0.7)],
-      [Math.floor(rows * 0.5), Math.floor(cols * 0.56)],
-      [Math.floor(rows * 0.15), Math.floor(cols * 0.9)],
-      [Math.floor(rows * 0.1), Math.floor(cols * 0.76)],
-      [Math.floor(rows * 0.65), Math.floor(cols * 0.85)],
-      [Math.floor(rows * 0.68), Math.floor(cols * 0.9)],
-      [Math.floor(rows * 0.8), Math.floor(cols * 0.72)]
+      [Math.floor(rows * 0.42), Math.floor(cols * 0.48)], // Stonehenge
+      [Math.floor(rows * 0.55), Math.floor(cols * 0.5)], // Woodhenge
+      [Math.floor(rows * 0.12), Math.floor(cols * 0.8)], // Avebury
+      [Math.floor(rows * 0.1), Math.floor(cols * 0.7)], // Silbury
+      [Math.floor(rows * 0.5), Math.floor(cols * 0.56)], // Durrington
+      [Math.floor(rows * 0.15), Math.floor(cols * 0.9)], // Marden
+      [Math.floor(rows * 0.1), Math.floor(cols * 0.76)], // West Kennet
+      [Math.floor(rows * 0.65), Math.floor(cols * 0.85)], // Old Sarum
+      [Math.floor(rows * 0.68), Math.floor(cols * 0.9)], // Figsbury Ring
+      [Math.floor(rows * 0.8), Math.floor(cols * 0.72)] // Danebury
     ];
 
     monumentBlueprints.forEach((blueprint, index) => {
@@ -393,7 +393,7 @@
     'Figsbury Ring',
     'Danebury Hillfort',
     'Uffington White Horse',
-    "Wayland's Smithy",
+    'Wayland\'s Smithy',
     'Maiden Castle',
     'Hambledon Hill',
     'Flagstones Enclosure',
