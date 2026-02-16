@@ -5,8 +5,8 @@
 <script>
   import { onMount } from 'svelte';
 
-  const rows = 10;
-  const cols = 14;
+  const rows = 44;
+  const cols = 44;
   const blockSize = 1;
 
   const tileCatalog = {
@@ -14,6 +14,20 @@
     tree: { name: 'Tree', color: 0x38761d, destroyable: true, prehistoric: false, height: 2 },
     stone: { name: 'Stone', color: 0x7f8c8d, destroyable: true, prehistoric: false, height: 1.1 },
     water: { name: 'Water', color: 0x3d85c6, destroyable: true, prehistoric: false, height: 0.7 },
+    river_avon: {
+      name: 'River Avon',
+      color: 0x2f6db2,
+      destroyable: false,
+      prehistoric: true,
+      height: 0.55
+    },
+    avenue: {
+      name: 'The Avenue',
+      color: 0xdcb36a,
+      destroyable: false,
+      prehistoric: true,
+      height: 0.35
+    },
     stonehenge: { name: 'Stonehenge Ring Stone', color: 0xb7b7b7, destroyable: false, prehistoric: true, height: 2.7 },
     stonehenge_center: {
       name: 'Stonehenge Altar',
@@ -30,7 +44,63 @@
       prehistoric: true,
       height: 1.3
     },
+    greater_cursus: {
+      name: 'Greater Cursus',
+      color: 0xb38b5b,
+      destroyable: false,
+      prehistoric: true,
+      height: 1.2
+    },
+    lesser_cursus: {
+      name: 'Lesser Cursus',
+      color: 0xc8a376,
+      destroyable: false,
+      prehistoric: true,
+      height: 1
+    },
     avebury: { name: 'Avebury Standing Stone', color: 0xd9d2c3, destroyable: false, prehistoric: true, height: 2.2 },
+    durrington_walls: {
+      name: 'Durrington Walls',
+      color: 0xc1ba8c,
+      destroyable: false,
+      prehistoric: true,
+      height: 1.6
+    },
+    marden_henge: {
+      name: 'Marden Henge',
+      color: 0xd2c78f,
+      destroyable: false,
+      prehistoric: true,
+      height: 1.5
+    },
+    west_kennet: {
+      name: 'West Kennet Long Barrow',
+      color: 0x9ea06f,
+      destroyable: false,
+      prehistoric: true,
+      height: 1.6
+    },
+    old_sarum: {
+      name: 'Old Sarum',
+      color: 0x8d8e80,
+      destroyable: false,
+      prehistoric: true,
+      height: 1.9
+    },
+    figsbury_ring: {
+      name: 'Figsbury Ring',
+      color: 0xa8ac7f,
+      destroyable: false,
+      prehistoric: true,
+      height: 1.35
+    },
+    danebury: {
+      name: 'Danebury Hillfort',
+      color: 0x9ba370,
+      destroyable: false,
+      prehistoric: true,
+      height: 1.7
+    },
     skara_brae: { name: 'Skara Brae House', color: 0xc69c6d, destroyable: false, prehistoric: true, height: 1.7 },
     skara_wall: { name: 'Skara Brae Wall', color: 0xae8c63, destroyable: false, prehistoric: true, height: 1.3 },
     silbury_hill: { name: 'Silbury Hill Slope', color: 0x93c47d, destroyable: false, prehistoric: true, height: 2.5 },
@@ -82,20 +152,6 @@
       ]
     },
     {
-      label: 'Skara Brae',
-      tiles: [
-        [-1, -1, 'skara_wall'],
-        [-1, 0, 'skara_wall'],
-        [-1, 1, 'skara_wall'],
-        [0, -1, 'skara_wall'],
-        [0, 0, 'skara_brae'],
-        [0, 1, 'skara_wall'],
-        [1, -1, 'skara_wall'],
-        [1, 0, 'skara_wall'],
-        [1, 1, 'skara_wall']
-      ]
-    },
-    {
       label: 'Silbury Hill',
       tiles: [
         [-1, -1, 'silbury_hill'],
@@ -108,8 +164,122 @@
         [1, 0, 'silbury_hill'],
         [1, 1, 'silbury_hill']
       ]
+    },
+    {
+      label: 'Durrington Walls',
+      tiles: [
+        [-1, -1, 'durrington_walls'],
+        [-1, 0, 'durrington_walls'],
+        [-1, 1, 'durrington_walls'],
+        [0, -1, 'durrington_walls'],
+        [0, 1, 'durrington_walls'],
+        [1, -1, 'durrington_walls'],
+        [1, 0, 'durrington_walls'],
+        [1, 1, 'durrington_walls'],
+        [0, 0, 'grass']
+      ]
+    },
+    {
+      label: 'Marden Henge',
+      tiles: [
+        [-1, -1, 'marden_henge'],
+        [-1, 0, 'marden_henge'],
+        [-1, 1, 'marden_henge'],
+        [0, -1, 'marden_henge'],
+        [0, 0, 'grass'],
+        [0, 1, 'marden_henge'],
+        [1, -1, 'marden_henge'],
+        [1, 0, 'marden_henge'],
+        [1, 1, 'marden_henge']
+      ]
+    },
+    {
+      label: 'West Kennet Long Barrow',
+      tiles: [
+        [-2, 0, 'west_kennet'],
+        [-1, 0, 'west_kennet'],
+        [0, 0, 'west_kennet'],
+        [1, 0, 'west_kennet'],
+        [2, 0, 'west_kennet']
+      ]
+    },
+    {
+      label: 'Old Sarum',
+      tiles: [
+        [-1, -1, 'old_sarum'],
+        [-1, 0, 'old_sarum'],
+        [-1, 1, 'old_sarum'],
+        [0, -1, 'old_sarum'],
+        [0, 1, 'old_sarum'],
+        [1, -1, 'old_sarum'],
+        [1, 0, 'old_sarum'],
+        [1, 1, 'old_sarum'],
+        [0, 0, 'grass']
+      ]
+    },
+    {
+      label: 'Figsbury Ring',
+      tiles: [
+        [-1, -1, 'figsbury_ring'],
+        [-1, 0, 'figsbury_ring'],
+        [-1, 1, 'figsbury_ring'],
+        [0, -1, 'figsbury_ring'],
+        [0, 1, 'figsbury_ring'],
+        [1, -1, 'figsbury_ring'],
+        [1, 0, 'figsbury_ring'],
+        [1, 1, 'figsbury_ring'],
+        [0, 0, 'grass']
+      ]
+    },
+    {
+      label: 'Danebury Hillfort',
+      tiles: [
+        [-1, -1, 'danebury'],
+        [-1, 0, 'danebury'],
+        [-1, 1, 'danebury'],
+        [0, -1, 'danebury'],
+        [0, 1, 'danebury'],
+        [1, -1, 'danebury'],
+        [1, 0, 'danebury'],
+        [1, 1, 'danebury'],
+        [0, 0, 'grass']
+      ]
     }
   ];
+
+  function carveRiverAvon(world) {
+    for (let row = 0; row < rows; row += 1) {
+      const centerCol = Math.floor(cols * 0.25 + Math.sin(row / 4) * 4 + row * 0.2);
+      for (let width = -1; width <= 1; width += 1) {
+        const col = centerCol + width;
+        if (col >= 0 && col < cols) {
+          world[row][col] = 'river_avon';
+        }
+      }
+    }
+  }
+
+  function layAvenue(world) {
+    for (let row = Math.floor(rows * 0.35); row < rows - 2; row += 1) {
+      const col = Math.floor(cols * 0.45 + Math.sin(row / 6) * 2);
+      if (col >= 1 && col < cols - 1) {
+        world[row][col] = 'avenue';
+        world[row][col - 1] = 'avenue';
+      }
+    }
+  }
+
+  function placeCursus(world) {
+    const greaterRow = Math.floor(rows * 0.22);
+    for (let col = 5; col < cols - 5; col += 1) {
+      world[greaterRow][col] = 'greater_cursus';
+    }
+
+    const lesserCol = Math.floor(cols * 0.62);
+    for (let row = 5; row < Math.floor(rows * 0.45); row += 1) {
+      world[row][lesserCol] = 'lesser_cursus';
+    }
+  }
 
   function canPlaceMonument(world, centerRow, centerCol, blueprint) {
     return blueprint.tiles.every(([rowOffset, colOffset]) => {
@@ -139,12 +309,21 @@
       })
     );
 
+    carveRiverAvon(world);
+    layAvenue(world);
+    placeCursus(world);
+
     const anchors = [
-      [2, 2],
-      [2, cols - 3],
-      [rows - 3, 2],
-      [rows - 3, cols - 3],
-      [Math.floor(rows / 2), Math.floor(cols / 2)]
+      [Math.floor(rows * 0.42), Math.floor(cols * 0.48)], // Stonehenge
+      [Math.floor(rows * 0.55), Math.floor(cols * 0.5)], // Woodhenge
+      [Math.floor(rows * 0.12), Math.floor(cols * 0.8)], // Avebury
+      [Math.floor(rows * 0.1), Math.floor(cols * 0.7)], // Silbury
+      [Math.floor(rows * 0.5), Math.floor(cols * 0.56)], // Durrington
+      [Math.floor(rows * 0.15), Math.floor(cols * 0.9)], // Marden
+      [Math.floor(rows * 0.1), Math.floor(cols * 0.76)], // West Kennet
+      [Math.floor(rows * 0.65), Math.floor(cols * 0.85)], // Old Sarum
+      [Math.floor(rows * 0.68), Math.floor(cols * 0.9)], // Figsbury Ring
+      [Math.floor(rows * 0.8), Math.floor(cols * 0.72)] // Danebury
     ];
 
     monumentBlueprints.forEach((blueprint, index) => {
@@ -159,7 +338,8 @@
 
   let world = createWorld();
   let score = 0;
-  let message = 'Click Play to lock the mouse. Use WASD, SPACE to jump, and click to mine.';
+  let message =
+    'Classic Roblox controls active: WASD/Arrows move, SPACE jumps, Shift sprints, and click mines.';
 
   let sceneHost;
   let renderer;
@@ -175,7 +355,8 @@
   const playerHeight = 1.6;
   const gravity = 22;
   const jumpSpeed = 8.5;
-  const moveSpeed = 4.6;
+  const walkSpeed = 4.6;
+  const sprintSpeed = 7.4;
   const mineRange = 5;
 
   let velocityY = 0;
@@ -186,8 +367,39 @@
     KeyA: false,
     KeyS: false,
     KeyD: false,
+    ArrowUp: false,
+    ArrowLeft: false,
+    ArrowDown: false,
+    ArrowRight: false,
+    ShiftLeft: false,
+    ShiftRight: false,
     Space: false
   };
+
+  const monumentsWithin100Miles = [
+    'Stonehenge',
+    'Woodhenge',
+    'Greater Cursus',
+    'Lesser Cursus',
+    'The Avenue',
+    'River Avon',
+    'Durrington Walls',
+    'Bluestonehenge',
+    'Avebury Henge and Stone Circles',
+    'Silbury Hill',
+    'West Kennet Long Barrow',
+    'Marden Henge',
+    'Old Sarum',
+    'Figsbury Ring',
+    'Danebury Hillfort',
+    'Uffington White Horse',
+    'Wayland\'s Smithy',
+    'Maiden Castle',
+    'Hambledon Hill',
+    'Flagstones Enclosure',
+    'Cerne Abbas Giant',
+    'Priddy Circles'
+  ];
 
   function tileToPosition(row, col, height) {
     return {
@@ -315,7 +527,7 @@
   function resetWorld() {
     world = createWorld();
     score = 0;
-    message = 'Fresh 3D map generated with full-size monuments. They are still protected.';
+    message = 'Fresh mega-map generated with protected monuments, cursus earthworks, and the Avon route.';
     if (scene && controls) {
       rebuildTiles();
       const { spawnX, spawnZ } = worldCenterSpawn();
@@ -413,10 +625,13 @@
 
       if (controls.isLocked) {
         direction.set(0, 0, 0);
-        if (keyState.KeyW) direction.z -= 1;
-        if (keyState.KeyS) direction.z += 1;
-        if (keyState.KeyA) direction.x -= 1;
-        if (keyState.KeyD) direction.x += 1;
+        if (keyState.KeyW || keyState.ArrowUp) direction.z -= 1;
+        if (keyState.KeyS || keyState.ArrowDown) direction.z += 1;
+        if (keyState.KeyA || keyState.ArrowLeft) direction.x -= 1;
+        if (keyState.KeyD || keyState.ArrowRight) direction.x += 1;
+
+        const isSprinting = keyState.ShiftLeft || keyState.ShiftRight;
+        const moveSpeed = isSprinting ? sprintSpeed : walkSpeed;
 
         if (direction.lengthSq() > 0) {
           direction.normalize();
@@ -478,7 +693,8 @@
     };
 
     controls.addEventListener('lock', () => {
-      message = 'Pointer locked. Explore with WASD, jump with SPACE, click to mine.';
+      message =
+        'Pointer locked. Classic Roblox controls enabled: WASD/Arrows move, SPACE jump, Shift sprint, click mine.';
     });
 
     controls.addEventListener('unlock', () => {
@@ -510,7 +726,7 @@
 <main>
   <div class="overlay top">
     <h1>Prehistoric Monument Craft 3D</h1>
-    <p class="subtitle">First-person mode: WASD move, SPACE jump, mouse to look, click to mine.</p>
+    <p class="subtitle">Classic Roblox-like mode: WASD/Arrows move, SPACE jump, Shift sprint, mouse look, click mine.</p>
     <p class="sites-link-wrap"><a class="sites-link" href="/sites">Browse Reconstruction Timeline →</a></p>
   </div>
 
@@ -545,6 +761,16 @@
     </section>
   {/if}
 
+
+
+  <section class="overlay research">
+    <h2>Monuments within ~100 miles of Stonehenge</h2>
+    <ul>
+      {#each monumentsWithin100Miles as monument}
+        <li>{monument}</li>
+      {/each}
+    </ul>
+  </section>
   <section class="overlay legend">
     <h2>Protected Site Guide</h2>
     <ul>
@@ -686,9 +912,30 @@
     right: 1rem;
     top: 1rem;
     width: min(28rem, 40vw);
-    max-height: calc(100vh - 2rem);
+    max-height: calc(54vh - 2rem);
     overflow: auto;
     padding: 0.75rem;
+  }
+
+  .research {
+    right: 1rem;
+    top: 56vh;
+    width: min(28rem, 40vw);
+    max-height: 40vh;
+    overflow: auto;
+    padding: 0.75rem;
+  }
+
+  .research h2 {
+    margin: 0 0 0.5rem;
+    font-size: 1rem;
+  }
+
+  .research ul {
+    margin: 0;
+    padding-left: 1.2rem;
+    display: grid;
+    gap: 0.25rem;
   }
 
   .legend h2 {
@@ -743,16 +990,21 @@
   }
 
   .fallback-cell {
-    width: min(5.2vw, 2.1rem);
-    height: min(5.2vw, 2.1rem);
+    width: min(1.45vw, 0.7rem);
+    height: min(1.45vw, 0.7rem);
     border: 1px solid rgba(255, 255, 255, 0.45);
     border-radius: 3px;
     box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.14);
   }
 
   @media (max-width: 900px) {
-    .legend {
+    .legend,
+    .research {
       width: min(21rem, 55vw);
+    }
+
+    .research {
+      top: 58vh;
     }
 
     .message {
