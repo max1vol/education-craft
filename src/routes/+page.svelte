@@ -1,327 +1,206 @@
 <svelte:head>
-  <title>Prehistoric Monument Craft 3D</title>
+  <title>MonumentCraft Voxel</title>
 </svelte:head>
 
 <script>
   import { onMount } from 'svelte';
 
-  const rows = 40;
-  const cols = 40;
-  const blockSize = 1;
+  const WORLD_RADIUS = 24;
+  const MAX_Y = 28;
+  const SEA_LEVEL = 4;
 
-  const tileCatalog = {
-    grass: { name: 'Grass', color: 0x6aa84f, destroyable: false, prehistoric: false, height: 1 },
-    tree: { name: 'Tree', color: 0x38761d, destroyable: true, prehistoric: false, height: 2 },
-    stone: { name: 'Stone', color: 0x7f8c8d, destroyable: true, prehistoric: false, height: 1.1 },
-    water: { name: 'Water', color: 0x3d85c6, destroyable: true, prehistoric: false, height: 0.7 },
-    river_avon: { name: 'River Avon', color: 0x2f6db2, destroyable: false, prehistoric: true, height: 0.55 },
-    avenue: { name: 'The Avenue', color: 0xdcb36a, destroyable: false, prehistoric: true, height: 0.35 },
-    stonehenge: { name: 'Stonehenge Sarsen', color: 0xb7b7b7, destroyable: false, prehistoric: true, height: 2.7 },
-    stonehenge_center: { name: 'Stonehenge Altar', color: 0xc9c9c9, destroyable: false, prehistoric: true, height: 1.4 },
-    woodhenge: { name: 'Woodhenge Post', color: 0x8b5a2b, destroyable: false, prehistoric: true, height: 2.4 },
-    woodhenge_center: { name: 'Woodhenge Hearth', color: 0x6f4a24, destroyable: false, prehistoric: true, height: 1.3 },
-    greater_cursus: { name: 'Greater Cursus', color: 0xb38b5b, destroyable: false, prehistoric: true, height: 1.1 },
-    lesser_cursus: { name: 'Lesser Cursus', color: 0xc8a376, destroyable: false, prehistoric: true, height: 1 },
-    avebury: { name: 'Avebury Standing Stone', color: 0xd9d2c3, destroyable: false, prehistoric: true, height: 2.2 },
-    durrington_walls: { name: 'Durrington Walls', color: 0xc1ba8c, destroyable: false, prehistoric: true, height: 1.6 },
-    marden_henge: { name: 'Marden Henge', color: 0xd2c78f, destroyable: false, prehistoric: true, height: 1.5 },
-    west_kennet: { name: 'West Kennet Long Barrow', color: 0x9ea06f, destroyable: false, prehistoric: true, height: 1.6 },
-    old_sarum: { name: 'Old Sarum', color: 0x8d8e80, destroyable: false, prehistoric: true, height: 1.8 },
-    figsbury_ring: { name: 'Figsbury Ring', color: 0xa8ac7f, destroyable: false, prehistoric: true, height: 1.35 },
-    danebury: { name: 'Danebury Hillfort', color: 0x9ba370, destroyable: false, prehistoric: true, height: 1.7 },
-    maiden_castle: { name: 'Maiden Castle', color: 0x8ea06b, destroyable: false, prehistoric: true, height: 1.8 }
+  const PLAYER_HEIGHT = 1.75;
+  const EYE_HEIGHT = 1.62;
+  const PLAYER_RADIUS = 0.28;
+
+  const WALK_SPEED = 4.6;
+  const SPRINT_SPEED = 7.2;
+  const JUMP_SPEED = 8.3;
+  const GRAVITY = 24;
+  const BREAK_RANGE = 6;
+  const STEP_SIZE = 0.09;
+  const JOYSTICK_RADIUS = 44;
+
+  const BLOCK_DEFS = {
+    bedrock: {
+      label: 'Bedrock',
+      color: '#2f2f33',
+      accent: '#1f1f22',
+      solid: true,
+      breakable: false,
+      roughness: 1,
+      metalness: 0
+    },
+    grass: {
+      label: 'Grass Block',
+      color: '#6aa848',
+      accent: '#7ebf58',
+      solid: true,
+      breakable: true,
+      roughness: 0.95,
+      metalness: 0
+    },
+    dirt: {
+      label: 'Dirt Block',
+      color: '#7d5a3a',
+      accent: '#936745',
+      solid: true,
+      breakable: true,
+      roughness: 1,
+      metalness: 0
+    },
+    stone: {
+      label: 'Stone Block',
+      color: '#83868f',
+      accent: '#9ba1ad',
+      solid: true,
+      breakable: true,
+      roughness: 0.9,
+      metalness: 0.04
+    },
+    sand: {
+      label: 'Sand Block',
+      color: '#d8c47b',
+      accent: '#e5d28f',
+      solid: true,
+      breakable: true,
+      roughness: 1,
+      metalness: 0
+    },
+    sandstone: {
+      label: 'Sandstone',
+      color: '#cbb276',
+      accent: '#d9c08b',
+      solid: true,
+      breakable: true,
+      roughness: 0.9,
+      metalness: 0
+    },
+    oak_log: {
+      label: 'Oak Log',
+      color: '#7b5534',
+      accent: '#98673e',
+      solid: true,
+      breakable: true,
+      roughness: 0.95,
+      metalness: 0
+    },
+    oak_leaves: {
+      label: 'Oak Leaves',
+      color: '#3f7f3a',
+      accent: '#4f9947',
+      solid: true,
+      breakable: true,
+      transparent: true,
+      opacity: 0.86,
+      roughness: 1,
+      metalness: 0
+    },
+    oak_planks: {
+      label: 'Oak Planks',
+      color: '#b68755',
+      accent: '#d09b63',
+      solid: true,
+      breakable: true,
+      roughness: 0.82,
+      metalness: 0
+    },
+    water: {
+      label: 'Water',
+      color: '#3d82c6',
+      accent: '#53a2ec',
+      solid: false,
+      breakable: false,
+      transparent: true,
+      opacity: 0.72,
+      roughness: 0.25,
+      metalness: 0
+    },
+    henge_stone: {
+      label: 'Sarsen Stone',
+      color: '#c5c0b2',
+      accent: '#ddd7c8',
+      solid: true,
+      breakable: true,
+      roughness: 0.93,
+      metalness: 0.04
+    },
+    altar: {
+      label: 'Altar Stone',
+      color: '#b8b2a1',
+      accent: '#ccc5b3',
+      solid: true,
+      breakable: true,
+      roughness: 0.96,
+      metalness: 0
+    },
+    marble: {
+      label: 'Marble',
+      color: '#f0eee8',
+      accent: '#ffffff',
+      solid: true,
+      breakable: true,
+      roughness: 0.82,
+      metalness: 0.06
+    },
+    ziggurat_brick: {
+      label: 'Ziggurat Brick',
+      color: '#b07f4b',
+      accent: '#cb9460',
+      solid: true,
+      breakable: true,
+      roughness: 0.88,
+      metalness: 0
+    },
+    gold_block: {
+      label: 'Gold Block',
+      color: '#f5d04d',
+      accent: '#ffe07c',
+      solid: true,
+      breakable: true,
+      roughness: 0.35,
+      metalness: 0.48
+    }
   };
 
-  const prehistoricTypes = Object.keys(tileCatalog).filter((type) => tileCatalog[type].prehistoric);
-
-  const monumentsWithin100Miles = [
-    { name: 'Woodhenge', distance: 2, plotted: true },
-    { name: 'Durrington Walls', distance: 2, plotted: true },
-    { name: 'Old Sarum', distance: 8, plotted: true },
-    { name: 'Figsbury Ring', distance: 10, plotted: true },
-    { name: 'Danebury Hillfort', distance: 18, plotted: true },
-    { name: 'Marden Henge', distance: 19, plotted: true },
-    { name: 'Avebury Henge & Stone Circles', distance: 22, plotted: true },
-    { name: 'Silbury Hill', distance: 23, plotted: true },
-    { name: 'West Kennet Long Barrow', distance: 24, plotted: true },
-    { name: 'Uffington White Horse', distance: 40, plotted: false },
-    { name: 'Wayland\'s Smithy', distance: 43, plotted: false },
-    { name: 'Cerne Abbas Giant', distance: 43, plotted: false },
-    { name: 'Flagstones Enclosure (Dorchester)', distance: 50, plotted: false },
-    { name: 'Maiden Castle', distance: 52, plotted: true },
-    { name: 'Hambledon Hill', distance: 59, plotted: false },
-    { name: 'Priddy Circles', distance: 59, plotted: false }
-  ];
-
-  const monumentBlueprints = [
-    {
-      label: 'Stonehenge',
-      tiles: [
-        [-1, -1, 'stonehenge'],
-        [-1, 0, 'stonehenge'],
-        [-1, 1, 'stonehenge'],
-        [0, -1, 'stonehenge'],
-        [0, 1, 'stonehenge'],
-        [1, -1, 'stonehenge'],
-        [1, 0, 'stonehenge'],
-        [1, 1, 'stonehenge'],
-        [0, 0, 'stonehenge_center']
-      ]
-    },
-    {
-      label: 'Woodhenge',
-      tiles: [
-        [-1, -1, 'woodhenge'],
-        [-1, 0, 'woodhenge'],
-        [-1, 1, 'woodhenge'],
-        [0, -1, 'woodhenge'],
-        [0, 1, 'woodhenge'],
-        [1, -1, 'woodhenge'],
-        [1, 0, 'woodhenge'],
-        [1, 1, 'woodhenge'],
-        [0, 0, 'woodhenge_center']
-      ]
-    },
-    {
-      label: 'Avebury',
-      tiles: [
-        [-2, 0, 'avebury'],
-        [2, 0, 'avebury'],
-        [0, -2, 'avebury'],
-        [0, 2, 'avebury'],
-        [-1, -1, 'avebury'],
-        [-1, 1, 'avebury'],
-        [1, -1, 'avebury'],
-        [1, 1, 'avebury']
-      ]
-    },
-    {
-      label: 'Silbury Hill',
-      tiles: [
-        [-1, -1, 'tree'],
-        [-1, 0, 'tree'],
-        [-1, 1, 'tree'],
-        [0, -1, 'tree'],
-        [0, 0, 'stone'],
-        [0, 1, 'tree'],
-        [1, -1, 'tree'],
-        [1, 0, 'tree'],
-        [1, 1, 'tree']
-      ]
-    },
-    {
-      label: 'Durrington Walls',
-      tiles: [
-        [-1, -1, 'durrington_walls'],
-        [-1, 0, 'durrington_walls'],
-        [-1, 1, 'durrington_walls'],
-        [0, -1, 'durrington_walls'],
-        [0, 1, 'durrington_walls'],
-        [1, -1, 'durrington_walls'],
-        [1, 0, 'durrington_walls'],
-        [1, 1, 'durrington_walls'],
-        [0, 0, 'grass']
-      ]
-    },
-    {
-      label: 'Marden Henge',
-      tiles: [
-        [-1, -1, 'marden_henge'],
-        [-1, 0, 'marden_henge'],
-        [-1, 1, 'marden_henge'],
-        [0, -1, 'marden_henge'],
-        [0, 1, 'marden_henge'],
-        [1, -1, 'marden_henge'],
-        [1, 0, 'marden_henge'],
-        [1, 1, 'marden_henge'],
-        [0, 0, 'grass']
-      ]
-    },
-    {
-      label: 'West Kennet Long Barrow',
-      tiles: [
-        [-2, 0, 'west_kennet'],
-        [-1, 0, 'west_kennet'],
-        [0, 0, 'west_kennet'],
-        [1, 0, 'west_kennet'],
-        [2, 0, 'west_kennet']
-      ]
-    },
-    {
-      label: 'Old Sarum',
-      tiles: [
-        [-1, -1, 'old_sarum'],
-        [-1, 0, 'old_sarum'],
-        [-1, 1, 'old_sarum'],
-        [0, -1, 'old_sarum'],
-        [0, 1, 'old_sarum'],
-        [1, -1, 'old_sarum'],
-        [1, 0, 'old_sarum'],
-        [1, 1, 'old_sarum'],
-        [0, 0, 'grass']
-      ]
-    },
-    {
-      label: 'Figsbury Ring',
-      tiles: [
-        [-1, -1, 'figsbury_ring'],
-        [-1, 0, 'figsbury_ring'],
-        [-1, 1, 'figsbury_ring'],
-        [0, -1, 'figsbury_ring'],
-        [0, 1, 'figsbury_ring'],
-        [1, -1, 'figsbury_ring'],
-        [1, 0, 'figsbury_ring'],
-        [1, 1, 'figsbury_ring'],
-        [0, 0, 'grass']
-      ]
-    },
-    {
-      label: 'Danebury Hillfort',
-      tiles: [
-        [-1, -1, 'danebury'],
-        [-1, 0, 'danebury'],
-        [-1, 1, 'danebury'],
-        [0, -1, 'danebury'],
-        [0, 1, 'danebury'],
-        [1, -1, 'danebury'],
-        [1, 0, 'danebury'],
-        [1, 1, 'danebury'],
-        [0, 0, 'grass']
-      ]
-    },
-    {
-      label: 'Maiden Castle',
-      tiles: [
-        [-1, -1, 'maiden_castle'],
-        [-1, 0, 'maiden_castle'],
-        [-1, 1, 'maiden_castle'],
-        [0, -1, 'maiden_castle'],
-        [0, 1, 'maiden_castle'],
-        [1, -1, 'maiden_castle'],
-        [1, 0, 'maiden_castle'],
-        [1, 1, 'maiden_castle'],
-        [0, 0, 'grass']
-      ]
-    }
-  ];
-
-  function canPlaceMonument(world, centerRow, centerCol, blueprint) {
-    return blueprint.tiles.every(([rowOffset, colOffset]) => {
-      const row = centerRow + rowOffset;
-      const col = centerCol + colOffset;
-      if (row < 0 || row >= rows || col < 0 || col >= cols) {
-        return false;
-      }
-      return !prehistoricTypes.includes(world[row][col]);
-    });
-  }
-
-  function placeMonument(world, centerRow, centerCol, blueprint) {
-    blueprint.tiles.forEach(([rowOffset, colOffset, type]) => {
-      world[centerRow + rowOffset][centerCol + colOffset] = type;
-    });
-  }
-
-  function carveRiverAvon(world) {
-    for (let row = 0; row < rows; row += 1) {
-      const centerCol = Math.floor(cols * 0.18 + row * 0.35 + Math.sin(row / 2.8) * 2);
-      for (let width = -1; width <= 1; width += 1) {
-        const col = centerCol + width;
-        if (col >= 0 && col < cols) {
-          world[row][col] = 'river_avon';
-        }
-      }
-    }
-  }
-
-  function layAvenue(world, startRow, startCol) {
-    for (let step = 0; step < rows * 0.45; step += 1) {
-      const row = Math.min(rows - 1, startRow + step);
-      const col = Math.max(1, Math.floor(startCol + 0.4 * step + Math.sin(step / 2) * 0.6));
-      if (row < rows && col < cols - 1) {
-        world[row][col] = 'avenue';
-        world[row][col + 1] = 'avenue';
-      }
-    }
-  }
-
-  function placeCursus(world, stonehengeRow, stonehengeCol) {
-    const greaterRow = Math.max(4, stonehengeRow - 8);
-    for (let col = Math.max(3, stonehengeCol - 14); col <= Math.min(cols - 4, stonehengeCol + 12); col += 1) {
-      world[greaterRow][col] = 'greater_cursus';
-    }
-
-    const lesserCol = Math.min(cols - 5, stonehengeCol + 6);
-    for (let row = Math.max(3, stonehengeRow - 9); row <= Math.min(rows - 5, stonehengeRow - 2); row += 1) {
-      world[row][lesserCol] = 'lesser_cursus';
-    }
-  }
-
-  function createWorld() {
-    const world = Array.from({ length: rows }, () =>
-      Array.from({ length: cols }, () => {
-        const roll = Math.random();
-        if (roll < 0.11) return 'tree';
-        if (roll < 0.19) return 'stone';
-        if (roll < 0.23) return 'water';
-        return 'grass';
-      })
-    );
-
-    const stonehengeAnchor = [Math.floor(rows * 0.46), Math.floor(cols * 0.45)];
-
-    carveRiverAvon(world);
-    layAvenue(world, stonehengeAnchor[0], stonehengeAnchor[1]);
-    placeCursus(world, stonehengeAnchor[0], stonehengeAnchor[1]);
-
-    const anchors = [
-      stonehengeAnchor,
-      [Math.floor(rows * 0.52), Math.floor(cols * 0.5)],
-      [Math.floor(rows * 0.13), Math.floor(cols * 0.78)],
-      [Math.floor(rows * 0.1), Math.floor(cols * 0.7)],
-      [Math.floor(rows * 0.5), Math.floor(cols * 0.55)],
-      [Math.floor(rows * 0.16), Math.floor(cols * 0.9)],
-      [Math.floor(rows * 0.11), Math.floor(cols * 0.74)],
-      [Math.floor(rows * 0.68), Math.floor(cols * 0.82)],
-      [Math.floor(rows * 0.7), Math.floor(cols * 0.87)],
-      [Math.floor(rows * 0.82), Math.floor(cols * 0.7)],
-      [Math.floor(rows * 0.9), Math.floor(cols * 0.2)]
-    ];
-
-    monumentBlueprints.forEach((blueprint, index) => {
-      const [baseRow, baseCol] = anchors[index];
-      if (canPlaceMonument(world, baseRow, baseCol, blueprint)) {
-        placeMonument(world, baseRow, baseCol, blueprint);
-      }
-    });
-
-    return world;
-  }
-
-  let world = createWorld();
-  let score = 0;
-  let message = 'Classic Roblox controls: WASD/Arrows move, Space jumps, Shift sprints, click mines.';
+  const HOTBAR = ['grass', 'dirt', 'stone', 'oak_planks', 'sandstone', 'henge_stone'];
+  const fallbackAxis = Array.from({ length: WORLD_RADIUS * 2 + 1 }, (_, idx) => idx - WORLD_RADIUS);
 
   let sceneHost;
   let renderer;
   let scene;
   let camera;
-  let controls;
-  let animationFrame;
-  let THREE;
-  let PointerLockControls;
   let raycaster;
-  let tileMeshes = [];
+  let worldGroup;
+  let cubeGeometry;
+  let THREE;
 
-  const playerHeight = 1.6;
-  const gravity = 22;
-  const jumpSpeed = 8.5;
-  const walkSpeed = 4.8;
-  const sprintSpeed = 7.2;
-  const mineRange = 5;
+  let animationFrame = 0;
+  let isLoading3D = true;
+  let fallbackMode = false;
+  let pointerLocked = false;
+  let isTouchDevice = false;
 
-  let velocityY = 0;
-  let isGrounded = false;
+  let message =
+    'Minecraft-style controls: WASD move, Space jump, Shift sprint, Left click mine, Right click place.';
+  let minedCount = 0;
+  let placedCount = 0;
+  let fps = 0;
+  let selectedIndex = 0;
+  let nearbyMonuments = [];
+
+  $: selectedBlock = HOTBAR[selectedIndex];
+
+  const player = {
+    x: 0.5,
+    y: 10,
+    z: 0.5,
+    vy: 0,
+    grounded: false
+  };
+
+  let yaw = Math.PI * 0.85;
+  let pitch = -0.15;
 
   const keyState = {
     KeyW: false,
@@ -332,120 +211,468 @@
     ArrowLeft: false,
     ArrowDown: false,
     ArrowRight: false,
+    Space: false,
     ShiftLeft: false,
-    ShiftRight: false,
-    Space: false
+    ShiftRight: false
   };
 
-  function tileToPosition(row, col, height) {
-    return {
-      x: (col - cols / 2) * blockSize + blockSize / 2,
-      y: height / 2,
-      z: (row - rows / 2) * blockSize + blockSize / 2
-    };
+  const blocks = new Map();
+  const protectedBlocks = new Set();
+  const materials = {};
+  const blockMeshes = [];
+
+  let monuments = [];
+  let jumpQueued = false;
+
+  const moveStick = {
+    pointerId: null,
+    centerX: 0,
+    centerY: 0,
+    x: 0,
+    y: 0
+  };
+
+  const lookStick = {
+    pointerId: null,
+    centerX: 0,
+    centerY: 0,
+    x: 0,
+    y: 0
+  };
+
+  let moveKnobX = 0;
+  let moveKnobY = 0;
+  let lookKnobX = 0;
+  let lookKnobY = 0;
+
+  function keyFor(x, y, z) {
+    return `${x},${y},${z}`;
   }
 
-  function worldCenterSpawn() {
-    const spawnRow = Math.floor(rows / 2);
-    const spawnCol = Math.floor(cols / 2);
-    return {
-      spawnX: (spawnCol - cols / 2) * blockSize + blockSize / 2,
-      spawnZ: (spawnRow - rows / 2) * blockSize + blockSize / 2
-    };
+  function unpackKey(key) {
+    const [x, y, z] = key.split(',').map((value) => Number(value));
+    return { x, y, z };
   }
 
-  function clampToWorldBounds(position) {
-    const minX = -cols / 2 + blockSize / 2;
-    const maxX = cols / 2 - blockSize / 2;
-    const minZ = -rows / 2 + blockSize / 2;
-    const maxZ = rows / 2 - blockSize / 2;
-    position.x = Math.max(minX, Math.min(maxX, position.x));
-    position.z = Math.max(minZ, Math.min(maxZ, position.z));
+  function inWorldXZ(x, z) {
+    return x >= -WORLD_RADIUS && x <= WORLD_RADIUS && z >= -WORLD_RADIUS && z <= WORLD_RADIUS;
   }
 
-  function groundHeightAt(x, z) {
-    const col = Math.floor(x / blockSize + cols / 2);
-    const row = Math.floor(z / blockSize + rows / 2);
-    if (row < 0 || row >= rows || col < 0 || col >= cols) {
-      return 0;
+  function inWorldXYZ(x, y, z) {
+    return y >= 0 && y <= MAX_Y && inWorldXZ(x, z);
+  }
+
+  function getBlock(x, y, z) {
+    return blocks.get(keyFor(x, y, z)) ?? null;
+  }
+
+  function isSolidType(type) {
+    return Boolean(type && BLOCK_DEFS[type]?.solid);
+  }
+
+  function isOccludingType(type) {
+    if (!type) return false;
+    const config = BLOCK_DEFS[type];
+    return Boolean(config?.solid && !config.transparent);
+  }
+
+  function setBlock(x, y, z, type, options = {}) {
+    if (!inWorldXYZ(x, y, z)) return;
+
+    const key = keyFor(x, y, z);
+    if (!type) {
+      blocks.delete(key);
+      protectedBlocks.delete(key);
+      return;
     }
-    const type = world[row][col];
-    return tileCatalog[type]?.height ?? 0;
-  }
 
-  function removeTiles() {
-    for (const tile of tileMeshes) {
-      scene.remove(tile.mesh);
-      tile.mesh.geometry.dispose();
-      tile.mesh.material.dispose();
+    blocks.set(key, type);
+    if (options.protectedBlock) {
+      protectedBlocks.add(key);
     }
-    tileMeshes = [];
   }
 
-  function rebuildTiles() {
-    removeTiles();
-    for (let row = 0; row < rows; row += 1) {
-      for (let col = 0; col < cols; col += 1) {
-        const type = world[row][col];
-        const config = tileCatalog[type];
+  function removeBlock(x, y, z) {
+    const key = keyFor(x, y, z);
+    blocks.delete(key);
+    protectedBlocks.delete(key);
+  }
 
-        const geometry = new THREE.BoxGeometry(blockSize, config.height, blockSize);
-        const material = new THREE.MeshStandardMaterial({
-          color: config.color,
-          roughness: 0.9,
-          metalness: config.prehistoric ? 0.13 : 0.02,
-          emissive: config.prehistoric ? 0x24100d : 0x000000
-        });
+  function noise2(x, z) {
+    const raw = Math.sin(x * 12.9898 + z * 78.233) * 43758.5453;
+    return raw - Math.floor(raw);
+  }
 
-        const mesh = new THREE.Mesh(geometry, material);
-        const position = tileToPosition(row, col, config.height);
-        mesh.position.set(position.x, position.y, position.z);
-        if (config.prehistoric) mesh.scale.set(0.9, 1, 0.9);
+  function terrainHeight(x, z) {
+    const radial = Math.max(0, 1 - Math.hypot(x, z) / (WORLD_RADIUS + 2));
+    const wave = Math.sin(x * 0.22) * 1.4 + Math.cos(z * 0.19) * 1.2 + Math.sin((x + z) * 0.08) * 1.5;
+    const jitter = (noise2(x, z) - 0.5) * 1.7;
+    const raw = 5 + radial * 3.2 + wave + jitter;
+    return Math.max(3, Math.min(11, Math.floor(raw)));
+  }
 
-        mesh.userData = { row, col, type };
-        scene.add(mesh);
-        tileMeshes.push({ row, col, mesh });
+  function setGroundColumn(x, z, height, topType = 'grass') {
+    for (let y = 0; y <= MAX_Y; y += 1) {
+      removeBlock(x, y, z);
+    }
+
+    for (let y = 0; y <= height; y += 1) {
+      let type = 'dirt';
+      if (y === 0) type = 'bedrock';
+      else if (y < height - 2) type = 'stone';
+      else if (y === height) type = topType;
+      setBlock(x, y, z, type);
+    }
+
+    if (height < SEA_LEVEL) {
+      for (let y = height + 1; y <= SEA_LEVEL; y += 1) {
+        setBlock(x, y, z, 'water');
       }
     }
   }
 
-  function destroyTile(row, col) {
-    const currentType = world[row][col];
-    if (prehistoricTypes.includes(currentType)) {
-      message = 'This tile is protected as heritage and cannot be mined.';
-      return;
+  function topSolidY(x, z) {
+    for (let y = MAX_Y; y >= 0; y -= 1) {
+      if (isSolidType(getBlock(x, y, z))) return y;
     }
-    if (!tileCatalog[currentType].destroyable) {
-      message = `${tileCatalog[currentType].name} cannot be destroyed.`;
-      return;
-    }
-
-    world[row][col] = 'grass';
-    score += 1;
-    message = `You mined ${tileCatalog[currentType].name}.`;
-    rebuildTiles();
+    return 0;
   }
 
-  function mineInCrosshair() {
-    if (!camera || !raycaster || !tileMeshes.length) {
-      message = 'Mining tools are not ready yet.';
-      return;
+  function topVisibleType(x, z) {
+    for (let y = MAX_Y; y >= 0; y -= 1) {
+      const type = getBlock(x, y, z);
+      if (type && type !== 'bedrock') return type;
+    }
+    return 'bedrock';
+  }
+
+  function placeTree(x, z) {
+    const base = topSolidY(x, z);
+    if (base < SEA_LEVEL + 1) return;
+    if (getBlock(x, base, z) !== 'grass') return;
+
+    const trunkHeight = 3 + Math.floor(noise2(x * 1.3, z * 1.7) * 2);
+    for (let y = 1; y <= trunkHeight; y += 1) {
+      setBlock(x, base + y, z, 'oak_log');
     }
 
-    raycaster.setFromCamera({ x: 0, y: 0 }, camera);
-    raycaster.far = mineRange;
-    const intersections = raycaster.intersectObjects(
-      tileMeshes.map((item) => item.mesh),
-      false
-    );
+    const canopyBase = base + trunkHeight;
+    for (let dx = -2; dx <= 2; dx += 1) {
+      for (let dz = -2; dz <= 2; dz += 1) {
+        for (let dy = 0; dy <= 2; dy += 1) {
+          const density = Math.abs(dx) + Math.abs(dz) + dy;
+          if (density > 4) continue;
+          if (noise2(x + dx * 7 + dy * 2, z + dz * 9 - dy) < 0.12) continue;
+          setBlock(x + dx, canopyBase + dy, z + dz, 'oak_leaves');
+        }
+      }
+    }
+  }
 
-    if (!intersections.length) {
-      message = 'Move closer and keep the target in your crosshair.';
-      return;
+  function flattenDisk(cx, cz, radius, topY, topType = 'grass') {
+    for (let x = cx - radius; x <= cx + radius; x += 1) {
+      for (let z = cz - radius; z <= cz + radius; z += 1) {
+        if (!inWorldXZ(x, z)) continue;
+        if (Math.hypot(x - cx, z - cz) > radius + 0.25) continue;
+        setGroundColumn(x, z, topY, topType);
+      }
+    }
+  }
+
+  function markMonument(name, x, z) {
+    monuments.push({
+      name,
+      x: x + 0.5,
+      z: z + 0.5
+    });
+  }
+
+  function buildStonehenge(cx, cz) {
+    const base = Math.max(6, topSolidY(cx, cz));
+    flattenDisk(cx, cz, 7, base, 'grass');
+
+    const ring = [
+      [0, -5],
+      [2, -4],
+      [4, -2],
+      [5, 0],
+      [4, 2],
+      [2, 4],
+      [0, 5],
+      [-2, 4],
+      [-4, 2],
+      [-5, 0],
+      [-4, -2],
+      [-2, -4]
+    ];
+
+    ring.forEach(([dx, dz], index) => {
+      for (let y = 1; y <= 3; y += 1) {
+        setBlock(cx + dx, base + y, cz + dz, 'henge_stone', { protectedBlock: true });
+      }
+      if (index % 2 === 0) {
+        setBlock(cx + dx, base + 4, cz + dz, 'henge_stone', { protectedBlock: true });
+      }
+    });
+
+    const inner = [
+      [0, -2],
+      [2, -1],
+      [2, 1],
+      [0, 2],
+      [-2, 1],
+      [-2, -1]
+    ];
+
+    inner.forEach(([dx, dz], index) => {
+      for (let y = 1; y <= 4; y += 1) {
+        setBlock(cx + dx, base + y, cz + dz, 'henge_stone', { protectedBlock: true });
+      }
+      if (index % 2 === 0) {
+        setBlock(cx + dx, base + 5, cz + dz, 'henge_stone', { protectedBlock: true });
+      }
+    });
+
+    setBlock(cx, base + 1, cz, 'altar', { protectedBlock: true });
+    setBlock(cx, base + 2, cz, 'altar', { protectedBlock: true });
+
+    markMonument('Stonehenge', cx, cz);
+  }
+
+  function buildStepPyramid(cx, cz) {
+    const base = Math.max(6, topSolidY(cx, cz));
+    flattenDisk(cx, cz, 9, base, 'sand');
+
+    let size = 13;
+    let y = base + 1;
+    while (size >= 3) {
+      const half = Math.floor(size / 2);
+      for (let x = cx - half; x <= cx + half; x += 1) {
+        for (let z = cz - half; z <= cz + half; z += 1) {
+          setBlock(x, y, z, 'sandstone', { protectedBlock: true });
+        }
+      }
+      size -= 2;
+      y += 1;
     }
 
-    const hit = intersections[0].object.userData;
-    destroyTile(hit.row, hit.col);
+    setBlock(cx, y, cz, 'gold_block', { protectedBlock: true });
+    markMonument('Step Pyramid', cx, cz);
+  }
+
+  function buildZiggurat(cx, cz) {
+    const base = Math.max(6, topSolidY(cx, cz));
+    flattenDisk(cx, cz, 10, base, 'sand');
+
+    const terraces = [
+      { size: 15, height: 2 },
+      { size: 11, height: 2 },
+      { size: 7, height: 2 },
+      { size: 3, height: 2 }
+    ];
+
+    let y = base + 1;
+    terraces.forEach((terrace, idx) => {
+      const half = Math.floor(terrace.size / 2);
+      for (let layer = 0; layer < terrace.height; layer += 1) {
+        for (let x = cx - half; x <= cx + half; x += 1) {
+          for (let z = cz - half; z <= cz + half; z += 1) {
+            setBlock(x, y + layer, z, idx % 2 === 0 ? 'ziggurat_brick' : 'sandstone', {
+              protectedBlock: true
+            });
+          }
+        }
+      }
+      y += terrace.height;
+    });
+
+    for (let step = 0; step <= 7; step += 1) {
+      setBlock(cx, base + 1 + step, cz + 8 - step, 'sandstone', { protectedBlock: true });
+      setBlock(cx, base + 1 + step, cz + 7 - step, 'sandstone', { protectedBlock: true });
+    }
+
+    markMonument('Ziggurat', cx, cz);
+  }
+
+  function buildColosseum(cx, cz) {
+    const base = Math.max(6, topSolidY(cx, cz));
+    flattenDisk(cx, cz, 11, base, 'stone');
+
+    for (let x = cx - 10; x <= cx + 10; x += 1) {
+      for (let z = cz - 8; z <= cz + 8; z += 1) {
+        const dx = x - cx;
+        const dz = z - cz;
+        const ellipse = (dx * dx) / (8 * 8) + (dz * dz) / (6 * 6);
+
+        if (ellipse > 0.84 && ellipse < 1.12) {
+          const archGap = Math.abs(dx) % 3 === 0 || Math.abs(dz) % 3 === 0;
+          for (let y = 1; y <= 4; y += 1) {
+            if (archGap && y <= 2) continue;
+            setBlock(x, base + y, z, 'marble', { protectedBlock: true });
+          }
+        }
+
+        if (ellipse < 0.82) {
+          setBlock(x, base + 1, z, 'sandstone', { protectedBlock: true });
+        }
+      }
+    }
+
+    markMonument('Colosseum', cx, cz);
+  }
+
+  function generateWorld() {
+    blocks.clear();
+    protectedBlocks.clear();
+    monuments = [];
+
+    for (let x = -WORLD_RADIUS; x <= WORLD_RADIUS; x += 1) {
+      for (let z = -WORLD_RADIUS; z <= WORLD_RADIUS; z += 1) {
+        setGroundColumn(x, z, terrainHeight(x, z), 'grass');
+      }
+    }
+
+    for (let x = -WORLD_RADIUS + 2; x <= WORLD_RADIUS - 2; x += 1) {
+      for (let z = -WORLD_RADIUS + 2; z <= WORLD_RADIUS - 2; z += 1) {
+        if (Math.abs(x) < 6 && Math.abs(z) < 6) continue;
+        if (noise2(x * 5 + 13, z * 3 - 9) > 0.9) {
+          placeTree(x, z);
+        }
+      }
+    }
+
+    buildStonehenge(-6, -4);
+    buildStepPyramid(14, -8);
+    buildZiggurat(-15, 11);
+    buildColosseum(12, 12);
+
+    nearbyMonuments = monuments.map((monument) => ({ ...monument, distance: 0 }));
+  }
+
+  function hexToRgb(hex) {
+    const clean = hex.replace('#', '');
+    const normalized = clean.length === 3
+      ? clean
+          .split('')
+          .map((chunk) => chunk + chunk)
+          .join('')
+      : clean;
+
+    const int = Number.parseInt(normalized, 16);
+    return {
+      r: (int >> 16) & 255,
+      g: (int >> 8) & 255,
+      b: int & 255
+    };
+  }
+
+  function mixChannel(a, b, t) {
+    return Math.round(a + (b - a) * t);
+  }
+
+  function createBlockTexture(baseHex, accentHex) {
+    const canvas = document.createElement('canvas');
+    const size = 16;
+    canvas.width = size;
+    canvas.height = size;
+
+    const context = canvas.getContext('2d');
+    if (!context) return null;
+
+    const base = hexToRgb(baseHex);
+    const accent = hexToRgb(accentHex);
+
+    for (let y = 0; y < size; y += 1) {
+      for (let x = 0; x < size; x += 1) {
+        const pattern = Math.sin((x + 2) * 0.9 + (y + 1) * 1.25);
+        const wobble = Math.sin((x + 1) * (y + 2) * 0.18);
+        const t = Math.max(0, Math.min(1, 0.5 + pattern * 0.28 + wobble * 0.22));
+
+        const r = mixChannel(base.r, accent.r, t);
+        const g = mixChannel(base.g, accent.g, t);
+        const b = mixChannel(base.b, accent.b, t);
+
+        context.fillStyle = `rgb(${r}, ${g}, ${b})`;
+        context.fillRect(x, y, 1, 1);
+      }
+    }
+
+    const texture = new THREE.CanvasTexture(canvas);
+    texture.magFilter = THREE.NearestFilter;
+    texture.minFilter = THREE.NearestMipmapNearestFilter;
+    texture.wrapS = THREE.RepeatWrapping;
+    texture.wrapT = THREE.RepeatWrapping;
+    return texture;
+  }
+
+  function initMaterials() {
+    for (const [type, config] of Object.entries(BLOCK_DEFS)) {
+      const texture = createBlockTexture(config.color, config.accent ?? config.color);
+      const material = new THREE.MeshStandardMaterial({
+        map: texture,
+        color: 0xffffff,
+        roughness: config.roughness ?? 0.9,
+        metalness: config.metalness ?? 0,
+        transparent: Boolean(config.transparent),
+        opacity: config.opacity ?? 1
+      });
+
+      if (type === 'water') material.depthWrite = false;
+      materials[type] = material;
+    }
+  }
+
+  function shouldRenderBlock(x, y, z, type) {
+    const checks = [
+      [1, 0, 0],
+      [-1, 0, 0],
+      [0, 1, 0],
+      [0, -1, 0],
+      [0, 0, 1],
+      [0, 0, -1]
+    ];
+
+    for (const [dx, dy, dz] of checks) {
+      const neighborType = getBlock(x + dx, y + dy, z + dz);
+      if (!neighborType) return true;
+      if (!isOccludingType(neighborType)) return true;
+      if (BLOCK_DEFS[type].transparent && neighborType !== type) return true;
+    }
+
+    return false;
+  }
+
+  function clearMeshes() {
+    while (blockMeshes.length) {
+      const mesh = blockMeshes.pop();
+      worldGroup.remove(mesh);
+    }
+  }
+
+  function rebuildWorldMeshes() {
+    if (!worldGroup) return;
+
+    clearMeshes();
+
+    for (const [cellKey, type] of blocks.entries()) {
+      if (!materials[type]) continue;
+      const { x, y, z } = unpackKey(cellKey);
+      if (!shouldRenderBlock(x, y, z, type)) continue;
+
+      const mesh = new THREE.Mesh(cubeGeometry, materials[type]);
+      mesh.position.set(x + 0.5, y + 0.5, z + 0.5);
+      mesh.castShadow = type !== 'water';
+      mesh.receiveShadow = true;
+
+      if (type === 'water') {
+        mesh.position.y -= 0.04;
+        mesh.scale.y = 0.9;
+      }
+
+      mesh.userData = { x, y, z, type };
+      worldGroup.add(mesh);
+      blockMeshes.push(mesh);
+    }
   }
 
   function webglSupported() {
@@ -453,467 +680,1051 @@
     return Boolean(canvas.getContext('webgl2') || canvas.getContext('webgl'));
   }
 
-  function resetWorld() {
-    world = createWorld();
-    score = 0;
-    message = 'Fresh map generated: big world, River Avon, The Avenue, and protected nearby monuments.';
+  function clampPitch() {
+    const max = Math.PI / 2 - 0.06;
+    pitch = Math.max(-max, Math.min(max, pitch));
+  }
 
-    if (scene && controls) {
-      rebuildTiles();
-      const { spawnX, spawnZ } = worldCenterSpawn();
-      const spawnY = groundHeightAt(spawnX, spawnZ) + playerHeight + 0.01;
-      controls.getObject().position.set(spawnX, spawnY, spawnZ);
-      velocityY = 0;
+  function updateNearbyMonumentDistances() {
+    nearbyMonuments = monuments
+      .map((monument) => ({
+        ...monument,
+        distance: Math.round(Math.hypot(monument.x - player.x, monument.z - player.z))
+      }))
+      .sort((a, b) => a.distance - b.distance)
+      .slice(0, 5);
+  }
+
+  function spawnPlayer() {
+    const spawnX = -0.5;
+    const spawnZ = 1.5;
+    const ground = topSolidY(Math.floor(spawnX), Math.floor(spawnZ));
+
+    player.x = spawnX;
+    player.z = spawnZ;
+    player.y = ground + 1.02;
+    player.vy = 0;
+    player.grounded = false;
+
+    yaw = Math.PI * 0.85;
+    pitch = -0.16;
+    clampPitch();
+  }
+
+  function collidesAt(px, py, pz) {
+    const offsets = [
+      [0, 0],
+      [PLAYER_RADIUS, PLAYER_RADIUS],
+      [PLAYER_RADIUS, -PLAYER_RADIUS],
+      [-PLAYER_RADIUS, PLAYER_RADIUS],
+      [-PLAYER_RADIUS, -PLAYER_RADIUS]
+    ];
+
+    const sampleHeights = [0.04, PLAYER_HEIGHT * 0.5, PLAYER_HEIGHT - 0.06];
+
+    for (const [ox, oz] of offsets) {
+      const testX = px + ox;
+      const testZ = pz + oz;
+      const bx = Math.floor(testX);
+      const bz = Math.floor(testZ);
+
+      if (!inWorldXZ(bx, bz)) return true;
+
+      for (const sampleHeight of sampleHeights) {
+        const by = Math.floor(py + sampleHeight);
+        if (isSolidType(getBlock(bx, by, bz))) return true;
+      }
+    }
+
+    return false;
+  }
+
+  function moveHorizontal(dx, dz) {
+    const steps = Math.max(1, Math.ceil(Math.max(Math.abs(dx), Math.abs(dz)) / STEP_SIZE));
+    const stepX = dx / steps;
+    const stepZ = dz / steps;
+
+    for (let i = 0; i < steps; i += 1) {
+      if (!collidesAt(player.x + stepX, player.y, player.z)) {
+        player.x += stepX;
+      }
+
+      if (!collidesAt(player.x, player.y, player.z + stepZ)) {
+        player.z += stepZ;
+      }
     }
   }
 
-  let fallbackMode = false;
-  let isLoading3D = true;
+  function moveVertical(dy) {
+    const sign = Math.sign(dy);
+    if (sign === 0) return true;
+
+    let remaining = Math.abs(dy);
+    while (remaining > 0) {
+      const step = Math.min(0.05, remaining) * sign;
+      if (collidesAt(player.x, player.y + step, player.z)) {
+        return false;
+      }
+      player.y += step;
+      remaining -= Math.abs(step);
+    }
+
+    return true;
+  }
+
+  function updateMovement(delta) {
+    let forwardInput = 0;
+    let strafeInput = 0;
+
+    if (keyState.KeyW || keyState.ArrowUp) forwardInput += 1;
+    if (keyState.KeyS || keyState.ArrowDown) forwardInput -= 1;
+    if (keyState.KeyD || keyState.ArrowRight) strafeInput += 1;
+    if (keyState.KeyA || keyState.ArrowLeft) strafeInput -= 1;
+
+    forwardInput += -moveStick.y;
+    strafeInput += moveStick.x;
+
+    const vectorLength = Math.hypot(forwardInput, strafeInput);
+    if (vectorLength > 1) {
+      forwardInput /= vectorLength;
+      strafeInput /= vectorLength;
+    }
+
+    const speed = keyState.ShiftLeft || keyState.ShiftRight ? SPRINT_SPEED : WALK_SPEED;
+
+    const forwardX = -Math.sin(yaw);
+    const forwardZ = -Math.cos(yaw);
+    const rightX = Math.cos(yaw);
+    const rightZ = -Math.sin(yaw);
+
+    const deltaX = (forwardX * forwardInput + rightX * strafeInput) * speed * delta;
+    const deltaZ = (forwardZ * forwardInput + rightZ * strafeInput) * speed * delta;
+
+    moveHorizontal(deltaX, deltaZ);
+
+    if ((keyState.Space || jumpQueued) && player.grounded) {
+      player.vy = JUMP_SPEED;
+      player.grounded = false;
+      jumpQueued = false;
+    }
+
+    player.vy -= GRAVITY * delta;
+    const moved = moveVertical(player.vy * delta);
+
+    if (!moved) {
+      if (player.vy < 0) {
+        player.grounded = true;
+      }
+      player.vy = 0;
+    } else {
+      player.grounded = false;
+    }
+
+    if (!collidesAt(player.x, player.y - 0.05, player.z)) {
+      player.grounded = false;
+    }
+
+    while (collidesAt(player.x, player.y, player.z)) {
+      player.y += 0.01;
+    }
+  }
+
+  function updateCameraTransform() {
+    camera.rotation.order = 'YXZ';
+    camera.rotation.y = yaw;
+    camera.rotation.x = pitch;
+    camera.position.set(player.x, player.y + EYE_HEIGHT, player.z);
+  }
+
+  function pickTarget() {
+    if (!raycaster || !camera || !blockMeshes.length) return null;
+
+    raycaster.setFromCamera({ x: 0, y: 0 }, camera);
+    raycaster.far = BREAK_RANGE;
+
+    const hits = raycaster.intersectObjects(blockMeshes, false);
+    if (!hits.length) return null;
+
+    const hit = hits[0];
+    const data = hit.object.userData;
+    return {
+      ...data,
+      normal: hit.face ? hit.face.normal.clone() : null
+    };
+  }
+
+  function blockIntersectsPlayer(x, y, z) {
+    const blockMinX = x;
+    const blockMaxX = x + 1;
+    const blockMinY = y;
+    const blockMaxY = y + 1;
+    const blockMinZ = z;
+    const blockMaxZ = z + 1;
+
+    const playerMinX = player.x - PLAYER_RADIUS;
+    const playerMaxX = player.x + PLAYER_RADIUS;
+    const playerMinY = player.y;
+    const playerMaxY = player.y + PLAYER_HEIGHT;
+    const playerMinZ = player.z - PLAYER_RADIUS;
+    const playerMaxZ = player.z + PLAYER_RADIUS;
+
+    return (
+      playerMaxX > blockMinX &&
+      playerMinX < blockMaxX &&
+      playerMaxY > blockMinY &&
+      playerMinY < blockMaxY &&
+      playerMaxZ > blockMinZ &&
+      playerMinZ < blockMaxZ
+    );
+  }
+
+  function mineTarget() {
+    const hit = pickTarget();
+    if (!hit) {
+      message = 'No block in range.';
+      return;
+    }
+
+    const type = getBlock(hit.x, hit.y, hit.z);
+    if (!type) {
+      message = 'No block selected.';
+      return;
+    }
+
+    const config = BLOCK_DEFS[type];
+    const cellKey = keyFor(hit.x, hit.y, hit.z);
+
+    if (!config.breakable) {
+      message = `${config.label} cannot be mined.`;
+      return;
+    }
+
+    if (protectedBlocks.has(cellKey)) {
+      message = 'Monument blocks are protected so landmarks remain recognizable.';
+      return;
+    }
+
+    removeBlock(hit.x, hit.y, hit.z);
+    minedCount += 1;
+    message = `Mined ${config.label}.`;
+    rebuildWorldMeshes();
+  }
+
+  function placeSelectedBlock() {
+    const hit = pickTarget();
+    if (!hit || !hit.normal) {
+      message = 'Aim at a block face to place blocks.';
+      return;
+    }
+
+    const targetX = hit.x + Math.round(hit.normal.x);
+    const targetY = hit.y + Math.round(hit.normal.y);
+    const targetZ = hit.z + Math.round(hit.normal.z);
+
+    if (!inWorldXYZ(targetX, targetY, targetZ)) {
+      message = 'Cannot place outside world bounds.';
+      return;
+    }
+
+    if (getBlock(targetX, targetY, targetZ)) {
+      message = 'Placement spot is occupied.';
+      return;
+    }
+
+    if (blockIntersectsPlayer(targetX, targetY, targetZ)) {
+      message = 'You are standing too close to place that block.';
+      return;
+    }
+
+    setBlock(targetX, targetY, targetZ, selectedBlock);
+    placedCount += 1;
+    message = `Placed ${BLOCK_DEFS[selectedBlock].label}.`;
+    rebuildWorldMeshes();
+  }
+
+  function regenerateWorld() {
+    minedCount = 0;
+    placedCount = 0;
+    message = 'World regenerated with Stonehenge, pyramid, ziggurat, and colosseum.';
+
+    generateWorld();
+    rebuildWorldMeshes();
+    spawnPlayer();
+    updateNearbyMonumentDistances();
+  }
+
+  function selectHotbar(index) {
+    selectedIndex = index;
+  }
+
+  function queueJump() {
+    jumpQueued = true;
+  }
+
+  function updateJoystickFromPointer(stick, event, isLookStick) {
+    if (stick.pointerId !== event.pointerId) return;
+
+    const dx = event.clientX - stick.centerX;
+    const dy = event.clientY - stick.centerY;
+    const distance = Math.min(JOYSTICK_RADIUS, Math.hypot(dx, dy));
+    const angle = Math.atan2(dy, dx);
+
+    const nx = (Math.cos(angle) * distance) / JOYSTICK_RADIUS;
+    const ny = (Math.sin(angle) * distance) / JOYSTICK_RADIUS;
+
+    stick.x = nx;
+    stick.y = ny;
+
+    const knobX = nx * JOYSTICK_RADIUS * 0.55;
+    const knobY = ny * JOYSTICK_RADIUS * 0.55;
+
+    if (isLookStick) {
+      lookKnobX = knobX;
+      lookKnobY = knobY;
+    } else {
+      moveKnobX = knobX;
+      moveKnobY = knobY;
+    }
+  }
+
+  function startMoveJoystick(event) {
+    if (event.pointerType !== 'touch' && event.pointerType !== 'pen') return;
+
+    const rect = event.currentTarget.getBoundingClientRect();
+    moveStick.pointerId = event.pointerId;
+    moveStick.centerX = rect.left + rect.width / 2;
+    moveStick.centerY = rect.top + rect.height / 2;
+    moveStick.x = 0;
+    moveStick.y = 0;
+    moveKnobX = 0;
+    moveKnobY = 0;
+
+    event.currentTarget.setPointerCapture(event.pointerId);
+    event.preventDefault();
+  }
+
+  function updateMoveJoystick(event) {
+    updateJoystickFromPointer(moveStick, event, false);
+    event.preventDefault();
+  }
+
+  function releaseMoveJoystick(event) {
+    if (moveStick.pointerId !== event.pointerId) return;
+
+    moveStick.pointerId = null;
+    moveStick.x = 0;
+    moveStick.y = 0;
+    moveKnobX = 0;
+    moveKnobY = 0;
+
+    if (event.currentTarget.hasPointerCapture(event.pointerId)) {
+      event.currentTarget.releasePointerCapture(event.pointerId);
+    }
+
+    event.preventDefault();
+  }
+
+  function startLookJoystick(event) {
+    if (event.pointerType !== 'touch' && event.pointerType !== 'pen') return;
+
+    const rect = event.currentTarget.getBoundingClientRect();
+    lookStick.pointerId = event.pointerId;
+    lookStick.centerX = rect.left + rect.width / 2;
+    lookStick.centerY = rect.top + rect.height / 2;
+    lookStick.x = 0;
+    lookStick.y = 0;
+    lookKnobX = 0;
+    lookKnobY = 0;
+
+    event.currentTarget.setPointerCapture(event.pointerId);
+    event.preventDefault();
+  }
+
+  function updateLookJoystick(event) {
+    updateJoystickFromPointer(lookStick, event, true);
+    event.preventDefault();
+  }
+
+  function releaseLookJoystick(event) {
+    if (lookStick.pointerId !== event.pointerId) return;
+
+    lookStick.pointerId = null;
+    lookStick.x = 0;
+    lookStick.y = 0;
+    lookKnobX = 0;
+    lookKnobY = 0;
+
+    if (event.currentTarget.hasPointerCapture(event.pointerId)) {
+      event.currentTarget.releasePointerCapture(event.pointerId);
+    }
+
+    event.preventDefault();
+  }
+
+  function fallbackColorAt(x, z) {
+    const type = topVisibleType(x, z);
+    return BLOCK_DEFS[type]?.color ?? '#000000';
+  }
 
   onMount(async () => {
+    isTouchDevice = window.matchMedia('(pointer: coarse)').matches || (navigator.maxTouchPoints ?? 0) > 0;
+
     const loaderTimeout = new Promise((resolve) => {
       setTimeout(() => {
-        resolve([
-          { status: 'rejected', reason: new Error('three.js load timeout') },
-          { status: 'rejected', reason: new Error('pointer controls load timeout') }
-        ]);
+        resolve([{ status: 'rejected' }]);
       }, 7000);
     });
 
-    const [threeLoad, pointerLoad] = await Promise.race([Promise.allSettled([
-      import('https://unpkg.com/three@0.179.1/build/three.module.js'),
-      import('https://unpkg.com/three@0.179.1/examples/jsm/controls/PointerLockControls.js')
-    ]), loaderTimeout]);
+    const [threeLoad] = await Promise.race([
+      Promise.allSettled([import('https://unpkg.com/three@0.179.1/build/three.module.js')]),
+      loaderTimeout
+    ]);
 
-    if (threeLoad.status !== 'fulfilled' || pointerLoad.status !== 'fulfilled') {
+    if (threeLoad.status !== 'fulfilled') {
       fallbackMode = true;
       isLoading3D = false;
-      message =
-        '3D renderer could not load in this network. A safe 2D map is shown so you do not get a blackout screen.';
+      message = '3D renderer could not be loaded. Showing fallback map.';
+      generateWorld();
       return () => {};
     }
 
-    isLoading3D = false;
-
-    THREE = threeLoad.value;
-    PointerLockControls = pointerLoad.value.PointerLockControls;
+    THREE = threeLoad.value[0].value;
 
     if (!webglSupported()) {
       fallbackMode = true;
-      message =
-        'Your browser cannot run WebGL, so a safe 2D map is shown instead of a black screen.';
+      isLoading3D = false;
+      message = 'WebGL is unavailable. Showing fallback map.';
+      generateWorld();
       return () => {};
     }
 
+    scene = new THREE.Scene();
+    scene.background = new THREE.Color(0x89c7ff);
+    scene.fog = new THREE.Fog(0x89c7ff, 28, 96);
+
+    camera = new THREE.PerspectiveCamera(72, sceneHost.clientWidth / sceneHost.clientHeight, 0.1, 180);
     raycaster = new THREE.Raycaster();
 
-    scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x87ceeb);
-    scene.fog = new THREE.Fog(0x87ceeb, 12, 46);
-
-    camera = new THREE.PerspectiveCamera(70, sceneHost.clientWidth / sceneHost.clientHeight, 0.1, 120);
-
     renderer = new THREE.WebGLRenderer({ antialias: true });
-    renderer.setSize(sceneHost.clientWidth, sceneHost.clientHeight);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setSize(sceneHost.clientWidth, sceneHost.clientHeight);
     renderer.shadowMap.enabled = true;
     sceneHost.appendChild(renderer.domElement);
 
-    controls = new PointerLockControls(camera, renderer.domElement);
-    scene.add(controls.getObject());
+    worldGroup = new THREE.Group();
+    scene.add(worldGroup);
 
-    const { spawnX, spawnZ } = worldCenterSpawn();
-    const spawnY = groundHeightAt(spawnX, spawnZ) + playerHeight + 0.01;
-    controls.getObject().position.set(spawnX, spawnY, spawnZ);
+    cubeGeometry = new THREE.BoxGeometry(1, 1, 1);
+    initMaterials();
 
-    const sun = new THREE.DirectionalLight(0xffffff, 1.2);
-    sun.position.set(10, 16, 6);
+    const sun = new THREE.DirectionalLight(0xffffff, 1.14);
+    sun.position.set(20, 28, 12);
+    sun.castShadow = true;
+    sun.shadow.mapSize.width = 2048;
+    sun.shadow.mapSize.height = 2048;
     scene.add(sun);
-    scene.add(new THREE.HemisphereLight(0xffffff, 0x355723, 0.45));
 
-    const ground = new THREE.Mesh(
-      new THREE.PlaneGeometry(cols + 22, rows + 22),
-      new THREE.MeshStandardMaterial({ color: 0x5c913b, roughness: 1 })
+    scene.add(new THREE.HemisphereLight(0xd9edff, 0x4f6d3a, 0.48));
+
+    const underlay = new THREE.Mesh(
+      new THREE.PlaneGeometry(220, 220),
+      new THREE.MeshStandardMaterial({ color: 0x5e7f49, roughness: 1 })
     );
-    ground.rotation.x = -Math.PI / 2;
-    scene.add(ground);
+    underlay.rotation.x = -Math.PI / 2;
+    underlay.position.y = -0.01;
+    underlay.receiveShadow = true;
+    scene.add(underlay);
 
-    rebuildTiles();
+    generateWorld();
+    rebuildWorldMeshes();
+    spawnPlayer();
+    updateNearbyMonumentDistances();
+    updateCameraTransform();
 
-    let lastFrame = performance.now();
-    const direction = new THREE.Vector3();
-    const sideways = new THREE.Vector3();
+    isLoading3D = false;
+
+    let lastTime = performance.now();
+    let fpsTime = 0;
+    let fpsFrames = 0;
+    let monumentTimer = 0;
 
     const renderLoop = () => {
       animationFrame = requestAnimationFrame(renderLoop);
 
       const now = performance.now();
-      const delta = Math.min((now - lastFrame) / 1000, 0.05);
-      lastFrame = now;
+      const delta = Math.min((now - lastTime) / 1000, 0.05);
+      lastTime = now;
 
-      if (controls.isLocked) {
-        direction.set(0, 0, 0);
-        if (keyState.KeyW || keyState.ArrowUp) direction.z -= 1;
-        if (keyState.KeyS || keyState.ArrowDown) direction.z += 1;
-        if (keyState.KeyA || keyState.ArrowLeft) direction.x -= 1;
-        if (keyState.KeyD || keyState.ArrowRight) direction.x += 1;
-
-        const moveSpeed = keyState.ShiftLeft || keyState.ShiftRight ? sprintSpeed : walkSpeed;
-        if (direction.lengthSq() > 0) {
-          direction.normalize();
-          controls.moveForward(direction.z * -moveSpeed * delta);
-          controls.moveRight(direction.x * moveSpeed * delta);
-        }
-
-        if (isGrounded && keyState.Space) {
-          velocityY = jumpSpeed;
-          isGrounded = false;
-        }
+      if (lookStick.pointerId !== null) {
+        yaw -= lookStick.x * 2.8 * delta;
+        pitch -= lookStick.y * 2.15 * delta;
+        clampPitch();
       }
 
-      clampToWorldBounds(controls.getObject().position);
-
-      velocityY -= gravity * delta;
-      controls.getObject().position.y += velocityY * delta;
-
-      sideways.set(controls.getObject().position.x, 0, controls.getObject().position.z);
-      const floor = groundHeightAt(sideways.x, sideways.z) + playerHeight;
-      if (controls.getObject().position.y <= floor) {
-        controls.getObject().position.y = floor;
-        velocityY = 0;
-        isGrounded = true;
-      }
-
+      updateMovement(delta);
+      updateCameraTransform();
       renderer.render(scene, camera);
+
+      monumentTimer += delta;
+      if (monumentTimer >= 0.35) {
+        updateNearbyMonumentDistances();
+        monumentTimer = 0;
+      }
+
+      fpsTime += delta;
+      fpsFrames += 1;
+      if (fpsTime >= 0.5) {
+        fps = Math.round(fpsFrames / fpsTime);
+        fpsTime = 0;
+        fpsFrames = 0;
+      }
     };
 
     renderLoop();
 
     const handleResize = () => {
+      if (!renderer || !camera) return;
       camera.aspect = sceneHost.clientWidth / sceneHost.clientHeight;
       camera.updateProjectionMatrix();
       renderer.setSize(sceneHost.clientWidth, sceneHost.clientHeight);
     };
 
-    const handlePointerDown = () => {
-      if (!controls.isLocked) {
-        controls.lock();
+    const handlePointerLockChange = () => {
+      pointerLocked = document.pointerLockElement === renderer.domElement;
+      if (pointerLocked) {
+        message = 'Mouse locked. Mine with left click and place with right click.';
+      }
+    };
+
+    const handleMouseMove = (event) => {
+      if (!pointerLocked) return;
+      yaw -= event.movementX * 0.0022;
+      pitch -= event.movementY * 0.002;
+      clampPitch();
+    };
+
+    const handleCanvasPointerDown = (event) => {
+      if (isTouchDevice) return;
+
+      if (!pointerLocked) {
+        renderer.domElement.requestPointerLock();
         return;
       }
-      mineInCrosshair();
+
+      if (event.button === 0) {
+        mineTarget();
+      } else if (event.button === 2) {
+        placeSelectedBlock();
+      }
+    };
+
+    const handleCanvasContextMenu = (event) => {
+      event.preventDefault();
     };
 
     const handleKeyDown = (event) => {
-      if (event.code in keyState) keyState[event.code] = true;
-      if (event.code === 'KeyE') mineInCrosshair();
-      if (event.code === 'Enter' && !controls.isLocked) controls.lock();
+      if (event.code in keyState) {
+        keyState[event.code] = true;
+      }
+
+      if (event.code === 'KeyE') {
+        mineTarget();
+        event.preventDefault();
+      }
+
+      if (event.code === 'KeyQ') {
+        placeSelectedBlock();
+        event.preventDefault();
+      }
+
+      if (event.code === 'KeyR') {
+        regenerateWorld();
+      }
+
+      if (event.code.startsWith('Digit')) {
+        const slot = Number(event.code.replace('Digit', '')) - 1;
+        if (slot >= 0 && slot < HOTBAR.length) {
+          selectedIndex = slot;
+        }
+      }
     };
 
     const handleKeyUp = (event) => {
-      if (event.code in keyState) keyState[event.code] = false;
+      if (event.code in keyState) {
+        keyState[event.code] = false;
+      }
     };
 
-    controls.addEventListener('lock', () => {
-      message =
-        'Pointer locked. Classic Roblox controls enabled: WASD/Arrows move, SPACE jump, Shift sprint, click mine.';
-    });
-
-    controls.addEventListener('unlock', () => {
-      message = 'Pointer unlocked. You can still move (WASD) and mine (E/click).';
-      Object.keys(keyState).forEach((k) => {
-        keyState[k] = false;
-      });
-    });
-
     window.addEventListener('resize', handleResize);
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
     window.addEventListener('keydown', handleKeyDown);
     window.addEventListener('keyup', handleKeyUp);
-    renderer.domElement.addEventListener('pointerdown', handlePointerDown);
+    document.addEventListener('pointerlockchange', handlePointerLockChange);
+    renderer.domElement.addEventListener('pointerdown', handleCanvasPointerDown);
+    renderer.domElement.addEventListener('contextmenu', handleCanvasContextMenu);
 
     return () => {
       cancelAnimationFrame(animationFrame);
+
       window.removeEventListener('resize', handleResize);
+      window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('keydown', handleKeyDown);
       window.removeEventListener('keyup', handleKeyUp);
-      renderer.domElement.removeEventListener('pointerdown', handlePointerDown);
-      controls.disconnect();
-      removeTiles();
+      document.removeEventListener('pointerlockchange', handlePointerLockChange);
+
+      renderer.domElement.removeEventListener('pointerdown', handleCanvasPointerDown);
+      renderer.domElement.removeEventListener('contextmenu', handleCanvasContextMenu);
+
+      if (document.pointerLockElement === renderer.domElement) {
+        document.exitPointerLock();
+      }
+
+      clearMeshes();
+
+      for (const material of Object.values(materials)) {
+        if (material.map) material.map.dispose();
+        material.dispose();
+      }
+
+      cubeGeometry?.dispose();
+      underlay.geometry.dispose();
+      underlay.material.dispose();
       renderer.dispose();
-      sceneHost.removeChild(renderer.domElement);
+
+      if (sceneHost.contains(renderer.domElement)) {
+        sceneHost.removeChild(renderer.domElement);
+      }
     };
   });
 </script>
 
-<main>
-  <div class="overlay top">
-    <h1>Prehistoric Monument Craft 3D</h1>
-    <p class="subtitle">Classic Roblox-like mode: WASD/Arrows move, SPACE jump, Shift sprint, mouse look, click mine.</p>
-    <p class="sites-link-wrap"><a class="sites-link" href="/sites">Browse Reconstruction Timeline →</a></p>
-  </div>
+<main class="game-page">
+  <div class="scene" bind:this={sceneHost} aria-label="MonumentCraft voxel world"></div>
 
-  <div class="overlay hud">
-    <p><strong>Score:</strong> {score}</p>
-    <button on:click={resetWorld}>Generate new world</button>
-    <button on:click={() => controls?.lock()} disabled={fallbackMode}>Play (lock mouse)</button>
-    <button on:click={mineInCrosshair} disabled={fallbackMode || isLoading3D}>Mine target (E)</button>
-  </div>
+  <section class="panel top-panel">
+    <h1>MonumentCraft Voxel</h1>
+    <p>Minecraft-style first-person sandbox with mine/place mechanics and recognizable monuments.</p>
+    <p class="links">
+      <a href="/sites">Open historical timeline</a>
+      <a href="/sutes">Open /sutes alias</a>
+    </p>
+  </section>
 
-  <p class="overlay message">{message}</p>
+  <section class="panel hud">
+    <p><span>Mined</span><strong>{minedCount}</strong></p>
+    <p><span>Placed</span><strong>{placedCount}</strong></p>
+    <p><span>Selected</span><strong>{BLOCK_DEFS[selectedBlock].label}</strong></p>
+    <p><span>FPS</span><strong>{fps || '...'}</strong></p>
+    <div class="hud-actions">
+      <button on:click={regenerateWorld}>Regenerate world</button>
+      <button on:click={() => renderer?.domElement?.requestPointerLock()} disabled={isTouchDevice || fallbackMode || isLoading3D}>
+        Lock mouse
+      </button>
+    </div>
+  </section>
+
+  <p class="panel message">{message}</p>
 
   {#if !fallbackMode}
-    <div class="scene" bind:this={sceneHost} aria-label="3D game world"></div>
     {#if isLoading3D}
-      <p class="overlay loading">Loading 3D renderer… if this takes too long we will switch to safe map mode.</p>
+      <p class="panel loading">Loading 3D renderer...</p>
     {:else}
       <div class="crosshair" aria-hidden="true">+</div>
+
+      <section class="hotbar" aria-label="Block hotbar">
+        {#each HOTBAR as blockId, index}
+          <button class:selected={selectedIndex === index} on:click={() => selectHotbar(index)}>
+            <span class="slot-index">{index + 1}</span>
+            <span class="slot-swatch" style={`background: ${BLOCK_DEFS[blockId].color}`}></span>
+            <span class="slot-label">{BLOCK_DEFS[blockId].label}</span>
+          </button>
+        {/each}
+      </section>
+
+      {#if isTouchDevice}
+        <section class="touch-ui" aria-label="Touch controls">
+          <div
+            class="joystick"
+            role="group"
+            aria-label="Movement joystick"
+            on:pointerdown={startMoveJoystick}
+            on:pointermove={updateMoveJoystick}
+            on:pointerup={releaseMoveJoystick}
+            on:pointercancel={releaseMoveJoystick}
+          >
+            <div class="joystick-knob" style={`transform: translate(${moveKnobX}px, ${moveKnobY}px);`}></div>
+          </div>
+
+          <div class="touch-actions">
+            <button on:pointerdown|preventDefault={queueJump}>Jump</button>
+            <button on:pointerdown|preventDefault={mineTarget}>Mine</button>
+            <button on:pointerdown|preventDefault={placeSelectedBlock}>Place</button>
+          </div>
+
+          <div
+            class="joystick"
+            role="group"
+            aria-label="Look joystick"
+            on:pointerdown={startLookJoystick}
+            on:pointermove={updateLookJoystick}
+            on:pointerup={releaseLookJoystick}
+            on:pointercancel={releaseLookJoystick}
+          >
+            <div class="joystick-knob" style={`transform: translate(${lookKnobX}px, ${lookKnobY}px);`}></div>
+          </div>
+        </section>
+      {/if}
     {/if}
   {:else}
-    <section class="fallback-map" aria-label="2D world map fallback">
-      {#each world as worldRow}
+    <section class="fallback-map" aria-label="Fallback map">
+      {#each fallbackAxis as z}
         <div class="fallback-row">
-          {#each worldRow as cellType}
-            <span
-              class="fallback-cell"
-              style={`background: #${tileCatalog[cellType].color.toString(16).padStart(6, '0')}`}
-              title={tileCatalog[cellType].name}
-            ></span>
+          {#each fallbackAxis as x}
+            <span class="fallback-cell" style={`background: ${fallbackColorAt(x, z)}`}></span>
           {/each}
         </div>
       {/each}
     </section>
   {/if}
 
-  <section class="overlay legend">
-    <h2>Protected Site Guide</h2>
+  <section class="panel monuments">
+    <h2>Monuments Nearby</h2>
     <ul>
-      {#each Object.entries(tileCatalog) as [, tileInfo]}
+      {#each nearbyMonuments as monument}
         <li>
-          <span class="swatch" style={`background: #${tileInfo.color.toString(16).padStart(6, '0')}`}></span>
-          {tileInfo.name}
-          {#if tileInfo.prehistoric}
-            <em>(protected)</em>
-          {/if}
+          <strong>{monument.name}</strong>
+          <span>{monument.distance} blocks away</span>
         </li>
       {/each}
     </ul>
   </section>
 
-  <section class="overlay research">
-    <h2>Monuments within ~100 miles of Stonehenge</h2>
-    <p class="small-note">Approximate straight-line distances. “Plotted” means represented on this map.</p>
-    <ul>
-      {#each monumentsWithin100Miles as monument}
-        <li>
-          <strong>{monument.name}</strong>
-          <span>~{monument.distance} miles</span>
-          {#if monument.plotted}
-            <em>(plotted)</em>
-          {/if}
-        </li>
-      {/each}
-    </ul>
+  <section class="panel controls">
+    <h2>Controls</h2>
+    <p>Desktop: WASD move, Space jump, Shift sprint, left click mine, right click place.</p>
+    <p>Touch: left joystick move, right joystick look, tap Jump/Mine/Place buttons.</p>
   </section>
 </main>
 
 <style>
-  :global(body) {
-    margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background: #000;
-    color: #f4ffef;
-    overflow: hidden;
+  :global(*) {
+    box-sizing: border-box;
   }
 
-  main {
+  :global(body) {
+    margin: 0;
+    overflow: hidden;
+    font-family: 'Trebuchet MS', 'Segoe UI', sans-serif;
+    background: #081224;
+    color: #eaf4ff;
+  }
+
+  .game-page {
     position: relative;
     width: 100vw;
     height: 100vh;
+    overflow: hidden;
   }
 
   .scene {
-    width: 100%;
-    height: 100%;
-    cursor: none;
-    background: radial-gradient(circle at 50% 35%, #9fd0ff 0%, #86b7f2 40%, #4d6f96 100%);
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 35%, #8fd2ff 0%, #78aee0 44%, #4f6e8f 100%);
   }
 
-  .overlay {
+  .panel {
     position: absolute;
-    z-index: 2;
-    background: rgba(18, 33, 15, 0.72);
+    z-index: 4;
     border: 1px solid rgba(255, 255, 255, 0.18);
-    border-radius: 10px;
+    border-radius: 12px;
+    background: rgba(8, 20, 33, 0.68);
     backdrop-filter: blur(2px);
   }
 
-  .top {
-    top: 1rem;
-    left: 1rem;
-    max-width: 43rem;
-    padding: 0.75rem 1rem;
+  .top-panel {
+    top: 0.85rem;
+    left: 0.85rem;
+    max-width: min(40rem, 62vw);
+    padding: 0.72rem 0.9rem;
   }
 
-  h1 {
+  .top-panel h1 {
     margin: 0;
-    font-size: 1.35rem;
+    font-size: 1.2rem;
+    letter-spacing: 0.02em;
   }
 
-  .subtitle {
+  .top-panel p {
     margin: 0.3rem 0 0;
-    color: #cfe8bf;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
+    color: #d6e8fb;
   }
 
-  .sites-link-wrap {
-    margin: 0.5rem 0 0;
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
   }
 
-  .sites-link {
-    color: #8ee8ff;
-    font-weight: 700;
+  .links a {
+    color: #7cd9ff;
     text-decoration: none;
+    font-weight: 700;
   }
 
-  .sites-link:hover {
+  .links a:hover {
     text-decoration: underline;
   }
 
   .hud {
-    top: 6.7rem;
-    left: 1rem;
-    padding: 0.65rem;
+    top: 6.5rem;
+    left: 0.85rem;
+    padding: 0.62rem 0.7rem;
+    max-width: min(29rem, 62vw);
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.38rem 0.82rem;
+  }
+
+  .hud p {
+    margin: 0;
     display: flex;
-    align-items: center;
-    gap: 0.6rem;
+    justify-content: space-between;
+    gap: 0.5rem;
+    font-size: 0.84rem;
+  }
+
+  .hud span {
+    color: #b8cee4;
+  }
+
+  .hud strong {
+    color: #f5fbff;
+  }
+
+  .hud-actions {
+    grid-column: 1 / -1;
+    display: flex;
     flex-wrap: wrap;
+    gap: 0.48rem;
   }
 
   button {
-    border: 0;
-    background: #3f6f2f;
-    color: #fff;
-    border-radius: 8px;
-    padding: 0.55rem 0.8rem;
+    border: 1px solid rgba(255, 255, 255, 0.17);
+    border-radius: 9px;
+    background: rgba(36, 79, 36, 0.88);
+    color: #f7ffed;
+    font-weight: 700;
     cursor: pointer;
-    font-weight: 600;
+    padding: 0.52rem 0.72rem;
+    font-size: 0.8rem;
+  }
+
+  button:hover {
+    background: rgba(48, 103, 48, 0.9);
   }
 
   button:disabled {
-    opacity: 0.55;
     cursor: not-allowed;
+    opacity: 0.5;
   }
 
   .message {
-    top: 11.2rem;
-    left: 1rem;
-    max-width: 33rem;
-    padding: 0.65rem 0.75rem;
+    top: 12.4rem;
+    left: 0.85rem;
     margin: 0;
-    color: #f3ffec;
+    max-width: min(32rem, 62vw);
+    padding: 0.58rem 0.72rem;
+    font-size: 0.84rem;
+    color: #f6fffd;
   }
-
 
   .loading {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     margin: 0;
-    padding: 0.75rem 1rem;
+    max-width: min(24rem, 86vw);
+    padding: 0.74rem 0.9rem;
     text-align: center;
-    max-width: 25rem;
   }
 
   .crosshair {
     position: absolute;
-    z-index: 3;
     left: 50%;
     top: 50%;
+    z-index: 5;
     transform: translate(-50%, -50%);
     font-size: 1.55rem;
-    text-shadow: 0 0 5px #000;
-    color: #fff;
+    color: #ffffff;
+    text-shadow: 0 0 6px #000;
     user-select: none;
     pointer-events: none;
   }
 
-  .legend {
-    right: 1rem;
-    top: 1rem;
-    width: min(25rem, 36vw);
-    max-height: calc(53vh - 1rem);
-    overflow: auto;
-    padding: 0.75rem;
-  }
-
-  .legend h2,
-  .research h2 {
-    margin: 0 0 0.5rem;
-    font-size: 1rem;
-  }
-
-  .legend ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    gap: 0.4rem;
-  }
-
-  .legend li {
+  .hotbar {
+    position: absolute;
+    left: 50%;
+    bottom: 0.85rem;
+    transform: translateX(-50%);
+    z-index: 6;
     display: flex;
+    gap: 0.34rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: min(96vw, 64rem);
+    padding: 0.48rem;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 13px;
+    background: rgba(6, 15, 25, 0.62);
+    backdrop-filter: blur(2px);
+  }
+
+  .hotbar button {
+    min-width: 86px;
+    display: grid;
+    grid-template-columns: auto auto;
     align-items: center;
-    gap: 0.4rem;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 6px;
-    padding: 0.35rem 0.45rem;
-    font-size: 0.9rem;
+    gap: 0.34rem 0.42rem;
+    text-align: left;
+    padding: 0.38rem 0.44rem;
+    background: rgba(17, 40, 64, 0.82);
   }
 
-  .swatch {
-    width: 13px;
-    height: 13px;
-    border: 1px solid #fff;
-    flex-shrink: 0;
+  .hotbar button.selected {
+    outline: 2px solid #ffd35d;
+    background: rgba(58, 89, 32, 0.9);
   }
 
-  .research {
-    right: 1rem;
-    top: 54vh;
-    width: min(25rem, 36vw);
-    max-height: 44vh;
+  .slot-index {
+    font-size: 0.65rem;
+    color: #d2d9e2;
+    grid-column: 1;
+  }
+
+  .slot-swatch {
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    grid-column: 1;
+  }
+
+  .slot-label {
+    font-size: 0.68rem;
+    line-height: 1.05;
+    color: #edf5ff;
+    grid-column: 2;
+    grid-row: 1 / span 2;
+  }
+
+  .touch-ui {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 4.9rem;
+    z-index: 7;
+    display: grid;
+    grid-template-columns: 108px auto 108px;
+    align-items: end;
+    padding: 0 0.75rem;
+    pointer-events: none;
+  }
+
+  .joystick {
+    width: 96px;
+    height: 96px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.24);
+    background: rgba(3, 10, 18, 0.56);
+    position: relative;
+    pointer-events: auto;
+    touch-action: none;
+  }
+
+  .joystick-knob {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 44px;
+    height: 44px;
+    margin-left: -22px;
+    margin-top: -22px;
+    border-radius: 999px;
+    background: rgba(164, 196, 230, 0.92);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.35);
+  }
+
+  .touch-actions {
+    display: flex;
+    justify-content: center;
+    gap: 0.45rem;
+    pointer-events: auto;
+  }
+
+  .touch-actions button {
+    min-width: 74px;
+    background: rgba(50, 96, 39, 0.92);
+  }
+
+  .monuments {
+    right: 0.85rem;
+    top: 0.85rem;
+    width: min(23rem, 31vw);
+    max-height: 42vh;
     overflow: auto;
-    padding: 0.75rem;
+    padding: 0.66rem;
   }
 
-  .small-note {
-    margin: 0 0 0.4rem;
-    color: #d0dfc9;
-    font-size: 0.82rem;
+  .monuments h2,
+  .controls h2 {
+    margin: 0 0 0.48rem;
+    font-size: 0.95rem;
   }
 
-  .research ul {
-    list-style: none;
+  .monuments ul {
     margin: 0;
     padding: 0;
+    list-style: none;
     display: grid;
     gap: 0.35rem;
   }
 
-  .research li {
-    display: grid;
-    grid-template-columns: 1fr auto auto;
-    gap: 0.35rem;
-    align-items: center;
-    background: rgba(255, 255, 255, 0.09);
-    border-radius: 6px;
-    padding: 0.35rem 0.45rem;
-    font-size: 0.86rem;
-  }
-
-  em {
-    color: #ffd1d1;
-    font-style: normal;
+  .monuments li {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.4rem;
+    padding: 0.34rem 0.4rem;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.08);
     font-size: 0.8rem;
+  }
+
+  .monuments strong {
+    color: #f6f8ff;
+  }
+
+  .monuments span {
+    color: #d1dfef;
+    white-space: nowrap;
+    font-size: 0.76rem;
+  }
+
+  .controls {
+    right: 0.85rem;
+    top: 44vh;
+    width: min(23rem, 31vw);
+    max-height: 31vh;
+    overflow: auto;
+    padding: 0.66rem;
+  }
+
+  .controls p {
+    margin: 0.28rem 0 0;
+    font-size: 0.79rem;
+    line-height: 1.35;
+    color: #d3e3f4;
   }
 
   .fallback-map {
@@ -922,35 +1733,170 @@
     z-index: 1;
     display: grid;
     place-content: center;
-    gap: 0.1rem;
-    background: linear-gradient(180deg, #88b9ff 0%, #9ed27f 58%, #6fa04b 100%);
+    gap: 0.05rem;
+    background: linear-gradient(180deg, #89c7ff 0%, #7ebb62 64%, #4c7040 100%);
   }
 
   .fallback-row {
     display: flex;
-    gap: 0.1rem;
+    gap: 0.05rem;
   }
 
   .fallback-cell {
-    width: min(1.35vw, 0.65rem);
-    height: min(1.35vw, 0.65rem);
-    border: 1px solid rgba(255, 255, 255, 0.35);
-    border-radius: 2px;
+    width: min(1.1vw, 0.46rem);
+    height: min(1.1vw, 0.46rem);
+    border-radius: 1px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
   }
 
-  @media (max-width: 900px) {
-    .legend,
-    .research {
-      width: min(22rem, 56vw);
+  @media (max-width: 1080px) {
+    .top-panel,
+    .hud,
+    .message {
+      max-width: min(30rem, 72vw);
     }
 
-    .research {
-      top: 56vh;
+    .monuments,
+    .controls {
+      width: min(20rem, 37vw);
+    }
+  }
+
+  @media (max-width: 820px) {
+    .top-panel {
+      max-width: calc(100vw - 1.4rem);
+      right: 0.7rem;
+      left: 0.7rem;
+    }
+
+    .hud {
+      top: 7.3rem;
+      left: 0.7rem;
+      right: 0.7rem;
+      max-width: none;
     }
 
     .message {
       top: 13.8rem;
-      max-width: 22rem;
+      left: 0.7rem;
+      right: 0.7rem;
+      max-width: none;
+    }
+
+    .monuments,
+    .controls {
+      right: 0.7rem;
+      left: 0.7rem;
+      width: auto;
+      max-height: none;
+    }
+
+    .monuments {
+      top: auto;
+      bottom: 13.5rem;
+      max-height: 17vh;
+    }
+
+    .controls {
+      top: auto;
+      bottom: 8.7rem;
+      max-height: 4.4rem;
+      overflow: hidden;
+    }
+
+    .hotbar button {
+      min-width: 74px;
+    }
+
+    .slot-label {
+      font-size: 0.62rem;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .top-panel {
+      padding: 0.58rem 0.66rem;
+    }
+
+    .top-panel h1 {
+      font-size: 1.04rem;
+    }
+
+    .top-panel p {
+      font-size: 0.8rem;
+    }
+
+    .hud {
+      top: 6.5rem;
+      grid-template-columns: 1fr;
+      gap: 0.24rem;
+      padding: 0.5rem 0.58rem;
+    }
+
+    .message {
+      top: 14.4rem;
+      font-size: 0.76rem;
+      padding: 0.45rem 0.54rem;
+    }
+
+    .hotbar {
+      bottom: 0.45rem;
+      width: calc(100vw - 0.7rem);
+      padding: 0.33rem;
+      gap: 0.24rem;
+    }
+
+    .hotbar button {
+      min-width: 66px;
+      padding: 0.3rem 0.32rem;
+    }
+
+    .slot-swatch {
+      width: 13px;
+      height: 13px;
+    }
+
+    .touch-ui {
+      bottom: 4.35rem;
+      grid-template-columns: 88px auto 88px;
+      padding: 0 0.32rem;
+    }
+
+    .joystick {
+      width: 82px;
+      height: 82px;
+    }
+
+    .joystick-knob {
+      width: 38px;
+      height: 38px;
+      margin-left: -19px;
+      margin-top: -19px;
+    }
+
+    .touch-actions {
+      gap: 0.3rem;
+    }
+
+    .touch-actions button {
+      min-width: 62px;
+      padding: 0.44rem 0.45rem;
+      font-size: 0.74rem;
+    }
+
+    .monuments {
+      bottom: 12.2rem;
+      max-height: 16vh;
+      padding: 0.5rem;
+    }
+
+    .controls {
+      bottom: 8rem;
+      padding: 0.5rem;
+    }
+
+    .controls p {
+      font-size: 0.72rem;
     }
   }
 </style>

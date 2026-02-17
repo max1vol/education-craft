@@ -297,4 +297,62 @@
       flex: 1;
     }
   }
+
+  @media (max-width: 560px) {
+    .hero {
+      padding: 0.85rem 0.65rem 0.6rem;
+    }
+
+    .hero-inner {
+      padding: 0.86rem;
+      border-radius: 14px;
+    }
+
+    .summary {
+      font-size: 0.92rem;
+      line-height: 1.35;
+    }
+
+    .timeline-wrap {
+      padding: 0.1rem 0.65rem 1.55rem;
+    }
+
+    .epoch {
+      padding-left: 0.62rem;
+      border-left-width: 3px;
+    }
+
+    .epoch-head {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.2rem;
+    }
+
+    .epoch-head p {
+      white-space: normal;
+      line-height: 1.25;
+    }
+
+    .cards {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .thumb {
+      min-height: 132px;
+    }
+
+    .meta h3,
+    .region,
+    .idea,
+    .dates,
+    .count {
+      overflow-wrap: anywhere;
+    }
+  }
+
+  @media (max-width: 380px) {
+    .metrics {
+      flex-direction: column;
+    }
+  }
 </style>
