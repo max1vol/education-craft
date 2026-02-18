@@ -158,7 +158,7 @@
   let currentTarget: HitResult | null = null;
   let queuedSingleTap: ReturnType<typeof setTimeout> | null = null;
 
-  let monumentsByDistance = world.getMonumentDistances(player.x, player.z);
+  let showAudioPanel = false;
 
   const clampPitch = (): void => {
     const limit = Math.PI / 2 - 0.03;
@@ -790,10 +790,6 @@
     refreshChunksNearBlock(targetX, targetZ);
   };
 
-  const updateMonumentDistances = (): void => {
-    monumentsByDistance = world.getMonumentDistances(player.x, player.z);
-  };
-
   const updateTargetHighlight = (): void => {
     currentTarget = voxelRaycast();
 
@@ -1056,12 +1052,9 @@
     ensureChunks(true);
 
     loadingMessage = '';
-    updateMonumentDistances();
-
     let lastTick = performance.now();
     let fpsTime = 0;
     let fpsFrames = 0;
-    let monumentTimer = 0;
 
     const renderLoop = (): void => {
       frameId = requestAnimationFrame(renderLoop);
@@ -1100,12 +1093,6 @@
       }
 
       renderer.render(scene, camera);
-
-      monumentTimer += delta;
-      if (monumentTimer > 0.45) {
-        updateMonumentDistances();
-        monumentTimer = 0;
-      }
 
       fpsTime += delta;
       fpsFrames += 1;
@@ -1305,37 +1292,37 @@
 <main class="game-page">
   <div class="scene" bind:this={sceneHost} aria-label="Monument Realms voxel world"></div>
 
-  <section class="panel top-panel">
+  <section class="panel hud-minimal">
     <h1>Monument Realms</h1>
-    <p>First-person voxel sandbox with monument-themed biomes, portals, environmental detail, and debug tooling.</p>
+    <p>{biomeLabel} • {portalHint}</p>
     <p class="status-line">{status}</p>
+    <p class="stats">FPS {fps || '...'} • M {minedCount} • P {placedCount}</p>
   </section>
 
-  <section class="panel hud">
-    <p><span>Biome</span><strong>{biomeLabel}</strong></p>
-    <p><span>Monument</span><strong>{monumentLabel}</strong></p>
-    <p><span>Portal</span><strong>{portalHint}</strong></p>
-    <p><span>Mined</span><strong>{minedCount}</strong></p>
-    <p><span>Placed</span><strong>{placedCount}</strong></p>
-    <p><span>FPS</span><strong>{fps || '...'}</strong></p>
-  </section>
+  <button
+    class="panel audio-toggle"
+    aria-label="Toggle audio controls"
+    on:click={() => (showAudioPanel = !showAudioPanel)}
+  >
+    Audio
+  </button>
 
-  <section class="panel audio-panel">
-    <h2>Audio</h2>
-    <label>
-      <span>Master {Math.round(volumeState.master * 100)}%</span>
-      <input type="range" min="0" max="1" step="0.01" value={volumeState.master} on:input={(event) => setVolume('master', Number((event.currentTarget as HTMLInputElement).value))} />
-    </label>
-    <label>
-      <span>Music {Math.round(volumeState.music * 100)}%</span>
-      <input type="range" min="0" max="1" step="0.01" value={volumeState.music} on:input={(event) => setVolume('music', Number((event.currentTarget as HTMLInputElement).value))} />
-    </label>
-    <label>
-      <span>SFX {Math.round(volumeState.sfx * 100)}%</span>
-      <input type="range" min="0" max="1" step="0.01" value={volumeState.sfx} on:input={(event) => setVolume('sfx', Number((event.currentTarget as HTMLInputElement).value))} />
-    </label>
-    <p>{audioUnlocked ? 'Audio unlocked' : 'Audio starts on first interaction'}</p>
-  </section>
+  {#if showAudioPanel}
+    <section class="panel audio-panel">
+      <label>
+        <span>M {Math.round(volumeState.master * 100)}%</span>
+        <input type="range" min="0" max="1" step="0.01" value={volumeState.master} on:input={(event) => setVolume('master', Number((event.currentTarget as HTMLInputElement).value))} />
+      </label>
+      <label>
+        <span>B {Math.round(volumeState.music * 100)}%</span>
+        <input type="range" min="0" max="1" step="0.01" value={volumeState.music} on:input={(event) => setVolume('music', Number((event.currentTarget as HTMLInputElement).value))} />
+      </label>
+      <label>
+        <span>S {Math.round(volumeState.sfx * 100)}%</span>
+        <input type="range" min="0" max="1" step="0.01" value={volumeState.sfx} on:input={(event) => setVolume('sfx', Number((event.currentTarget as HTMLInputElement).value))} />
+      </label>
+    </section>
+  {/if}
 
   {#if loadingMessage}
     <p class="panel loading">{loadingMessage}</p>
@@ -1347,9 +1334,7 @@
     <section class="hotbar" aria-label="Block hotbar">
       {#each hotbar as blockId, index}
         <button class:selected={selectedSlot === index} on:click={() => selectSlot(index)} aria-label={`Slot ${index + 1}`}>
-          <span class="slot-index">{index + 1}</span>
           <span class="slot-swatch" style={`background: ${blockId ? BLOCKS[blockId]?.color : '#444'}`}></span>
-          <span class="slot-name">{blockId ? BLOCKS[blockId]?.label : 'Empty'}</span>
           <span class="slot-count">{blockId ? inventory[blockId] ?? 0 : 0}</span>
         </button>
       {/each}
@@ -1371,8 +1356,7 @@
 
         <div class="touch-actions">
           <button on:pointerdown|preventDefault={queueJump}>Jump</button>
-          <p>Tap: break block</p>
-          <p>Two-finger tap: place selected block</p>
+          <button on:pointerdown|preventDefault={placeSelectedBlock}>Place</button>
         </div>
 
         <div
@@ -1389,26 +1373,6 @@
       </section>
     {/if}
   {/if}
-
-  <section class="panel monuments">
-    <h2>Monument Biomes</h2>
-    <ul>
-      {#each monumentsByDistance.slice(0, 4) as item}
-        <li>
-          <strong>{item.name}</strong>
-          <span>{item.biomeName} • {item.distance} blocks</span>
-        </li>
-      {/each}
-    </ul>
-  </section>
-
-  <section class="panel controls">
-    <h2>Controls</h2>
-    <p>Desktop: WASD move, Shift sprint, Space jump, left click break, right click place.</p>
-    <p>Hotbar: number keys 1-9 or mouse wheel.</p>
-    <p>Portals: step into portal cores to transfer between monument biomes.</p>
-    <p>Debug renderer: <a href="/debug-render">/debug-render</a></p>
-  </section>
 </main>
 
 <style>
@@ -1446,85 +1410,72 @@
     backdrop-filter: blur(2px);
   }
 
-  .top-panel {
+  .hud-minimal {
     top: 0.8rem;
     left: 0.8rem;
-    max-width: min(43rem, 64vw);
-    padding: 0.7rem 0.9rem;
+    max-width: min(33rem, 62vw);
+    padding: 0.55rem 0.7rem;
   }
 
-  .top-panel h1 {
+  .hud-minimal h1 {
     margin: 0;
-    font-size: 1.2rem;
+    font-size: 0.92rem;
     letter-spacing: 0.02em;
   }
 
-  .top-panel p {
-    margin: 0.32rem 0 0;
-    font-size: 0.86rem;
+  .hud-minimal p {
+    margin: 0;
+    margin-top: 0.2rem;
+    font-size: 0.72rem;
     color: #d4e6fb;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .status-line {
     color: #f4ffed;
   }
 
-  .hud {
-    top: 6.1rem;
-    left: 0.8rem;
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.34rem 0.75rem;
-    padding: 0.62rem 0.72rem;
-    max-width: min(34rem, 64vw);
+  .stats {
+    color: #b7cadf;
   }
 
-  .hud p {
-    margin: 0;
-    font-size: 0.8rem;
-    display: flex;
-    justify-content: space-between;
-    gap: 0.5rem;
-  }
-
-  .hud span {
-    color: #b4c9dd;
-  }
-
-  .hud strong {
-    color: #f7fbff;
-    text-align: right;
+  .audio-toggle {
+    top: 0.8rem;
+    right: 0.8rem;
+    z-index: 7;
+    font: inherit;
+    color: #e6f3ff;
+    padding: 0.38rem 0.65rem;
+    border-radius: 10px;
+    cursor: pointer;
   }
 
   .audio-panel {
-    top: 12.4rem;
-    left: 0.8rem;
-    width: min(22rem, 38vw);
-    padding: 0.58rem 0.68rem;
+    top: 3.2rem;
+    right: 0.8rem;
+    width: min(13rem, 34vw);
+    padding: 0.45rem 0.5rem;
     display: grid;
-    gap: 0.28rem;
-  }
-
-  .audio-panel h2 {
-    margin: 0 0 0.2rem;
-    font-size: 0.88rem;
+    gap: 0.2rem;
+    z-index: 7;
   }
 
   .audio-panel label {
-    display: grid;
-    gap: 0.2rem;
-    font-size: 0.7rem;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.66rem;
     color: #d8e9fb;
   }
 
-  .audio-panel input {
-    width: 100%;
+  .audio-panel span {
+    min-width: 2.2rem;
   }
 
-  .audio-panel p {
-    margin: 0.16rem 0 0;
-    font-size: 0.66rem;
-    color: #bad4f1;
+  .audio-panel input {
+    flex: 1;
   }
 
   .loading {
@@ -1553,27 +1504,29 @@
     left: 50%;
     bottom: 0.85rem;
     transform: translateX(-50%);
-    width: min(96vw, 72rem);
+    width: min(96vw, 34rem);
     z-index: 9;
     display: flex;
     justify-content: center;
-    gap: 0.28rem;
-    flex-wrap: wrap;
-    padding: 0.42rem;
-    border-radius: 13px;
+    gap: 0.22rem;
+    flex-wrap: nowrap;
+    padding: 0.3rem;
+    border-radius: 11px;
     border: 1px solid rgba(255, 255, 255, 0.2);
     background: rgba(6, 16, 28, 0.65);
     backdrop-filter: blur(2px);
   }
 
   .hotbar button {
-    min-width: 82px;
-    display: grid;
-    grid-template-columns: auto auto;
+    width: 36px;
+    min-width: 36px;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 0.25rem 0.35rem;
-    padding: 0.32rem 0.38rem;
-    border-radius: 8px;
+    justify-content: center;
+    gap: 0.18rem;
+    padding: 0.2rem 0.12rem;
+    border-radius: 7px;
     border: 1px solid rgba(255, 255, 255, 0.18);
     background: rgba(20, 44, 68, 0.82);
     color: #e9f6ff;
@@ -1582,96 +1535,21 @@
   }
 
   .hotbar button.selected {
-    outline: 2px solid #ffd768;
+    outline: 1px solid #ffd768;
     background: rgba(58, 89, 32, 0.92);
   }
 
-  .slot-index {
-    font-size: 0.64rem;
-    color: #d6dde8;
-  }
-
   .slot-swatch {
-    width: 14px;
-    height: 14px;
+    width: 11px;
+    height: 11px;
     border: 1px solid rgba(255, 255, 255, 0.6);
-    border-radius: 4px;
-  }
-
-  .slot-name {
-    grid-column: 2;
-    grid-row: 1 / span 2;
-    font-size: 0.64rem;
-    line-height: 1.1;
-    text-align: left;
+    border-radius: 3px;
   }
 
   .slot-count {
-    font-size: 0.66rem;
+    font-size: 0.58rem;
     color: #f9ffdf;
-  }
-
-  .monuments {
-    right: 0.8rem;
-    top: 0.8rem;
-    width: min(24rem, 32vw);
-    padding: 0.62rem;
-    max-height: 44vh;
-    overflow: auto;
-  }
-
-  .monuments h2,
-  .controls h2 {
-    margin: 0 0 0.45rem;
-    font-size: 0.94rem;
-  }
-
-  .monuments ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    display: grid;
-    gap: 0.32rem;
-  }
-
-  .monuments li {
-    display: flex;
-    justify-content: space-between;
-    gap: 0.34rem;
-    padding: 0.32rem 0.4rem;
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.08);
-    font-size: 0.78rem;
-  }
-
-  .monuments strong {
-    color: #f6fbff;
-  }
-
-  .monuments span {
-    color: #cbd8e7;
-    white-space: nowrap;
-    font-size: 0.72rem;
-  }
-
-  .controls {
-    right: 0.8rem;
-    top: 47vh;
-    width: min(24rem, 32vw);
-    padding: 0.62rem;
-    max-height: 30vh;
-    overflow: auto;
-  }
-
-  .controls p {
-    margin: 0.28rem 0 0;
-    font-size: 0.78rem;
-    line-height: 1.36;
-    color: #d5e4f4;
-  }
-
-  .controls a {
-    color: #bfe9ff;
+    line-height: 1;
   }
 
   .touch-ui {
@@ -1717,7 +1595,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.36rem;
+    gap: 0.28rem;
   }
 
   .touch-actions button {
@@ -1726,37 +1604,19 @@
     background: rgba(43, 90, 41, 0.92);
     color: #f4ffe8;
     font-weight: 700;
-    padding: 0.5rem 0.72rem;
-    font-size: 0.8rem;
+    padding: 0.32rem 0.5rem;
+    font-size: 0.72rem;
     cursor: pointer;
   }
 
-  .touch-actions p {
-    margin: 0;
-    font-size: 0.7rem;
-    color: #d8e7f5;
-    text-align: center;
-    background: rgba(6, 15, 26, 0.6);
-    border-radius: 8px;
-    padding: 0.28rem 0.4rem;
-  }
-
   @media (max-width: 980px) {
-    .monuments,
-    .controls {
-      width: min(20rem, 36vw);
-    }
-
     .audio-panel {
-      width: min(19rem, 42vw);
+      width: min(11rem, 46vw);
     }
   }
 
   @media (max-width: 820px) {
-    .top-panel,
-    .hud,
-    .monuments,
-    .controls,
+    .hud-minimal,
     .audio-panel {
       left: 0.7rem;
       right: 0.7rem;
@@ -1764,84 +1624,51 @@
       max-width: none;
     }
 
-    .hud {
-      top: 7.1rem;
-    }
-
     .audio-panel {
-      top: 12.6rem;
-    }
-
-    .monuments {
-      top: auto;
-      bottom: 18rem;
-      max-height: 16vh;
-    }
-
-    .controls {
-      top: auto;
-      bottom: 12.2rem;
-      max-height: 5.4rem;
-      overflow: auto;
+      top: 3.2rem;
     }
 
     .hotbar button {
-      min-width: 72px;
+      width: 34px;
+      min-width: 34px;
     }
   }
 
   @media (max-width: 560px) {
-    .top-panel {
-      padding: 0.56rem 0.64rem;
+    .hud-minimal {
+      padding: 0.45rem 0.56rem;
+      max-width: min(90vw, 24rem);
     }
 
-    .top-panel h1 {
-      font-size: 1.03rem;
-    }
-
-    .top-panel p {
-      font-size: 0.78rem;
-    }
-
-    .hud {
-      grid-template-columns: 1fr;
-      gap: 0.22rem;
-      padding: 0.5rem 0.56rem;
-      top: 6.6rem;
+    .hud-minimal h1 {
+      font-size: 0.84rem;
     }
 
     .audio-panel {
-      top: 11.3rem;
-      padding: 0.48rem 0.52rem;
+      top: 3rem;
+      padding: 0.4rem 0.46rem;
+    }
+
+    .audio-toggle {
+      padding: 0.32rem 0.52rem;
+      font-size: 0.76rem;
     }
 
     .hotbar {
       bottom: 0.45rem;
-      width: calc(100vw - 0.7rem);
+      width: calc(100vw - 0.6rem);
       gap: 0.2rem;
-      padding: 0.3rem;
+      padding: 0.24rem;
     }
 
     .hotbar button {
-      min-width: 63px;
-      padding: 0.28rem 0.3rem;
-    }
-
-    .slot-swatch {
-      width: 12px;
-      height: 12px;
-    }
-
-    .monuments {
-      bottom: 17.5rem;
-    }
-
-    .controls {
-      bottom: 11.7rem;
+      width: 30px;
+      min-width: 30px;
+      padding: 0.18rem 0.08rem;
     }
 
     .touch-ui {
-      bottom: 4.2rem;
+      bottom: 3.8rem;
       grid-template-columns: 88px auto 88px;
       padding: 0 0.3rem;
     }
