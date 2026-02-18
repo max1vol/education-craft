@@ -10,21 +10,31 @@ async function ensureDir(dir) {
 }
 
 async function captureDesktop(browser, relativePath, outputName, waitSelector = null) {
-  const page = await browser.newPage({
-    viewport: { width: 1600, height: 900 }
+  const context = await browser.newContext({
+    viewport: { width: 1440, height: 900 },
+    deviceScaleFactor: 1,
+    isMobile: false,
+    hasTouch: false
   });
+  const page = await context.newPage();
 
-  await page.goto(`${baseUrl}${relativePath}`, { waitUntil: 'domcontentloaded' });
+  await page.goto(`${baseUrl}${relativePath}`, { waitUntil: 'networkidle' });
   if (waitSelector) {
     await page.locator(waitSelector).first().waitFor({ timeout: 20000 }).catch(() => {});
   }
-  await page.waitForTimeout(2000);
+  await page.waitForTimeout(1800);
+
+  // Nudge pointer so hover/focus states are deterministic for capture.
+  const vp = page.viewportSize();
+  if (vp) {
+    await page.mouse.move(Math.floor(vp.width * 0.5), Math.floor(vp.height * 0.5));
+  }
 
   await page.screenshot({
     path: path.join(outputDir, outputName),
-    fullPage: true
+    fullPage: false
   });
-  await page.close();
+  await context.close();
 }
 
 async function captureMobile(browser, relativePath, outputName, waitSelector = null) {
@@ -33,7 +43,7 @@ async function captureMobile(browser, relativePath, outputName, waitSelector = n
   });
   const page = await context.newPage();
 
-  await page.goto(`${baseUrl}${relativePath}`, { waitUntil: 'domcontentloaded' });
+  await page.goto(`${baseUrl}${relativePath}`, { waitUntil: 'networkidle' });
   if (waitSelector) {
     await page.locator(waitSelector).first().waitFor({ timeout: 20000 }).catch(() => {});
   }
@@ -72,6 +82,7 @@ async function main() {
       'canvas'
     );
     await captureMobile(browser, '/', 'game-home-mobile.png', '.scene canvas');
+    await captureDesktop(browser, '/version', 'version-page-desktop.png', '.version-page');
   } finally {
     await browser.close();
   }

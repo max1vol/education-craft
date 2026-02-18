@@ -1,6 +1,12 @@
 # TODO
 
 ## In Progress
+- [x] Replace generated BGM set with licensed downloaded tracks and in-repo attribution/license notes.
+- [x] Add iPhone-safe-area layout handling for touch controls/HUD in portrait and landscape.
+- [x] Add `/version` route with commit hash, human-readable label, and recent changelog history.
+- [x] Keep FPS as compact corner indicator (no top banner HUD).
+- [x] Rework desktop screenshot capture settings/state and recapture representative desktop screenshots.
+- [x] Make `/version` canonical and redirect `/release` to `/version`.
 - [x] Fix touch single-tap mining reliability by raycasting from tap position and preserve two-finger placement.
 - [x] Move placement VFX spawn outside placed block faces so effect remains visible.
 - [x] Update touch input scheme: left joystick movement, right jump button, swipe-look on gameplay canvas, while preserving single-tap destroy and two-finger place.
@@ -36,6 +42,10 @@
 - 2026-02-18: Pushed incremental runnable commits to `origin/main` (`e59d179`, `bae96d5`).
 - 2026-02-18: Reworked touch controls to left joystick + right jump + swipe-look camera, preserved single-tap destroy/two-finger place, reran screenshot QA loop, and verified build success.
 - 2026-02-18: Fixed touch tap mining to use screen-position raycasts and adjusted place VFX to emit outside placed block faces; reran screenshot QA loop.
+- 2026-02-18: Replaced generated BGM files with licensed OpenGameArt tracks, added audio attribution/license docs, and verified browser audio asset loading.
+- 2026-02-18: Added safe-area-aware iPhone HUD/touch layout (`viewport-fit=cover` + `env(safe-area-inset-*)`) and validated portrait/landscape screenshots.
+- 2026-02-18: Added canonical `/version` route with repo-linked commit/changelog data and redirected `/release` to `/version`.
+- 2026-02-18: Simplified HUD to compact FPS corner chip and reworked desktop screenshot capture settings, then recaptured/validated desktop game/debug/version images.
 
 ## Notes
 - Forbidden term must not appear in repo content, UI text, commit messages, or generated assets.

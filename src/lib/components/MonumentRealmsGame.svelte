@@ -1401,12 +1401,7 @@
 <main class="game-page">
   <div class="scene" bind:this={sceneHost} aria-label="Monument Realms voxel world"></div>
 
-  <section class="panel hud-minimal">
-    <h1>Monument Realms</h1>
-    <p>{biomeLabel} • {portalHint}</p>
-    <p class="status-line">{status}</p>
-    <p class="stats">FPS {fps || '...'} • M {minedCount} • P {placedCount}</p>
-  </section>
+  <p class="fps-chip" aria-label="Frame rate">FPS {fps || '...'}</p>
 
   <button
     class="panel audio-toggle"
@@ -1489,6 +1484,10 @@
     width: 100vw;
     height: 100vh;
     overflow: hidden;
+    --safe-top: env(safe-area-inset-top, 0px);
+    --safe-right: env(safe-area-inset-right, 0px);
+    --safe-bottom: env(safe-area-inset-bottom, 0px);
+    --safe-left: env(safe-area-inset-left, 0px);
   }
 
   .scene {
@@ -1506,40 +1505,27 @@
     backdrop-filter: blur(2px);
   }
 
-  .hud-minimal {
-    top: 0.8rem;
-    left: 0.8rem;
-    max-width: min(33rem, 62vw);
-    padding: 0.55rem 0.7rem;
-  }
-
-  .hud-minimal h1 {
+  .fps-chip {
+    position: absolute;
+    top: calc(var(--safe-top) + 0.62rem);
+    left: calc(var(--safe-left) + 0.62rem);
+    z-index: 7;
     margin: 0;
-    font-size: 0.92rem;
+    padding: 0.28rem 0.5rem;
+    border-radius: 9px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: rgba(8, 20, 33, 0.56);
+    color: #d8e9fb;
+    font-size: 0.66rem;
+    line-height: 1;
     letter-spacing: 0.02em;
-  }
-
-  .hud-minimal p {
-    margin: 0;
-    margin-top: 0.2rem;
-    font-size: 0.72rem;
-    color: #d4e6fb;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .status-line {
-    color: #f4ffed;
-  }
-
-  .stats {
-    color: #b7cadf;
+    pointer-events: none;
+    backdrop-filter: blur(2px);
   }
 
   .audio-toggle {
-    top: 0.8rem;
-    right: 0.8rem;
+    top: calc(var(--safe-top) + 0.8rem);
+    right: calc(var(--safe-right) + 0.8rem);
     z-index: 7;
     font: inherit;
     color: #e6f3ff;
@@ -1549,8 +1535,8 @@
   }
 
   .audio-panel {
-    top: 3.2rem;
-    right: 0.8rem;
+    top: calc(var(--safe-top) + 3.2rem);
+    right: calc(var(--safe-right) + 0.8rem);
     width: min(13rem, 34vw);
     padding: 0.45rem 0.5rem;
     display: grid;
@@ -1597,10 +1583,11 @@
 
   .hotbar {
     position: absolute;
-    left: 50%;
-    bottom: 0.85rem;
-    transform: translateX(-50%);
-    width: min(96vw, 34rem);
+    left: calc(var(--safe-left) + 0.3rem);
+    right: calc(var(--safe-right) + 0.3rem);
+    bottom: calc(var(--safe-bottom) + 0.85rem);
+    margin: 0 auto;
+    width: min(calc(100vw - var(--safe-left) - var(--safe-right) - 0.6rem), 34rem);
     z-index: 9;
     display: flex;
     justify-content: center;
@@ -1650,9 +1637,9 @@
 
   .touch-ui {
     position: absolute;
-    left: 0.72rem;
-    right: 0.72rem;
-    bottom: 4.6rem;
+    left: calc(var(--safe-left) + 0.72rem);
+    right: calc(var(--safe-right) + 0.72rem);
+    bottom: calc(var(--safe-bottom) + 4.6rem);
     z-index: 10;
     display: flex;
     justify-content: space-between;
@@ -1715,16 +1702,15 @@
   }
 
   @media (max-width: 820px) {
-    .hud-minimal,
     .audio-panel {
-      left: 0.7rem;
-      right: 0.7rem;
+      left: calc(var(--safe-left) + 0.7rem);
+      right: calc(var(--safe-right) + 0.7rem);
       width: auto;
       max-width: none;
     }
 
     .audio-panel {
-      top: 3.2rem;
+      top: calc(var(--safe-top) + 3.2rem);
     }
 
     .hotbar button {
@@ -1734,13 +1720,11 @@
   }
 
   @media (max-width: 560px) {
-    .hud-minimal {
-      padding: 0.45rem 0.56rem;
-      max-width: min(90vw, 24rem);
-    }
-
-    .hud-minimal h1 {
-      font-size: 0.84rem;
+    .fps-chip {
+      top: calc(var(--safe-top) + 0.48rem);
+      left: calc(var(--safe-left) + 0.48rem);
+      padding: 0.24rem 0.42rem;
+      font-size: 0.62rem;
     }
 
     .audio-panel {
@@ -1754,8 +1738,8 @@
     }
 
     .hotbar {
-      bottom: 0.45rem;
-      width: calc(100vw - 0.6rem);
+      bottom: calc(var(--safe-bottom) + 0.45rem);
+      width: min(calc(100vw - var(--safe-left) - var(--safe-right) - 0.6rem), 34rem);
       gap: 0.2rem;
       padding: 0.24rem;
     }
@@ -1767,9 +1751,9 @@
     }
 
     .touch-ui {
-      left: 0.3rem;
-      right: 0.3rem;
-      bottom: 3.5rem;
+      left: calc(var(--safe-left) + 0.3rem);
+      right: calc(var(--safe-right) + 0.3rem);
+      bottom: calc(var(--safe-bottom) + 3.5rem);
     }
 
     .joystick {

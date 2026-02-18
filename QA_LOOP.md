@@ -28,6 +28,7 @@ Expected local URL from `npm run dev`: `http://127.0.0.1:5173`.
    GAME_URL=http://127.0.0.1:5173 node scripts/capture_debug_screenshots.mjs
    ```
 3. Review output in `docs/images/debug/`.
+4. Canonical release/version route for QA docs and captures is `/version` (not `/release`).
 
 ## 3) Manual gameplay checks
 
@@ -49,6 +50,9 @@ Focus on:
 - Flora distribution around biomes.
 - Portal and special blocks visible in dedicated layers.
 - Texture family candidates and winner previews.
+
+Version route checks:
+- Open `/version` and verify commit hash/label + recent changelog entries are present and readable on desktop/mobile.
 
 ## 5) Iteration loop
 

@@ -9,6 +9,7 @@
     "preview": "vite preview",
     "deploy": "wrangler deploy",
     "generate:audio": "node scripts/generate_audio_assets.mjs",
+    "generate:version": "node scripts/generate_version_snapshot.mjs",
     "capture:debug": "node scripts/capture_debug_screenshots.mjs",
     "playwright:install": "playwright install chromium"
   },

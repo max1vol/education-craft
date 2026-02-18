@@ -26,14 +26,16 @@ Rebuild this repo into an original, high-quality voxel first-person game with mo
 ## Rendering / Visual Quality
 - Avoid retro pixel-art direction.
 - Use modern, clean, high-quality textures + lighting.
+- **Strict requirement:** textures must be realistic/high-fidelity and must not look pixelated in final gameplay/debug captures.
 - Add interaction VFX (hit/break particles, placement feedback, subtle ambient effects) with good performance.
 
 ## Texture Pipeline (Nano Banana via Gemini CLI extension)
-- Use Nano Banana for texture generation.
+- **Primary source mandate:** use Nano Banana-generated assets as the primary texture source for terrain, block, and monument material families.
 - Use reference texture conditioning inputs to enforce style consistency.
 - For each key texture family, generate >= 3 candidates.
 - Render and compare candidates in-scene/debug views.
 - Pick and integrate best-fitting candidates.
+- Before finalizing texture selections, run screenshot QA loops and inspect captures with `view_image` to confirm de-pixelated, realistic fidelity.
 
 ## Audio
 - Add satisfying block break/place SFX with variation and balanced volume.
