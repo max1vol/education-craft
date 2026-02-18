@@ -12,7 +12,7 @@
 - [x] Add explicit run/verify workflow docs (launch app, open browser, interaction checks).
 - [x] Add automated screenshot capture into `docs/images/debug`.
 - [x] Run checks/build and fix issues.
-- [ ] Commit and push incremental runnable states to `origin/main`.
+- [x] Commit and push incremental runnable states to `origin/main`.
 
 ## Active Plan (Current Iteration)
 - [x] Move gameplay route to thin wrapper and run game from `src/lib` modules/components.
@@ -30,6 +30,7 @@
 - 2026-02-18: Ran Nano Banana texture candidate generation (style-conditioned references), staged 3+ candidates per key family, selected winners, wired texture pipeline metadata.
 - 2026-02-18: Added QA workflow docs (`QA_LOOP.md`, `docs/texture-pipeline.md`, `docs/audio-sources.md`) and screenshot automation script.
 - 2026-02-18: Ran browser QA loop with automated captures + `view_image` inspection, tuned spawn orientation and environment density, then re-captured verified screenshots.
+- 2026-02-18: Pushed incremental runnable commits to `origin/main` (`e59d179`, `bae96d5`).
 
 ## Notes
 - Forbidden term must not appear in repo content, UI text, commit messages, or generated assets.
