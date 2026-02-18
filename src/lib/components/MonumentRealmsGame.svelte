@@ -218,7 +218,19 @@
     }
   };
 
-  const spawnPlaceParticles = (x: number, y: number, z: number): void => {
+  const spawnPlaceParticles = (
+    x: number,
+    y: number,
+    z: number,
+    normal?: { x: number; y: number; z: number }
+  ): void => {
+    const outward = normal ?? { x: 0, y: 1, z: 0 };
+    const length = Math.hypot(outward.x, outward.y, outward.z) || 1;
+    const nx = outward.x / length;
+    const ny = outward.y / length;
+    const nz = outward.z / length;
+    const faceOffset = 0.62;
+
     for (let i = 0; i < 6; i += 1) {
       const material = new THREE.MeshStandardMaterial({
         color: '#b9f4ff',
@@ -230,13 +242,30 @@
         metalness: 0.1
       });
       const mesh = new THREE.Mesh(fxCubeGeometry, material);
-      mesh.position.set(x + 0.5, y + 0.55, z + 0.5);
+      const spawnDirection = new THREE.Vector3(nx, ny, nz);
+      spawnDirection.x += (Math.random() - 0.5) * 0.36;
+      spawnDirection.y += (Math.random() - 0.5) * 0.36;
+      spawnDirection.z += (Math.random() - 0.5) * 0.36;
+      if (spawnDirection.lengthSq() < 0.01) {
+        spawnDirection.set(nx, ny, nz);
+      }
+      spawnDirection.normalize();
+      const offsetDistance = faceOffset + 0.1 + Math.random() * 0.24;
+      mesh.position.set(
+        x + 0.5 + spawnDirection.x * offsetDistance,
+        y + 0.5 + spawnDirection.y * offsetDistance,
+        z + 0.5 + spawnDirection.z * offsetDistance
+      );
       mesh.scale.multiplyScalar(0.7 + Math.random() * 0.5);
 
       worldGroup.add(mesh);
       placeFx.push({
         mesh,
-        velocity: new THREE.Vector3((Math.random() - 0.5) * 1.8, 0.6 + Math.random() * 1.4, (Math.random() - 0.5) * 1.8),
+        velocity: new THREE.Vector3(
+          nx * 1.8 + (Math.random() - 0.5) * 1.2,
+          ny * 1.8 + 0.45 + Math.random() * 1.05,
+          nz * 1.8 + (Math.random() - 0.5) * 1.2
+        ),
         life: 0.32 + Math.random() * 0.2,
         maxLife: 0.32,
         gravity: 4.5
@@ -569,11 +598,13 @@
     camera.position.set(player.x, player.y + PLAYER_EYE_HEIGHT, player.z);
   };
 
-  const voxelRaycast = (maxDistance = INTERACT_RANGE): HitResult | null => {
-    const origin = camera.position;
-    const dir = new THREE.Vector3();
-    camera.getWorldDirection(dir);
+  const rayDirection = new THREE.Vector3();
 
+  const voxelRaycastFromRay = (
+    origin: THREE.Vector3,
+    dir: THREE.Vector3,
+    maxDistance = INTERACT_RANGE
+  ): HitResult | null => {
     let x = Math.floor(origin.x);
     let y = Math.floor(origin.y);
     let z = Math.floor(origin.z);
@@ -672,6 +703,32 @@
     return null;
   };
 
+  const voxelRaycast = (maxDistance = INTERACT_RANGE): HitResult | null => {
+    camera.getWorldDirection(rayDirection);
+    return voxelRaycastFromRay(camera.position, rayDirection, maxDistance);
+  };
+
+  const voxelRaycastFromScreen = (
+    clientX: number,
+    clientY: number,
+    maxDistance = INTERACT_RANGE
+  ): HitResult | null => {
+    const rect = renderer.domElement.getBoundingClientRect();
+    if (rect.width <= 0 || rect.height <= 0) {
+      return voxelRaycast(maxDistance);
+    }
+
+    const ndcX = ((clientX - rect.left) / rect.width) * 2 - 1;
+    const ndcY = -((clientY - rect.top) / rect.height) * 2 + 1;
+    rayDirection
+      .set(ndcX, ndcY, 0.5)
+      .unproject(camera)
+      .sub(camera.position)
+      .normalize();
+
+    return voxelRaycastFromRay(camera.position, rayDirection, maxDistance);
+  };
+
   const blockIntersectsPlayer = (x: number, y: number, z: number): boolean => {
     const blockMinX = x;
     const blockMaxX = x + 1;
@@ -697,8 +754,8 @@
     );
   };
 
-  const mineTarget = (): void => {
-    const hit = currentTarget ?? voxelRaycast();
+  const mineTarget = (targetOverride: HitResult | null = null): void => {
+    const hit = targetOverride ?? currentTarget ?? voxelRaycast();
     if (!hit) {
       status = 'No block in range.';
       return;
@@ -792,7 +849,7 @@
     placedCount += 1;
     status = `Placed ${def.label}.`;
 
-    spawnPlaceParticles(targetX, targetY, targetZ);
+    spawnPlaceParticles(targetX, targetY, targetZ, hit.normal);
     audio?.playSfx('place');
     refreshChunksNearBlock(targetX, targetZ);
   };
@@ -1231,6 +1288,8 @@
       let endedTap = false;
       let shouldMine = false;
       let endedLook = false;
+      let tapClientX = 0;
+      let tapClientY = 0;
 
       for (let i = 0; i < event.changedTouches.length; i += 1) {
         const changedTouch = event.changedTouches.item(i);
@@ -1240,6 +1299,8 @@
           endedTap = true;
           const duration = performance.now() - touchTap.startTime;
           shouldMine = !touchTap.moved && duration <= TOUCH_TAP_MAX_DURATION_MS;
+          tapClientX = changedTouch.clientX;
+          tapClientY = changedTouch.clientY;
         }
 
         if (touchLook.identifier === changedTouch.identifier) {
@@ -1250,7 +1311,7 @@
       if (endedTap) {
         clearTouchTapState();
         if (shouldMine) {
-          mineTarget();
+          mineTarget(voxelRaycastFromScreen(tapClientX, tapClientY));
         }
       }
 

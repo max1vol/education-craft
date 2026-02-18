@@ -1,6 +1,8 @@
 # TODO
 
 ## In Progress
+- [x] Fix touch single-tap mining reliability by raycasting from tap position and preserve two-finger placement.
+- [x] Move placement VFX spawn outside placed block faces so effect remains visible.
 - [x] Update touch input scheme: left joystick movement, right jump button, swipe-look on gameplay canvas, while preserving single-tap destroy and two-finger place.
 - [x] Replace previous gameplay with first-person voxel sandbox baseline.
 - [x] Refactor world generation into shared module for game + debug renderer.
@@ -33,6 +35,7 @@
 - 2026-02-18: Ran browser QA loop with automated captures + `view_image` inspection, tuned spawn orientation and environment density, then re-captured verified screenshots.
 - 2026-02-18: Pushed incremental runnable commits to `origin/main` (`e59d179`, `bae96d5`).
 - 2026-02-18: Reworked touch controls to left joystick + right jump + swipe-look camera, preserved single-tap destroy/two-finger place, reran screenshot QA loop, and verified build success.
+- 2026-02-18: Fixed touch tap mining to use screen-position raycasts and adjusted place VFX to emit outside placed block faces; reran screenshot QA loop.
 
 ## Notes
 - Forbidden term must not appear in repo content, UI text, commit messages, or generated assets.
