@@ -133,6 +133,10 @@
 
   let jumpQueued = false;
   let portalCooldown = 0;
+  const TOUCH_LOOK_SENSITIVITY_X = POINTER_SENSITIVITY_X * 1.6;
+  const TOUCH_LOOK_SENSITIVITY_Y = POINTER_SENSITIVITY_Y * 1.6;
+  const TOUCH_TAP_MOVE_THRESHOLD_PX = 12;
+  const TOUCH_TAP_MAX_DURATION_MS = TAP_DELAY_MS * 3;
 
   const moveStick = {
     pointerId: null as number | null,
@@ -142,21 +146,24 @@
     y: 0
   };
 
-  const lookStick = {
-    pointerId: null as number | null,
-    centerX: 0,
-    centerY: 0,
-    x: 0,
-    y: 0
+  const touchLook = {
+    identifier: null as number | null,
+    lastX: 0,
+    lastY: 0
+  };
+
+  const touchTap = {
+    identifier: null as number | null,
+    startX: 0,
+    startY: 0,
+    startTime: 0,
+    moved: false
   };
 
   let moveKnobX = 0;
   let moveKnobY = 0;
-  let lookKnobX = 0;
-  let lookKnobY = 0;
 
   let currentTarget: HitResult | null = null;
-  let queuedSingleTap: ReturnType<typeof setTimeout> | null = null;
 
   let showAudioPanel = false;
 
@@ -843,13 +850,13 @@
   };
 
   const queueJump = (): void => {
+    ensureAudioUnlocked();
     jumpQueued = true;
   };
 
   const updateJoystickFromPointer = (
     stick: { pointerId: number | null; centerX: number; centerY: number; x: number; y: number },
-    event: PointerEvent,
-    isLook: boolean
+    event: PointerEvent
   ): void => {
     if (stick.pointerId !== event.pointerId) return;
 
@@ -864,20 +871,13 @@
     stick.x = nx;
     stick.y = ny;
 
-    const knobX = nx * JOYSTICK_RADIUS * 0.55;
-    const knobY = ny * JOYSTICK_RADIUS * 0.55;
-
-    if (isLook) {
-      lookKnobX = knobX;
-      lookKnobY = knobY;
-    } else {
-      moveKnobX = knobX;
-      moveKnobY = knobY;
-    }
+    moveKnobX = nx * JOYSTICK_RADIUS * 0.55;
+    moveKnobY = ny * JOYSTICK_RADIUS * 0.55;
   };
 
   const startMoveJoystick = (event: PointerEvent): void => {
     if (event.pointerType !== 'touch' && event.pointerType !== 'pen') return;
+    ensureAudioUnlocked();
 
     const target = event.currentTarget as HTMLElement;
     const rect = target.getBoundingClientRect();
@@ -894,7 +894,7 @@
   };
 
   const updateMoveJoystick = (event: PointerEvent): void => {
-    updateJoystickFromPointer(moveStick, event, false);
+    updateJoystickFromPointer(moveStick, event);
     event.preventDefault();
   };
 
@@ -915,43 +915,36 @@
     event.preventDefault();
   };
 
-  const startLookJoystick = (event: PointerEvent): void => {
-    if (event.pointerType !== 'touch' && event.pointerType !== 'pen') return;
-
-    const target = event.currentTarget as HTMLElement;
-    const rect = target.getBoundingClientRect();
-    lookStick.pointerId = event.pointerId;
-    lookStick.centerX = rect.left + rect.width / 2;
-    lookStick.centerY = rect.top + rect.height / 2;
-    lookStick.x = 0;
-    lookStick.y = 0;
-    lookKnobX = 0;
-    lookKnobY = 0;
-
-    target.setPointerCapture(event.pointerId);
-    event.preventDefault();
+  const clearTouchTapState = (): void => {
+    touchTap.identifier = null;
+    touchTap.startX = 0;
+    touchTap.startY = 0;
+    touchTap.startTime = 0;
+    touchTap.moved = false;
   };
 
-  const updateLookJoystick = (event: PointerEvent): void => {
-    updateJoystickFromPointer(lookStick, event, true);
-    event.preventDefault();
-  };
-
-  const releaseLookJoystick = (event: PointerEvent): void => {
-    if (lookStick.pointerId !== event.pointerId) return;
-
-    const target = event.currentTarget as HTMLElement;
-    lookStick.pointerId = null;
-    lookStick.x = 0;
-    lookStick.y = 0;
-    lookKnobX = 0;
-    lookKnobY = 0;
-
-    if (target.hasPointerCapture(event.pointerId)) {
-      target.releasePointerCapture(event.pointerId);
+  const setTouchLookState = (touch: Touch | null): void => {
+    if (!touch) {
+      touchLook.identifier = null;
+      touchLook.lastX = 0;
+      touchLook.lastY = 0;
+      return;
     }
 
-    event.preventDefault();
+    touchLook.identifier = touch.identifier;
+    touchLook.lastX = touch.clientX;
+    touchLook.lastY = touch.clientY;
+  };
+
+  const findTouchByIdentifier = (touches: TouchList, identifier: number): Touch | null => {
+    for (let i = 0; i < touches.length; i += 1) {
+      const item = touches.item(i);
+      if (item && item.identifier === identifier) {
+        return item;
+      }
+    }
+
+    return null;
   };
 
   const webglAvailable = (): boolean => {
@@ -1062,12 +1055,6 @@
       const now = performance.now();
       const delta = Math.min((now - lastTick) / 1000, 0.05);
       lastTick = now;
-
-      if (lookStick.pointerId !== null) {
-        yaw -= lookStick.x * 2.6 * delta;
-        pitch -= lookStick.y * 2.2 * delta;
-        clampPitch();
-      }
 
       updateMovement(delta);
       ensureChunks(false);
@@ -1189,33 +1176,95 @@
       ensureAudioUnlocked();
       event.preventDefault();
 
-      if (event.touches.length >= 2) {
-        if (queuedSingleTap) {
-          clearTimeout(queuedSingleTap);
-          queuedSingleTap = null;
-        }
+      const activeTouches = event.targetTouches;
+
+      if (activeTouches.length >= 2) {
+        clearTouchTapState();
+        setTouchLookState(null);
         placeSelectedBlock();
         return;
       }
 
-      if (event.touches.length === 1) {
-        if (queuedSingleTap) {
-          clearTimeout(queuedSingleTap);
-          queuedSingleTap = null;
-        }
-
-        queuedSingleTap = setTimeout(() => {
-          mineTarget();
-          queuedSingleTap = null;
-        }, TAP_DELAY_MS);
+      if (activeTouches.length === 1) {
+        const touch = activeTouches.item(0);
+        if (!touch) return;
+        touchTap.identifier = touch.identifier;
+        touchTap.startX = touch.clientX;
+        touchTap.startY = touch.clientY;
+        touchTap.startTime = performance.now();
+        touchTap.moved = false;
+        setTouchLookState(touch);
       }
     };
 
-    const handleTouchEnd = (event: TouchEvent): void => {
-      if (event.touches.length >= 2 && queuedSingleTap) {
-        clearTimeout(queuedSingleTap);
-        queuedSingleTap = null;
+    const handleTouchMove = (event: TouchEvent): void => {
+      if (!isTouchDevice) return;
+      event.preventDefault();
+      if (touchLook.identifier === null) return;
+
+      const touch = findTouchByIdentifier(event.targetTouches, touchLook.identifier);
+      if (!touch) return;
+
+      const dx = touch.clientX - touchLook.lastX;
+      const dy = touch.clientY - touchLook.lastY;
+      if (dx !== 0 || dy !== 0) {
+        yaw -= dx * TOUCH_LOOK_SENSITIVITY_X;
+        pitch -= dy * TOUCH_LOOK_SENSITIVITY_Y;
+        clampPitch();
       }
+
+      touchLook.lastX = touch.clientX;
+      touchLook.lastY = touch.clientY;
+
+      if (touchTap.identifier === touch.identifier && !touchTap.moved) {
+        const movedDistance = Math.hypot(touch.clientX - touchTap.startX, touch.clientY - touchTap.startY);
+        if (movedDistance > TOUCH_TAP_MOVE_THRESHOLD_PX) {
+          touchTap.moved = true;
+        }
+      }
+
+    };
+
+    const handleTouchEnd = (event: TouchEvent): void => {
+      if (!isTouchDevice) return;
+
+      let endedTap = false;
+      let shouldMine = false;
+      let endedLook = false;
+
+      for (let i = 0; i < event.changedTouches.length; i += 1) {
+        const changedTouch = event.changedTouches.item(i);
+        if (!changedTouch) continue;
+
+        if (touchTap.identifier === changedTouch.identifier) {
+          endedTap = true;
+          const duration = performance.now() - touchTap.startTime;
+          shouldMine = !touchTap.moved && duration <= TOUCH_TAP_MAX_DURATION_MS;
+        }
+
+        if (touchLook.identifier === changedTouch.identifier) {
+          endedLook = true;
+        }
+      }
+
+      if (endedTap) {
+        clearTouchTapState();
+        if (shouldMine) {
+          mineTarget();
+        }
+      }
+
+      if (endedLook) {
+        const nextLookTouch = event.targetTouches.item(0);
+        setTouchLookState(nextLookTouch);
+      }
+
+      if (event.targetTouches.length === 0) {
+        clearTouchTapState();
+        setTouchLookState(null);
+      }
+
+      event.preventDefault();
     };
 
     window.addEventListener('resize', handleResize);
@@ -1228,16 +1277,14 @@
     renderer.domElement.addEventListener('contextmenu', handleContextMenu);
     renderer.domElement.addEventListener('wheel', handleWheel, { passive: false });
     renderer.domElement.addEventListener('touchstart', handleTouchStart, { passive: false });
+    renderer.domElement.addEventListener('touchmove', handleTouchMove, { passive: false });
     renderer.domElement.addEventListener('touchend', handleTouchEnd, { passive: false });
     renderer.domElement.addEventListener('touchcancel', handleTouchEnd, { passive: false });
 
     return () => {
       cancelAnimationFrame(frameId);
-
-      if (queuedSingleTap) {
-        clearTimeout(queuedSingleTap);
-        queuedSingleTap = null;
-      }
+      clearTouchTapState();
+      setTouchLookState(null);
 
       window.removeEventListener('resize', handleResize);
       window.removeEventListener('mousemove', handleMouseMove);
@@ -1249,6 +1296,7 @@
       renderer.domElement.removeEventListener('contextmenu', handleContextMenu);
       renderer.domElement.removeEventListener('wheel', handleWheel);
       renderer.domElement.removeEventListener('touchstart', handleTouchStart);
+      renderer.domElement.removeEventListener('touchmove', handleTouchMove);
       renderer.domElement.removeEventListener('touchend', handleTouchEnd);
       renderer.domElement.removeEventListener('touchcancel', handleTouchEnd);
 
@@ -1343,7 +1391,7 @@
     {#if isTouchDevice}
       <section class="touch-ui" aria-label="Touch controls">
         <div
-          class="joystick"
+          class="joystick move-joystick"
           role="group"
           aria-label="Movement joystick"
           on:pointerdown={startMoveJoystick}
@@ -1355,20 +1403,7 @@
         </div>
 
         <div class="touch-actions">
-          <button on:pointerdown|preventDefault={queueJump}>Jump</button>
-          <button on:pointerdown|preventDefault={placeSelectedBlock}>Place</button>
-        </div>
-
-        <div
-          class="joystick"
-          role="group"
-          aria-label="Look joystick"
-          on:pointerdown={startLookJoystick}
-          on:pointermove={updateLookJoystick}
-          on:pointerup={releaseLookJoystick}
-          on:pointercancel={releaseLookJoystick}
-        >
-          <div class="joystick-knob" style={`transform: translate(${lookKnobX}px, ${lookKnobY}px);`}></div>
+          <button class="jump-button" on:pointerdown|preventDefault={queueJump}>Jump</button>
         </div>
       </section>
     {/if}
@@ -1554,14 +1589,13 @@
 
   .touch-ui {
     position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 4.9rem;
+    left: 0.72rem;
+    right: 0.72rem;
+    bottom: 4.6rem;
     z-index: 10;
-    display: grid;
-    grid-template-columns: 108px auto 108px;
+    display: flex;
+    justify-content: space-between;
     align-items: end;
-    padding: 0 0.72rem;
     pointer-events: none;
   }
 
@@ -1590,23 +1624,27 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.35);
   }
 
+  .move-joystick {
+    flex: 0 0 auto;
+  }
+
   .touch-actions {
     pointer-events: auto;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    gap: 0.28rem;
   }
 
-  .touch-actions button {
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 9px;
-    background: rgba(43, 90, 41, 0.92);
+  .jump-button {
+    width: 94px;
+    height: 94px;
+    border: 1px solid rgba(255, 255, 255, 0.24);
+    border-radius: 999px;
+    background: rgba(39, 82, 36, 0.92);
     color: #f4ffe8;
     font-weight: 700;
-    padding: 0.32rem 0.5rem;
-    font-size: 0.72rem;
+    font-size: 0.78rem;
     cursor: pointer;
+    touch-action: manipulation;
   }
 
   @media (max-width: 980px) {
@@ -1668,9 +1706,9 @@
     }
 
     .touch-ui {
-      bottom: 3.8rem;
-      grid-template-columns: 88px auto 88px;
-      padding: 0 0.3rem;
+      left: 0.3rem;
+      right: 0.3rem;
+      bottom: 3.5rem;
     }
 
     .joystick {
@@ -1683,6 +1721,12 @@
       height: 36px;
       margin-left: -18px;
       margin-top: -18px;
+    }
+
+    .jump-button {
+      width: 80px;
+      height: 80px;
+      font-size: 0.72rem;
     }
   }
 </style>

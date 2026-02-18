@@ -1,6 +1,7 @@
 # TODO
 
 ## In Progress
+- [x] Update touch input scheme: left joystick movement, right jump button, swipe-look on gameplay canvas, while preserving single-tap destroy and two-finger place.
 - [x] Replace previous gameplay with first-person voxel sandbox baseline.
 - [x] Refactor world generation into shared module for game + debug renderer.
 - [x] Add `/debug-render` top-down and side-view inspection modes.
@@ -31,6 +32,7 @@
 - 2026-02-18: Added QA workflow docs (`QA_LOOP.md`, `docs/texture-pipeline.md`, `docs/audio-sources.md`) and screenshot automation script.
 - 2026-02-18: Ran browser QA loop with automated captures + `view_image` inspection, tuned spawn orientation and environment density, then re-captured verified screenshots.
 - 2026-02-18: Pushed incremental runnable commits to `origin/main` (`e59d179`, `bae96d5`).
+- 2026-02-18: Reworked touch controls to left joystick + right jump + swipe-look camera, preserved single-tap destroy/two-finger place, reran screenshot QA loop, and verified build success.
 
 ## Notes
 - Forbidden term must not appear in repo content, UI text, commit messages, or generated assets.
