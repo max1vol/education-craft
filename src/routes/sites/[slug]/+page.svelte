@@ -1,5 +1,5 @@
 <svelte:head>
-  <title>{data.site.name} | Historical Site</title>
+  <title>{data.site.name} | Developer Notes</title>
 </svelte:head>
 
 <script>
@@ -9,6 +9,11 @@
   let activeIndex = -1;
 
   $: activeImage = activeIndex >= 0 ? data.images[activeIndex] : null;
+  $: officialPhotos = data.visualPack?.officialPhotos ?? [];
+  $: officialIllustrations = data.visualPack?.officialIllustrations ?? [];
+  $: createdIllustrations = data.visualPack?.createdIllustrations ?? [];
+  $: materialReferences = data.referenceVisuals?.materials ?? [];
+  $: toolReferences = data.referenceVisuals?.tools ?? [];
 
   function openModal(index) {
     activeIndex = index;
@@ -48,24 +53,39 @@
 <main class="site-page">
   <a class="back-link" href="/sites">← Back to timeline</a>
 
-  <header class="site-head">
-    <p class="epoch">{data.site.epoch}</p>
-    <h1>{data.site.name}</h1>
-    <p class="meta">{data.site.region} · {data.site.yearRange}</p>
-    <p class="idea">{data.site.idea}</p>
+  <header class="hero">
+    <div class="hero-main">
+      <p class="eyebrow">Site dossier</p>
+      <h1>{data.site.name}</h1>
+      <p class="meta">{data.site.region} · {data.site.epoch} · {data.site.yearRange}</p>
+      <p class="idea">{data.site.idea}</p>
+      <p class="summary">{data.site.blurb}</p>
+    </div>
+    <div class="hero-side">
+      <article>
+        <h2>Provenance Key</h2>
+        <p><span class="badge official">Official Source</span> from Wikipedia / Wikimedia Commons with source links.</p>
+        <p><span class="badge created">Created Illustration</span> generated in-project for teaching comparison.</p>
+      </article>
+      <article>
+        <h2>Coverage</h2>
+        <p>{data.images.length} reconstruction gallery images</p>
+        <p>{officialPhotos.length + officialIllustrations.length} official visuals</p>
+        <p>{createdIllustrations.length} created visuals</p>
+      </article>
+    </div>
   </header>
 
-  <section class="story-grid">
+  <section class="info-grid">
     <article class="panel">
       <h2>Origin Story</h2>
       <p>{data.site.originStory}</p>
-      <p>{data.site.blurb}</p>
-      <p><strong>Cultural Context:</strong> {data.site.culture}</p>
+      <p><strong>Cultural context:</strong> {data.site.culture}</p>
     </article>
 
     <article class="panel">
-      <h2>Key Timeline Events</h2>
-      <ol>
+      <h2>Famous Timeline Events</h2>
+      <ol class="timeline-list">
         {#each data.events as event}
           <li>
             <span class="year">{formatYear(event.year)}</span>
@@ -77,24 +97,9 @@
         {/each}
       </ol>
     </article>
-  </section>
-
-  <section class="construction-grid">
-    <article class="panel">
-      <h2>Building Materials</h2>
-      {#if data.construction?.materials?.length}
-        <ul class="bullet-list">
-          {#each data.construction.materials as material}
-            <li>{material}</li>
-          {/each}
-        </ul>
-      {:else}
-        <p>Material records are still being curated for this site.</p>
-      {/if}
-    </article>
 
     <article class="panel">
-      <h2>Construction Methods & Tools</h2>
+      <h2>Construction Summary</h2>
       {#if data.construction?.constructionMethods?.length}
         <p class="mini-head">Methods</p>
         <ul class="bullet-list">
@@ -103,44 +108,187 @@
           {/each}
         </ul>
       {/if}
+      {#if data.construction?.materials?.length}
+        <p class="mini-head">Materials</p>
+        <ul class="bullet-list">
+          {#each data.construction.materials as material}
+            <li>{material}</li>
+          {/each}
+        </ul>
+      {/if}
       {#if data.construction?.constructionTools?.length}
-        <p class="mini-head">Likely tools used</p>
+        <p class="mini-head">Likely tools</p>
         <ul class="bullet-list">
           {#each data.construction.constructionTools as tool}
             <li>{tool}</li>
           {/each}
         </ul>
-      {:else}
-        <p>Tools are still being curated for this site.</p>
       {/if}
-      {#if data.construction?.toolsInferred}
+      {#if data.construction?.notes}
         <p class="small-note">{data.construction.notes}</p>
       {/if}
     </article>
+  </section>
 
-    <article class="panel">
-      <h2>Construction Data Sources</h2>
-      {#if data.construction?.sources?.length}
-        <ul class="source-list">
-          {#each data.construction.sources as source}
-            <li>
-              <a href={source.url} target="_blank" rel="noreferrer">{source.title}</a>
-            </li>
-          {/each}
-        </ul>
-      {:else}
-        <p>Source links will be added during curation updates.</p>
-      {/if}
-      {#if data.construction?.lastUpdated}
-        <p class="small-note">Updated: {data.construction.lastUpdated}</p>
-      {/if}
-    </article>
+  <section class="visual-section">
+    <div class="section-head">
+      <h2>Official Pictures and Illustrations</h2>
+      <p>All cards below include source links and license text.</p>
+    </div>
+
+    <div class="visual-grid">
+      {#each officialPhotos as media}
+        <article class="visual-card">
+          <div class="visual-top">
+            <span class="badge official">Official Source</span>
+            <span class="kind">Photo</span>
+          </div>
+          <img src={media.imageUrl} alt={media.title} loading="lazy" />
+          <h3>{media.title}</h3>
+          <p class="meta-line">{media.sourceName} · {media.license}</p>
+          {#if media.author}
+            <p class="meta-line">Author: {media.author}</p>
+          {/if}
+          {#if media.sourceUrl}
+            <a class="source-link" href={media.sourceUrl} target="_blank" rel="noreferrer">Open official source</a>
+          {/if}
+        </article>
+      {/each}
+
+      {#each officialIllustrations as media}
+        <article class="visual-card">
+          <div class="visual-top">
+            <span class="badge official">Official Source</span>
+            <span class="kind">Illustration</span>
+          </div>
+          <img src={media.imageUrl} alt={media.title} loading="lazy" />
+          <h3>{media.title}</h3>
+          <p class="meta-line">{media.sourceName} · {media.license}</p>
+          {#if media.author}
+            <p class="meta-line">Author: {media.author}</p>
+          {/if}
+          {#if media.sourceUrl}
+            <a class="source-link" href={media.sourceUrl} target="_blank" rel="noreferrer">Open official source</a>
+          {/if}
+        </article>
+      {/each}
+    </div>
+  </section>
+
+  <section class="visual-section">
+    <div class="section-head">
+      <h2>Created Illustrations</h2>
+      <p>These were created in-project for educational explanation and are not archaeological originals.</p>
+    </div>
+
+    <div class="visual-grid">
+      {#each createdIllustrations as media}
+        <article class="visual-card">
+          <div class="visual-top">
+            <span class="badge created">Created Illustration</span>
+            <span class="kind">Project</span>
+          </div>
+          <img src={media.imageUrl} alt={media.title} loading="lazy" />
+          <h3>{media.title}</h3>
+          {#if media.description}
+            <p class="meta-line">{media.description}</p>
+          {/if}
+          <p class="meta-line">{media.sourceName} · {media.license}</p>
+        </article>
+      {/each}
+    </div>
+  </section>
+
+  <section class="visual-section">
+    <div class="section-head">
+      <h2>Building Materials Reference</h2>
+      <p>Each material shows an official reference image and a created comparison illustration.</p>
+    </div>
+
+    <div class="reference-grid">
+      {#each materialReferences as material}
+        <article class="reference-card">
+          <h3>{material.label}</h3>
+          <div class="split">
+            <article class="mini-card">
+              <p class="mini-headline"><span class="badge official">Official Source</span></p>
+              {#if material.official}
+                <img src={material.official.imageUrl} alt={material.official.title} loading="lazy" />
+                <p>{material.official.title}</p>
+                <p class="meta-line">{material.official.license}</p>
+                <a class="source-link" href={material.official.sourceUrl} target="_blank" rel="noreferrer">Source</a>
+              {:else}
+                <p>Official image unavailable.</p>
+              {/if}
+            </article>
+
+            <article class="mini-card">
+              <p class="mini-headline"><span class="badge created">Created Illustration</span></p>
+              <img src={material.created.imageUrl} alt={material.created.title} loading="lazy" />
+              <p>{material.created.title}</p>
+            </article>
+          </div>
+        </article>
+      {/each}
+    </div>
+  </section>
+
+  <section class="visual-section">
+    <div class="section-head">
+      <h2>Construction Tools Reference</h2>
+      <p>Official tool visuals are paired with created visuals for classroom comparison.</p>
+    </div>
+
+    <div class="reference-grid">
+      {#each toolReferences as tool}
+        <article class="reference-card">
+          <h3>{tool.label}</h3>
+          <div class="split">
+            <article class="mini-card">
+              <p class="mini-headline"><span class="badge official">Official Source</span></p>
+              {#if tool.official}
+                <img src={tool.official.imageUrl} alt={tool.official.title} loading="lazy" />
+                <p>{tool.official.title}</p>
+                <p class="meta-line">{tool.official.license}</p>
+                <a class="source-link" href={tool.official.sourceUrl} target="_blank" rel="noreferrer">Source</a>
+              {:else}
+                <p>Official image unavailable.</p>
+              {/if}
+            </article>
+
+            <article class="mini-card">
+              <p class="mini-headline"><span class="badge created">Created Illustration</span></p>
+              <img src={tool.created.imageUrl} alt={tool.created.title} loading="lazy" />
+              <p>{tool.created.title}</p>
+            </article>
+          </div>
+        </article>
+      {/each}
+    </div>
+  </section>
+
+  <section class="sources panel">
+    <h2>Construction Data Sources</h2>
+    {#if data.construction?.sources?.length}
+      <ul class="source-list">
+        {#each data.construction.sources as source}
+          <li>
+            <a href={source.url} target="_blank" rel="noreferrer">{source.title}</a>
+          </li>
+        {/each}
+      </ul>
+    {:else}
+      <p>Source links will be added during curation updates.</p>
+    {/if}
+    {#if data.construction?.lastUpdated}
+      <p class="small-note">Construction profile updated: {data.construction.lastUpdated}</p>
+    {/if}
   </section>
 
   <section class="gallery">
     <div class="gallery-head">
       <h2>Reconstruction Gallery</h2>
-      <p>{data.images.length} images · click any image to view larger</p>
+      <p>{data.images.length} items · click to open full view</p>
     </div>
 
     <div class="grid">
@@ -192,13 +340,16 @@
 <style>
   :global(body) {
     margin: 0;
-    background: radial-gradient(circle at top, #faf3e5 0%, #ead8ba 55%, #dfc59f 100%);
-    color: #271b0f;
+    color: #1f1a14;
+    background:
+      radial-gradient(circle at 12% 14%, rgba(255, 225, 176, 0.38), transparent 28%),
+      radial-gradient(circle at 88% 11%, rgba(146, 198, 239, 0.28), transparent 26%),
+      linear-gradient(150deg, #f5efe3 0%, #eadbc1 52%, #e0c9a5 100%);
     font-family: 'Fraunces', 'Cormorant Garamond', 'Palatino Linotype', serif;
   }
 
   .site-page {
-    max-width: 1180px;
+    max-width: 1220px;
     margin: 0 auto;
     padding: 1rem;
   }
@@ -206,141 +357,313 @@
   .back-link {
     display: inline-block;
     margin-bottom: 0.8rem;
-    color: #184f71;
+    color: #154e71;
     text-decoration: none;
     font-weight: 700;
   }
 
-  .site-head {
-    border: 1px solid #d6b180;
-    border-radius: 16px;
-    background: linear-gradient(135deg, #fff9ee, #f3e0bf);
+  .hero {
+    display: grid;
+    grid-template-columns: 1.45fr 1fr;
+    gap: 0.85rem;
+    border: 1px solid #c9b28c;
+    border-radius: 18px;
+    background: linear-gradient(145deg, rgba(255, 250, 241, 0.96), rgba(246, 232, 205, 0.92));
+    box-shadow: 0 14px 30px rgba(63, 43, 11, 0.14);
     padding: 1rem;
   }
 
-  .epoch {
+  .hero-main {
+    padding-right: 0.2rem;
+  }
+
+  .eyebrow {
     margin: 0;
-    color: #8d6032;
-    text-transform: uppercase;
+    font-size: 0.74rem;
     letter-spacing: 0.08em;
-    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: #6d573a;
     font-weight: 700;
   }
 
   h1 {
-    margin: 0.3rem 0 0.45rem;
-    font-size: clamp(1.45rem, 3.4vw, 2.4rem);
+    margin: 0.25rem 0 0.5rem;
+    font-size: clamp(1.45rem, 3.2vw, 2.45rem);
+    line-height: 1.12;
   }
 
   .meta,
-  .idea {
-    margin: 0.2rem 0 0;
-    color: #5d482b;
+  .idea,
+  .summary {
+    margin: 0.24rem 0;
+    color: #4f4029;
   }
 
-  .story-grid {
-    margin-top: 0.9rem;
+  .hero-side {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0.8rem;
+    gap: 0.7rem;
   }
 
-  .construction-grid {
-    margin-top: 0.8rem;
+  .hero-side article {
+    border: 1px solid #d2ba93;
+    border-radius: 12px;
+    background: rgba(255, 252, 246, 0.86);
+    padding: 0.7rem;
+  }
+
+  .hero-side h2 {
+    margin: 0 0 0.4rem;
+    font-size: 1rem;
+  }
+
+  .hero-side p {
+    margin: 0.35rem 0;
+    font-size: 0.9rem;
+    line-height: 1.35;
+    color: #4f4029;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.16rem 0.45rem;
+    border-radius: 999px;
+    font-size: 0.73rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+
+  .official {
+    background: #d7ebff;
+    color: #0c4468;
+    border: 1px solid #9ac5e8;
+  }
+
+  .created {
+    background: #ffe5c7;
+    color: #7a3f0a;
+    border: 1px solid #e3aa6c;
+  }
+
+  .info-grid {
+    margin-top: 0.9rem;
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 0.8rem;
   }
 
   .panel {
-    border: 1px solid #d1b083;
-    border-radius: 12px;
-    background: rgba(255, 251, 242, 0.93);
-    padding: 0.8rem;
+    border: 1px solid #ccb18a;
+    border-radius: 14px;
+    background: rgba(255, 251, 245, 0.94);
+    padding: 0.85rem;
   }
 
   .panel h2 {
     margin: 0 0 0.55rem;
-    font-size: 1.12rem;
+    font-size: 1.11rem;
   }
 
   .panel p {
-    margin: 0.3rem 0;
-    line-height: 1.45;
+    margin: 0.32rem 0;
+    line-height: 1.42;
   }
 
-  .mini-head {
-    margin-top: 0.55rem;
-    margin-bottom: 0.25rem;
-    font-weight: 700;
-    color: #4b391f;
-  }
-
-  .small-note {
-    margin-top: 0.45rem;
-    color: #6a5231;
-    font-size: 0.82rem;
-  }
-
-  ol {
+  .timeline-list {
     margin: 0;
     padding: 0;
     list-style: none;
     display: grid;
-    gap: 0.5rem;
+    gap: 0.48rem;
   }
 
-  li {
+  .timeline-list li {
     display: grid;
-    grid-template-columns: 115px 1fr;
-    gap: 0.5rem;
-    border-left: 3px solid #b7884f;
+    grid-template-columns: 118px 1fr;
+    gap: 0.55rem;
+    border-left: 3px solid #b4844d;
     padding-left: 0.5rem;
   }
 
-  .year {
-    color: #734d22;
+  .timeline-list .year {
+    color: #6f4f29;
     font-weight: 700;
   }
 
-  li p {
-    margin: 0.2rem 0 0;
-    color: #5d492f;
+  .timeline-list li p {
+    margin: 0.16rem 0 0;
+    color: #5a4a33;
     font-size: 0.9rem;
   }
 
+  .mini-head {
+    margin-top: 0.52rem;
+    margin-bottom: 0.24rem;
+    font-weight: 700;
+    color: #4b391f;
+  }
+
   .bullet-list {
-    margin: 0.15rem 0 0;
+    margin: 0;
     padding-left: 1.05rem;
   }
 
   .bullet-list li {
-    margin: 0.2rem 0;
-    border: 0;
-    padding: 0;
-    display: list-item;
-    grid-template-columns: none;
+    margin: 0.18rem 0;
+  }
+
+  .small-note {
+    margin-top: 0.45rem;
+    color: #5a4b31;
+    font-size: 0.84rem;
+  }
+
+  .visual-section {
+    margin-top: 0.95rem;
+    border: 1px solid #cdb289;
+    border-radius: 14px;
+    background: rgba(255, 251, 245, 0.94);
+    padding: 0.85rem;
+  }
+
+  .section-head h2 {
+    margin: 0;
+    font-size: 1.2rem;
+  }
+
+  .section-head p {
+    margin: 0.2rem 0 0.75rem;
+    color: #604b2d;
+  }
+
+  .visual-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 0.72rem;
+  }
+
+  .visual-card {
+    border: 1px solid #d3ba96;
+    border-radius: 12px;
+    background: #fffaf0;
+    padding: 0.55rem;
+    display: grid;
+    gap: 0.42rem;
+  }
+
+  .visual-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+
+  .kind {
+    color: #6e573a;
+    font-size: 0.76rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .visual-card img,
+  .mini-card img {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    max-height: 280px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+    border-radius: 8px;
+    background: #f4e6cf;
+  }
+
+  .visual-card h3,
+  .reference-card h3 {
+    margin: 0;
+    font-size: 0.96rem;
+    line-height: 1.28;
+  }
+
+  .meta-line {
+    margin: 0;
+    color: #5b4a31;
+    font-size: 0.82rem;
+  }
+
+  .source-link {
+    color: #1a5b7c;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(26, 91, 124, 0.4);
+    width: fit-content;
+  }
+
+  .source-link:hover {
+    border-bottom-color: rgba(26, 91, 124, 0.85);
+  }
+
+  .reference-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    gap: 0.7rem;
+  }
+
+  .reference-card {
+    border: 1px solid #d3ba96;
+    border-radius: 12px;
+    background: #fffaf0;
+    padding: 0.58rem;
+    display: grid;
+    gap: 0.45rem;
+  }
+
+  .split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.55rem;
+  }
+
+  .mini-card {
+    border: 1px solid #dec7a6;
+    border-radius: 10px;
+    background: #fffcf6;
+    padding: 0.48rem;
+    display: grid;
+    gap: 0.34rem;
+    align-content: start;
+  }
+
+  .mini-card p {
+    margin: 0;
+    color: #5a492f;
+    font-size: 0.82rem;
+    line-height: 1.34;
+  }
+
+  .mini-headline {
+    margin: 0;
+  }
+
+  .sources {
+    margin-top: 0.95rem;
   }
 
   .source-list {
-    margin: 0.15rem 0 0;
+    margin: 0;
     padding-left: 1.1rem;
   }
 
   .source-list li {
-    margin: 0.25rem 0;
-    border: 0;
-    padding: 0;
-    display: list-item;
-    grid-template-columns: none;
+    margin: 0.22rem 0;
   }
 
   .gallery {
     margin-top: 0.95rem;
-    border: 1px solid #d7b88b;
+    border: 1px solid #ccb18a;
     border-radius: 14px;
-    background: rgba(255, 251, 243, 0.94);
-    padding: 0.9rem;
+    background: rgba(255, 251, 245, 0.94);
+    padding: 0.88rem;
   }
 
   .gallery-head h2 {
@@ -349,7 +672,7 @@
   }
 
   .gallery-head p {
-    margin: 0.2rem 0 0.75rem;
+    margin: 0.2rem 0 0.7rem;
     color: #624a2d;
   }
 
@@ -499,16 +822,26 @@
     color: #88d2ff;
   }
 
-  @media (max-width: 860px) {
-    .story-grid {
+  @media (max-width: 980px) {
+    .hero {
       grid-template-columns: 1fr;
     }
 
-    .construction-grid {
+    .info-grid {
       grid-template-columns: 1fr;
     }
 
-    li {
+    .reference-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 740px) {
+    .split {
+      grid-template-columns: 1fr;
+    }
+
+    .timeline-list li {
       grid-template-columns: 1fr;
       gap: 0.2rem;
     }

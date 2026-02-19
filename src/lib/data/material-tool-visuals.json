@@ -1,0 +1,893 @@
+{
+  "materials": [
+    {
+      "id": "adobe",
+      "label": "Adobe",
+      "official": {
+        "title": "Adobe wall (detail) in Bahillo, Palencia, Spain.",
+        "imageUrl": "/official-media/materials/adobe.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Adobe_wall_(detail)_1.jpg",
+        "sourceName": "Wikipedia / Wikimedia Commons",
+        "author": "Climent Sostres",
+        "license": "CC BY-SA 4.0"
+      },
+      "created": {
+        "title": "Adobe Created Illustration",
+        "imageUrl": "/created-illustrations/materials/adobe.svg",
+        "sourceName": "Created by Codex",
+        "sourceUrl": null,
+        "license": "Created for Education Craft project"
+      }
+    },
+    {
+      "id": "bluestone",
+      "label": "Bluestone",
+      "official": {
+        "title": "Official reference image for Bluestone",
+        "imageUrl": "/official-media/materials/bluestone.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Carn_Menyn_bluestones_-_geograph.org.uk_-_1451509.jpg",
+        "sourceName": "Wikipedia / Wikimedia Commons",
+        "author": "ceridwen",
+        "license": "CC BY-SA 2.0"
+      },
+      "created": {
+        "title": "Bluestone Created Illustration",
+        "imageUrl": "/created-illustrations/materials/bluestone.svg",
+        "sourceName": "Created by Codex",
+        "sourceUrl": null,
+        "license": "Created for Education Craft project"
+      }
+    },
+    {
+      "id": "bronze",
+      "label": "Bronze",
+      "official": {
+        "title": "Sumerian; Lyre ornament; Metalwork-Ornaments",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Bull%27s_head_ornament_for_a_lyre_MET_DP260070.jpg/1793px-Bull%27s_head_ornament_for_a_lyre_MET_DP260070.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bull%27s_head_ornament_for_a_lyre_MET_DP260070.jpg",
+        "sourceName": "Wikipedia / Wikimedia Commons",
+        "author": "Unknown",
+        "license": "CC0"
+      },
+      "created": {
+        "title": "Bronze Created Illustration",
+        "imageUrl": "/created-illustrations/materials/bronze.svg",
+        "sourceName": "Created by Codex",
+        "sourceUrl": null,
+        "license": "Created for Education Craft project"
+      }
+    },
+    {
+      "id": "clay",
+      "label": "Clay",
+      "official": {
+        "title": "Access to Clay Farm building site",
+        "imageUrl": "/official-media/materials/clay.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Access_to_Clay_Farm_building_site_-_geograph.org.uk_-_4405193.jpg",
+        "sourceName": "Wikipedia / Wikimedia Commons",
+        "author": "Fernweh",
+        "license": "CC BY-SA 2.0"
+      },
+      "created": {
+        "title": "Clay Created Illustration",
+        "imageUrl": "/created-illustrations/materials/clay.svg",
+        "sourceName": "Created by Codex",
+        "sourceUrl": null,
+        "license": "Created for Education Craft project"
+      }
+    },
+    {
+      "id": "concrete",
+      "label": "Concrete",
+      "official": {
+        "title": "Interior of the pantheon in Rome",
+        "imageUrl": "/official-media/materials/concrete.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rome-Pantheon-Interieur1.jpg",
+        "sourceName": "Wikipedia / Wikimedia Commons",
+        "author": "Jean-Christophe BENOIST",
+        "license": "CC BY 2.5"
+      },
+      "created": {
+        "title": "Concrete Created Illustration",
+        "imageUrl": "/created-illustrations/materials/concrete.svg",
+        "sourceName": "Created by Codex",
+        "sourceUrl": null,
+        "license": "Created for Education Craft project"
+      }
+    },
+    {
+      "id": "earth",
+      "label": "Earth",
+      "official": {
+        "title": "The Blue Marble, by Apollo 17, AS17-148-22727.",
+        "imageUrl": "/official-media/materials/earth.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Blue_Marble,_AS17-148-22727.jpg",
+        "sourceName": "Wikipedia / Wikimedia Commons",
+        "author": "Harrison Schmitt / Apollo 17",
+        "license": "Public domain"
+      },
+      "created": {
+        "title": "Earth Created Illustration",
+        "imageUrl": "/created-illustrations/materials/earth.svg",
+        "sourceName": "Created by Codex",
+        "sourceUrl": null,
+        "license": "Created for Education Craft project"
+      }
+    },
+    {
+      "id": "ebony",
+      "label": "Ebony",
+      "official": {
+        "title": "Ébano",
+        "imageUrl": "/official-media/materials/ebony.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:%C3%89bano.jpg",
+        "sourceName": "Wikipedia / Wikimedia Commons",
+        "author": "OboeCrack",
+        "license": "CC BY-SA 4.0"
+      },
+      "created": {
+        "title": "Ebony Created Illustration",
+        "imageUrl": "/created-illustrations/materials/ebony.svg",
+        "sourceName": "Created by Codex",
+        "sourceUrl": null,
+        "license": "Created for Education Craft project"
+      }
+    },
+    {
+      "id": "fired-brick",
+      "label": "Fired Brick",
+      "official": {
+        "title": "a brick",
+        "imageUrl": "/official-media/materials/fired-brick.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Brick.jpg",
+        "sourceName": "Wikipedia / Wikimedia Commons",
+        "author": "Andrewlister",
+        "license": "Public domain"
+      },
+      "created": {
+        "title": "Fired Brick Created Illustration",
+        "imageUrl": "/created-illustrations/materials/fired-brick.svg",
+        "sourceName": "Created by Codex",
+        "sourceUrl": null,
+        "license": "Created for Education Craft project"
+      }
+    },
+    {
+      "id": "gold",
+      "label": "Gold",
+      "official": {
+        "title": "Synthetic made gold crystals by the chemical transport reaction in chlorine gas. Purity >99.99%",
+        "imageUrl": "/official-media/materials/gold.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gold-crystals.jpg",
+        "sourceName": "Wikipedia / Wikimedia Commons",
+        "author": "Alchemist-hp ( talk ) www.pse-mendelejew.de",
+        "license": "CC BY-SA 3.0 de"
+      },
+      "created": {
+        "title": "Gold Created Illustration",
+        "imageUrl": "/created-illustrations/materials/gold.svg",
+        "sourceName": "Created by Codex",
+        "sourceUrl": null,
+        "license": "Created for Education Craft project"
+      }
+    },
+    {
+      "id": "granite",
+      "label": "Granite",
+      "official": {
+        "title": "Official reference image for Granite",
+        "imageUrl": "/official-media/materials/granite.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bianco_Sardo_Granit_mit_polierter_Oberfl%C3%A4che.jpg",
+        "sourceName": "Wikipedia / Wikimedia Commons",
+        "author": "The stone gate",
+        "license": "CC BY-SA 4.0"
+      },
+      "created": {
+        "title": "Granite Created Illustration",
+        "imageUrl": "/created-illustrations/materials/granite.svg",
+        "sourceName": "Created by Codex",
+        "sourceUrl": null,
+        "license": "Created for Education Craft project"
+      }
+    },
+    {
+      "id": "ivory",
+      "label": "Ivory",
+      "official": {
+        "title": "Late 11th-century Italian carved elephant tusk. Louvre, Paris",
+        "imageUrl": "/official-media/materials/ivory.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Horn_Louvre_OA4069.jpg",
+        "sourceName": "Wikipedia / Wikimedia Commons",
+        "author": "Jastrow",
+        "license": "Public domain"
+      },
+      "created": {
+        "title": "Ivory Created Illustration",
+        "imageUrl": "/created-illustrations/materials/ivory.svg",
+        "sourceName": "Created by Codex",
+        "sourceUrl": null,
+        "license": "Created for Education Craft project"
+      }
+    },
+    {
+      "id": "lime-mortar",
+      "label": "Lime Mortar",
+      "official": {
+        "title": "Official reference image for Lime Mortar",
+        "imageUrl": "/official-media/materials/lime-mortar.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Enduit_chaux.JPG",
+        "sourceName": "Wikipedia / Wikimedia Commons",
+        "author": "Berrucomons",
+        "license": "CC BY-SA 3.0"
+      },
+      "created": {
+        "title": "Lime Mortar Created Illustration",
+        "imageUrl": "/created-illustrations/materials/lime-mortar.svg",
+        "sourceName": "Created by Codex",
+        "sourceUrl": null,
+        "license": "Created for Education Craft project"
+      }
+    },
+    {
+      "id": "limestone",
+      "label": "Limestone",
+      "official": {
+        "title": "Torcal de Antequera",
+        "imageUrl": "/official-media/materials/limestone.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:ElTorcal0408.jpg",
+        "sourceName": "Wikipedia / Wikimedia Commons",
+        "author": "Fernando Domínguez Cerejido",
+        "license": "CC BY-SA 4.0"
+      },
+      "created": {
+        "title": "Limestone Created Illustration",
+        "imageUrl": "/created-illustrations/materials/limestone.svg",
+        "sourceName": "Created by Codex",
+        "sourceUrl": null,
+        "license": "Created for Education Craft project"
+      }
+    },
+    {
+      "id": "pentelic-marble",
+      "label": "Pentelic Marble",
+      "official": {
+        "title": "The above picture depicts the city of Nea Penteli.",
+        "imageUrl": "/official-media/materials/pentelic-marble.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:%CE%A0%CE%B1%CE%BD%CE%BF%CF%81%CE%B1%CE%BC%CE%B9%CE%BA%CE%AE_%CE%9D%CE%AD%CE%B1%CF%82_%CE%A0%CE%B5%CE%BD%CF%84%CE%AD%CE%BB%CE%B7%CF%82.jpg",
+        "sourceName": "Wikipedia / Wikimedia Commons",
+        "author": "Dimorsitanos",
+        "license": "CC BY-SA 4.0"
+      },
+      "created": {
+        "title": "Pentelic Marble Created Illustration",
+        "imageUrl": "/created-illustrations/materials/pentelic-marble.svg",
+        "sourceName": "Created by Codex",
+        "sourceUrl": null,
+        "license": "Created for Education Craft project"
+      }
+    },
+    {
+      "id": "sandstone",
+      "label": "Sandstone",
+      "official": {
+        "title": "USDA_Mineral_Sandstone_93c3955.jpg",
+        "imageUrl": "/official-media/materials/sandstone.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:USDA_Mineral_Sandstone_93c3955.jpg",
+        "sourceName": "Wikipedia / Wikimedia Commons",
+        "author": "Unknown",
+        "license": "Public domain"
+      },
+      "created": {
+        "title": "Sandstone Created Illustration",
+        "imageUrl": "/created-illustrations/materials/sandstone.svg",
+        "sourceName": "Created by Codex",
+        "sourceUrl": null,
+        "license": "Created for Education Craft project"
+      }
+    },
+    {
+      "id": "sarsen",
+      "label": "Sarsen",
+      "official": {
+        "title": "The sarsen stone circle in their garden Wetton",
+        "imageUrl": "/official-media/materials/sarsen.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sarsen_in_Wiltshire.jpg",
+        "sourceName": "Wikipedia / Wikimedia Commons",
+        "author": "Herry Lawford (Wolfiewolf)",
+        "license": "CC BY 2.0"
+      },
+      "created": {
+        "title": "Sarsen Created Illustration",
+        "imageUrl": "/created-illustrations/materials/sarsen.svg",
+        "sourceName": "Created by Codex",
+        "sourceUrl": null,
+        "license": "Created for Education Craft project"
+      }
+    },
+    {
+      "id": "stone",
+      "label": "Stone",
+      "official": {
+        "title": "Marsh Butte centered and Geikie Peak behind, Grand Canyon",
+        "imageUrl": "/official-media/materials/stone.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Marsh_Butte_and_Geikie_Peak,_Grand_Canyon.jpg",
+        "sourceName": "Wikipedia / Wikimedia Commons",
+        "author": "Yogendra Joshi",
+        "license": "CC BY 2.0"
+      },
+      "created": {
+        "title": "Stone Created Illustration",
+        "imageUrl": "/created-illustrations/materials/stone.svg",
+        "sourceName": "Created by Codex",
+        "sourceUrl": null,
+        "license": "Created for Education Craft project"
+      }
+    },
+    {
+      "id": "timber",
+      "label": "Timber",
+      "official": {
+        "title": "Official reference image for Timber",
+        "imageUrl": "/official-media/materials/timber.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dornstetten-p01_crop.JPG",
+        "sourceName": "Wikipedia / Wikimedia Commons",
+        "author": "Traveler100",
+        "license": "CC BY-SA 3.0"
+      },
+      "created": {
+        "title": "Timber Created Illustration",
+        "imageUrl": "/created-illustrations/materials/timber.svg",
+        "sourceName": "Created by Codex",
+        "sourceUrl": null,
+        "license": "Created for Education Craft project"
+      }
+    },
+    {
+      "id": "travertine",
+      "label": "Roman Travertine",
+      "official": {
+        "title": "Travertine terraces in Mammoth Hot Springs, Yellowstone National Park, Wyoming, United States",
+        "imageUrl": "/official-media/materials/travertine.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mammoth_Terraces.jpg",
+        "sourceName": "Wikipedia / Wikimedia Commons",
+        "author": "Frank Schulenburg",
+        "license": "CC BY-SA 4.0"
+      },
+      "created": {
+        "title": "Roman Travertine Created Illustration",
+        "imageUrl": "/created-illustrations/materials/travertine.svg",
+        "sourceName": "Created by Codex",
+        "sourceUrl": null,
+        "license": "Created for Education Craft project"
+      }
+    },
+    {
+      "id": "tuff",
+      "label": "Tuff",
+      "official": {
+        "title": "Bandelier National Monument , near Santa Fe, New Mexico, US. Cliff face pockmarked with holes — some natural, some man-made.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/64/Bandelier-Pockmarked_Cliff.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bandelier-Pockmarked_Cliff.jpg",
+        "sourceName": "Wikipedia / Wikimedia Commons",
+        "author": "Andrew Dunn ( talk · contribs )",
+        "license": "CC BY-SA 2.0"
+      },
+      "created": {
+        "title": "Tuff Created Illustration",
+        "imageUrl": "/created-illustrations/materials/tuff.svg",
+        "sourceName": "Created by Codex",
+        "sourceUrl": null,
+        "license": "Created for Education Craft project"
+      }
+    },
+    {
+      "id": "wood",
+      "label": "Wood",
+      "official": {
+        "title": "Official reference image for Wood",
+        "imageUrl": "/official-media/materials/wood.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:16_wood_samples.jpg",
+        "sourceName": "Wikipedia / Wikimedia Commons",
+        "author": "Anonimski",
+        "license": "CC0"
+      },
+      "created": {
+        "title": "Wood Created Illustration",
+        "imageUrl": "/created-illustrations/materials/wood.svg",
+        "sourceName": "Created by Codex",
+        "sourceUrl": null,
+        "license": "Created for Education Craft project"
+      }
+    }
+  ],
+  "tools": [
+    {
+      "id": "antler-wood-picks",
+      "label": "Antler and Wood Picks",
+      "official": {
+        "title": "A pickaxe lying on the ground. See File info .",
+        "imageUrl": "/official-media/tools/antler-wood-picks.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pickaxe.jpg",
+        "sourceName": "Wikipedia / Wikimedia Commons",
+        "author": "Hyena~commonswiki",
+        "license": "Public domain"
+      },
+      "created": {
+        "title": "Antler and Wood Picks Created Illustration",
+        "imageUrl": "/created-illustrations/tools/antler-wood-picks.svg",
+        "sourceName": "Created by Codex",
+        "sourceUrl": null,
+        "license": "Created for Education Craft project"
+      }
+    },
+    {
+      "id": "axes-adzes",
+      "label": "Axes and Adzes",
+      "official": {
+        "title": "line art drawing of an adz , cleaned up by Micze",
+        "imageUrl": "/official-media/tools/axes-adzes.png",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Adz_(PSF).png",
+        "sourceName": "Wikipedia / Wikimedia Commons",
+        "author": "Pearson Scott Foresman",
+        "license": "Public domain"
+      },
+      "created": {
+        "title": "Axes and Adzes Created Illustration",
+        "imageUrl": "/created-illustrations/tools/axes-adzes.svg",
+        "sourceName": "Created by Codex",
+        "sourceUrl": null,
+        "license": "Created for Education Craft project"
+      }
+    },
+    {
+      "id": "boring-tools-augers",
+      "label": "Boring Tools and Augers",
+      "official": {
+        "title": "Small twist auger with wood handle associated with John Wynne, cabinet maker- 89674 John Wynne, NZEF WW1, reservist attested May 1918",
+        "imageUrl": "/official-media/tools/boring-tools-augers.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Auger_(AM_2015.34.30-2).jpg",
+        "sourceName": "Wikipedia / Wikimedia Commons",
+        "author": "not researched",
+        "license": "CC BY 4.0"
+      },
+      "created": {
+        "title": "Boring Tools and Augers Created Illustration",
+        "imageUrl": "/created-illustrations/tools/boring-tools-augers.svg",
+        "sourceName": "Created by Codex",
+        "sourceUrl": null,
+        "license": "Created for Education Craft project"
+      }
+    },
+    {
+      "id": "brick-moulds",
+      "label": "Brick Moulds",
+      "official": {
+        "title": "a brick",
+        "imageUrl": "/official-media/tools/brick-moulds.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Brick.jpg",
+        "sourceName": "Wikipedia / Wikimedia Commons",
+        "author": "Andrewlister",
+        "license": "Public domain"
+      },
+      "created": {
+        "title": "Brick Moulds Created Illustration",
+        "imageUrl": "/created-illustrations/tools/brick-moulds.svg",
+        "sourceName": "Created by Codex",
+        "sourceUrl": null,
+        "license": "Created for Education Craft project"
+      }
+    },
+    {
+      "id": "carrying-baskets",
+      "label": "Carrying Baskets",
+      "official": {
+        "title": "Official reference image for Carrying Baskets",
+        "imageUrl": "/official-media/tools/carrying-baskets.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Baskets_in_Haikou_03.jpg",
+        "sourceName": "Wikipedia / Wikimedia Commons",
+        "author": "Anna Frodesiak",
+        "license": "CC0"
+      },
+      "created": {
+        "title": "Carrying Baskets Created Illustration",
+        "imageUrl": "/created-illustrations/tools/carrying-baskets.svg",
+        "sourceName": "Created by Codex",
+        "sourceUrl": null,
+        "license": "Created for Education Craft project"
+      }
+    },
+    {
+      "id": "clay-moulds",
+      "label": "Clay Moulds",
+      "official": {
+        "title": "Official reference image for Clay Moulds",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ed/Bronze_spearhead_mold.JPG",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bronze_spearhead_mold.JPG",
+        "sourceName": "Wikipedia / Wikimedia Commons",
+        "author": "No machine-readable author provided. Gaius Cornelius assumed (based on copyright claims).",
+        "license": "Public domain"
+      },
+      "created": {
+        "title": "Clay Moulds Created Illustration",
+        "imageUrl": "/created-illustrations/tools/clay-moulds.svg",
+        "sourceName": "Created by Codex",
+        "sourceUrl": null,
+        "license": "Created for Education Craft project"
+      }
+    },
+    {
+      "id": "hammerstones-mallets",
+      "label": "Hammerstones and Mallets",
+      "official": {
+        "title": "Rubber mallets.",
+        "imageUrl": "/official-media/tools/hammerstones-mallets.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rubber_mallets.jpg",
+        "sourceName": "Wikipedia / Wikimedia Commons",
+        "author": "MartinMerinsky",
+        "license": "CC BY-SA 4.0"
+      },
+      "created": {
+        "title": "Hammerstones and Mallets Created Illustration",
+        "imageUrl": "/created-illustrations/tools/hammerstones-mallets.svg",
+        "sourceName": "Created by Codex",
+        "sourceUrl": null,
+        "license": "Created for Education Craft project"
+      }
+    },
+    {
+      "id": "kilns",
+      "label": "Kilns",
+      "official": {
+        "title": "Official reference image for Kilns",
+        "imageUrl": "/official-media/tools/kilns.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Charcoal_Kilns,_California.JPG",
+        "sourceName": "Wikipedia / Wikimedia Commons",
+        "author": "Mav at English Wikipedia",
+        "license": "CC BY-SA 3.0"
+      },
+      "created": {
+        "title": "Kilns Created Illustration",
+        "imageUrl": "/created-illustrations/tools/kilns.svg",
+        "sourceName": "Created by Codex",
+        "sourceUrl": null,
+        "license": "Created for Education Craft project"
+      }
+    },
+    {
+      "id": "levering-poles",
+      "label": "Levering Poles",
+      "official": {
+        "title": "This image illustrates the mechanical advantage of the lever .",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f2/Palanca-ejemplo.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Palanca-ejemplo.jpg",
+        "sourceName": "Wikipedia / Wikimedia Commons",
+        "author": "CR at Spanish Wikipedia",
+        "license": "CC BY-SA 3.0"
+      },
+      "created": {
+        "title": "Levering Poles Created Illustration",
+        "imageUrl": "/created-illustrations/tools/levering-poles.svg",
+        "sourceName": "Created by Codex",
+        "sourceUrl": null,
+        "license": "Created for Education Craft project"
+      }
+    },
+    {
+      "id": "manual-stone-earth-shaping-tools",
+      "label": "Stone and Earth Shaping Tools",
+      "official": {
+        "title": "Official reference image for Stone and Earth Shaping Tools",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Mesolithic_stone_tools%2C_exhibition_at_the_Burg_G%C3%B6%C3%9Fweinstein.jpg/1920px-Mesolithic_stone_tools%2C_exhibition_at_the_Burg_G%C3%B6%C3%9Fweinstein.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mesolithic_stone_tools,_exhibition_at_the_Burg_G%C3%B6%C3%9Fweinstein.jpg",
+        "sourceName": "Wikipedia / Wikimedia Commons",
+        "author": "Nemracc",
+        "license": "CC BY-SA 4.0"
+      },
+      "created": {
+        "title": "Stone and Earth Shaping Tools Created Illustration",
+        "imageUrl": "/created-illustrations/tools/manual-stone-earth-shaping-tools.svg",
+        "sourceName": "Created by Codex",
+        "sourceUrl": null,
+        "license": "Created for Education Craft project"
+      }
+    },
+    {
+      "id": "metal-chisels",
+      "label": "Metal Chisels",
+      "official": {
+        "title": "Official reference image for Metal Chisels",
+        "imageUrl": "/official-media/tools/metal-chisels.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Neolithic_chisels_4100-2700_BC.jpg",
+        "sourceName": "Wikipedia / Wikimedia Commons",
+        "author": "Bullenwächter",
+        "license": "CC BY 3.0"
+      },
+      "created": {
+        "title": "Metal Chisels Created Illustration",
+        "imageUrl": "/created-illustrations/tools/metal-chisels.svg",
+        "sourceName": "Created by Codex",
+        "sourceUrl": null,
+        "license": "Created for Education Craft project"
+      }
+    },
+    {
+      "id": "mixing-tools",
+      "label": "Mixing Tools",
+      "official": {
+        "title": "A small and simple white mortar and pestle, on bamboo.",
+        "imageUrl": "/official-media/tools/mixing-tools.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:White-Mortar-and-Pestle.jpg",
+        "sourceName": "Wikipedia / Wikimedia Commons",
+        "author": "Evan-Amos",
+        "license": "Public domain"
+      },
+      "created": {
+        "title": "Mixing Tools Created Illustration",
+        "imageUrl": "/created-illustrations/tools/mixing-tools.svg",
+        "sourceName": "Created by Codex",
+        "sourceUrl": null,
+        "license": "Created for Education Craft project"
+      }
+    },
+    {
+      "id": "modeling-carving-tools",
+      "label": "Modeling and Carving Tools",
+      "official": {
+        "title": "Official reference image for Modeling and Carving Tools",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Memorial_Wall_Star_Carving_Tools_-_Flickr_-_The_Central_Intelligence_Agency.jpg/1920px-Memorial_Wall_Star_Carving_Tools_-_Flickr_-_The_Central_Intelligence_Agency.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Memorial_Wall_Star_Carving_Tools_-_Flickr_-_The_Central_Intelligence_Agency.jpg",
+        "sourceName": "Wikipedia / Wikimedia Commons",
+        "author": "The Central Intelligence Agency",
+        "license": "Public domain"
+      },
+      "created": {
+        "title": "Modeling and Carving Tools Created Illustration",
+        "imageUrl": "/created-illustrations/tools/modeling-carving-tools.svg",
+        "sourceName": "Created by Codex",
+        "sourceUrl": null,
+        "license": "Created for Education Craft project"
+      }
+    },
+    {
+      "id": "mudbrick-moulds",
+      "label": "Mudbrick Moulds",
+      "official": {
+        "title": "Adobe wall (detail) in Bahillo, Palencia, Spain.",
+        "imageUrl": "/official-media/tools/mudbrick-moulds.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Adobe_wall_(detail)_1.jpg",
+        "sourceName": "Wikipedia / Wikimedia Commons",
+        "author": "Climent Sostres",
+        "license": "CC BY-SA 4.0"
+      },
+      "created": {
+        "title": "Mudbrick Moulds Created Illustration",
+        "imageUrl": "/created-illustrations/tools/mudbrick-moulds.svg",
+        "sourceName": "Created by Codex",
+        "sourceUrl": null,
+        "license": "Created for Education Craft project"
+      }
+    },
+    {
+      "id": "picks",
+      "label": "Picks",
+      "official": {
+        "title": "A pickaxe lying on the ground. See File info .",
+        "imageUrl": "/official-media/tools/picks.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pickaxe.jpg",
+        "sourceName": "Wikipedia / Wikimedia Commons",
+        "author": "Hyena~commonswiki",
+        "license": "Public domain"
+      },
+      "created": {
+        "title": "Picks Created Illustration",
+        "imageUrl": "/created-illustrations/tools/picks.svg",
+        "sourceName": "Created by Codex",
+        "sourceUrl": null,
+        "license": "Created for Education Craft project"
+      }
+    },
+    {
+      "id": "plastering-tools",
+      "label": "Plastering Tools",
+      "official": {
+        "title": "Escalier du roi",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Fontainebleau_escalier_roi5.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fontainebleau_escalier_roi5.jpg",
+        "sourceName": "Wikipedia / Wikimedia Commons",
+        "author": "No machine-readable author provided. Urban~commonswiki assumed (based on copyright claims).",
+        "license": "Public domain"
+      },
+      "created": {
+        "title": "Plastering Tools Created Illustration",
+        "imageUrl": "/created-illustrations/tools/plastering-tools.svg",
+        "sourceName": "Created by Codex",
+        "sourceUrl": null,
+        "license": "Created for Education Craft project"
+      }
+    },
+    {
+      "id": "rope-and-lever-systems",
+      "label": "Rope and Lever Systems",
+      "official": {
+        "title": "Line drawing of a man lifting a large load using a block and tackle pulley system",
+        "imageUrl": "/official-media/tools/rope-and-lever-systems.png",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Block-and-tackle-in-use.svg",
+        "sourceName": "Wikipedia / Wikimedia Commons",
+        "author": "Themightyquill",
+        "license": "CC BY-SA 4.0"
+      },
+      "created": {
+        "title": "Rope and Lever Systems Created Illustration",
+        "imageUrl": "/created-illustrations/tools/rope-and-lever-systems.svg",
+        "sourceName": "Created by Codex",
+        "sourceUrl": null,
+        "license": "Created for Education Craft project"
+      }
+    },
+    {
+      "id": "rope-systems",
+      "label": "Rope Systems",
+      "official": {
+        "title": "Hemp rope (4 strands with core, 150 meters, diameter 40mm, exhibited at the Corderie Royale of Rochefort, Charente-Maritime)",
+        "imageUrl": "/official-media/tools/rope-systems.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cordage_en_chanvre.jpg",
+        "sourceName": "Wikipedia / Wikimedia Commons",
+        "author": "Ji-Elle",
+        "license": "CC BY-SA 3.0"
+      },
+      "created": {
+        "title": "Rope Systems Created Illustration",
+        "imageUrl": "/created-illustrations/tools/rope-systems.svg",
+        "sourceName": "Created by Codex",
+        "sourceUrl": null,
+        "license": "Created for Education Craft project"
+      }
+    },
+    {
+      "id": "saws",
+      "label": "Saws",
+      "official": {
+        "title": "Piły jednouchwytowe - rozpłatnice.",
+        "imageUrl": "/official-media/tools/saws.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pily_rozplatnice.jpg",
+        "sourceName": "Wikipedia / Wikimedia Commons",
+        "author": "No machine-readable author provided. Mnemosine assumed (based on copyright claims).",
+        "license": "Public domain"
+      },
+      "created": {
+        "title": "Saws Created Illustration",
+        "imageUrl": "/created-illustrations/tools/saws.svg",
+        "sourceName": "Created by Codex",
+        "sourceUrl": null,
+        "license": "Created for Education Craft project"
+      }
+    },
+    {
+      "id": "trowels",
+      "label": "Trowels",
+      "official": {
+        "title": "Official reference image for Trowels",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/93/Masons_trowel.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Masons_trowel.jpg",
+        "sourceName": "Wikipedia / Wikimedia Commons",
+        "author": "Mike Lupinacci",
+        "license": "CC BY-SA 3.0"
+      },
+      "created": {
+        "title": "Trowels Created Illustration",
+        "imageUrl": "/created-illustrations/tools/trowels.svg",
+        "sourceName": "Created by Codex",
+        "sourceUrl": null,
+        "license": "Created for Education Craft project"
+      }
+    },
+    {
+      "id": "wooden-centering-formwork",
+      "label": "Wooden Centering and Formwork",
+      "official": {
+        "title": "Animation depicting construction of multi-story building using aluminum handset formwork.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Formwork.ogv/640px--Formwork.ogv.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Formwork.ogv",
+        "sourceName": "Wikipedia / Wikimedia Commons",
+        "author": "WTF Formwork",
+        "license": "CC BY-SA 3.0"
+      },
+      "created": {
+        "title": "Wooden Centering and Formwork Created Illustration",
+        "imageUrl": "/created-illustrations/tools/wooden-centering-formwork.svg",
+        "sourceName": "Created by Codex",
+        "sourceUrl": null,
+        "license": "Created for Education Craft project"
+      }
+    },
+    {
+      "id": "wooden-shovels",
+      "label": "Wooden Shovels",
+      "official": {
+        "title": "En skovl.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Skovl.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Skovl.jpg",
+        "sourceName": "Wikipedia / Wikimedia Commons",
+        "author": "SvenPek",
+        "license": "CC BY-SA 4.0"
+      },
+      "created": {
+        "title": "Wooden Shovels Created Illustration",
+        "imageUrl": "/created-illustrations/tools/wooden-shovels.svg",
+        "sourceName": "Created by Codex",
+        "sourceUrl": null,
+        "license": "Created for Education Craft project"
+      }
+    },
+    {
+      "id": "wooden-sledges-rollers",
+      "label": "Wooden Sledges and Rollers",
+      "official": {
+        "title": "(NPS PHOTO / JACOB W. FRANK)",
+        "imageUrl": "/official-media/tools/wooden-sledges-rollers.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Volunteer_Mushing_on_Wonder_Lake_(7065286379).jpg",
+        "sourceName": "Wikipedia / Wikimedia Commons",
+        "author": "Denali National Park and Preserve",
+        "license": "Public domain"
+      },
+      "created": {
+        "title": "Wooden Sledges and Rollers Created Illustration",
+        "imageUrl": "/created-illustrations/tools/wooden-sledges-rollers.svg",
+        "sourceName": "Created by Codex",
+        "sourceUrl": null,
+        "license": "Created for Education Craft project"
+      }
+    }
+  ],
+  "aliases": {
+    "materials": {
+      "adobe": "adobe",
+      "bluestone": "bluestone",
+      "bronze": "bronze",
+      "clay": "clay",
+      "concrete": "concrete",
+      "earth": "earth",
+      "ebony": "ebony",
+      "fired brick": "fired-brick",
+      "gold": "gold",
+      "granite": "granite",
+      "ivory": "ivory",
+      "lime mortar": "lime-mortar",
+      "limestone": "limestone",
+      "pentelic marble": "pentelic-marble",
+      "roman travertine": "travertine",
+      "sandstone": "sandstone",
+      "sarsen": "sarsen",
+      "stone": "stone",
+      "timber": "timber",
+      "tuff": "tuff",
+      "wood": "wood"
+    },
+    "tools": {
+      "antler/wood picks": "antler-wood-picks",
+      "axes/adzes": "axes-adzes",
+      "boring tools/augers": "boring-tools-augers",
+      "brick moulds": "brick-moulds",
+      "carrying baskets": "carrying-baskets",
+      "clay moulds": "clay-moulds",
+      "hammerstones/mallets": "hammerstones-mallets",
+      "kilns": "kilns",
+      "levering poles": "levering-poles",
+      "manual stone/earth shaping tools": "manual-stone-earth-shaping-tools",
+      "metal chisels": "metal-chisels",
+      "mixing tools": "mixing-tools",
+      "modeling/carving tools": "modeling-carving-tools",
+      "mudbrick moulds": "mudbrick-moulds",
+      "picks": "picks",
+      "plastering tools": "plastering-tools",
+      "rope and lever systems": "rope-and-lever-systems",
+      "rope systems": "rope-systems",
+      "saws": "saws",
+      "trowels": "trowels",
+      "wooden centering/formwork": "wooden-centering-formwork",
+      "wooden shovels": "wooden-shovels",
+      "wooden sledges/rollers": "wooden-sledges-rollers"
+    }
+  },
+  "updated": "2026-02-19"
+}

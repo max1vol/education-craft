@@ -1,6 +1,8 @@
 import manifestData from './sites-manifest.json';
 import factData from './site-facts.json';
 import constructionData from './site-construction.json';
+import siteVisualData from './site-visuals.json';
+import termVisualData from './material-tool-visuals.json';
 
 export type SiteManifestEntry = {
   slug: string;
@@ -43,6 +45,33 @@ export type SiteConstruction = {
   lastUpdated: string;
 };
 
+export type VisualMedia = {
+  title: string;
+  imageUrl: string;
+  sourceUrl: string | null;
+  sourceName: string;
+  author?: string;
+  license: string;
+  description?: string;
+};
+
+export type SiteVisualPack = {
+  slug: string;
+  siteName: string;
+  pageUrl: string;
+  officialPhotos: VisualMedia[];
+  officialIllustrations: VisualMedia[];
+  createdIllustrations: VisualMedia[];
+  updated: string;
+};
+
+export type TermVisual = {
+  id: string;
+  label: string;
+  official: VisualMedia | null;
+  created: VisualMedia;
+};
+
 export type TimelineEvent = {
   year: number;
   title: string;
@@ -66,8 +95,21 @@ type TurningPoint = { year: number; title: string; text: string };
 const manifest = manifestData as SiteManifestEntry[];
 const facts = factData as SiteFact[];
 const constructions = constructionData as SiteConstruction[];
+const siteVisuals = siteVisualData as SiteVisualPack[];
+const termVisuals = termVisualData as {
+  materials: TermVisual[];
+  tools: TermVisual[];
+  aliases: {
+    materials: Record<string, string>;
+    tools: Record<string, string>;
+  };
+  updated: string;
+};
 const factBySlug = new Map(facts.map((item) => [item.slug, item]));
 const constructionBySlug = new Map(constructions.map((item) => [item.slug, item]));
+const visualBySlug = new Map(siteVisuals.map((item) => [item.slug, item]));
+const materialVisualById = new Map(termVisuals.materials.map((item) => [item.id, item]));
+const toolVisualById = new Map(termVisuals.tools.map((item) => [item.id, item]));
 
 const turningPoints: Record<string, TurningPoint> = {
   'pompeii': { year: 79, title: 'Vesuvius Eruption', text: 'Mount Vesuvius erupted and buried the city.' },
@@ -118,6 +160,55 @@ export function getSiteSummary(slug: string): SiteSummary | null {
 
 export function getSiteConstruction(slug: string): SiteConstruction | null {
   return constructionBySlug.get(slug) ?? null;
+}
+
+export function getSiteVisualPack(slug: string): SiteVisualPack | null {
+  return visualBySlug.get(slug) ?? null;
+}
+
+export function getMaterialVisualByTerm(term: string): TermVisual | null {
+  const key = term.trim().toLowerCase();
+  const id = termVisuals.aliases.materials[key];
+  if (!id) return null;
+  return materialVisualById.get(id) ?? null;
+}
+
+export function getToolVisualByTerm(term: string): TermVisual | null {
+  const key = term.trim().toLowerCase();
+  const id = termVisuals.aliases.tools[key];
+  if (!id) return null;
+  return toolVisualById.get(id) ?? null;
+}
+
+export function getSiteMaterialAndToolVisuals(slug: string): { materials: TermVisual[]; tools: TermVisual[] } {
+  const construction = getSiteConstruction(slug);
+  if (!construction) {
+    return { materials: [], tools: [] };
+  }
+
+  const materialIds = new Set(
+    construction.materials
+      .map((term) => termVisuals.aliases.materials[term.trim().toLowerCase()])
+      .filter((item): item is string => Boolean(item))
+  );
+
+  const toolIds = new Set(
+    construction.constructionTools
+      .map((term) => termVisuals.aliases.tools[term.trim().toLowerCase()])
+      .filter((item): item is string => Boolean(item))
+  );
+
+  const materials = [...materialIds]
+    .map((id) => materialVisualById.get(id))
+    .filter((item): item is TermVisual => item !== undefined)
+    .sort((a, b) => a.label.localeCompare(b.label));
+
+  const tools = [...toolIds]
+    .map((id) => toolVisualById.get(id))
+    .filter((item): item is TermVisual => item !== undefined)
+    .sort((a, b) => a.label.localeCompare(b.label));
+
+  return { materials, tools };
 }
 
 export function getAllSites(): SiteSummary[] {

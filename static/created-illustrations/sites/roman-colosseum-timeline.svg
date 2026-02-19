@@ -1,0 +1,16 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='680' viewBox='0 0 1200 680'>
+  <defs>
+    <linearGradient id='bg' x1='0' y1='0' x2='1' y2='1'>
+      <stop offset='0%' stop-color='#f8f4ec'/>
+      <stop offset='100%' stop-color='#e8dbc6'/>
+    </linearGradient>
+  </defs>
+  <rect width='1200' height='680' rx='28' fill='url(#bg)'/>
+  <rect x='36' y='36' width='1128' height='608' rx='20' fill='white' opacity='0.72' stroke='#d8c8ad'/>
+  <text x='76' y='105' font-size='48' fill='#1d1f29' font-family='Georgia, serif' font-weight='700'>Roman Colosseum</text>
+  <text x='76' y='145' font-size='22' fill='#4d5162' font-family='Georgia, serif'>Created Illustration: Historical Timeline (72 CE to 523 CE)</text>
+  <line x1='110' y1='335' x2='1090' y2='335' stroke='#4b5062' stroke-width='6' stroke-linecap='round'/>
+  <circle cx='110' cy='300' r='16' fill='#6a8dff' stroke='#1d1f29' stroke-width='2'/><circle cx='114' cy='370' r='16' fill='#19a57a' stroke='#1d1f29' stroke-width='2'/><circle cx='373' cy='300' r='16' fill='#e1912d' stroke='#1d1f29' stroke-width='2'/><circle cx='1090' cy='370' r='16' fill='#d65b5b' stroke='#1d1f29' stroke-width='2'/>
+  <text x='110' y='272' text-anchor='middle' font-size='18' fill='#1d1f29' font-weight='700'>Origins</text><text x='110' y='340' text-anchor='middle' font-size='16' fill='#3b3f4e'>72 CE</text><text x='114' y='342' text-anchor='middle' font-size='18' fill='#1d1f29' font-weight='700'>Peak</text><text x='114' y='410' text-anchor='middle' font-size='16' fill='#3b3f4e'>80 CE</text><text x='373' y='272' text-anchor='middle' font-size='18' fill='#1d1f29' font-weight='700'>Transition</text><text x='373' y='340' text-anchor='middle' font-size='16' fill='#3b3f4e'>523 CE</text><text x='1090' y='342' text-anchor='middle' font-size='18' fill='#1d1f29' font-weight='700'>Rediscovery</text><text x='1090' y='410' text-anchor='middle' font-size='16' fill='#3b3f4e'>1749 CE</text>
+  <text x='76' y='610' font-size='17' fill='#666c7c' font-family='Georgia, serif'>Created by Codex for classroom visualization. Not an official archaeological plate.</text>
+</svg>

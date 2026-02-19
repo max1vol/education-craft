@@ -1,0 +1,19 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='760' viewBox='0 0 1200 760'>
+  <defs>
+    <linearGradient id='bg2' x1='0' y1='0' x2='1' y2='1'>
+      <stop offset='0%' stop-color='#f6efe2'/>
+      <stop offset='100%' stop-color='#e3d3b3'/>
+    </linearGradient>
+  </defs>
+  <rect width='1200' height='760' rx='28' fill='url(#bg2)'/>
+  <rect x='34' y='34' width='1132' height='692' rx='18' fill='white' opacity='0.78' stroke='#d8c4a0'/>
+  <text x='74' y='96' font-size='44' fill='#1f2531' font-family='Georgia, serif' font-weight='700'>Akrotiri (Thera)</text>
+  <text x='74' y='132' font-size='22' fill='#565f75' font-family='Georgia, serif'>Created Illustration: Construction Summary</text>
+  <text x='74' y='182' font-size='24' fill='#244f8a' font-family='Georgia, serif' font-weight='700'>Building Materials</text>
+  <rect x='74' y='198' width='470' height='44' rx='10' fill='#2f68ac' opacity='0.14' stroke='#2f68ac'/><text x='88' y='226' font-size='18' fill='#1f2330' font-family='Georgia, serif'>Bronze</text>
+  <text x='654' y='182' font-size='24' fill='#8a5d1e' font-family='Georgia, serif' font-weight='700'>Likely Tools</text>
+  <rect x='654' y='198' width='470' height='44' rx='10' fill='#a56f27' opacity='0.14' stroke='#a56f27'/><text x='668' y='226' font-size='18' fill='#1f2330' font-family='Georgia, serif'>Manual stone/earth shaping tools</text><rect x='654' y='252' width='470' height='44' rx='10' fill='#a56f27' opacity='0.14' stroke='#a56f27'/><text x='668' y='280' font-size='18' fill='#1f2330' font-family='Georgia, serif'>Rope and lever systems</text>
+  <text x='74' y='560' font-size='24' fill='#206e59' font-family='Georgia, serif' font-weight='700'>Construction Methods</text>
+  <rect x='74' y='576' width='470' height='44' rx='10' fill='#2a8f77' opacity='0.14' stroke='#2a8f77'/><text x='88' y='604' font-size='18' fill='#1f2330' font-family='Georgia, serif'>Masonry and earthwork construction</text>
+  <text x='74' y='710' font-size='17' fill='#687287' font-family='Georgia, serif'>Created by Codex for visual teaching support. Use source links for official records.</text>
+</svg>

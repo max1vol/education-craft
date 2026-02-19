@@ -1,5 +1,11 @@
 import { error } from '@sveltejs/kit';
-import { getSiteConstruction, getSiteSummary, getTimelineEvents } from '$lib/data/sites';
+import {
+  getSiteConstruction,
+  getSiteMaterialAndToolVisuals,
+  getSiteSummary,
+  getSiteVisualPack,
+  getTimelineEvents
+} from '$lib/data/sites';
 
 export async function load({ params, fetch }) {
   const site = getSiteSummary(params.slug);
@@ -14,11 +20,15 @@ export async function load({ params, fetch }) {
 
   const images = await response.json();
   const construction = getSiteConstruction(site.slug);
+  const visualPack = getSiteVisualPack(site.slug);
+  const referenceVisuals = getSiteMaterialAndToolVisuals(site.slug);
 
   return {
     site,
     images,
     events: getTimelineEvents(site),
-    construction
+    construction,
+    visualPack,
+    referenceVisuals
   };
 }
