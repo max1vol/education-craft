@@ -258,6 +258,47 @@
     </div>
   </section>
 
+  <section class="sources panel">
+    <h2>Construction Data Sources</h2>
+    {#if data.construction?.sources?.length}
+      <ul class="source-list">
+        {#each data.construction.sources as source}
+          <li>
+            <a href={source.url} target="_blank" rel="noreferrer">{source.title}</a>
+          </li>
+        {/each}
+      </ul>
+    {:else}
+      <p>Source links will be added during curation updates.</p>
+    {/if}
+    {#if data.construction?.lastUpdated}
+      <p class="small-note">Construction profile updated: {data.construction.lastUpdated}</p>
+    {/if}
+  </section>
+
+  <section class="gallery">
+    <div class="gallery-head">
+      <h2>Reconstruction Gallery</h2>
+      <p>{data.images.length} items · click to open full view</p>
+    </div>
+
+    <div class="grid">
+      {#each data.images as image, index}
+        <article class="card">
+          <button class="thumb-button" on:click={() => openModal(index)}>
+            <img
+              src={`/site-media/${data.site.slug}/${image.file}`}
+              alt={image.caption || `Reconstruction of ${data.site.name}`}
+              loading="lazy"
+            />
+          </button>
+          <span>{image.caption}</span>
+          <a class="image-source-link" href={image.source_url} target="_blank" rel="noreferrer">Image source</a>
+        </article>
+      {/each}
+    </div>
+  </section>
+
   <section class="visual-section">
     <div class="section-head">
       <h2>Building Materials Reference</h2>
@@ -369,47 +410,6 @@
               <p>{tool.created.title}</p>
             </article>
           </div>
-        </article>
-      {/each}
-    </div>
-  </section>
-
-  <section class="sources panel">
-    <h2>Construction Data Sources</h2>
-    {#if data.construction?.sources?.length}
-      <ul class="source-list">
-        {#each data.construction.sources as source}
-          <li>
-            <a href={source.url} target="_blank" rel="noreferrer">{source.title}</a>
-          </li>
-        {/each}
-      </ul>
-    {:else}
-      <p>Source links will be added during curation updates.</p>
-    {/if}
-    {#if data.construction?.lastUpdated}
-      <p class="small-note">Construction profile updated: {data.construction.lastUpdated}</p>
-    {/if}
-  </section>
-
-  <section class="gallery">
-    <div class="gallery-head">
-      <h2>Reconstruction Gallery</h2>
-      <p>{data.images.length} items · click to open full view</p>
-    </div>
-
-    <div class="grid">
-      {#each data.images as image, index}
-        <article class="card">
-          <button class="thumb-button" on:click={() => openModal(index)}>
-            <img
-              src={`/site-media/${data.site.slug}/${image.file}`}
-              alt={image.caption || `Reconstruction of ${data.site.name}`}
-              loading="lazy"
-            />
-          </button>
-          <span>{image.caption}</span>
-          <a class="image-source-link" href={image.source_url} target="_blank" rel="noreferrer">Image source</a>
         </article>
       {/each}
     </div>
