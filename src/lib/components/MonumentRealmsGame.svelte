@@ -64,6 +64,8 @@
     status: string;
     biome: string;
     monument: string;
+    selectedSlot: number;
+    selectedBlock: BlockId | null;
     player: { x: number; y: number; z: number };
     target: { x: number; y: number; z: number } | null;
     targetType: string | null;
@@ -73,8 +75,8 @@
     getState: () => RuntimeDebugState;
     tapMineAt: (clientX: number, clientY: number) => boolean;
     tapPlaceAt: (clientX: number, clientY: number) => boolean;
-    touchSingleTapPlace: () => boolean;
-    touchTwoFingerDestroy: () => boolean;
+    touchSingleTapDestroy: () => boolean;
+    touchTwoFingerPlace: () => boolean;
     setPlayerView: (
       x: number,
       y: number,
@@ -925,6 +927,8 @@
     status,
     biome: biomeLabel,
     monument: monumentLabel,
+    selectedSlot,
+    selectedBlock,
     player: { x: player.x, y: player.y, z: player.z },
     target: currentTarget ? { x: currentTarget.x, y: currentTarget.y, z: currentTarget.z } : null,
     targetType: currentTarget ? world.getBlockAt(currentTarget.x, currentTarget.y, currentTarget.z) : null
@@ -945,8 +949,8 @@
         placeSelectedBlock(voxelRaycastFromScreen(clientX, clientY, INTERACT_RANGE));
         return placedCount > before;
       },
-      touchSingleTapPlace: () => touchPlaceViaCrosshair(),
-      touchTwoFingerDestroy: () => touchDestroyViaCrosshair(),
+      touchSingleTapDestroy: () => touchDestroyViaCrosshair(),
+      touchTwoFingerPlace: () => touchPlaceViaCrosshair(),
       setPlayerView: (x: number, y: number, z: number, lookAtX: number, lookAtY: number, lookAtZ: number) => {
         setPlayerPosition(x, y, z);
         const dx = lookAtX - x;
@@ -1014,6 +1018,12 @@
   const selectSlot = (index: number): void => {
     if (index < 0 || index >= HOTBAR_SLOTS) return;
     selectedSlot = index;
+  };
+
+  const handleHotbarSlotPress = (event: Event, index: number): void => {
+    event.preventDefault();
+    event.stopPropagation();
+    selectSlot(index);
   };
 
   const queueJump = (): void => {
@@ -1384,7 +1394,7 @@
       if (activeTouches.length >= 2) {
         clearTouchTapState();
         setTouchLookState(null);
-        touchDestroyViaCrosshair();
+        touchPlaceViaCrosshair();
         return;
       }
 
@@ -1431,7 +1441,7 @@
       if (!isTouchDevice) return;
 
       let endedTap = false;
-      let shouldPlace = false;
+      let shouldDestroy = false;
       let endedLook = false;
 
       for (let i = 0; i < event.changedTouches.length; i += 1) {
@@ -1441,7 +1451,7 @@
         if (touchTap.identifier === changedTouch.identifier) {
           endedTap = true;
           const duration = performance.now() - touchTap.startTime;
-          shouldPlace = !touchTap.moved && duration <= TOUCH_TAP_MAX_DURATION_MS;
+          shouldDestroy = !touchTap.moved && duration <= TOUCH_TAP_MAX_DURATION_MS;
         }
 
         if (touchLook.identifier === changedTouch.identifier) {
@@ -1451,8 +1461,8 @@
 
       if (endedTap) {
         clearTouchTapState();
-        if (shouldPlace) {
-          touchPlaceViaCrosshair();
+        if (shouldDestroy) {
+          touchDestroyViaCrosshair();
         }
       }
 
@@ -1545,6 +1555,7 @@
 
   <p class="fps-chip" aria-label="Frame rate">FPS {fps || '...'}</p>
   <p class="location-chip" aria-label="Current location">{monumentLabel} · {biomeLabel}</p>
+  <p class="status-chip" aria-label="Interaction status">{status}</p>
 
   <button
     class="panel audio-toggle"
@@ -1580,7 +1591,12 @@
 
     <section class="hotbar" aria-label="Block hotbar">
       {#each hotbar as blockId, index}
-        <button class:selected={selectedSlot === index} on:click={() => selectSlot(index)} aria-label={`Slot ${index + 1}`}>
+        <button
+          class:selected={selectedSlot === index}
+          on:pointerdown={(event) => handleHotbarSlotPress(event, index)}
+          on:click={(event) => handleHotbarSlotPress(event, index)}
+          aria-label={`Slot ${index + 1}`}
+        >
           <span class="slot-swatch" style={`background: ${blockId ? BLOCKS[blockId]?.color : '#444'}`}></span>
           <span class="slot-count">{blockId ? inventory[blockId] ?? 0 : 0}</span>
         </button>
@@ -1688,6 +1704,29 @@
     white-space: nowrap;
   }
 
+  .status-chip {
+    position: absolute;
+    top: calc(var(--safe-top) + 2.08rem);
+    left: calc(var(--safe-left) + 0.62rem);
+    right: calc(var(--safe-right) + 0.62rem);
+    z-index: 7;
+    margin: 0;
+    padding: 0.26rem 0.46rem;
+    border-radius: 9px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    background: rgba(8, 20, 33, 0.5);
+    color: #d8e9fb;
+    font-size: 0.61rem;
+    line-height: 1;
+    letter-spacing: 0.02em;
+    pointer-events: none;
+    backdrop-filter: blur(2px);
+    max-width: min(calc(100vw - var(--safe-left) - var(--safe-right) - 1.24rem), 34rem);
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
   .audio-toggle {
     top: calc(var(--safe-top) + 0.8rem);
     right: calc(var(--safe-right) + 0.8rem);
@@ -1763,6 +1802,7 @@
     border: 1px solid rgba(255, 255, 255, 0.2);
     background: rgba(6, 16, 28, 0.65);
     backdrop-filter: blur(2px);
+    pointer-events: auto;
   }
 
   .hotbar button {
@@ -1780,6 +1820,7 @@
     color: #e9f6ff;
     cursor: pointer;
     font: inherit;
+    touch-action: manipulation;
   }
 
   .hotbar button.selected {
@@ -1908,6 +1949,15 @@
       max-width: min(54vw, 14rem);
       font-size: 0.59rem;
       padding: 0.22rem 0.4rem;
+    }
+
+    .status-chip {
+      top: calc(var(--safe-top) + 1.82rem);
+      left: calc(var(--safe-left) + 0.48rem);
+      right: calc(var(--safe-right) + 0.48rem);
+      font-size: 0.56rem;
+      padding: 0.2rem 0.36rem;
+      max-width: min(calc(100vw - var(--safe-left) - var(--safe-right) - 0.96rem), 34rem);
     }
 
     .hotbar {

@@ -274,7 +274,7 @@ async function verifyTouchDestroy(browser) {
 
   const before = await page.evaluate(() => window.__monumentRealmsDebug?.getState() ?? null);
   if (!before) {
-    throw new Error('Touch destroy proof failed: debug API unavailable.');
+    throw new Error('Touch controls proof failed: debug API unavailable.');
   }
 
   await page.screenshot({ path: path.join(outputDir, 'touch-destroy-before-iphone.png'), fullPage: true });
@@ -291,34 +291,34 @@ async function verifyTouchDestroy(browser) {
     { x: Math.round(viewport.width * 0.53), y: Math.round(viewport.height * 0.6) }
   ];
 
-  let placeState = before;
-  let placeSuccessPoint = null;
+  let destroyState = before;
+  let destroySuccessPoint = null;
 
   for (const point of singleTapPoints) {
     await page.touchscreen.tap(point.x, point.y);
     await page.waitForTimeout(350);
-    placeState = await page.evaluate(() => window.__monumentRealmsDebug?.getState() ?? null);
-    if (placeState && placeState.placedCount > before.placedCount) {
-      placeSuccessPoint = point;
+    destroyState = await page.evaluate(() => window.__monumentRealmsDebug?.getState() ?? null);
+    if (destroyState && destroyState.minedCount > before.minedCount) {
+      destroySuccessPoint = point;
       break;
     }
   }
 
-  await page.screenshot({ path: path.join(outputDir, 'touch-place-after-iphone.png'), fullPage: true });
+  await page.screenshot({ path: path.join(outputDir, 'touch-destroy-after-iphone.png'), fullPage: true });
 
-  const destroyBefore = await page.evaluate(() => window.__monumentRealmsDebug?.getState() ?? null);
-  let destroyAttempt = {
+  const placeBefore = await page.evaluate(() => window.__monumentRealmsDebug?.getState() ?? null);
+  let placeAttempt = {
     method: 'cdp-two-finger',
     success: false,
-    before: destroyBefore?.minedCount ?? 0,
-    after: destroyBefore?.minedCount ?? 0,
-    statusBefore: destroyBefore?.status ?? null,
-    statusAfter: destroyBefore?.status ?? null,
+    before: placeBefore?.placedCount ?? 0,
+    after: placeBefore?.placedCount ?? 0,
+    statusBefore: placeBefore?.status ?? null,
+    statusAfter: placeBefore?.status ?? null,
     fallbackUsed: false
   };
 
-  if (!destroyBefore) {
-    throw new Error('Touch controls proof failed: debug API unavailable before two-finger destroy.');
+  if (!placeBefore) {
+    throw new Error('Touch controls proof failed: debug API unavailable before two-finger place.');
   }
 
   const fingerA = { x: Math.round(viewport.width * 0.47), y: Math.round(viewport.height * 0.58) };
@@ -339,12 +339,12 @@ async function verifyTouchDestroy(browser) {
       touchPoints: []
     });
     await page.waitForTimeout(400);
-    const destroyAfter = await page.evaluate(() => window.__monumentRealmsDebug?.getState() ?? null);
-    destroyAttempt = {
-      ...destroyAttempt,
-      success: Boolean(destroyAfter && destroyAfter.minedCount > destroyBefore.minedCount),
-      after: destroyAfter?.minedCount ?? destroyAttempt.after,
-      statusAfter: destroyAfter?.status ?? destroyAttempt.statusAfter
+    const placeAfter = await page.evaluate(() => window.__monumentRealmsDebug?.getState() ?? null);
+    placeAttempt = {
+      ...placeAttempt,
+      success: Boolean(placeAfter && placeAfter.placedCount > placeBefore.placedCount),
+      after: placeAfter?.placedCount ?? placeAttempt.after,
+      statusAfter: placeAfter?.status ?? placeAttempt.statusAfter
     };
     await cdp.detach();
   } catch {
@@ -354,18 +354,18 @@ async function verifyTouchDestroy(browser) {
         return { success: false, before: 0, after: 0, statusBefore: null, statusAfter: null };
       }
       const beforeState = api.getState();
-      const didDestroy = api.touchTwoFingerDestroy();
+      const didPlace = api.touchTwoFingerPlace();
       const afterState = api.getState();
       return {
-        success: didDestroy || afterState.minedCount > beforeState.minedCount,
-        before: beforeState.minedCount,
-        after: afterState.minedCount,
+        success: didPlace || afterState.placedCount > beforeState.placedCount,
+        before: beforeState.placedCount,
+        after: afterState.placedCount,
         statusBefore: beforeState.status,
         statusAfter: afterState.status
       };
     });
 
-    destroyAttempt = {
+    placeAttempt = {
       method: 'debug-api-fallback',
       success: fallback.success,
       before: fallback.before,
@@ -376,32 +376,220 @@ async function verifyTouchDestroy(browser) {
     };
   }
 
-  await page.screenshot({ path: path.join(outputDir, 'touch-destroy-after-iphone.png'), fullPage: true });
+  await page.screenshot({ path: path.join(outputDir, 'touch-place-after-iphone.png'), fullPage: true });
   const after = await page.evaluate(() => window.__monumentRealmsDebug?.getState() ?? null);
 
   const report = {
     verifiedAt: new Date().toISOString(),
     baseUrl,
     before,
-    afterSingleTapPlace: placeState,
-    singleTapPlaceSuccess: Boolean(placeSuccessPoint),
-    placeSuccessPoint,
-    twoFingerDestroy: destroyAttempt,
+    afterSingleTapDestroy: destroyState,
+    singleTapDestroySuccess: Boolean(destroySuccessPoint),
+    destroySuccessPoint,
+    twoFingerPlace: placeAttempt,
     after,
-    success: Boolean(placeSuccessPoint) && Boolean(destroyAttempt.success)
+    success: Boolean(destroySuccessPoint) && Boolean(placeAttempt.success)
   };
 
   await fs.writeFile(path.join(outputDir, 'touch-destroy-proof.json'), `${JSON.stringify(report, null, 2)}\n`, 'utf8');
   await context.close();
   logStep('touch controls verification done');
 
-  if (!placeSuccessPoint) {
-    throw new Error('Touch controls proof failed: single tap did not increase placedCount.');
+  if (!destroySuccessPoint) {
+    throw new Error('Touch controls proof failed: single tap did not increase minedCount.');
   }
-  if (!destroyAttempt.success) {
-    throw new Error('Touch controls proof failed: two-finger destroy did not increase minedCount.');
+  if (!placeAttempt.success) {
+    throw new Error('Touch controls proof failed: two-finger place did not increase placedCount.');
   }
 
+}
+
+async function verifyTouchHotbarSelection(browser) {
+  logStep('touch hotbar selection verification start');
+  const targetSlot = 4;
+
+  const verifyOrientation = async ({ name, contextOptions, outputName }) => {
+    const context = await browser.newContext(contextOptions);
+    const page = await newPageWithTimeouts(context);
+    await gotoAndSettle(page, '/?biome=stonehenge-salisbury', '.scene canvas', 2200);
+
+    const before = await page.evaluate(() => window.__monumentRealmsDebug?.getState() ?? null);
+    if (!before) {
+      throw new Error(`Touch hotbar proof failed (${name}): debug API unavailable.`);
+    }
+
+    const button = page.locator('.hotbar button').nth(targetSlot);
+    await button.waitFor({ timeout: 20000 });
+    await button.tap();
+    await page.waitForTimeout(250);
+
+    const after = await page.evaluate(() => window.__monumentRealmsDebug?.getState() ?? null);
+    await page.screenshot({ path: path.join(outputDir, outputName), fullPage: true });
+    await context.close();
+
+    if (!after) {
+      throw new Error(`Touch hotbar proof failed (${name}): missing after state.`);
+    }
+
+    return {
+      name,
+      targetSlot,
+      beforeSlot: before.selectedSlot,
+      afterSlot: after.selectedSlot,
+      beforeBlock: before.selectedBlock,
+      afterBlock: after.selectedBlock,
+      success: after.selectedSlot === targetSlot
+    };
+  };
+
+  const iphone = devices['iPhone 14 Pro'];
+  const portrait = await verifyOrientation({
+    name: 'portrait',
+    contextOptions: { ...iphone },
+    outputName: 'touch-hotbar-iphone-portrait-after.png'
+  });
+
+  const landscape = await verifyOrientation({
+    name: 'landscape',
+    contextOptions: {
+      ...iphone,
+      viewport: { width: iphone.viewport.height, height: iphone.viewport.width }
+    },
+    outputName: 'touch-hotbar-iphone-landscape-after.png'
+  });
+
+  const report = {
+    verifiedAt: new Date().toISOString(),
+    baseUrl,
+    portrait,
+    landscape,
+    success: portrait.success && landscape.success
+  };
+
+  await fs.writeFile(path.join(outputDir, 'touch-hotbar-proof.json'), `${JSON.stringify(report, null, 2)}\n`, 'utf8');
+  logStep('touch hotbar selection verification done');
+
+  if (!report.success) {
+    throw new Error('Touch hotbar proof failed: slot selection did not stick for portrait and landscape.');
+  }
+}
+
+async function verifyHudSafeArea(browser) {
+  logStep('touch HUD safe-area verification start');
+
+  const inspect = async ({ name, contextOptions, outputName }) => {
+    const context = await browser.newContext(contextOptions);
+    const page = await newPageWithTimeouts(context);
+    await gotoAndSettle(page, '/?biome=stonehenge-salisbury', '.scene canvas', 2200);
+
+    const result = await page.evaluate(() => {
+      const readInsets = () => {
+        const probe = document.createElement('div');
+        probe.style.position = 'fixed';
+        probe.style.top = '0';
+        probe.style.left = '0';
+        probe.style.paddingTop = 'env(safe-area-inset-top, 0px)';
+        probe.style.paddingRight = 'env(safe-area-inset-right, 0px)';
+        probe.style.paddingBottom = 'env(safe-area-inset-bottom, 0px)';
+        probe.style.paddingLeft = 'env(safe-area-inset-left, 0px)';
+        probe.style.visibility = 'hidden';
+        probe.style.pointerEvents = 'none';
+        document.body.appendChild(probe);
+        const styles = getComputedStyle(probe);
+        const parse = (value) => Number.parseFloat(value) || 0;
+        const insets = {
+          top: parse(styles.paddingTop),
+          right: parse(styles.paddingRight),
+          bottom: parse(styles.paddingBottom),
+          left: parse(styles.paddingLeft)
+        };
+        probe.remove();
+        return insets;
+      };
+
+      const selectors = {
+        fps: '.fps-chip',
+        location: '.location-chip',
+        status: '.status-chip',
+        hotbar: '.hotbar'
+      };
+
+      const insets = readInsets();
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+      const tolerance = 0.75;
+
+      const checks = Object.fromEntries(
+        Object.entries(selectors).map(([key, selector]) => {
+          const element = document.querySelector(selector);
+          if (!element) {
+            return [key, { present: false, withinSafeArea: false, rect: null }];
+          }
+
+          const rect = element.getBoundingClientRect();
+          const withinSafeArea =
+            rect.top >= insets.top - tolerance &&
+            rect.left >= insets.left - tolerance &&
+            rect.right <= width - insets.right + tolerance &&
+            rect.bottom <= height - insets.bottom + tolerance;
+
+          return [
+            key,
+            {
+              present: true,
+              withinSafeArea,
+              rect: {
+                top: Number(rect.top.toFixed(2)),
+                left: Number(rect.left.toFixed(2)),
+                right: Number(rect.right.toFixed(2)),
+                bottom: Number(rect.bottom.toFixed(2)),
+                width: Number(rect.width.toFixed(2)),
+                height: Number(rect.height.toFixed(2))
+              }
+            }
+          ];
+        })
+      );
+
+      const success = Object.values(checks).every((item) => item.present && item.withinSafeArea);
+      return { viewport: { width, height }, safeInsets: insets, checks, success };
+    });
+
+    await page.screenshot({ path: path.join(outputDir, outputName), fullPage: true });
+    await context.close();
+    return { name, ...result };
+  };
+
+  const iphone = devices['iPhone 14 Pro'];
+  const portrait = await inspect({
+    name: 'portrait',
+    contextOptions: { ...iphone },
+    outputName: 'hud-safe-area-iphone-portrait.png'
+  });
+
+  const landscape = await inspect({
+    name: 'landscape',
+    contextOptions: {
+      ...iphone,
+      viewport: { width: iphone.viewport.height, height: iphone.viewport.width }
+    },
+    outputName: 'hud-safe-area-iphone-landscape.png'
+  });
+
+  const report = {
+    verifiedAt: new Date().toISOString(),
+    baseUrl,
+    portrait,
+    landscape,
+    success: portrait.success && landscape.success
+  };
+
+  await fs.writeFile(path.join(outputDir, 'touch-hud-safe-area-proof.json'), `${JSON.stringify(report, null, 2)}\n`, 'utf8');
+  logStep('touch HUD safe-area verification done');
+
+  if (!report.success) {
+    throw new Error('Touch HUD safe-area proof failed: one or more HUD elements escaped safe-area bounds.');
+  }
 }
 
 async function verifyDesktopDestroy(browser) {
@@ -613,6 +801,8 @@ async function main() {
 
     await verifyDesktopDestroy(browser);
     await verifyTouchDestroy(browser);
+    await verifyTouchHotbarSelection(browser);
+    await verifyHudSafeArea(browser);
     buildBeforeAfterMontages();
   } finally {
     await browser.close();

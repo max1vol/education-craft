@@ -34,7 +34,7 @@ Expected local URL from `npm run dev` in this workspace: `http://127.0.0.1:4173`
 
 - Desktop controls: WASD + Shift sprint + Space jump.
 - Block loop: left click destroys, right click places.
-- Touch controls: single tap places, two-finger tap destroys.
+- Touch controls: single tap destroys, two-finger tap places.
 - Portal travel: step into portal core and verify biome transfer.
 - Audio: confirm BGM switches by biome and volume sliders affect master/music/SFX.
 
@@ -62,8 +62,10 @@ Texture proof checks:
 
 Touch action checks:
 - Verify `docs/images/debug/touch-destroy-proof.json` reports `success: true`.
-- Verify `singleTapPlaceSuccess: true`.
-- Verify `twoFingerDestroy.success: true` with `method: "cdp-two-finger"` (fallback should remain `false`).
+- Verify `singleTapDestroySuccess: true`.
+- Verify `twoFingerPlace.success: true` with `method: "cdp-two-finger"` (fallback should remain `false`).
+- Verify `docs/images/debug/touch-hotbar-proof.json` reports `success: true` for both portrait and landscape slot selection.
+- Verify `docs/images/debug/touch-hud-safe-area-proof.json` reports `success: true` for portrait and landscape (`fps`, `location`, `status`, `hotbar` all within safe-area bounds).
 
 ## 5) Iteration loop
 

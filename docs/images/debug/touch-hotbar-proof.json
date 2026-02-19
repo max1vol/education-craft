@@ -1,0 +1,23 @@
+{
+  "verifiedAt": "2026-02-19T11:54:01.689Z",
+  "baseUrl": "http://127.0.0.1:4173",
+  "portrait": {
+    "name": "portrait",
+    "targetSlot": 4,
+    "beforeSlot": 0,
+    "afterSlot": 4,
+    "beforeBlock": "dirt",
+    "afterBlock": "sandstone",
+    "success": true
+  },
+  "landscape": {
+    "name": "landscape",
+    "targetSlot": 4,
+    "beforeSlot": 0,
+    "afterSlot": 4,
+    "beforeBlock": "dirt",
+    "afterBlock": "sandstone",
+    "success": true
+  },
+  "success": true
+}

@@ -71,10 +71,15 @@ Rebuild this repo into an original, high-quality voxel first-person game with mo
 
 ## New Directives (2026-02-19)
 - Add these as additional requirements without deleting prior requirements.
-- Touch targeting behavior:
-  - Single-tap on touch should place a block at the same world target used by mouse primary action (crosshair/raycast target), not at raw finger screen position.
-  - Two-finger tap should destroy using the same crosshair/raycast target behavior (verify whether already true; fix if needed).
+- Touch targeting behavior (latest override):
+  - Single-finger tap should **destroy** a block.
+  - Two-finger tap should **place/build** a block.
+  - Both touch actions must target the same world raycast/crosshair target used by mouse actions (not raw finger screen position).
   - Apply a small max interaction distance check for touch actions so off-range taps do nothing.
+- iPhone HUD safe-area requirement (explicit):
+  - HUD elements (including location/FPS and similar status UI) must remain within iPhone safe-area bounds in both portrait and landscape.
+  - The block-selection strip/hotbar must also remain fully inside iPhone safe-area bounds in portrait and landscape.
+  - The block-selection strip/hotbar must accept touch taps to select the active building block reliably.
 - Stonehenge material/art direction correction:
   - Stonehenge must not look like brick masonry.
   - Create a realistic “huge standing stone” texture set and split it across multiple adjacent block variants (e.g., `edge-1`, `middle-1`, `middle-2`, `middle-3`, `edge-2`) so assembled stones read as large monoliths.

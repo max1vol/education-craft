@@ -1,6 +1,11 @@
 # TODO
 
 ## In Progress
+- [x] Apply latest touch mapping override: single-finger tap destroys, two-finger tap places/builds.
+- [x] Verify both touch actions still use crosshair/raycast target (not raw tap location) with max-distance guard.
+- [x] Re-verify iPhone safe-area HUD placement for location/FPS/status UI in portrait and landscape.
+- [x] Ensure block-selection strip/hotbar is inside iPhone safe area in portrait + landscape.
+- [x] Ensure block-selection strip/hotbar accepts taps to select active building block reliably.
 - [x] Add touch-action targeting parity with mouse raycast target: single-tap place uses crosshair target (not raw tap location), with max-distance guard.
 - [x] Verify/fix two-finger touch destruction to use the same crosshair/raycast targeting behavior as mouse action.
 - [x] Rework Stonehenge materials away from brick look: create large-standing-stone texture variants (`edge-1`, `middle-1..3`, `edge-2`) and map them into assembled monolith structures.
@@ -63,7 +68,12 @@
 - 2026-02-19: Monument Realms screenshot QA Batch 11 (sub-agent, 8 captures) confirmed Stonehenge monoliths are no longer brick-like and touch before/after states are coherent, while flagging weak `debug-stonehenge-topdown.png` framing and non-visual two-finger proof.
 - 2026-02-19: Monument Realms screenshot QA Batch 12 (sub-agent, 8 captures + `touch-destroy-proof.json`) confirmed CDP-driven two-finger destroy verification (`method: cdp-two-finger`, `fallbackUsed: false`) and acceptable monolith realism; top-down framing still flagged.
 - 2026-02-19: Monument Realms screenshot QA Batch 13 (sub-agent, 8 captures + `touch-destroy-proof.json`) passed all targeted checks: standing-stone realism, readable top-down Stonehenge debug frame, and touch single-tap place + two-finger destroy evidence.
+- 2026-02-19: Applied latest touch override in runtime/input + debug API: single-finger tap now destroys, two-finger tap now places via crosshair/raycast target with touch max-distance guard.
+- 2026-02-19: Added safe-area status HUD chip and strengthened hotbar touch-selection reliability (`pointerdown`/`click` guarded handlers + touch-action tuning), keeping FPS/location/status/hotbar within safe-area-aware layout constraints.
+- 2026-02-19: Extended capture verification with `touch-hotbar-proof.json` (portrait+landscape slot selection) and `touch-hud-safe-area-proof.json` (fps/location/status/hotbar bounds checks), then re-ran full screenshot capture suite.
+- 2026-02-19: Monument Realms screenshot QA Batch 14 (sub-agent, 8 screenshots + touch/hotbar/HUD proof JSON) found no blocking regressions and accepted functional pass for latest override and hotbar safe-area/tap behavior.
+- 2026-02-19: Monument Realms screenshot QA Batch 15 (sub-agent, 8 screenshots + three proof JSON files) confirmed functional pass for single-tap destroy + two-finger place and hotbar safe-area/tap reliability; follow-up note is that Playwright iPhone emulation reported zero safe inset values, so final notch/home-indicator validation should still be rechecked on physical iPhone hardware.
 
 ## Notes
 - Forbidden term must not appear in repo content, UI text, commit messages, or generated assets.
-- Touch controls requirement: single tap places selected block, two-finger tap destroys targeted block.
+- Touch controls requirement (latest override): single tap destroys targeted block, two-finger tap places selected block.

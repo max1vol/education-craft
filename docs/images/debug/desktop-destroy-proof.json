@@ -1,5 +1,5 @@
 {
-  "verifiedAt": "2026-02-19T08:50:46.332Z",
+  "verifiedAt": "2026-02-19T11:49:46.816Z",
   "baseUrl": "http://127.0.0.1:4173",
   "before": {
     "minedCount": 0,
@@ -7,9 +7,11 @@
     "status": "Click to capture the pointer. Break blocks with left click and place with right click.",
     "biome": "Salisbury Plain",
     "monument": "Stonehenge",
+    "selectedSlot": 0,
+    "selectedBlock": "dirt",
     "player": {
       "x": -21.5,
-      "y": 15.449479739875896,
+      "y": 15.123698959689559,
       "z": 10.5
     },
     "target": {
@@ -34,9 +36,11 @@
     "status": "Collected Dirt.",
     "biome": "Salisbury Plain",
     "monument": "Stonehenge",
+    "selectedSlot": 0,
+    "selectedBlock": "dirt",
     "player": {
       "x": -21.5,
-      "y": 15.004349739844898,
+      "y": 15.003698959689558,
       "z": 10.5
     },
     "target": {
