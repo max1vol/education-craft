@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="HS02-title HS02-desc">
+  <title id="HS02-title">Monument Builder Studio</title>
+  <desc id="HS02-desc">Color concept card for Monument Builder Studio.</desc>
+  <defs>
+    <linearGradient id="HS02-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3c1642" />
+      <stop offset="36%" stop-color="#6a0572" />
+      <stop offset="72%" stop-color="#ab83a1" />
+      <stop offset="100%" stop-color="#f8b195" />
+    </linearGradient>
+    <pattern id="HS02-dots" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="4" cy="4" r="2.3" fill="rgba(255,255,255,0.15)" />
+      <circle cx="20" cy="18" r="1.8" fill="rgba(255,255,255,0.13)" />
+      <circle cx="12" cy="12" r="1.2" fill="rgba(255,255,255,0.11)" />
+    </pattern>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#HS02-bg)" />
+  <rect width="1600" height="900" fill="url(#HS02-dots)" />
+  <rect x="848" y="74" width="706" height="752" rx="42" fill="rgba(255,255,255,0.08)" />
+  <circle cx="1240" cy="230" r="242" fill="rgba(255,255,255,0.08)" />
+  <circle cx="1240" cy="230" r="176" fill="rgba(255,255,255,0.06)" />
+  <ellipse cx="1180" cy="770" rx="360" ry="180" fill="rgba(255,255,255,0.09)" />
+  <ellipse cx="320" cy="790" rx="420" ry="180" fill="rgba(0,0,0,0.14)" />
+
+  <rect x="80" y="82" width="740" height="736" rx="28" fill="rgba(0,0,0,0.26)" />
+  <rect x="94" y="96" width="712" height="708" rx="22" fill="rgba(255,255,255,0.09)" />
+
+  <text x="132" y="176" fill="rgba(255,255,255,0.92)" font-family="Trebuchet MS, Segoe UI, Arial, sans-serif" font-size="52" font-weight="700">HS02</text>
+  <text x="132" y="262" fill="rgba(255,255,255,0.98)" font-family="Trebuchet MS, Segoe UI, Arial, sans-serif" font-size="66" font-weight="800">Monument Builder Studio</text>
+  <text x="132" y="330" fill="rgba(255,255,255,0.86)" font-family="Trebuchet MS, Segoe UI, Arial, sans-serif" font-size="38" font-weight="600">Materials + tools simulator</text>
+
+  <g transform="translate(126 408)">
+    <rect x="0" y="0" width="520" height="54" rx="12" fill="rgba(255,255,255,0.14)" />
+    <text x="22" y="37" fill="rgba(255,255,255,0.92)" font-family="Trebuchet MS, Segoe UI, Arial, sans-serif" font-size="28" font-weight="700">Gradual Improvement Path</text>
+    <g fill="rgba(255,255,255,0.86)" font-family="Trebuchet MS, Segoe UI, Arial, sans-serif" font-size="26" font-weight="700">
+      <text x="0" y="118">01 Starter</text>
+      <text x="0" y="168">02 Better</text>
+      <text x="0" y="218">03 Advanced</text>
+      <text x="0" y="268">04 Mastery</text>
+    </g>
+    <path d="M194 112 H468 M194 162 H468 M194 212 H468 M194 262 H468" stroke="rgba(255,255,255,0.58)" stroke-width="5" stroke-linecap="round" />
+    <circle cx="194" cy="112" r="8" fill="rgba(255,255,255,0.94)" />
+    <circle cx="194" cy="162" r="8" fill="rgba(255,255,255,0.94)" />
+    <circle cx="194" cy="212" r="8" fill="rgba(255,255,255,0.94)" />
+    <circle cx="194" cy="262" r="8" fill="rgba(255,255,255,0.94)" />
+  </g>
+
+  
+      <g transform="translate(960 240)">
+        <rect x="40" y="170" width="220" height="110" rx="10" fill="rgba(255,255,255,0.16)" />
+        <rect x="70" y="135" width="70" height="35" rx="6" fill="rgba(255,255,255,0.72)" />
+        <rect x="150" y="115" width="70" height="55" rx="6" fill="rgba(255,255,255,0.62)" />
+        <rect x="100" y="80" width="70" height="35" rx="6" fill="rgba(255,255,255,0.52)" />
+        <path d="M258 70 V210" stroke="rgba(255,255,255,0.72)" stroke-width="7" />
+        <path d="M206 90 H300" stroke="rgba(255,255,255,0.72)" stroke-width="7" />
+        <rect x="292" y="90" width="16" height="62" rx="4" fill="rgba(255,255,255,0.72)" />
+      </g>
+</svg>

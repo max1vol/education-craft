@@ -78,6 +78,52 @@
     </article>
   </section>
 
+  <section class="idea-playbook">
+    <div class="playbook-head">
+      <h2>16 Feature Blueprints for Using Site Facts</h2>
+      <p>
+        Each concept below uses your current data model and shows a gradual implementation path:
+        <strong>Starter → Better → Advanced → Mastery</strong>.
+      </p>
+    </div>
+
+    <div class="idea-grid">
+      {#each data.siteFeatureIdeas as idea}
+        <article class="idea-card">
+          <img class="idea-visual" src={idea.illustration} alt={`${idea.title} colourful concept illustration`} loading="lazy" />
+
+          <div class="idea-body">
+            <p class="idea-id">{idea.id}</p>
+            <h3>{idea.title}</h3>
+            <p class="idea-summary">{idea.summary}</p>
+            <p class="idea-impact"><strong>KS2 value:</strong> {idea.impact}</p>
+
+            <div class="idea-group">
+              <strong>Facts and data used</strong>
+              <div class="chips">
+                {#each idea.dataUsed as item}
+                  <span>{item}</span>
+                {/each}
+              </div>
+            </div>
+
+            <div class="idea-group">
+              <strong>Gradual improvement path</strong>
+              <ol class="progression-list">
+                {#each idea.progression as step}
+                  <li>
+                    <span>{step.name}</span>
+                    <p>{step.detail}</p>
+                  </li>
+                {/each}
+              </ol>
+            </div>
+          </div>
+        </article>
+      {/each}
+    </div>
+  </section>
+
   <section class="site-list">
     <div class="list-head">
       <h2>Site-by-Site Extra Info</h2>
@@ -253,6 +299,112 @@
     padding: 0.85rem;
   }
 
+  .idea-playbook {
+    margin-top: 0.95rem;
+    border: 1px solid #cfb48b;
+    border-radius: 16px;
+    background: linear-gradient(135deg, rgba(255, 250, 243, 0.95), rgba(255, 241, 222, 0.92));
+    padding: 0.9rem;
+  }
+
+  .playbook-head h2 {
+    margin: 0;
+    font-size: clamp(1.15rem, 2.6vw, 1.7rem);
+  }
+
+  .playbook-head p {
+    margin: 0.4rem 0 0;
+    color: #5a4529;
+    max-width: 95ch;
+    line-height: 1.45;
+  }
+
+  .idea-grid {
+    margin-top: 0.8rem;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+
+  .idea-card {
+    border: 1px solid #d6bc96;
+    border-radius: 14px;
+    overflow: hidden;
+    background: rgba(255, 252, 245, 0.96);
+    display: grid;
+  }
+
+  .idea-visual {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    background: #efe2cd;
+  }
+
+  .idea-body {
+    padding: 0.75rem;
+  }
+
+  .idea-id {
+    margin: 0;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.09em;
+    color: #865e2f;
+    text-transform: uppercase;
+  }
+
+  .idea-body h3 {
+    margin: 0.28rem 0 0.2rem;
+    font-size: 1.06rem;
+  }
+
+  .idea-summary {
+    margin: 0;
+    color: #543f24;
+    line-height: 1.36;
+    font-size: 0.88rem;
+  }
+
+  .idea-impact {
+    margin: 0.38rem 0 0;
+    color: #3e2f1a;
+    font-size: 0.85rem;
+  }
+
+  .idea-group {
+    margin-top: 0.5rem;
+  }
+
+  .idea-group strong {
+    display: block;
+    font-size: 0.83rem;
+    color: #4b3921;
+    margin-bottom: 0.3rem;
+  }
+
+  .progression-list {
+    margin: 0;
+    padding-left: 1rem;
+    display: grid;
+    gap: 0.22rem;
+  }
+
+  .progression-list li {
+    color: #3f2f1c;
+    font-size: 0.8rem;
+    line-height: 1.3;
+  }
+
+  .progression-list span {
+    font-weight: 700;
+  }
+
+  .progression-list p {
+    margin: 0.07rem 0 0.18rem;
+  }
+
   .list-head {
     display: flex;
     gap: 0.8rem;
@@ -354,6 +506,10 @@
     }
 
     .insights {
+      grid-template-columns: 1fr;
+    }
+
+    .idea-grid {
       grid-template-columns: 1fr;
     }
 

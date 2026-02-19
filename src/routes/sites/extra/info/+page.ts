@@ -1,4 +1,5 @@
 import { getAllSites, getSiteConstruction } from '$lib/data/sites';
+import { siteFeatureIdeas } from '$lib/data/site-feature-ideas';
 
 type CountEntry = { name: string; count: number };
 
@@ -55,6 +56,7 @@ export function load() {
     sites,
     topMaterials,
     topTools,
-    topSourceTypes
+    topSourceTypes,
+    siteFeatureIdeas
   };
 }
