@@ -88,6 +88,37 @@
       {/each}
     {/if}
   </section>
+
+  <section class="idea-section">
+    <div class="idea-inner">
+      <div class="idea-head">
+        <p class="eyebrow">Classroom Extensions</p>
+        <h2>16 Ways to Use Historical Site Facts</h2>
+        <p>
+          This section turns the same site data (origin stories, timelines, materials, tools, and sources)
+          into structured learning activities. Each card follows a progressive path:
+          <strong>Starter → Better → Advanced → Mastery</strong>.
+        </p>
+      </div>
+
+      <div class="idea-grid">
+        {#each data.siteFeatureIdeas as idea}
+          <article class="idea-feature-card">
+            <img src={idea.illustration} alt={`${idea.title} colourful concept illustration`} loading="lazy" />
+            <div class="idea-feature-body">
+              <p class="idea-feature-id">{idea.id}</p>
+              <h3>{idea.title}</h3>
+              <p class="idea-feature-summary">{idea.summary}</p>
+              <p class="idea-feature-progress">
+                <strong>Progression:</strong> {idea.progression.map((step) => step.name).join(' → ')}
+              </p>
+              <a class="idea-feature-link" href="/sites/extra/info">Open full blueprint details</a>
+            </div>
+          </article>
+        {/each}
+      </div>
+    </div>
+  </section>
 </main>
 
 <style>
@@ -282,6 +313,101 @@
     background: #fff7ea;
   }
 
+  .idea-section {
+    padding: 0.4rem 1rem 2.3rem;
+  }
+
+  .idea-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    border: 1px solid #d5b88b;
+    border-radius: 18px;
+    background: linear-gradient(135deg, #fff9ec, #f2dfc2);
+    padding: 1rem;
+    box-shadow: 0 10px 26px rgba(95, 65, 23, 0.14);
+  }
+
+  .idea-head h2 {
+    margin: 0.35rem 0 0.5rem;
+    font-size: clamp(1.25rem, 2.4vw, 1.9rem);
+  }
+
+  .idea-head p {
+    margin: 0;
+    color: #533f25;
+    line-height: 1.45;
+    max-width: 92ch;
+  }
+
+  .idea-grid {
+    margin-top: 0.9rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 0.8rem;
+  }
+
+  .idea-feature-card {
+    border: 1px solid #d6bc96;
+    border-radius: 13px;
+    overflow: hidden;
+    background: #fffaf1;
+    display: grid;
+  }
+
+  .idea-feature-card img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    background: #eee0ca;
+  }
+
+  .idea-feature-body {
+    padding: 0.68rem;
+  }
+
+  .idea-feature-id {
+    margin: 0;
+    font-size: 0.77rem;
+    font-weight: 700;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: #8e6434;
+  }
+
+  .idea-feature-body h3 {
+    margin: 0.28rem 0 0.18rem;
+    font-size: 1rem;
+    line-height: 1.25;
+  }
+
+  .idea-feature-summary {
+    margin: 0;
+    color: #58462d;
+    font-size: 0.84rem;
+    line-height: 1.35;
+  }
+
+  .idea-feature-progress {
+    margin: 0.35rem 0 0;
+    color: #493722;
+    font-size: 0.79rem;
+    line-height: 1.3;
+  }
+
+  .idea-feature-link {
+    margin-top: 0.45rem;
+    display: inline-block;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #1a5b80;
+    text-decoration: none;
+  }
+
+  .idea-feature-link:hover {
+    text-decoration: underline;
+  }
+
   @media (max-width: 700px) {
     .hero-inner {
       padding: 1rem;
@@ -295,6 +421,10 @@
     .metrics div {
       min-width: 0;
       flex: 1;
+    }
+
+    .idea-grid {
+      grid-template-columns: 1fr;
     }
   }
 
