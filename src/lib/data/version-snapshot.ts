@@ -22,101 +22,101 @@ export interface VersionSnapshot {
 }
 
 export const VERSION_SNAPSHOT: VersionSnapshot = {
-  "generatedAt": "2026-02-19T16:13:44.581Z",
+  "generatedAt": "2026-02-19T17:26:16.460Z",
   "packageVersion": "0.1.0",
-  "commitHash": "ffe99aef78025d59ee61a78f4e9d90cc6fed85eb",
-  "commitShort": "ffe99ae",
-  "branch": "main",
-  "describe": "ffe99ae-dirty",
-  "label": "v0.1.0 (ffe99ae-dirty)",
+  "commitHash": "1975cb6b1c508534e1fda870ae534e4aa0ad42e9",
+  "commitShort": "1975cb6",
+  "branch": "codex/sites-extra-info-mainline",
+  "describe": "1975cb6-dirty",
+  "label": "v0.1.0 (1975cb6-dirty)",
   "latest": {
-    "hash": "ffe99aef78025d59ee61a78f4e9d90cc6fed85eb",
-    "shortHash": "ffe99ae",
+    "hash": "1975cb6b1c508534e1fda870ae534e4aa0ad42e9",
+    "shortHash": "1975cb6",
     "date": "2026-02-19",
-    "timestamp": "2026-02-19T05:02:32-08:00",
-    "unixTime": 1771506152,
-    "title": "Apply latest touch override and iPhone hotbar safe-area verification"
+    "timestamp": "2026-02-19T16:54:29+00:00",
+    "unixTime": 1771520069,
+    "title": "Generate 4 per-blueprint examples for every site page"
   },
   "history": [
     {
-      "hash": "941e69c08de789cf3652955c14cd8bb6e67c4457",
-      "shortHash": "941e69c",
+      "hash": "201117396265d290d65bef43fb983e82d34657c7",
+      "shortHash": "2011173",
       "date": "2026-02-19",
-      "timestamp": "2026-02-19T12:13:31+00:00",
-      "unixTime": 1771503211,
-      "title": "Merge branch 'origin-main-ssh2'"
+      "timestamp": "2026-02-19T16:41:57+00:00",
+      "unixTime": 1771519317,
+      "title": "Add bottom classroom ideas section to sites timeline page"
     },
     {
-      "hash": "7974ce4040855fcb3c9d2fcbe12b0a442c7ced1f",
-      "shortHash": "7974ce4",
+      "hash": "1af19c729742d09fed03bf8ba667f7e9d3f5df64",
+      "shortHash": "1af19c7",
       "date": "2026-02-19",
-      "timestamp": "2026-02-19T12:12:25+00:00",
-      "unixTime": 1771503145,
-      "title": "Add sourced construction data and expand site galleries with per-image sources"
+      "timestamp": "2026-02-19T16:32:54+00:00",
+      "unixTime": 1771518774,
+      "title": "Add 16 illustrated feature blueprints for site facts"
     },
     {
-      "hash": "9e148bf14282b8e09853e8df7c206ff57914a8c8",
-      "shortHash": "9e148bf",
+      "hash": "93bdc48070be97fc94b1ef6559085190cebdd7e5",
+      "shortHash": "93bdc48",
       "date": "2026-02-19",
-      "timestamp": "2026-02-19T01:44:00-08:00",
-      "unixTime": 1771494240,
-      "title": "Implement touch targeting parity and Stonehenge standing-stone QA pass"
+      "timestamp": "2026-02-19T08:14:19-08:00",
+      "unixTime": 1771517659,
+      "title": "Automate build-time /version snapshot generation"
     },
     {
-      "hash": "52a587127a00d93fe167440089fcbc29e265a461",
-      "shortHash": "52a5871",
-      "date": "2026-02-18",
-      "timestamp": "2026-02-18T21:21:08-08:00",
-      "unixTime": 1771478468,
-      "title": "Finalize monument realms QA pass and capture proofs"
+      "hash": "76869ba3378fe38461382520235ed2c2e102ad8f",
+      "shortHash": "76869ba",
+      "date": "2026-02-19",
+      "timestamp": "2026-02-19T15:33:44+00:00",
+      "unixTime": 1771515224,
+      "title": "Move materials and tools references below gallery"
     },
     {
-      "hash": "0db530c0b67c0ac47855c114170958ce2d41b3c8",
-      "shortHash": "0db530c",
-      "date": "2026-02-18",
-      "timestamp": "2026-02-18T04:34:48-08:00",
-      "unixTime": 1771418088,
-      "title": "Replace BGM, add /version route, and fix safe-area HUD QA"
+      "hash": "f0153a0b726a21a7e64a2a2a4b3506026d89e296",
+      "shortHash": "f0153a0",
+      "date": "2026-02-19",
+      "timestamp": "2026-02-19T15:29:11+00:00",
+      "unixTime": 1771514951,
+      "title": "Remove extra info link from sites landing page"
     },
     {
-      "hash": "1ac5cd64fdd4c11488509a6f858ee3ec40dcedef",
-      "shortHash": "1ac5cd6",
-      "date": "2026-02-18",
-      "timestamp": "2026-02-18T03:48:29-08:00",
-      "unixTime": 1771415309,
-      "title": "Fix touch tap mining and make placement VFX visible"
+      "hash": "e2fb0fc8eae83e865be4b2bd15c1f7db53b29ada",
+      "shortHash": "e2fb0fc",
+      "date": "2026-02-19",
+      "timestamp": "2026-02-19T15:11:49+00:00",
+      "unixTime": 1771513909,
+      "title": "Enable fullscreen lightbox for all site page images"
     },
     {
-      "hash": "2e45f606b5e04176d0da115f37e29116124b522b",
-      "shortHash": "2e45f60",
-      "date": "2026-02-18",
-      "timestamp": "2026-02-18T02:35:54-08:00",
-      "unixTime": 1771410954,
-      "title": "Simplify touch HUD and switch to swipe-look camera"
+      "hash": "5ebb7317329619ff4dd17d9faba2e3b1fa19a3d7",
+      "shortHash": "5ebb731",
+      "date": "2026-02-19",
+      "timestamp": "2026-02-19T14:42:00+00:00",
+      "unixTime": 1771512120,
+      "title": "Add professional per-site visual dossiers with official and created references"
     },
     {
-      "hash": "ab1beef7a85f97ef8c143334c458ec9b586f543d",
-      "shortHash": "ab1beef",
-      "date": "2026-02-18",
-      "timestamp": "2026-02-18T02:20:25-08:00",
-      "unixTime": 1771410025,
-      "title": "Simplify in-game HUD and reduce overlay controls"
+      "hash": "4d124f252047b351ae30e2ce4228c80463742bc7",
+      "shortHash": "4d124f2",
+      "date": "2026-02-19",
+      "timestamp": "2026-02-19T14:00:21+00:00",
+      "unixTime": 1771509621,
+      "title": "Rename extra info title to Developer Notes"
     },
     {
-      "hash": "dc981d6a09fa146a25c150da576ad53841c6c89a",
-      "shortHash": "dc981d6",
-      "date": "2026-02-18",
-      "timestamp": "2026-02-18T01:48:24-08:00",
-      "unixTime": 1771408104,
-      "title": "Update TODO with completion and pushed commit refs"
+      "hash": "ee57ecef965dce9b0a2266ed4d81e2c02669d13b",
+      "shortHash": "ee57ece",
+      "date": "2026-02-19",
+      "timestamp": "2026-02-19T13:14:37+00:00",
+      "unixTime": 1771506877,
+      "title": "Add /sites/extra/info reference page and link from timeline"
     },
     {
-      "hash": "bae96d5f74f5d2d305029bf78bc926a310f21363",
-      "shortHash": "bae96d5",
-      "date": "2026-02-18",
-      "timestamp": "2026-02-18T01:47:16-08:00",
-      "unixTime": 1771408036,
-      "title": "Add texture/audio assets and QA capture workflow"
+      "hash": "ffe99aef78025d59ee61a78f4e9d90cc6fed85eb",
+      "shortHash": "ffe99ae",
+      "date": "2026-02-19",
+      "timestamp": "2026-02-19T05:02:32-08:00",
+      "unixTime": 1771506152,
+      "title": "Apply latest touch override and iPhone hotbar safe-area verification"
     }
   ]
 };

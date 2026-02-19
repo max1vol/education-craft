@@ -29,7 +29,7 @@
   <section class="hero">
     <div class="hero-inner">
       <p class="eyebrow">Historical Reconstructions</p>
-      <h1>Explore 64 Sites Across World History</h1>
+      <h1>Explore {data.stats.totalSites} Sites Across World History</h1>
       <p class="summary">
         Browse by epoch, compare regions, and open each site for image galleries, origin stories, and timeline events.
       </p>
