@@ -25,6 +25,7 @@
   $: createdIllustrations = data.visualPack?.createdIllustrations ?? [];
   $: materialReferences = data.referenceVisuals?.materials ?? [];
   $: toolReferences = data.referenceVisuals?.tools ?? [];
+  $: blueprintExamples = data.blueprintExamples ?? [];
 
   function openModal(index) {
     activeStandalone = null;
@@ -411,6 +412,45 @@
             </article>
           </div>
         </article>
+      {/each}
+    </div>
+  </section>
+
+  <section class="blueprint-applications">
+    <div class="section-head">
+      <h2>Blueprint Applications for {data.site.name}</h2>
+      <p>
+        16 blueprints × 4 concrete examples each = 64 classroom examples tailored to this site using its origin,
+        timeline, materials, tools, and sources.
+      </p>
+    </div>
+
+    <div class="blueprint-list">
+      {#each blueprintExamples as blueprint, index}
+        <details class="blueprint-item" open={index === 0}>
+          <summary>
+            <img src={blueprint.ideaIllustration} alt={`${blueprint.ideaTitle} illustration`} loading="lazy" />
+            <div class="blueprint-summary">
+              <p class="blueprint-id">{blueprint.ideaId}</p>
+              <h3>{blueprint.ideaTitle}</h3>
+              <p>{blueprint.ideaSummary}</p>
+            </div>
+          </summary>
+
+          <ol class="example-list">
+            {#each blueprint.examples as example}
+              <li>
+                <p class="example-title">
+                  <span class="stage-tag">{example.stage}</span>
+                  <strong>{example.title}</strong>
+                </p>
+                <p>{example.activity}</p>
+                <p class="example-facts"><strong>Facts used:</strong> {example.factsUsed.join(' | ')}</p>
+                <p class="example-outcome"><strong>Outcome:</strong> {example.outcome}</p>
+              </li>
+            {/each}
+          </ol>
+        </details>
       {/each}
     </div>
   </section>
@@ -859,6 +899,120 @@
     border-bottom-color: rgba(26, 91, 124, 0.8);
   }
 
+  .blueprint-applications {
+    margin-top: 0.95rem;
+    border: 1px solid #ccb18a;
+    border-radius: 14px;
+    background: rgba(255, 251, 245, 0.94);
+    padding: 0.88rem;
+  }
+
+  .blueprint-list {
+    display: grid;
+    gap: 0.72rem;
+  }
+
+  .blueprint-item {
+    border: 1px solid #d4b991;
+    border-radius: 12px;
+    background: #fff9ee;
+    overflow: hidden;
+  }
+
+  .blueprint-item summary {
+    cursor: pointer;
+    list-style: none;
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 0.66rem;
+    align-items: center;
+    padding: 0.56rem;
+    background: linear-gradient(135deg, rgba(250, 240, 220, 0.78), rgba(245, 227, 195, 0.82));
+  }
+
+  .blueprint-item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .blueprint-item summary img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    background: #f2e2c8;
+    border: 1px solid #d6bd97;
+  }
+
+  .blueprint-summary h3 {
+    margin: 0.2rem 0 0;
+    font-size: 1.04rem;
+  }
+
+  .blueprint-summary p {
+    margin: 0.22rem 0 0;
+    color: #5b472b;
+    font-size: 0.88rem;
+    line-height: 1.36;
+  }
+
+  .blueprint-id {
+    margin: 0;
+    font-size: 0.77rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #7d582b;
+  }
+
+  .example-list {
+    margin: 0;
+    padding: 0.68rem 0.82rem 0.85rem 1.55rem;
+    display: grid;
+    gap: 0.52rem;
+  }
+
+  .example-list li {
+    border-left: 3px solid #b4844d;
+    padding-left: 0.52rem;
+  }
+
+  .example-list p {
+    margin: 0.18rem 0;
+    color: #57452b;
+    line-height: 1.34;
+    font-size: 0.86rem;
+  }
+
+  .example-title {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.42rem;
+    align-items: center;
+  }
+
+  .stage-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.15rem 0.42rem;
+    border-radius: 999px;
+    border: 1px solid #d3b48a;
+    background: #fff4df;
+    color: #6c4f2b;
+    font-size: 0.73rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+
+  .example-facts {
+    color: #5d4a2d;
+    font-size: 0.82rem;
+  }
+
+  .example-outcome {
+    color: #4f3f27;
+    font-size: 0.82rem;
+  }
+
   .lightbox {
     position: fixed;
     inset: 0;
@@ -959,6 +1113,14 @@
   @media (max-width: 740px) {
     .split {
       grid-template-columns: 1fr;
+    }
+
+    .blueprint-item summary {
+      grid-template-columns: 1fr;
+    }
+
+    .blueprint-item summary img {
+      max-width: 320px;
     }
 
     .timeline-list li {

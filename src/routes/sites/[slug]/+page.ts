@@ -6,6 +6,7 @@ import {
   getSiteVisualPack,
   getTimelineEvents
 } from '$lib/data/sites';
+import { getBlueprintExamplesForSite } from '$lib/data/site-blueprint-examples';
 
 export async function load({ params, fetch }) {
   const site = getSiteSummary(params.slug);
@@ -22,13 +23,16 @@ export async function load({ params, fetch }) {
   const construction = getSiteConstruction(site.slug);
   const visualPack = getSiteVisualPack(site.slug);
   const referenceVisuals = getSiteMaterialAndToolVisuals(site.slug);
+  const events = getTimelineEvents(site);
+  const blueprintExamples = getBlueprintExamplesForSite(site, construction, events);
 
   return {
     site,
     images,
-    events: getTimelineEvents(site),
+    events,
     construction,
     visualPack,
-    referenceVisuals
+    referenceVisuals,
+    blueprintExamples
   };
 }
