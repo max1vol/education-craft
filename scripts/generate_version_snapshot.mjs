@@ -21,13 +21,21 @@ const commitShort = run('git rev-parse --short HEAD', 'unknown');
 const branch = run('git rev-parse --abbrev-ref HEAD', 'unknown');
 const describe = run('git describe --always --dirty --tags', commitShort);
 
-const logRaw = run('git log --date=short --pretty=format:%H%x1f%h%x1f%ad%x1f%s -n 20', '');
+const logRaw = run('git log --date=iso-strict --pretty=format:%H%x1f%h%x1f%cI%x1f%ct%x1f%s -n 20', '');
 const changelogEntries = logRaw
   .split('\n')
   .filter(Boolean)
   .map((line) => {
-    const [hash, shortHash, date, title] = line.split('\x1f');
-    return { hash, shortHash, date, title };
+    const [hash, shortHash, timestamp, unixRaw, title] = line.split('\x1f');
+    const unixTime = Number.parseInt(unixRaw, 10);
+    return {
+      hash,
+      shortHash,
+      date: timestamp.slice(0, 10),
+      timestamp,
+      unixTime: Number.isNaN(unixTime) ? 0 : unixTime,
+      title
+    };
   });
 
 const [latest = null, ...history] = changelogEntries;
@@ -50,6 +58,8 @@ export interface VersionChangelogEntry {
   hash: string;
   shortHash: string;
   date: string;
+  timestamp: string;
+  unixTime: number;
   title: string;
 }
 

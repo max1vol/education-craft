@@ -54,27 +54,29 @@ function selectDecorationType(biome: BiomeDefinition, x: number, z: number): Blo
   const flowerNoise = hash2(x, z, biome.seed + 547);
   const beaconNoise = hash2(x, z, biome.seed + 683);
 
-  if (biome.id === 'ring-plains') {
+  if (biome.id === 'stonehenge-salisbury') {
     if (treeNoise > 0.998) return 'timber';
     if (flowerNoise > 0.985) return FLORETS[(Math.floor(flowerNoise * 10) & 1) as 0 | 1];
     return null;
   }
 
-  if (biome.id === 'dune-pyramid') {
-    if (treeNoise > 0.975) return 'reed';
+  if (biome.id === 'colosseum-rome') {
+    if (treeNoise > 0.984) return 'timber';
     if (beaconNoise > 0.994) return 'lantern';
+    if (flowerNoise > 0.988) return 'flower';
     return null;
   }
 
-  if (biome.id === 'frost-citadel') {
-    if (treeNoise > 0.965) return 'ice';
-    if (flowerNoise > 0.94) return 'leaf';
+  if (biome.id === 'roman-aqueduct') {
+    if (treeNoise > 0.982) return 'reed';
+    if (flowerNoise > 0.972) return FLORETS[(Math.floor(flowerNoise * 10) & 1) as 0 | 1];
+    if (beaconNoise > 0.996) return 'lantern';
     return null;
   }
 
-  if (treeNoise > 0.965) return 'basalt';
-  if (beaconNoise > 0.993) return 'lantern';
-  if (flowerNoise > 0.93) return 'flower';
+  if (treeNoise > 0.975) return 'ice';
+  if (beaconNoise > 0.994) return 'lantern';
+  if (flowerNoise > 0.96) return 'leaf';
   return null;
 }
 
@@ -167,7 +169,7 @@ function terrainBlockAt(x: number, y: number, z: number, biome: BiomeDefinition,
 
   if (y > terrainHeight) {
     if (biome.waterLevel > 0 && y <= biome.waterLevel) {
-      if (biome.id === 'frost-citadel' && y === biome.waterLevel) {
+      if (biome.id === 'skara-brae' && y === biome.waterLevel) {
         return 'ice';
       }
       return 'water';
@@ -184,7 +186,11 @@ function terrainBlockAt(x: number, y: number, z: number, biome: BiomeDefinition,
   }
 
   const oreNoise = hash3(x, y, z, biome.seed + 301);
-  if (biome.id === 'ember-terrace' && oreNoise > 0.83) {
+  if (biome.id === 'roman-aqueduct' && oreNoise > 0.83) {
+    return 'sandstone';
+  }
+
+  if (biome.id === 'colosseum-rome' && oreNoise > 0.86) {
     return 'obsidian';
   }
 
@@ -306,8 +312,8 @@ export function createWorldState(): WorldState {
 
   const findSpawnPosition = (biomeId: string): PortalArrival => {
     const biome = BIOME_BY_ID.get(biomeId) ?? BIOMES[0];
-    const spawnX = biome.center.x + 2;
-    const spawnZ = biome.center.z + 2;
+    const spawnX = biome.center.x + biome.spawnOffset.x;
+    const spawnZ = biome.center.z + biome.spawnOffset.z;
     const spawnY = getTerrainHeight(spawnX, spawnZ, biome) + 2.1;
 
     return {

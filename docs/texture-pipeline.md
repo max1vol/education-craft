@@ -2,22 +2,29 @@
 
 ## Workflow
 
-1. Use Nano Banana image editing with reference conditioning inputs:
-   - `docs/texture-refs/style-ref-modern.png`
-   - `docs/texture-refs/style-ref-pattern.png`
-2. Generate >=3 candidates per key family (dirt, grass, stone, sand, marble, basalt/obsidian).
-3. Stage candidates in `static/assets/textures/blocks/<family>/candidate-*.png`.
-4. Select winners (`winner.png`) and wire them in `src/lib/data/monument-realms/blocks.ts`.
-5. Compare candidates from `/debug-render` texture panel before final selection.
+1. Preserve prior winners into `docs/images/debug/texture-proof/before/` for explicit before/after evidence.
+2. Generate realistic Nano Banana candidates per family (`family_<name>`) with `/generate ... --count=3`.
+3. Stage candidates in `static/assets/textures/blocks/<family>/candidate-01..03.png`.
+4. Select the winner and write to `static/assets/textures/blocks/<family>/winner.png`.
+5. Copy winners to `docs/images/debug/texture-proof/after/`.
+6. Capture `/debug-render` texture panel screenshots and montage before/after proofs.
 
-## Key Family Outputs
+## Primary Families
 
-- Dirt: `static/assets/textures/blocks/dirt/candidate-01..03.png`
-- Grass: `static/assets/textures/blocks/grass/candidate-01..03.png`
-- Stone: `static/assets/textures/blocks/stone/candidate-01..03.png`
-- Sand: `static/assets/textures/blocks/sand/candidate-01..03.png`
-- Marble: `static/assets/textures/blocks/marble/candidate-01..03.png`
-- Basalt/Obsidian: `static/assets/textures/blocks/basalt/candidate-01..03.png`
+- Grassland: `grass`, `leaf`, `flower`, `reed`
+- Soil: `dirt`
+- Stone: `stone`
+- Sand: `sand`
+- Sandstone: `sandstone`
+- Marble: `marble`, `frost`
+- Basalt/Obsidian: `basalt`, `obsidian`
+- Timber: `timber`
+- Ice: `ice`
 
-Selected winners are tracked in:
-- `src/lib/data/monument-realms/texture-pipeline.ts`
+## Proof Outputs
+
+- Panel proof screenshots: `docs/images/debug/texture-proof-*-panel.png`
+- Side-by-side before/after: `docs/images/debug/texture-proof-*-before-after.png`
+- Raw before/after textures:
+  - `docs/images/debug/texture-proof/before/*.png`
+  - `docs/images/debug/texture-proof/after/*.png`

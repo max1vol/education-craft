@@ -58,6 +58,38 @@
     gravity: number;
   }
 
+  interface RuntimeDebugState {
+    minedCount: number;
+    placedCount: number;
+    status: string;
+    biome: string;
+    monument: string;
+    player: { x: number; y: number; z: number };
+    target: { x: number; y: number; z: number } | null;
+    targetType: string | null;
+  }
+
+  interface RuntimeDebugApi {
+    getState: () => RuntimeDebugState;
+    tapMineAt: (clientX: number, clientY: number) => boolean;
+    twoFingerPlace: () => boolean;
+    tapPlaceAt: (clientX: number, clientY: number) => boolean;
+    setPlayerView: (
+      x: number,
+      y: number,
+      z: number,
+      lookAtX: number,
+      lookAtY: number,
+      lookAtZ: number
+    ) => void;
+  }
+
+  declare global {
+    interface Window {
+      __monumentRealmsDebug?: RuntimeDebugApi;
+    }
+  }
+
   const world = createWorldState();
   let audio: MonumentAudioManager | null = null;
 
@@ -72,6 +104,7 @@
   const blockMaterials: Record<string, THREE.MeshStandardMaterial> = {};
   let materialsDispose: (() => void) | null = null;
   let portalCoreMaterial: THREE.MeshStandardMaterial | null = null;
+  let aqueductWaterMaterial: THREE.MeshStandardMaterial | null = null;
   let highlightMesh: THREE.LineSegments;
   let ambientMotes: THREE.Points | null = null;
   const tempMatrix = new THREE.Matrix4();
@@ -137,6 +170,18 @@
   const TOUCH_LOOK_SENSITIVITY_Y = POINTER_SENSITIVITY_Y * 1.6;
   const TOUCH_TAP_MOVE_THRESHOLD_PX = 12;
   const TOUCH_TAP_MAX_DURATION_MS = TAP_DELAY_MS * 3;
+  const TOUCH_TAP_SAMPLE_OFFSETS = [
+    [0, 0],
+    [8, 0],
+    [-8, 0],
+    [0, 8],
+    [0, -8],
+    [12, 12],
+    [-12, 12],
+    [12, -12],
+    [-12, -12]
+  ] as const;
+  let touchTapMoveThreshold = TOUCH_TAP_MOVE_THRESHOLD_PX;
 
   const moveStick = {
     pointerId: null as number | null,
@@ -439,7 +484,7 @@
 
   const applyBiomeLighting = (biome: BiomeDefinition): void => {
     scene.background = new THREE.Color(biome.skyColor);
-    scene.fog = new THREE.Fog(biome.fogColor, 35, 165);
+    scene.fog = new THREE.Fog(biome.fogColor, 42, 210);
 
     biomeLabel = biome.name;
     monumentLabel = biome.monumentName;
@@ -729,6 +774,26 @@
     return voxelRaycastFromRay(camera.position, rayDirection, maxDistance);
   };
 
+  const voxelRaycastFromTouchTap = (clientX: number, clientY: number): HitResult | null => {
+    let best: { hit: HitResult; distance: number } | null = null;
+
+    for (const [offsetX, offsetY] of TOUCH_TAP_SAMPLE_OFFSETS) {
+      const hit = voxelRaycastFromScreen(clientX + offsetX, clientY + offsetY, INTERACT_RANGE + 0.85);
+      if (!hit) continue;
+
+      const dx = hit.x + 0.5 - camera.position.x;
+      const dy = hit.y + 0.5 - camera.position.y;
+      const dz = hit.z + 0.5 - camera.position.z;
+      const distance = dx * dx + dy * dy + dz * dz;
+
+      if (!best || distance < best.distance) {
+        best = { hit, distance };
+      }
+    }
+
+    return best?.hit ?? voxelRaycastFromScreen(clientX, clientY, INTERACT_RANGE + 1.4);
+  };
+
   const blockIntersectsPlayer = (x: number, y: number, z: number): boolean => {
     const blockMinX = x;
     const blockMaxX = x + 1;
@@ -774,7 +839,7 @@
     }
 
     if (world.isProtectedBlock(hit.x, hit.y, hit.z)) {
-      status = 'Landmark and portal blocks are protected.';
+      status = 'Technical core blocks cannot be broken.';
       return;
     }
 
@@ -792,7 +857,7 @@
     refreshChunksNearBlock(hit.x, hit.z);
   };
 
-  const placeSelectedBlock = (): void => {
+  const placeSelectedBlock = (targetOverride: HitResult | null = null): void => {
     if (!selectedBlock) {
       status = 'No block selected in hotbar.';
       return;
@@ -809,7 +874,7 @@
       return;
     }
 
-    const hit = currentTarget ?? voxelRaycast();
+    const hit = targetOverride ?? currentTarget ?? voxelRaycast();
     if (!hit) {
       status = 'Aim at a block face to place blocks.';
       return;
@@ -830,7 +895,7 @@
     }
 
     if (world.isProtectedBlock(targetX, targetY, targetZ)) {
-      status = 'Cannot overwrite protected landmark space.';
+      status = 'Cannot overwrite protected technical core space.';
       return;
     }
 
@@ -852,6 +917,54 @@
     spawnPlaceParticles(targetX, targetY, targetZ, hit.normal);
     audio?.playSfx('place');
     refreshChunksNearBlock(targetX, targetZ);
+  };
+
+  const getDebugState = (): RuntimeDebugState => ({
+    minedCount,
+    placedCount,
+    status,
+    biome: biomeLabel,
+    monument: monumentLabel,
+    player: { x: player.x, y: player.y, z: player.z },
+    target: currentTarget ? { x: currentTarget.x, y: currentTarget.y, z: currentTarget.z } : null,
+    targetType: currentTarget ? world.getBlockAt(currentTarget.x, currentTarget.y, currentTarget.z) : null
+  });
+
+  const exposeDebugApi = (): void => {
+    if (typeof window === 'undefined') return;
+
+    window.__monumentRealmsDebug = {
+      getState: () => getDebugState(),
+      tapMineAt: (clientX: number, clientY: number) => {
+        const before = minedCount;
+        mineTarget(voxelRaycastFromTouchTap(clientX, clientY));
+        return minedCount > before;
+      },
+      twoFingerPlace: () => {
+        const before = placedCount;
+        placeSelectedBlock();
+        return placedCount > before;
+      },
+      tapPlaceAt: (clientX: number, clientY: number) => {
+        const before = placedCount;
+        placeSelectedBlock(voxelRaycastFromTouchTap(clientX, clientY));
+        return placedCount > before;
+      },
+      setPlayerView: (x: number, y: number, z: number, lookAtX: number, lookAtY: number, lookAtZ: number) => {
+        setPlayerPosition(x, y, z);
+        const dx = lookAtX - x;
+        const dz = lookAtZ - z;
+        const eyeY = y + PLAYER_EYE_HEIGHT;
+        const dy = lookAtY - eyeY;
+        yaw = Math.atan2(-dx, -dz);
+        const horizontalDistance = Math.max(0.001, Math.hypot(dx, dz));
+        pitch = Math.atan2(dy, horizontalDistance);
+        clampPitch();
+        ensureChunks(true);
+        updateCamera();
+        updateTargetHighlight();
+      }
+    };
   };
 
   const updateTargetHighlight = (): void => {
@@ -993,6 +1106,18 @@
     touchLook.lastY = touch.clientY;
   };
 
+  const calibrateTouchTapThreshold = (): void => {
+    const deviceRatio = Math.max(1, Number(window.devicePixelRatio ?? 1));
+    const viewportScale = Math.max(1, Number(window.visualViewport?.scale ?? 1));
+    touchTapMoveThreshold = Math.round((TOUCH_TAP_MOVE_THRESHOLD_PX * deviceRatio) / viewportScale);
+  };
+
+  const resolveStartBiome = (): BiomeDefinition => {
+    const requested = new URLSearchParams(window.location.search).get('biome');
+    if (!requested) return BIOMES[0];
+    return BIOME_BY_ID.get(requested) ?? BIOMES[0];
+  };
+
   const findTouchByIdentifier = (touches: TouchList, identifier: number): Touch | null => {
     for (let i = 0; i < touches.length; i += 1) {
       const item = touches.item(i);
@@ -1015,6 +1140,7 @@
     }
 
     isTouchDevice = window.matchMedia('(pointer: coarse)').matches || (navigator.maxTouchPoints ?? 0) > 0;
+    calibrateTouchTapThreshold();
 
     if (!webglAvailable()) {
       loadingFailed = true;
@@ -1037,7 +1163,7 @@
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     renderer.outputColorSpace = THREE.SRGBColorSpace;
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    renderer.toneMappingExposure = 1.08;
+    renderer.toneMappingExposure = 1.3;
     sceneHost.appendChild(renderer.domElement);
 
     cubeGeometry = new THREE.BoxGeometry(1, 1, 1);
@@ -1045,7 +1171,18 @@
     const registry = createBlockMaterials(BLOCKS);
     Object.assign(blockMaterials, registry.blockMaterials);
     portalCoreMaterial = registry.portalCoreMaterial;
+    aqueductWaterMaterial = blockMaterials.aqueduct_water ?? null;
     materialsDispose = registry.dispose;
+    const maxAnisotropy = Math.min(16, renderer.capabilities.getMaxAnisotropy());
+    for (const material of Object.values(blockMaterials)) {
+      if (!material.map) continue;
+      material.map.anisotropy = maxAnisotropy;
+      material.map.needsUpdate = true;
+    }
+    if (aqueductWaterMaterial?.map) {
+      aqueductWaterMaterial.map.repeat.set(1.18, 1.18);
+      aqueductWaterMaterial.map.needsUpdate = true;
+    }
 
     highlightMesh = new THREE.LineSegments(
       new THREE.EdgesGeometry(new THREE.BoxGeometry(1.02, 1.02, 1.02)),
@@ -1054,10 +1191,10 @@
     highlightMesh.visible = false;
     scene.add(highlightMesh);
 
-    const hemiLight = new THREE.HemisphereLight(0xdcf1ff, 0x50453f, 0.56);
+    const hemiLight = new THREE.HemisphereLight(0xdcf1ff, 0x50453f, 0.78);
     scene.add(hemiLight);
 
-    const sun = new THREE.DirectionalLight(0xfff7ef, 1.08);
+    const sun = new THREE.DirectionalLight(0xfff7ef, 1.32);
     sun.position.set(28, 38, 14);
     sun.castShadow = true;
     sun.shadow.mapSize.width = 2048;
@@ -1069,6 +1206,7 @@
     sun.shadow.camera.top = 72;
     sun.shadow.camera.bottom = -72;
     scene.add(sun);
+    scene.add(new THREE.AmbientLight(0xe8f3ff, 0.22));
 
     const moteCount = 320;
     const motePositions = new Float32Array(moteCount * 3);
@@ -1091,15 +1229,18 @@
     ambientMotes = new THREE.Points(moteGeometry, moteMaterial);
     scene.add(ambientMotes);
 
-    const firstBiome = BIOMES[0];
+    const firstBiome = resolveStartBiome();
     const spawn = world.findSpawnPosition(firstBiome.id);
     setPlayerPosition(spawn.x, spawn.y, spawn.z);
-    const lookDx = firstBiome.center.x + 0.5 - spawn.x;
-    const lookDz = firstBiome.center.z + 0.5 - spawn.z;
+    const lookTargetX = firstBiome.center.x + firstBiome.spawnLookAtOffset.x + 0.5;
+    const lookTargetZ = firstBiome.center.z + firstBiome.spawnLookAtOffset.z + 0.5;
+    const lookDx = lookTargetX - spawn.x;
+    const lookDz = lookTargetZ - spawn.z;
     yaw = Math.atan2(-lookDx, -lookDz);
     pitch = -0.12;
     applyBiomeLighting(firstBiome);
     ensureChunks(true);
+    exposeDebugApi();
 
     loadingMessage = '';
     let lastTick = performance.now();
@@ -1136,6 +1277,13 @@
         portalCoreMaterial.emissiveIntensity = 0.5 + Math.sin(now * 0.005) * 0.14;
       }
 
+      if (aqueductWaterMaterial?.map) {
+        aqueductWaterMaterial.map.offset.x = (now * 0.00018) % 1;
+        aqueductWaterMaterial.map.offset.y = (Math.sin(now * 0.0014) * 0.06 + 1) % 1;
+        aqueductWaterMaterial.opacity = 0.74 + Math.sin(now * 0.0024) * 0.05;
+        aqueductWaterMaterial.emissiveIntensity = 0.12 + Math.sin(now * 0.0032) * 0.04;
+      }
+
       renderer.render(scene, camera);
 
       fpsTime += delta;
@@ -1152,6 +1300,7 @@
     const handleResize = (): void => {
       const width = sceneHost.clientWidth;
       const height = sceneHost.clientHeight;
+      calibrateTouchTapThreshold();
       camera.aspect = width / height;
       camera.updateProjectionMatrix();
       renderer.setSize(width, height);
@@ -1275,7 +1424,7 @@
 
       if (touchTap.identifier === touch.identifier && !touchTap.moved) {
         const movedDistance = Math.hypot(touch.clientX - touchTap.startX, touch.clientY - touchTap.startY);
-        if (movedDistance > TOUCH_TAP_MOVE_THRESHOLD_PX) {
+        if (movedDistance > touchTapMoveThreshold) {
           touchTap.moved = true;
         }
       }
@@ -1288,8 +1437,10 @@
       let endedTap = false;
       let shouldMine = false;
       let endedLook = false;
-      let tapClientX = 0;
-      let tapClientY = 0;
+      let tapStartX = touchTap.startX;
+      let tapStartY = touchTap.startY;
+      let tapEndX = 0;
+      let tapEndY = 0;
 
       for (let i = 0; i < event.changedTouches.length; i += 1) {
         const changedTouch = event.changedTouches.item(i);
@@ -1299,8 +1450,10 @@
           endedTap = true;
           const duration = performance.now() - touchTap.startTime;
           shouldMine = !touchTap.moved && duration <= TOUCH_TAP_MAX_DURATION_MS;
-          tapClientX = changedTouch.clientX;
-          tapClientY = changedTouch.clientY;
+          tapStartX = touchTap.startX;
+          tapStartY = touchTap.startY;
+          tapEndX = changedTouch.clientX;
+          tapEndY = changedTouch.clientY;
         }
 
         if (touchLook.identifier === changedTouch.identifier) {
@@ -1311,7 +1464,9 @@
       if (endedTap) {
         clearTouchTapState();
         if (shouldMine) {
-          mineTarget(voxelRaycastFromScreen(tapClientX, tapClientY));
+          const tapHit =
+            voxelRaycastFromTouchTap(tapStartX, tapStartY) ?? voxelRaycastFromTouchTap(tapEndX, tapEndY);
+          mineTarget(tapHit);
         }
       }
 
@@ -1338,9 +1493,9 @@
     renderer.domElement.addEventListener('contextmenu', handleContextMenu);
     renderer.domElement.addEventListener('wheel', handleWheel, { passive: false });
     renderer.domElement.addEventListener('touchstart', handleTouchStart, { passive: false });
-    renderer.domElement.addEventListener('touchmove', handleTouchMove, { passive: false });
-    renderer.domElement.addEventListener('touchend', handleTouchEnd, { passive: false });
-    renderer.domElement.addEventListener('touchcancel', handleTouchEnd, { passive: false });
+      renderer.domElement.addEventListener('touchmove', handleTouchMove, { passive: false });
+      renderer.domElement.addEventListener('touchend', handleTouchEnd, { passive: false });
+      renderer.domElement.addEventListener('touchcancel', handleTouchEnd, { passive: false });
 
     return () => {
       cancelAnimationFrame(frameId);
@@ -1360,6 +1515,7 @@
       renderer.domElement.removeEventListener('touchmove', handleTouchMove);
       renderer.domElement.removeEventListener('touchend', handleTouchEnd);
       renderer.domElement.removeEventListener('touchcancel', handleTouchEnd);
+      delete window.__monumentRealmsDebug;
 
       if (document.pointerLockElement === renderer.domElement) {
         document.exitPointerLock();
@@ -1402,6 +1558,7 @@
   <div class="scene" bind:this={sceneHost} aria-label="Monument Realms voxel world"></div>
 
   <p class="fps-chip" aria-label="Frame rate">FPS {fps || '...'}</p>
+  <p class="location-chip" aria-label="Current location">{monumentLabel} · {biomeLabel}</p>
 
   <button
     class="panel audio-toggle"
@@ -1521,6 +1678,28 @@
     letter-spacing: 0.02em;
     pointer-events: none;
     backdrop-filter: blur(2px);
+  }
+
+  .location-chip {
+    position: absolute;
+    top: calc(var(--safe-top) + 0.62rem);
+    right: calc(var(--safe-right) + 3.7rem);
+    z-index: 7;
+    margin: 0;
+    padding: 0.3rem 0.52rem;
+    border-radius: 9px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    background: rgba(8, 20, 33, 0.46);
+    color: #dcecff;
+    font-size: 0.63rem;
+    line-height: 1;
+    letter-spacing: 0.02em;
+    pointer-events: none;
+    backdrop-filter: blur(2px);
+    max-width: min(48vw, 17rem);
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
   }
 
   .audio-toggle {
@@ -1735,6 +1914,14 @@
     .audio-toggle {
       padding: 0.32rem 0.52rem;
       font-size: 0.76rem;
+    }
+
+    .location-chip {
+      top: calc(var(--safe-top) + 0.46rem);
+      right: calc(var(--safe-right) + 3.2rem);
+      max-width: min(54vw, 14rem);
+      font-size: 0.59rem;
+      padding: 0.22rem 0.4rem;
     }
 
     .hotbar {

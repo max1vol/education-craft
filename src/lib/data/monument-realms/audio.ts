@@ -12,27 +12,27 @@ export interface SfxDefinition {
 
 export const BGM_TRACKS: AudioTrackDefinition[] = [
   {
-    id: 'neolithic-drones',
+    id: 'stonehenge-drum-loop',
     label: 'Stonehenge Drum Loop',
-    era: 'Neolithic',
-    src: '/assets/audio/bgm/stonehenge_drums.mp3'
+    era: 'Neolithic Britain',
+    src: '/assets/audio/bgm/stonehenge_drums.wav'
   },
   {
-    id: 'old-kingdom-procession',
+    id: 'desert-travel-loop',
     label: 'Desert Travel Loop',
-    era: 'Old Kingdom Egypt',
-    src: '/assets/audio/bgm/desert_travel.mp3'
+    era: 'Roman Britain Context',
+    src: '/assets/audio/bgm/desert_travel.ogg'
   },
   {
-    id: 'hellenic-cold-chant',
-    label: 'Outer Space Ambience',
-    era: 'Classical / Hellenistic',
-    src: '/assets/audio/bgm/outer_space.mp3'
+    id: 'portal-atmosphere-loop',
+    label: 'Portal Atmosphere',
+    era: 'Roman Engineering',
+    src: '/assets/audio/bgm/portal.ogg'
   },
   {
-    id: 'mesopotamian-ritual',
+    id: 'forest-ambience-loop',
     label: 'Forest Ambience',
-    era: 'Bronze Age Mesopotamia',
+    era: 'Neolithic Orkney',
     src: '/assets/audio/bgm/forest_ambience.mp3'
   }
 ];

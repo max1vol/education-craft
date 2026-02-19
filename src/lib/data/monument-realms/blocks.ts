@@ -77,6 +77,39 @@ export const BLOCKS: Record<string, BlockDefinition> = {
     breakable: true,
     placeable: true
   },
+  skara_earth: {
+    label: 'Skara Earth',
+    color: '#9d998e',
+    accent: '#b2aea1',
+    texture: '/assets/textures/blocks/skara-earth/winner.png',
+    solid: true,
+    breakable: true,
+    placeable: true,
+    roughness: 0.97,
+    metalness: 0
+  },
+  skara_stone: {
+    label: 'Skara Stone',
+    color: '#8d939b',
+    accent: '#a9b0b8',
+    texture: '/assets/textures/blocks/skara-stone/winner.png',
+    solid: true,
+    breakable: true,
+    placeable: true,
+    roughness: 0.9,
+    metalness: 0.02
+  },
+  skara_hearth: {
+    label: 'Skara Hearth Stone',
+    color: '#c6c1b8',
+    accent: '#ddd8ce',
+    texture: '/assets/textures/blocks/skara-hearth/winner.png',
+    solid: true,
+    breakable: true,
+    placeable: true,
+    roughness: 0.86,
+    metalness: 0.01
+  },
   frost: {
     label: 'Frost Block',
     color: '#c2d7e7',
@@ -122,11 +155,25 @@ export const BLOCKS: Record<string, BlockDefinition> = {
     accent: '#5ba6f0',
     texture: '/assets/textures/blocks/water/winner.svg',
     solid: false,
-    breakable: false,
+    breakable: true,
     placeable: false,
     transparent: true,
     opacity: 0.72,
     roughness: 0.28
+  },
+  aqueduct_water: {
+    label: 'Aqueduct Water',
+    color: '#6caed9',
+    accent: '#a4d8f6',
+    texture: '/assets/textures/blocks/aqueduct-water/winner.png',
+    solid: false,
+    breakable: true,
+    placeable: false,
+    transparent: true,
+    opacity: 0.76,
+    roughness: 0.14,
+    metalness: 0.08,
+    emissive: '#0b2f3d'
   },
   timber: {
     label: 'Timber',
@@ -176,7 +223,7 @@ export const BLOCKS: Record<string, BlockDefinition> = {
     accent: '#ffe4ad',
     texture: '/assets/textures/blocks/lantern/winner.png',
     solid: false,
-    breakable: false,
+    breakable: true,
     placeable: false,
     transparent: true,
     opacity: 0.88,
@@ -222,6 +269,9 @@ export const INVENTORY_DEFAULT: Record<BlockId, number> = {
   sand: 18,
   sandstone: 14,
   marble: 12,
+  skara_earth: 0,
+  skara_stone: 0,
+  skara_hearth: 0,
   frost: 10,
   ice: 0,
   basalt: 12,
@@ -232,5 +282,6 @@ export const INVENTORY_DEFAULT: Record<BlockId, number> = {
   reed: 6,
   lantern: 0,
   water: 0,
+  aqueduct_water: 0,
   portal_core: 0
 };

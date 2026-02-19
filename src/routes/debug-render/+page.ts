@@ -20,7 +20,7 @@ function parseLayers(raw: string | null): LayerId[] {
 }
 
 export const load: PageLoad = ({ url }) => {
-  const biome = url.searchParams.get('biome') ?? 'ring-plains';
+  const biome = url.searchParams.get('biome') ?? 'stonehenge-salisbury';
   const radius = parseNumber(url.searchParams.get('radius'), 56, 20, 128);
   const sliceZOffset = parseNumber(url.searchParams.get('slice'), 0, -128, 128);
   const layers = parseLayers(url.searchParams.get('layers'));

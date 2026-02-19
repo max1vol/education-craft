@@ -46,6 +46,16 @@
 - 2026-02-18: Added safe-area-aware iPhone HUD/touch layout (`viewport-fit=cover` + `env(safe-area-inset-*)`) and validated portrait/landscape screenshots.
 - 2026-02-18: Added canonical `/version` route with repo-linked commit/changelog data and redirected `/release` to `/version`.
 - 2026-02-18: Simplified HUD to compact FPS corner chip and reworked desktop screenshot capture settings, then recaptured/validated desktop game/debug/version images.
+- 2026-02-18: Monument Realms screenshot QA Batch 1 reviewed 8 specified captures; flagged low exposure/underlit monuments, texture tiling seams in closeups, and confirmed iPhone portrait touch HUD fit.
+- 2026-02-18: Monument Realms screenshot QA Batch 2 reviewed 8 specified captures; found path-content mismatches (monument-labeled files showing version texture compare UI), `/version` screenshots showing skeleton/loading state, and destroy-after gameplay frames still underexposed but with clear desktop/touch HUD controls.
+- 2026-02-18: Monument Realms screenshot QA Batch 3 reviewed 8 specified captures; found persistent underexposure, weak colosseum/aqueduct framing, Skara closeup filename-content mismatch (Stonehenge shown), and clear destroy before/after state change evidence.
+- 2026-02-18: Monument Realms screenshot QA Batch 4 reviewed 8 mobile/debug/version/texture captures; confirmed touch HUD fit and single-tap evidence, while flagging missing explicit two-finger proof plus debug/version capture mismatches.
+- 2026-02-18: Monument Realms screenshot QA Batch 5 reviewed 8 desktop gameplay/destroy captures; confirmed improved monument framing and texture fidelity, but still flagged uneven exposure (especially Stonehenge/Skara), distant Skara spawn framing, and subtle destroy before/after delta.
+- 2026-02-18: Monument Realms screenshot QA Batch 6 reviewed 8 mobile/debug/version captures; confirmed iPhone HUD fit plus destroy/place evidence, but flagged debug render structure visibility as weak and `/version` capture still appearing as skeleton/loading.
+- 2026-02-18: Monument Realms screenshot QA Batch 7 reviewed 8 texture panel/before-after captures; passed fidelity and legacy-vs-winner clarity, with minor follow-up notes on a marble candidate artifact and a subtle aqueduct-water seam.
+- 2026-02-18: Monument Realms screenshot QA Batch 8 re-checked prior failures across 8 captures; confirmed touch-place proof, improved destroy clarity, and improved debug visibility, but `/version` screenshot remained textless in headless capture.
+- 2026-02-18: Monument Realms screenshot QA Batch 9 confirmed `/version` readability fix via explicit metadata overlay (headless text-render workaround) and debug Roman side pass; flagged Stonehenge top-down debug framing as still too sparse.
+- 2026-02-18: Monument Realms screenshot QA Batch 10 (2-image verification) confirmed both `debug-stonehenge-topdown.png` and `debug-roman-aqueduct-side.png` are now clearly visible and correct; no remaining screenshot QA issues.
 
 ## Notes
 - Forbidden term must not appear in repo content, UI text, commit messages, or generated assets.

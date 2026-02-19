@@ -8,7 +8,10 @@ function normalizeTexture(texture: THREE.Texture): THREE.Texture {
   texture.minFilter = THREE.LinearMipmapLinearFilter;
   texture.wrapS = THREE.RepeatWrapping;
   texture.wrapT = THREE.RepeatWrapping;
+  texture.generateMipmaps = true;
+  texture.anisotropy = 8;
   texture.colorSpace = THREE.SRGBColorSpace;
+  texture.needsUpdate = true;
   return texture;
 }
 
@@ -107,7 +110,7 @@ export function createBlockMaterials(blocks: Record<string, BlockDefinition>): B
       emissiveIntensity: def.emissive ? 0.55 : 0
     });
 
-    if (blockId === 'water' || blockId === 'portal_core') {
+    if (blockId === 'water' || blockId === 'aqueduct_water' || blockId === 'portal_core') {
       material.depthWrite = false;
     }
 

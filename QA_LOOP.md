@@ -15,7 +15,7 @@
    tmux attach -t monument-realms-dev
    ```
 
-Expected local URL from `npm run dev`: `http://127.0.0.1:5173`.
+Expected local URL from `npm run dev` in this workspace: `http://127.0.0.1:4173`.
 
 ## 2) Capture debug screenshots
 
@@ -25,7 +25,7 @@ Expected local URL from `npm run dev`: `http://127.0.0.1:5173`.
    ```
 2. Capture the baseline set:
    ```bash
-   GAME_URL=http://127.0.0.1:5173 node scripts/capture_debug_screenshots.mjs
+  GAME_URL=http://127.0.0.1:4173 node scripts/capture_debug_screenshots.mjs
    ```
 3. Review output in `docs/images/debug/`.
 4. Canonical release/version route for QA docs and captures is `/version` (not `/release`).
@@ -41,9 +41,10 @@ Expected local URL from `npm run dev`: `http://127.0.0.1:5173`.
 ## 4) Debug-render checks
 
 Open and inspect:
-- `/debug-render?biome=ring-plains&radius=56&slice=0&layers=terrain,flora,monument,portal,special`
-- `/debug-render?biome=dune-pyramid&radius=52&slice=0&layers=terrain,monument,portal`
-- `/debug-render?biome=frost-citadel&radius=60&slice=14&layers=terrain,flora,special`
+- `/debug-render?biome=stonehenge-salisbury&radius=60&slice=0&layers=terrain,flora,monument,portal,special`
+- `/debug-render?biome=colosseum-rome&radius=64&slice=0&layers=terrain,monument,portal,special`
+- `/debug-render?biome=roman-aqueduct&radius=62&slice=8&layers=terrain,monument,portal,special`
+- `/debug-render?biome=skara-brae&radius=60&slice=-3&layers=terrain,flora,monument,portal,special`
 
 Focus on:
 - Monument silhouettes readable from top and side views.
@@ -53,6 +54,14 @@ Focus on:
 
 Version route checks:
 - Open `/version` and verify commit hash/label + recent changelog entries are present and readable on desktop/mobile.
+- Verify latest commit age (relative time) and explicit timestamps for latest + previous entries.
+
+Texture proof checks:
+- Verify `docs/images/debug/texture-proof-*-panel.png` show legacy-vs-winner plus candidate swatches.
+- Verify `docs/images/debug/texture-proof/*before-after.png` side-by-side outputs.
+
+Touch destroy checks:
+- Verify `docs/images/debug/touch-destroy-proof.json` reports `success: true`.
 
 ## 5) Iteration loop
 

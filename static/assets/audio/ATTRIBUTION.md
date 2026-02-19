@@ -1,26 +1,28 @@
 # Audio Attribution
 
-This project distributes legally safe audio assets with the following attribution:
+All in-game music and SFX are sourced from legally safe OpenGameArt assets, reused from local projects:
+- `/home/yaroslav_volovich/projects/hex/static/audio`
+- `/home/yaroslav_volovich/projects/steal/static/audio`
+
+Background music:
 
 - "Prehistoric Drum Loop" by drummyfish (CC0)
   Source: https://opengameart.org/content/prehistoric-drum-loop
-  Original file: `stonehenge_drums.wav`
-  In-repo file: `bgm/stonehenge_drums.mp3` (format-converted derivative)
+  In-repo file: `bgm/stonehenge_drums.wav`
 
 - "Desert Travel (Loop)" by Holo-Audio (CC0)
   Source: https://opengameart.org/content/desert-travel-loop
-  Original file: `desert_travel.ogg`
-  In-repo file: `bgm/desert_travel.mp3` (format-converted derivative)
-
-- "Outer Space Loop" by yd (CC0)
-  Source: https://opengameart.org/content/outer-space-loop
-  Original file: `outer_space_2.mp3`
-  In-repo file: `bgm/outer_space.mp3`
+  In-repo file: `bgm/desert_travel.ogg`
 
 - "Forest Ambience" by HorrorPen (CC-BY 3.0)
   Source: https://opengameart.org/content/forest-ambience
-  Original file: `Forest_Ambience.mp3`
   In-repo file: `bgm/forest_ambience.mp3`
 
-Generated SFX:
-- `sfx/*.wav` are generated locally by `scripts/generate_audio_assets.mjs` (no third-party samples).
+- "Portal Sound" by baefl (CC0)
+  Source: https://opengameart.org/content/portal-sound
+  In-repo file: `bgm/portal.ogg`
+
+Sound effects:
+
+- `sfx/break-01..04.wav` are edited derivatives from `bgm/stonehenge_drums.wav`.
+- `sfx/place-01..03.wav` are edited derivatives from `bgm/portal.ogg`.

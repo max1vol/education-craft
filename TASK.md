@@ -61,6 +61,12 @@ Rebuild this repo into an original, high-quality voxel first-person game with mo
 ## Process / Delivery
 - Maintain `TODO.md` continuously with progress and next steps.
 - Use sub-agents in parallel where useful (textures, debug tooling, QA automation, scene tuning).
+- **Image QA delegation rule:** when reviewing screenshots with `view_image`, delegate heavy image review to sub-agents instead of doing all reviews in the main thread.
+- **Mandatory sub-agent usage:** for screenshot QA passes, assign sub-agents by batch/area (e.g., textures, monuments, lighting) and only aggregate in the main thread.
+- **Batch size cap:** review at most **8 screenshots per interaction** before summarizing and continuing in a new interaction.
+- **Report-back format:** after each image-review batch, sub-agents must return a concise report (findings, decisions, file edits made, remaining issues), and the main agent must update `TODO.md`/notes accordingly.
+- **Context safety:** keep prompts/results short and structured; avoid large inline dumps and reference file paths instead.
+- Avoid pasting large blobs/logs inline; prefer file paths + short summaries.
 - Make incremental runnable commits and push to `origin/main` as progress is made.
 
 ## Definition of Done

@@ -199,7 +199,7 @@
 
   <section class="panel texture-panel">
     <h2>Texture Candidate Comparison</h2>
-    <p>Nano Banana conditioned candidates (3 per key family) with selected winner integration.</p>
+    <p>Nano Banana candidates per family, with explicit legacy-vs-winner proof.</p>
 
     <label>
       Family
@@ -212,12 +212,23 @@
 
     <p class="family-meta">
       Blocks: {selectedTextureFamily.blockIds.join(', ')}<br />
-      Reference inputs: {selectedTextureFamily.referenceInputs.join(', ')}
+      Source workflow: {selectedTextureFamily.referenceInputs.join(', ')}
     </p>
+
+    <div class="proof-grid">
+      <figure>
+        <img src={selectedTextureFamily.legacy} alt={`${selectedTextureFamily.label} legacy texture`} loading="lazy" />
+        <figcaption>Before (legacy)</figcaption>
+      </figure>
+      <figure class="winner">
+        <img src={selectedTextureFamily.winner} alt={`${selectedTextureFamily.label} selected winner`} loading="lazy" />
+        <figcaption>Selected winner</figcaption>
+      </figure>
+    </div>
 
     <div class="candidate-grid">
       {#each selectedTextureFamily.candidates as candidate, index}
-        <figure class:winner={candidate === selectedTextureFamily.winner}>
+        <figure>
           <img src={candidate} alt={`${selectedTextureFamily.label} candidate ${index + 1}`} loading="lazy" />
           <figcaption>Candidate {index + 1}</figcaption>
         </figure>
@@ -371,6 +382,12 @@
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
+  .proof-grid {
+    display: grid;
+    gap: 0.5rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   figure {
     margin: 0;
     padding: 0.38rem;
@@ -423,7 +440,7 @@
   }
 
   canvas {
-    image-rendering: pixelated;
+    image-rendering: auto;
     border-radius: 8px;
     border: 1px solid rgba(255, 255, 255, 0.2);
     background: #03070d;
@@ -432,6 +449,7 @@
   @media (max-width: 960px) {
     .row,
     .render-grid,
+    .proof-grid,
     .candidate-grid {
       grid-template-columns: 1fr;
     }

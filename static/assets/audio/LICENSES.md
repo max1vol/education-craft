@@ -1,17 +1,19 @@
 # Audio License Notes
 
-## CC0 (Public Domain Dedication)
+## Included license families
 
-Assets marked CC0 are dedicated to the public domain and can be reused, modified, and redistributed without attribution requirements.
+- CC0 1.0 (Public Domain Dedication):
+  https://creativecommons.org/publicdomain/zero/1.0/
+- CC-BY 3.0:
+  https://creativecommons.org/licenses/by/3.0/
 
-Reference:
-- https://creativecommons.org/publicdomain/zero/1.0/
+## Asset mapping
 
-## CC-BY 3.0
+- `bgm/stonehenge_drums.wav` -> CC0
+- `bgm/desert_travel.ogg` -> CC0
+- `bgm/portal.ogg` -> CC0
+- `bgm/forest_ambience.mp3` -> CC-BY 3.0
+- `sfx/break-*.wav` -> derivative of CC0 source (`stonehenge_drums.wav`)
+- `sfx/place-*.wav` -> derivative of CC0 source (`portal.ogg`)
 
-Assets marked CC-BY 3.0 require attribution to the original author when redistributed.
-
-Reference:
-- https://creativecommons.org/licenses/by/3.0/
-
-This repository satisfies attribution requirements in `static/assets/audio/ATTRIBUTION.md`.
+Attribution obligations are documented in `static/assets/audio/ATTRIBUTION.md`.
