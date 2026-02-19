@@ -177,7 +177,9 @@ async function captureDebugCanvas(browser, relativePath, outputName, sectionSele
   await gotoAndSettle(page, relativePath, 'section.render-grid canvas', 1700);
   const section = page.locator(sectionSelector).first();
   await section.waitFor({ timeout: 45000 });
-  await section.screenshot({ path: path.join(outputDir, outputName) });
+  const canvas = section.locator('canvas').first();
+  await canvas.waitFor({ timeout: 45000 });
+  await canvas.screenshot({ path: path.join(outputDir, outputName) });
   await context.close();
   logStep(`debug canvas capture done -> ${outputName}`);
 }
@@ -263,7 +265,7 @@ async function captureAqueductFlowProof(browser) {
 }
 
 async function verifyTouchDestroy(browser) {
-  logStep('touch destroy verification start');
+  logStep('touch controls verification start');
   const context = await browser.newContext({
     ...devices['iPhone 14 Pro']
   });
@@ -279,82 +281,125 @@ async function verifyTouchDestroy(browser) {
 
   const viewport = page.viewportSize();
   if (!viewport) {
-    throw new Error('Touch destroy proof failed: missing viewport size.');
+    throw new Error('Touch controls proof failed: missing viewport size.');
   }
 
-  const tapPoints = [
+  const singleTapPoints = [
     { x: Math.round(viewport.width * 0.5), y: Math.round(viewport.height * 0.58) },
     { x: Math.round(viewport.width * 0.5), y: Math.round(viewport.height * 0.64) },
     { x: Math.round(viewport.width * 0.47), y: Math.round(viewport.height * 0.6) },
     { x: Math.round(viewport.width * 0.53), y: Math.round(viewport.height * 0.6) }
   ];
 
-  let after = before;
-  let successPoint = null;
+  let placeState = before;
+  let placeSuccessPoint = null;
 
-  for (const point of tapPoints) {
+  for (const point of singleTapPoints) {
     await page.touchscreen.tap(point.x, point.y);
     await page.waitForTimeout(350);
-    after = await page.evaluate(() => window.__monumentRealmsDebug?.getState() ?? null);
-    if (after && after.minedCount > before.minedCount) {
-      successPoint = point;
+    placeState = await page.evaluate(() => window.__monumentRealmsDebug?.getState() ?? null);
+    if (placeState && placeState.placedCount > before.placedCount) {
+      placeSuccessPoint = point;
       break;
     }
   }
 
-  const placeTapPoints = [
-    successPoint ?? { x: Math.round(viewport.width * 0.5), y: Math.round(viewport.height * 0.58) },
-    { x: Math.round(viewport.width * 0.5), y: Math.round(viewport.height * 0.52) },
-    { x: Math.round(viewport.width * 0.47), y: Math.round(viewport.height * 0.55) },
-    { x: Math.round(viewport.width * 0.53), y: Math.round(viewport.height * 0.55) }
-  ];
+  await page.screenshot({ path: path.join(outputDir, 'touch-place-after-iphone.png'), fullPage: true });
 
-  const placeAttempt = await page.evaluate((candidatePoints) => {
-    const api = window.__monumentRealmsDebug;
-    if (!api) {
-      return { success: false, before: 0, after: 0 };
-    }
+  const destroyBefore = await page.evaluate(() => window.__monumentRealmsDebug?.getState() ?? null);
+  let destroyAttempt = {
+    method: 'cdp-two-finger',
+    success: false,
+    before: destroyBefore?.minedCount ?? 0,
+    after: destroyBefore?.minedCount ?? 0,
+    statusBefore: destroyBefore?.status ?? null,
+    statusAfter: destroyBefore?.status ?? null,
+    fallbackUsed: false
+  };
 
-    const beforePlaced = api.getState().placedCount;
-    let success = false;
-    for (const point of candidatePoints) {
-      for (let i = 0; i < 3; i += 1) {
-        if (api.tapPlaceAt(point.x, point.y) || api.twoFingerPlace()) {
-          success = true;
-          break;
-        }
-      }
-      if (success) {
-        break;
-      }
-    }
-    const afterPlaced = api.getState().placedCount;
-    return {
-      success: success || afterPlaced > beforePlaced,
-      before: beforePlaced,
-      after: afterPlaced
+  if (!destroyBefore) {
+    throw new Error('Touch controls proof failed: debug API unavailable before two-finger destroy.');
+  }
+
+  const fingerA = { x: Math.round(viewport.width * 0.47), y: Math.round(viewport.height * 0.58) };
+  const fingerB = { x: Math.round(viewport.width * 0.53), y: Math.round(viewport.height * 0.58) };
+
+  try {
+    const cdp = await context.newCDPSession(page);
+    await cdp.send('Input.dispatchTouchEvent', {
+      type: 'touchStart',
+      touchPoints: [
+        { x: fingerA.x, y: fingerA.y, radiusX: 1, radiusY: 1, force: 1, id: 1 },
+        { x: fingerB.x, y: fingerB.y, radiusX: 1, radiusY: 1, force: 1, id: 2 }
+      ]
+    });
+    await page.waitForTimeout(70);
+    await cdp.send('Input.dispatchTouchEvent', {
+      type: 'touchEnd',
+      touchPoints: []
+    });
+    await page.waitForTimeout(400);
+    const destroyAfter = await page.evaluate(() => window.__monumentRealmsDebug?.getState() ?? null);
+    destroyAttempt = {
+      ...destroyAttempt,
+      success: Boolean(destroyAfter && destroyAfter.minedCount > destroyBefore.minedCount),
+      after: destroyAfter?.minedCount ?? destroyAttempt.after,
+      statusAfter: destroyAfter?.status ?? destroyAttempt.statusAfter
     };
-  }, placeTapPoints);
+    await cdp.detach();
+  } catch {
+    const fallback = await page.evaluate(() => {
+      const api = window.__monumentRealmsDebug;
+      if (!api) {
+        return { success: false, before: 0, after: 0, statusBefore: null, statusAfter: null };
+      }
+      const beforeState = api.getState();
+      const didDestroy = api.touchTwoFingerDestroy();
+      const afterState = api.getState();
+      return {
+        success: didDestroy || afterState.minedCount > beforeState.minedCount,
+        before: beforeState.minedCount,
+        after: afterState.minedCount,
+        statusBefore: beforeState.status,
+        statusAfter: afterState.status
+      };
+    });
+
+    destroyAttempt = {
+      method: 'debug-api-fallback',
+      success: fallback.success,
+      before: fallback.before,
+      after: fallback.after,
+      statusBefore: fallback.statusBefore,
+      statusAfter: fallback.statusAfter,
+      fallbackUsed: true
+    };
+  }
 
   await page.screenshot({ path: path.join(outputDir, 'touch-destroy-after-iphone.png'), fullPage: true });
-  await page.screenshot({ path: path.join(outputDir, 'touch-place-after-iphone.png'), fullPage: true });
+  const after = await page.evaluate(() => window.__monumentRealmsDebug?.getState() ?? null);
 
   const report = {
     verifiedAt: new Date().toISOString(),
     baseUrl,
     before,
+    afterSingleTapPlace: placeState,
+    singleTapPlaceSuccess: Boolean(placeSuccessPoint),
+    placeSuccessPoint,
+    twoFingerDestroy: destroyAttempt,
     after,
-    success: Boolean(successPoint),
-    successPoint,
-    placeAttempt
+    success: Boolean(placeSuccessPoint) && Boolean(destroyAttempt.success)
   };
 
   await fs.writeFile(path.join(outputDir, 'touch-destroy-proof.json'), `${JSON.stringify(report, null, 2)}\n`, 'utf8');
   await context.close();
-  logStep('touch destroy verification done');
+  logStep('touch controls verification done');
 
-  if (!successPoint) {
-    throw new Error('Touch destroy proof failed: single tap did not increase minedCount.');
+  if (!placeSuccessPoint) {
+    throw new Error('Touch controls proof failed: single tap did not increase placedCount.');
+  }
+  if (!destroyAttempt.success) {
+    throw new Error('Touch controls proof failed: two-finger destroy did not increase minedCount.');
   }
 
 }
@@ -506,7 +551,7 @@ async function main() {
 
     await captureDebugCanvas(
       browser,
-      '/debug-render?biome=stonehenge-salisbury&radius=34&slice=0&layers=terrain,flora,monument,portal,special',
+      '/debug-render?biome=stonehenge-salisbury&radius=24&slice=0&layers=terrain,flora,monument,portal,special',
       'debug-stonehenge-topdown.png',
       'section.render-grid article:nth-of-type(1)'
     );

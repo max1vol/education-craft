@@ -1,6 +1,10 @@
 # TODO
 
 ## In Progress
+- [x] Add touch-action targeting parity with mouse raycast target: single-tap place uses crosshair target (not raw tap location), with max-distance guard.
+- [x] Verify/fix two-finger touch destruction to use the same crosshair/raycast targeting behavior as mouse action.
+- [x] Rework Stonehenge materials away from brick look: create large-standing-stone texture variants (`edge-1`, `middle-1..3`, `edge-2`) and map them into assembled monolith structures.
+- [x] Run sub-agent screenshot QA on new Stonehenge monolith variants and iterate until they read as huge stones in gameplay/debug captures.
 - [x] Replace generated BGM set with licensed downloaded tracks and in-repo attribution/license notes.
 - [x] Add iPhone-safe-area layout handling for touch controls/HUD in portrait and landscape.
 - [x] Add `/version` route with commit hash, human-readable label, and recent changelog history.
@@ -56,7 +60,10 @@
 - 2026-02-18: Monument Realms screenshot QA Batch 8 re-checked prior failures across 8 captures; confirmed touch-place proof, improved destroy clarity, and improved debug visibility, but `/version` screenshot remained textless in headless capture.
 - 2026-02-18: Monument Realms screenshot QA Batch 9 confirmed `/version` readability fix via explicit metadata overlay (headless text-render workaround) and debug Roman side pass; flagged Stonehenge top-down debug framing as still too sparse.
 - 2026-02-18: Monument Realms screenshot QA Batch 10 (2-image verification) confirmed both `debug-stonehenge-topdown.png` and `debug-roman-aqueduct-side.png` are now clearly visible and correct; no remaining screenshot QA issues.
+- 2026-02-19: Monument Realms screenshot QA Batch 11 (sub-agent, 8 captures) confirmed Stonehenge monoliths are no longer brick-like and touch before/after states are coherent, while flagging weak `debug-stonehenge-topdown.png` framing and non-visual two-finger proof.
+- 2026-02-19: Monument Realms screenshot QA Batch 12 (sub-agent, 8 captures + `touch-destroy-proof.json`) confirmed CDP-driven two-finger destroy verification (`method: cdp-two-finger`, `fallbackUsed: false`) and acceptable monolith realism; top-down framing still flagged.
+- 2026-02-19: Monument Realms screenshot QA Batch 13 (sub-agent, 8 captures + `touch-destroy-proof.json`) passed all targeted checks: standing-stone realism, readable top-down Stonehenge debug frame, and touch single-tap place + two-finger destroy evidence.
 
 ## Notes
 - Forbidden term must not appear in repo content, UI text, commit messages, or generated assets.
-- Touch controls requirement: single tap destroys block, two-finger tap places selected block.
+- Touch controls requirement: single tap places selected block, two-finger tap destroys targeted block.

@@ -1,5 +1,5 @@
 {
-  "verifiedAt": "2026-02-18T21:20:12.271Z",
+  "verifiedAt": "2026-02-19T08:52:31.027Z",
   "baseUrl": "http://127.0.0.1:4173",
   "before": {
     "minedCount": 0,
@@ -9,34 +9,65 @@
     "monument": "Stonehenge",
     "player": {
       "x": -21.5,
-      "y": 15.00239584015546,
+      "y": 15.003047659533962,
       "z": 10.5
     },
-    "target": null,
-    "targetType": null
+    "target": {
+      "x": -17,
+      "y": 16,
+      "z": 8
+    },
+    "targetType": "grass"
   },
-  "after": {
-    "minedCount": 1,
-    "placedCount": 0,
-    "status": "Collected Grass.",
+  "afterSingleTapPlace": {
+    "minedCount": 0,
+    "placedCount": 1,
+    "status": "Placed Dirt.",
     "biome": "Salisbury Plain",
     "monument": "Stonehenge",
     "player": {
       "x": -21.5,
-      "y": 15.00239584015546,
+      "y": 15.003047659533962,
       "z": 10.5
     },
-    "target": null,
-    "targetType": null
+    "target": {
+      "x": -18,
+      "y": 16,
+      "z": 8
+    },
+    "targetType": "dirt"
   },
-  "success": true,
-  "successPoint": {
+  "singleTapPlaceSuccess": true,
+  "placeSuccessPoint": {
     "x": 197,
     "y": 383
   },
-  "placeAttempt": {
+  "twoFingerDestroy": {
+    "method": "cdp-two-finger",
     "success": true,
     "before": 0,
-    "after": 1
-  }
+    "after": 1,
+    "statusBefore": "Placed Dirt.",
+    "statusAfter": "Collected Dirt.",
+    "fallbackUsed": false
+  },
+  "after": {
+    "minedCount": 1,
+    "placedCount": 1,
+    "status": "Collected Dirt.",
+    "biome": "Salisbury Plain",
+    "monument": "Stonehenge",
+    "player": {
+      "x": -21.5,
+      "y": 15.003047659533962,
+      "z": 10.5
+    },
+    "target": {
+      "x": -17,
+      "y": 16,
+      "z": 8
+    },
+    "targetType": "grass"
+  },
+  "success": true
 }

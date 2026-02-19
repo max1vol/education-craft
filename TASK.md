@@ -69,6 +69,17 @@ Rebuild this repo into an original, high-quality voxel first-person game with mo
 - Avoid pasting large blobs/logs inline; prefer file paths + short summaries.
 - Make incremental runnable commits and push to `origin/main` as progress is made.
 
+## New Directives (2026-02-19)
+- Add these as additional requirements without deleting prior requirements.
+- Touch targeting behavior:
+  - Single-tap on touch should place a block at the same world target used by mouse primary action (crosshair/raycast target), not at raw finger screen position.
+  - Two-finger tap should destroy using the same crosshair/raycast target behavior (verify whether already true; fix if needed).
+  - Apply a small max interaction distance check for touch actions so off-range taps do nothing.
+- Stonehenge material/art direction correction:
+  - Stonehenge must not look like brick masonry.
+  - Create a realistic “huge standing stone” texture set and split it across multiple adjacent block variants (e.g., `edge-1`, `middle-1`, `middle-2`, `middle-3`, `edge-2`) so assembled stones read as large monoliths.
+  - Render these variant combinations in-scene and debug views, and use sub-agent image QA to evaluate whether the assembled result looks convincingly like large stones.
+
 ## Definition of Done
 - Builds and runs.
 - Core gameplay loop works on desktop + touch.

@@ -72,8 +72,9 @@
   interface RuntimeDebugApi {
     getState: () => RuntimeDebugState;
     tapMineAt: (clientX: number, clientY: number) => boolean;
-    twoFingerPlace: () => boolean;
     tapPlaceAt: (clientX: number, clientY: number) => boolean;
+    touchSingleTapPlace: () => boolean;
+    touchTwoFingerDestroy: () => boolean;
     setPlayerView: (
       x: number,
       y: number,
@@ -170,17 +171,7 @@
   const TOUCH_LOOK_SENSITIVITY_Y = POINTER_SENSITIVITY_Y * 1.6;
   const TOUCH_TAP_MOVE_THRESHOLD_PX = 12;
   const TOUCH_TAP_MAX_DURATION_MS = TAP_DELAY_MS * 3;
-  const TOUCH_TAP_SAMPLE_OFFSETS = [
-    [0, 0],
-    [8, 0],
-    [-8, 0],
-    [0, 8],
-    [0, -8],
-    [12, 12],
-    [-12, 12],
-    [12, -12],
-    [-12, -12]
-  ] as const;
+  const TOUCH_ACTION_MAX_DISTANCE = Math.max(2.5, INTERACT_RANGE - 0.75);
   let touchTapMoveThreshold = TOUCH_TAP_MOVE_THRESHOLD_PX;
 
   const moveStick = {
@@ -774,24 +765,33 @@
     return voxelRaycastFromRay(camera.position, rayDirection, maxDistance);
   };
 
-  const voxelRaycastFromTouchTap = (clientX: number, clientY: number): HitResult | null => {
-    let best: { hit: HitResult; distance: number } | null = null;
-
-    for (const [offsetX, offsetY] of TOUCH_TAP_SAMPLE_OFFSETS) {
-      const hit = voxelRaycastFromScreen(clientX + offsetX, clientY + offsetY, INTERACT_RANGE + 0.85);
-      if (!hit) continue;
-
-      const dx = hit.x + 0.5 - camera.position.x;
-      const dy = hit.y + 0.5 - camera.position.y;
-      const dz = hit.z + 0.5 - camera.position.z;
-      const distance = dx * dx + dy * dy + dz * dz;
-
-      if (!best || distance < best.distance) {
-        best = { hit, distance };
-      }
+  const getCrosshairTouchTarget = (): HitResult | null => {
+    const hit = voxelRaycast(TOUCH_ACTION_MAX_DISTANCE);
+    if (!hit) {
+      return null;
     }
 
-    return best?.hit ?? voxelRaycastFromScreen(clientX, clientY, INTERACT_RANGE + 1.4);
+    const dx = hit.x + 0.5 - camera.position.x;
+    const dy = hit.y + 0.5 - camera.position.y;
+    const dz = hit.z + 0.5 - camera.position.z;
+    const distanceSq = dx * dx + dy * dy + dz * dz;
+    if (distanceSq > TOUCH_ACTION_MAX_DISTANCE * TOUCH_ACTION_MAX_DISTANCE) {
+      return null;
+    }
+
+    return hit;
+  };
+
+  const touchPlaceViaCrosshair = (): boolean => {
+    const before = placedCount;
+    placeSelectedBlock(getCrosshairTouchTarget());
+    return placedCount > before;
+  };
+
+  const touchDestroyViaCrosshair = (): boolean => {
+    const before = minedCount;
+    mineTarget(getCrosshairTouchTarget());
+    return minedCount > before;
   };
 
   const blockIntersectsPlayer = (x: number, y: number, z: number): boolean => {
@@ -937,19 +937,16 @@
       getState: () => getDebugState(),
       tapMineAt: (clientX: number, clientY: number) => {
         const before = minedCount;
-        mineTarget(voxelRaycastFromTouchTap(clientX, clientY));
+        mineTarget(voxelRaycastFromScreen(clientX, clientY, INTERACT_RANGE));
         return minedCount > before;
-      },
-      twoFingerPlace: () => {
-        const before = placedCount;
-        placeSelectedBlock();
-        return placedCount > before;
       },
       tapPlaceAt: (clientX: number, clientY: number) => {
         const before = placedCount;
-        placeSelectedBlock(voxelRaycastFromTouchTap(clientX, clientY));
+        placeSelectedBlock(voxelRaycastFromScreen(clientX, clientY, INTERACT_RANGE));
         return placedCount > before;
       },
+      touchSingleTapPlace: () => touchPlaceViaCrosshair(),
+      touchTwoFingerDestroy: () => touchDestroyViaCrosshair(),
       setPlayerView: (x: number, y: number, z: number, lookAtX: number, lookAtY: number, lookAtZ: number) => {
         setPlayerPosition(x, y, z);
         const dx = lookAtX - x;
@@ -1387,7 +1384,7 @@
       if (activeTouches.length >= 2) {
         clearTouchTapState();
         setTouchLookState(null);
-        placeSelectedBlock();
+        touchDestroyViaCrosshair();
         return;
       }
 
@@ -1428,19 +1425,14 @@
           touchTap.moved = true;
         }
       }
-
     };
 
     const handleTouchEnd = (event: TouchEvent): void => {
       if (!isTouchDevice) return;
 
       let endedTap = false;
-      let shouldMine = false;
+      let shouldPlace = false;
       let endedLook = false;
-      let tapStartX = touchTap.startX;
-      let tapStartY = touchTap.startY;
-      let tapEndX = 0;
-      let tapEndY = 0;
 
       for (let i = 0; i < event.changedTouches.length; i += 1) {
         const changedTouch = event.changedTouches.item(i);
@@ -1449,11 +1441,7 @@
         if (touchTap.identifier === changedTouch.identifier) {
           endedTap = true;
           const duration = performance.now() - touchTap.startTime;
-          shouldMine = !touchTap.moved && duration <= TOUCH_TAP_MAX_DURATION_MS;
-          tapStartX = touchTap.startX;
-          tapStartY = touchTap.startY;
-          tapEndX = changedTouch.clientX;
-          tapEndY = changedTouch.clientY;
+          shouldPlace = !touchTap.moved && duration <= TOUCH_TAP_MAX_DURATION_MS;
         }
 
         if (touchLook.identifier === changedTouch.identifier) {
@@ -1463,10 +1451,8 @@
 
       if (endedTap) {
         clearTouchTapState();
-        if (shouldMine) {
-          const tapHit =
-            voxelRaycastFromTouchTap(tapStartX, tapStartY) ?? voxelRaycastFromTouchTap(tapEndX, tapEndY);
-          mineTarget(tapHit);
+        if (shouldPlace) {
+          touchPlaceViaCrosshair();
         }
       }
 
@@ -1493,9 +1479,9 @@
     renderer.domElement.addEventListener('contextmenu', handleContextMenu);
     renderer.domElement.addEventListener('wheel', handleWheel, { passive: false });
     renderer.domElement.addEventListener('touchstart', handleTouchStart, { passive: false });
-      renderer.domElement.addEventListener('touchmove', handleTouchMove, { passive: false });
-      renderer.domElement.addEventListener('touchend', handleTouchEnd, { passive: false });
-      renderer.domElement.addEventListener('touchcancel', handleTouchEnd, { passive: false });
+    renderer.domElement.addEventListener('touchmove', handleTouchMove, { passive: false });
+    renderer.domElement.addEventListener('touchend', handleTouchEnd, { passive: false });
+    renderer.domElement.addEventListener('touchcancel', handleTouchEnd, { passive: false });
 
     return () => {
       cancelAnimationFrame(frameId);

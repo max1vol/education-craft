@@ -1,5 +1,5 @@
 {
-  "verifiedAt": "2026-02-18T21:18:58.451Z",
+  "verifiedAt": "2026-02-19T08:50:46.332Z",
   "baseUrl": "http://127.0.0.1:4173",
   "before": {
     "minedCount": 0,
@@ -9,33 +9,41 @@
     "monument": "Stonehenge",
     "player": {
       "x": -21.5,
-      "y": 15.123698960465656,
+      "y": 15.449479739875896,
       "z": 10.5
     },
-    "target": null,
-    "targetType": null
+    "target": {
+      "x": -17,
+      "y": 16,
+      "z": 8
+    },
+    "targetType": "grass"
   },
   "attempt": {
     "success": true,
     "minedHits": 2,
     "minedBefore": 0,
     "minedAfter": 2,
-    "targetTypeBefore": null,
-    "targetTypeAfter": null,
-    "statusAfter": "Collected Grass."
+    "targetTypeBefore": "grass",
+    "targetTypeAfter": "grass",
+    "statusAfter": "Collected Dirt."
   },
   "after": {
     "minedCount": 2,
     "placedCount": 0,
-    "status": "Collected Grass.",
+    "status": "Collected Dirt.",
     "biome": "Salisbury Plain",
     "monument": "Stonehenge",
     "player": {
       "x": -21.5,
-      "y": 15.003698960465655,
+      "y": 15.004349739844898,
       "z": 10.5
     },
-    "target": null,
-    "targetType": null
+    "target": {
+      "x": -17,
+      "y": 16,
+      "z": 8
+    },
+    "targetType": "grass"
   }
 }\n

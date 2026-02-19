@@ -10,6 +10,36 @@ interface BuildContext {
 }
 
 const TECHNICAL_PROTECTED_BLOCKS = new Set<string>(['portal_core']);
+type StonehengeStandingBlock =
+  | 'stonehenge_standing_edge_1'
+  | 'stonehenge_standing_middle_1'
+  | 'stonehenge_standing_middle_2'
+  | 'stonehenge_standing_middle_3'
+  | 'stonehenge_standing_edge_2';
+
+const STONEHENGE_MONOLITH_COMBOS: ReadonlyArray<readonly StonehengeStandingBlock[]> = [
+  [
+    'stonehenge_standing_edge_1',
+    'stonehenge_standing_middle_1',
+    'stonehenge_standing_middle_2',
+    'stonehenge_standing_middle_3',
+    'stonehenge_standing_edge_2'
+  ],
+  [
+    'stonehenge_standing_edge_1',
+    'stonehenge_standing_middle_2',
+    'stonehenge_standing_middle_3',
+    'stonehenge_standing_middle_1',
+    'stonehenge_standing_edge_2'
+  ],
+  [
+    'stonehenge_standing_edge_1',
+    'stonehenge_standing_middle_3',
+    'stonehenge_standing_middle_1',
+    'stonehenge_standing_middle_2',
+    'stonehenge_standing_edge_2'
+  ]
+];
 
 function setStructureBlock(
   context: BuildContext,
@@ -112,6 +142,67 @@ function carvePath(
   }
 }
 
+function placeStonehengeMonolith(
+  context: BuildContext,
+  centerX: number,
+  centerZ: number,
+  baseY: number,
+  height: number,
+  axis: 'x' | 'z',
+  combo: readonly StonehengeStandingBlock[],
+  depthSign: number
+): void {
+  const depthDirection = depthSign >= 0 ? 1 : -1;
+
+  for (let widthIndex = 0; widthIndex < combo.length; widthIndex += 1) {
+    const widthOffset = widthIndex - 2;
+    const type = combo[widthIndex];
+
+    for (let depth = 0; depth < 2; depth += 1) {
+      const depthOffset = depth * depthDirection;
+      const x = axis === 'x' ? centerX + widthOffset : centerX + depthOffset;
+      const z = axis === 'x' ? centerZ + depthOffset : centerZ + widthOffset;
+
+      for (let y = baseY + 1; y <= baseY + height; y += 1) {
+        const topLayer = y === baseY + height;
+        if (topLayer && depth === 1 && (widthIndex === 0 || widthIndex === combo.length - 1)) {
+          continue;
+        }
+        setStructureBlock(context, x, y, z, type);
+      }
+    }
+  }
+}
+
+function placeStonehengeLintel(
+  context: BuildContext,
+  startX: number,
+  startZ: number,
+  endX: number,
+  endZ: number,
+  y: number
+): void {
+  const steps = Math.max(1, Math.round(Math.hypot(endX - startX, endZ - startZ)));
+  const mostlyXAxis = Math.abs(endX - startX) >= Math.abs(endZ - startZ);
+
+  for (let step = 0; step <= steps; step += 1) {
+    const t = step / steps;
+    const x = Math.round(startX + (endX - startX) * t);
+    const z = Math.round(startZ + (endZ - startZ) * t);
+    const type: StonehengeStandingBlock = step % 2 === 0 ? 'stonehenge_standing_middle_2' : 'stonehenge_standing_middle_3';
+    setStructureBlock(context, x, y, z, type);
+    setStructureBlock(context, x, y + 1, z, type);
+
+    if (mostlyXAxis) {
+      setStructureBlock(context, x, y, z + 1, 'stonehenge_standing_middle_1');
+      setStructureBlock(context, x, y, z - 1, 'stonehenge_standing_middle_1');
+    } else {
+      setStructureBlock(context, x + 1, y, z, 'stonehenge_standing_middle_1');
+      setStructureBlock(context, x - 1, y, z, 'stonehenge_standing_middle_1');
+    }
+  }
+}
+
 function buildStonehenge(
   context: BuildContext,
   biome: BiomeDefinition,
@@ -121,40 +212,65 @@ function buildStonehenge(
   const cz = biome.center.z;
   const baseY = getTerrainHeight(cx, cz, biome) + 1;
 
-  flattenPad(context, cx, cz, 15, baseY, 'grass', 'dirt');
+  flattenPad(context, cx, cz, 19, baseY, 'grass', 'dirt');
 
-  const ringPoints = 14;
+  const outerRing = [] as Array<{ x: number; z: number; height: number }>;
+  const ringPoints = 10;
+  const ringRadius = 11;
+
   for (let i = 0; i < ringPoints; i += 1) {
     const angle = (Math.PI * 2 * i) / ringPoints;
-    const x = Math.round(cx + Math.cos(angle) * 8);
-    const z = Math.round(cz + Math.sin(angle) * 8);
-    const height = i % 3 === 0 ? 5 : 4;
+    const x = Math.round(cx + Math.cos(angle) * ringRadius);
+    const z = Math.round(cz + Math.sin(angle) * ringRadius);
+    const axis: 'x' | 'z' = Math.abs(Math.sin(angle)) >= Math.abs(Math.cos(angle)) ? 'x' : 'z';
+    const depthSign = axis === 'x' ? Math.sign(Math.sin(angle)) || 1 : Math.sign(Math.cos(angle)) || 1;
+    const comboSeed = STONEHENGE_MONOLITH_COMBOS[i % STONEHENGE_MONOLITH_COMBOS.length];
+    const combo = depthSign < 0 ? [...comboSeed].reverse() : [...comboSeed];
+    const height = i % 2 === 0 ? 7 : 6;
 
-    for (let y = baseY + 1; y <= baseY + height; y += 1) {
-      setStructureBlock(context, x, y, z, 'stone');
-    }
+    placeStonehengeMonolith(context, x, z, baseY, height, axis, combo, depthSign);
+    outerRing.push({ x, z, height });
   }
 
-  for (let i = 0; i < ringPoints; i += 2) {
-    const a0 = (Math.PI * 2 * i) / ringPoints;
-    const a1 = (Math.PI * 2 * (i + 1)) / ringPoints;
-    const x0 = Math.round(cx + Math.cos(a0) * 8);
-    const z0 = Math.round(cz + Math.sin(a0) * 8);
-    const x1 = Math.round(cx + Math.cos(a1) * 8);
-    const z1 = Math.round(cz + Math.sin(a1) * 8);
-
-    const lintelSteps = Math.max(1, Math.round(Math.hypot(x1 - x0, z1 - z0)));
-    for (let step = 0; step <= lintelSteps; step += 1) {
-      const t = step / lintelSteps;
-      const x = Math.round(x0 + (x1 - x0) * t);
-      const z = Math.round(z0 + (z1 - z0) * t);
-      setStructureBlock(context, x, baseY + 5, z, 'stone');
-    }
+  for (let i = 0; i < outerRing.length; i += 2) {
+    const start = outerRing[i];
+    const end = outerRing[(i + 1) % outerRing.length];
+    const lintelY = baseY + Math.min(start.height, end.height) + 1;
+    placeStonehengeLintel(context, start.x, start.z, end.x, end.z, lintelY);
   }
 
-  for (let x = cx - 1; x <= cx + 1; x += 1) {
+  const innerMonoliths = [
+    { x: cx - 5, z: cz + 2, height: 8, axis: 'z' as const, comboIndex: 0, depthSign: -1 },
+    { x: cx - 2, z: cz + 6, height: 7, axis: 'x' as const, comboIndex: 1, depthSign: 1 },
+    { x: cx, z: cz + 8, height: 9, axis: 'x' as const, comboIndex: 2, depthSign: 1 },
+    { x: cx + 2, z: cz + 6, height: 7, axis: 'x' as const, comboIndex: 1, depthSign: 1 },
+    { x: cx + 5, z: cz + 2, height: 8, axis: 'z' as const, comboIndex: 0, depthSign: 1 }
+  ];
+
+  for (const monolith of innerMonoliths) {
+    const seed = STONEHENGE_MONOLITH_COMBOS[monolith.comboIndex % STONEHENGE_MONOLITH_COMBOS.length];
+    const combo = monolith.depthSign < 0 ? [...seed].reverse() : [...seed];
+    placeStonehengeMonolith(
+      context,
+      monolith.x,
+      monolith.z,
+      baseY,
+      monolith.height,
+      monolith.axis,
+      combo,
+      monolith.depthSign
+    );
+  }
+
+  placeStonehengeLintel(context, cx - 5, cz + 2, cx + 5, cz + 2, baseY + 9);
+  placeStonehengeLintel(context, cx - 2, cz + 6, cx + 2, cz + 6, baseY + 8);
+
+  for (let x = cx - 2; x <= cx + 2; x += 1) {
     for (let z = cz - 2; z <= cz + 2; z += 1) {
-      setStructureBlock(context, x, baseY + 1, z, 'sandstone');
+      const type =
+        (x + z) % 2 === 0 ? 'stonehenge_standing_middle_2' : 'stonehenge_standing_middle_3';
+      setStructureBlock(context, x, baseY + 1, z, type);
+      setStructureBlock(context, x, baseY, z, 'dirt');
     }
   }
 }

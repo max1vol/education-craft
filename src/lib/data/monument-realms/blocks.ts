@@ -50,6 +50,61 @@ export const BLOCKS: Record<string, BlockDefinition> = {
     breakable: true,
     placeable: true
   },
+  stonehenge_standing_edge_1: {
+    label: 'Stonehenge Standing Edge 1',
+    color: '#8b8d8a',
+    accent: '#b2b4ae',
+    texture: '/assets/textures/blocks/stonehenge-standing-edge-1/winner.png',
+    solid: true,
+    breakable: true,
+    placeable: true,
+    roughness: 0.95,
+    metalness: 0.01
+  },
+  stonehenge_standing_middle_1: {
+    label: 'Stonehenge Standing Middle 1',
+    color: '#8f928b',
+    accent: '#b8bcae',
+    texture: '/assets/textures/blocks/stonehenge-standing-middle-1/winner.png',
+    solid: true,
+    breakable: true,
+    placeable: true,
+    roughness: 0.95,
+    metalness: 0.01
+  },
+  stonehenge_standing_middle_2: {
+    label: 'Stonehenge Standing Middle 2',
+    color: '#888c84',
+    accent: '#b0b7a8',
+    texture: '/assets/textures/blocks/stonehenge-standing-middle-2/winner.png',
+    solid: true,
+    breakable: true,
+    placeable: true,
+    roughness: 0.96,
+    metalness: 0
+  },
+  stonehenge_standing_middle_3: {
+    label: 'Stonehenge Standing Middle 3',
+    color: '#8a8d86',
+    accent: '#b5b9aa',
+    texture: '/assets/textures/blocks/stonehenge-standing-middle-3/winner.png',
+    solid: true,
+    breakable: true,
+    placeable: true,
+    roughness: 0.95,
+    metalness: 0
+  },
+  stonehenge_standing_edge_2: {
+    label: 'Stonehenge Standing Edge 2',
+    color: '#8e9289',
+    accent: '#b8bcae',
+    texture: '/assets/textures/blocks/stonehenge-standing-edge-2/winner.png',
+    solid: true,
+    breakable: true,
+    placeable: true,
+    roughness: 0.95,
+    metalness: 0.01
+  },
   sand: {
     label: 'Sand',
     color: '#d8c27a',
@@ -266,6 +321,11 @@ export const INVENTORY_DEFAULT: Record<BlockId, number> = {
   dirt: 24,
   grass: 18,
   stone: 26,
+  stonehenge_standing_edge_1: 0,
+  stonehenge_standing_middle_1: 0,
+  stonehenge_standing_middle_2: 0,
+  stonehenge_standing_middle_3: 0,
+  stonehenge_standing_edge_2: 0,
   sand: 18,
   sandstone: 14,
   marble: 12,
