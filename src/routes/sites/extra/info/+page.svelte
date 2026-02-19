@@ -1,5 +1,5 @@
 <svelte:head>
-  <title>Historical Sites Extra Info</title>
+  <title>Developer Notes</title>
 </svelte:head>
 
 <script>
@@ -24,7 +24,7 @@
 
   <header class="hero">
     <p class="eyebrow">Published Path</p>
-    <h1>/sites/extra/info</h1>
+    <h1>Developer Notes</h1>
     <p class="summary">
       Extra reference data for all site galleries: construction materials, likely tools, methods, and source-link coverage.
     </p>
