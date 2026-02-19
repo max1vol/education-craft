@@ -7,8 +7,19 @@
 
   export let data;
   let activeIndex = -1;
+  let activeStandalone = null;
 
   $: activeImage = activeIndex >= 0 ? data.images[activeIndex] : null;
+  $: activeModal =
+    activeStandalone ??
+    (activeImage
+      ? {
+          src: `/site-media/${data.site.slug}/${activeImage.file}`,
+          alt: activeImage.caption || `Reconstruction of ${data.site.name}`,
+          caption: activeImage.caption || `Reconstruction of ${data.site.name}`,
+          sourceUrl: activeImage.source_url || null
+        }
+      : null);
   $: officialPhotos = data.visualPack?.officialPhotos ?? [];
   $: officialIllustrations = data.visualPack?.officialIllustrations ?? [];
   $: createdIllustrations = data.visualPack?.createdIllustrations ?? [];
@@ -16,11 +27,23 @@
   $: toolReferences = data.referenceVisuals?.tools ?? [];
 
   function openModal(index) {
+    activeStandalone = null;
     activeIndex = index;
+  }
+
+  function openImagePreview({ src, alt, caption, sourceUrl }) {
+    activeIndex = -1;
+    activeStandalone = {
+      src,
+      alt: alt || caption || 'Historical site image',
+      caption: caption || alt || 'Historical site image',
+      sourceUrl: sourceUrl || null
+    };
   }
 
   function closeModal() {
     activeIndex = -1;
+    activeStandalone = null;
   }
 
   function nextImage() {
@@ -34,10 +57,10 @@
   }
 
   function onKeydown(event) {
-    if (activeIndex < 0) return;
+    if (!activeModal) return;
     if (event.key === 'Escape') closeModal();
-    if (event.key === 'ArrowRight') nextImage();
-    if (event.key === 'ArrowLeft') prevImage();
+    if (!activeStandalone && event.key === 'ArrowRight') nextImage();
+    if (!activeStandalone && event.key === 'ArrowLeft') prevImage();
   }
 
   function onOverlayKeydown(event) {
@@ -143,7 +166,19 @@
             <span class="badge official">Official Source</span>
             <span class="kind">Photo</span>
           </div>
-          <img src={media.imageUrl} alt={media.title} loading="lazy" />
+          <button
+            class="media-button"
+            on:click={() =>
+              openImagePreview({
+                src: media.imageUrl,
+                alt: media.title,
+                caption: media.title,
+                sourceUrl: media.sourceUrl
+              })}
+            aria-label={`Open ${media.title} fullscreen`}
+          >
+            <img src={media.imageUrl} alt={media.title} loading="lazy" />
+          </button>
           <h3>{media.title}</h3>
           <p class="meta-line">{media.sourceName} · {media.license}</p>
           {#if media.author}
@@ -161,7 +196,19 @@
             <span class="badge official">Official Source</span>
             <span class="kind">Illustration</span>
           </div>
-          <img src={media.imageUrl} alt={media.title} loading="lazy" />
+          <button
+            class="media-button"
+            on:click={() =>
+              openImagePreview({
+                src: media.imageUrl,
+                alt: media.title,
+                caption: media.title,
+                sourceUrl: media.sourceUrl
+              })}
+            aria-label={`Open ${media.title} fullscreen`}
+          >
+            <img src={media.imageUrl} alt={media.title} loading="lazy" />
+          </button>
           <h3>{media.title}</h3>
           <p class="meta-line">{media.sourceName} · {media.license}</p>
           {#if media.author}
@@ -188,7 +235,19 @@
             <span class="badge created">Created Illustration</span>
             <span class="kind">Project</span>
           </div>
-          <img src={media.imageUrl} alt={media.title} loading="lazy" />
+          <button
+            class="media-button"
+            on:click={() =>
+              openImagePreview({
+                src: media.imageUrl,
+                alt: media.title,
+                caption: media.title,
+                sourceUrl: media.sourceUrl
+              })}
+            aria-label={`Open ${media.title} fullscreen`}
+          >
+            <img src={media.imageUrl} alt={media.title} loading="lazy" />
+          </button>
           <h3>{media.title}</h3>
           {#if media.description}
             <p class="meta-line">{media.description}</p>
@@ -213,7 +272,19 @@
             <article class="mini-card">
               <p class="mini-headline"><span class="badge official">Official Source</span></p>
               {#if material.official}
-                <img src={material.official.imageUrl} alt={material.official.title} loading="lazy" />
+                <button
+                  class="media-button"
+                  on:click={() =>
+                    openImagePreview({
+                      src: material.official.imageUrl,
+                      alt: material.official.title,
+                      caption: material.official.title,
+                      sourceUrl: material.official.sourceUrl
+                    })}
+                  aria-label={`Open ${material.official.title} fullscreen`}
+                >
+                  <img src={material.official.imageUrl} alt={material.official.title} loading="lazy" />
+                </button>
                 <p>{material.official.title}</p>
                 <p class="meta-line">{material.official.license}</p>
                 <a class="source-link" href={material.official.sourceUrl} target="_blank" rel="noreferrer">Source</a>
@@ -224,7 +295,19 @@
 
             <article class="mini-card">
               <p class="mini-headline"><span class="badge created">Created Illustration</span></p>
-              <img src={material.created.imageUrl} alt={material.created.title} loading="lazy" />
+              <button
+                class="media-button"
+                on:click={() =>
+                  openImagePreview({
+                    src: material.created.imageUrl,
+                    alt: material.created.title,
+                    caption: material.created.title,
+                    sourceUrl: material.created.sourceUrl
+                  })}
+                aria-label={`Open ${material.created.title} fullscreen`}
+              >
+                <img src={material.created.imageUrl} alt={material.created.title} loading="lazy" />
+              </button>
               <p>{material.created.title}</p>
             </article>
           </div>
@@ -247,7 +330,19 @@
             <article class="mini-card">
               <p class="mini-headline"><span class="badge official">Official Source</span></p>
               {#if tool.official}
-                <img src={tool.official.imageUrl} alt={tool.official.title} loading="lazy" />
+                <button
+                  class="media-button"
+                  on:click={() =>
+                    openImagePreview({
+                      src: tool.official.imageUrl,
+                      alt: tool.official.title,
+                      caption: tool.official.title,
+                      sourceUrl: tool.official.sourceUrl
+                    })}
+                  aria-label={`Open ${tool.official.title} fullscreen`}
+                >
+                  <img src={tool.official.imageUrl} alt={tool.official.title} loading="lazy" />
+                </button>
                 <p>{tool.official.title}</p>
                 <p class="meta-line">{tool.official.license}</p>
                 <a class="source-link" href={tool.official.sourceUrl} target="_blank" rel="noreferrer">Source</a>
@@ -258,7 +353,19 @@
 
             <article class="mini-card">
               <p class="mini-headline"><span class="badge created">Created Illustration</span></p>
-              <img src={tool.created.imageUrl} alt={tool.created.title} loading="lazy" />
+              <button
+                class="media-button"
+                on:click={() =>
+                  openImagePreview({
+                    src: tool.created.imageUrl,
+                    alt: tool.created.title,
+                    caption: tool.created.title,
+                    sourceUrl: tool.created.sourceUrl
+                  })}
+                aria-label={`Open ${tool.created.title} fullscreen`}
+              >
+                <img src={tool.created.imageUrl} alt={tool.created.title} loading="lazy" />
+              </button>
               <p>{tool.created.title}</p>
             </article>
           </div>
@@ -308,7 +415,7 @@
     </div>
   </section>
 
-  {#if activeImage}
+  {#if activeModal}
     <div
       class="lightbox"
       role="button"
@@ -319,17 +426,21 @@
     >
       <div class="lightbox-inner">
         <button class="close" on:click={closeModal} aria-label="Close">×</button>
-        <button class="nav prev" on:click={prevImage} aria-label="Previous image">‹</button>
+        {#if !activeStandalone}
+          <button class="nav prev" on:click={prevImage} aria-label="Previous image">‹</button>
+        {/if}
         <img
           class="lightbox-image"
-          src={`/site-media/${data.site.slug}/${activeImage.file}`}
-          alt={activeImage.caption || `Reconstruction of ${data.site.name}`}
+          src={activeModal.src}
+          alt={activeModal.alt}
         />
-        <button class="nav next" on:click={nextImage} aria-label="Next image">›</button>
+        {#if !activeStandalone}
+          <button class="nav next" on:click={nextImage} aria-label="Next image">›</button>
+        {/if}
         <div class="caption">
-          <p>{activeImage.caption}</p>
-          {#if activeImage.source_url}
-            <a href={activeImage.source_url} target="_blank" rel="noreferrer">Source</a>
+          <p>{activeModal.caption}</p>
+          {#if activeModal.sourceUrl}
+            <a href={activeModal.sourceUrl} target="_blank" rel="noreferrer">Source</a>
           {/if}
         </div>
       </div>
@@ -704,6 +815,15 @@
     background: transparent;
     padding: 0;
     cursor: pointer;
+  }
+
+  .media-button {
+    display: block;
+    width: 100%;
+    border: 0;
+    background: transparent;
+    padding: 0;
+    cursor: zoom-in;
   }
 
   .card img {
