@@ -12,6 +12,46 @@
   {
     "index": 2,
     "file": "002.jpg",
+    "caption": "A General History of Europe (Artist: James Harvey Robinson / James Henry Breasted | License: Public domain)",
+    "title": "General History of Europe 1921.djvu",
+    "source_url": "https://commons.wikimedia.org/wiki/File:General_History_of_Europe_1921.djvu",
+    "query": "Stonehenge historical reconstruction",
+    "score": 12,
+    "license": "Public domain"
+  },
+  {
+    "index": 3,
+    "file": "003.jpg",
+    "caption": "The secret places of the heart (Artist: H. G. (Herbert George) Wells | License: Public domain)",
+    "title": "HG Wells--secret places of the heart.djvu",
+    "source_url": "https://commons.wikimedia.org/wiki/File:HG_Wells--secret_places_of_the_heart.djvu",
+    "query": "Stonehenge reconstruction drawing",
+    "score": 12,
+    "license": "Public domain"
+  },
+  {
+    "index": 4,
+    "file": "004.jpg",
+    "caption": "Grimm's Goblins title QS:P1476,en:\"Grimm's Goblins \" label QS:Len,\"Grimm's Goblins \" label QS:Lga,\"Grimm's Goblins\" (Artist: Brothers Grimm | License: Public domain)",
+    "title": "Grimm Goblins (1876).djvu",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Grimm_Goblins_(1876).djvu",
+    "query": "Stonehenge artist impression",
+    "score": 11,
+    "license": "Public domain"
+  },
+  {
+    "index": 5,
+    "file": "005.jpg",
+    "caption": "AncientHistoryofWiltshire (Artist: Sir Richard Hoare, 2nd Baronet / William Cunnington | License: Public domain)",
+    "title": "AncientHistoryofWiltshire.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:AncientHistoryofWiltshire.jpg",
+    "query": "Stonehenge reconstruction",
+    "score": 9,
+    "license": "Public domain"
+  },
+  {
+    "index": 6,
+    "file": "006.jpg",
     "caption": "Durrington Walls house (Artist: TobyEditor | License: CC BY 4.0)",
     "title": "Durrington Walls house.jpg",
     "source_url": "https://commons.wikimedia.org/wiki/File:Durrington_Walls_house.jpg",
@@ -20,8 +60,38 @@
     "license": "CC BY 4.0"
   },
   {
-    "index": 3,
-    "file": "003.jpg",
+    "index": 7,
+    "file": "007.jpg",
+    "caption": "Facial Reconstruction of Body from a Long Barrow in the Stonehenge Visitors Centre (Artist: Ethan Doyle White | License: CC BY-SA 4.0)",
+    "title": "Facial Reconstruction of Body from a Long Barrow in the Stonehenge Visitors Centre.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Facial_Reconstruction_of_Body_from_a_Long_Barrow_in_the_Stonehenge_Visitors_Centre.jpg",
+    "query": "Stonehenge reconstruction",
+    "score": 9,
+    "license": "CC BY-SA 4.0"
+  },
+  {
+    "index": 8,
+    "file": "008.jpg",
+    "caption": "GB-stonehenge-visitor-neolith-haus (Artist: Balou46 | License: CC BY-SA 4.0)",
+    "title": "GB-stonehenge-visitor-neolith-haus.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:GB-stonehenge-visitor-neolith-haus.jpg",
+    "query": "Stonehenge reconstruction",
+    "score": 9,
+    "license": "CC BY-SA 4.0"
+  },
+  {
+    "index": 9,
+    "file": "009.jpg",
+    "caption": "Newgrange mound tomb (Artist: David Brossard | License: CC BY-SA 2.0)",
+    "title": "Newgrange mound tomb.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Newgrange_mound_tomb.jpg",
+    "query": "Stonehenge reconstruction",
+    "score": 9,
+    "license": "CC BY-SA 2.0"
+  },
+  {
+    "index": 10,
+    "file": "010.jpg",
     "caption": "Reconstruction of Neolithic houses at Stonehenge Visitor Centre - geograph.org.uk - 5837849 (Artist: Rod Allday | License: CC BY-SA 2.0)",
     "title": "Reconstruction of Neolithic houses at Stonehenge Visitor Centre - geograph.org.uk - 5837849.jpg",
     "source_url": "https://commons.wikimedia.org/wiki/File:Reconstruction_of_Neolithic_houses_at_Stonehenge_Visitor_Centre_-_geograph.org.uk_-_5837849.jpg",
@@ -30,8 +100,48 @@
     "license": "CC BY-SA 2.0"
   },
   {
-    "index": 4,
-    "file": "004.jpg",
+    "index": 11,
+    "file": "011.jpg",
+    "caption": "Round houses at Stonehenge Visitor Centre, December 2018 (Artist: Moonraker | License: CC BY-SA 3.0)",
+    "title": "Round houses at Stonehenge Visitor Centre, December 2018.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Round_houses_at_Stonehenge_Visitor_Centre,_December_2018.jpg",
+    "query": "Stonehenge reconstruction",
+    "score": 9,
+    "license": "CC BY-SA 3.0"
+  },
+  {
+    "index": 12,
+    "file": "012.jpg",
+    "caption": "Roundhouses Stonehenge Visitors Centre (Artist: Rachelle Haun | License: CC BY 2.0)",
+    "title": "Roundhouses Stonehenge Visitors Centre.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Roundhouses_Stonehenge_Visitors_Centre.jpg",
+    "query": "Stonehenge reconstruction",
+    "score": 9,
+    "license": "CC BY 2.0"
+  },
+  {
+    "index": 13,
+    "file": "013.jpg",
+    "caption": "Stonehenge, jüngste Bauphase 3 VI (Artist: Rodolfus Haranje | License: CC BY-SA 4.0)",
+    "title": "Stonehenge, jüngste Bauphase 3 VI.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Stonehenge,_j%C3%BCngste_Bauphase_3_VI.jpg",
+    "query": "Stonehenge reconstruction",
+    "score": 9,
+    "license": "CC BY-SA 4.0"
+  },
+  {
+    "index": 14,
+    "file": "014.jpg",
+    "caption": "Stonehenge, jüngste Bauphase (Artist: Rodolfus Haranje | License: CC BY-SA 4.0)",
+    "title": "Stonehenge, jüngste Bauphase.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Stonehenge,_j%C3%BCngste_Bauphase.jpg",
+    "query": "Stonehenge reconstruction",
+    "score": 9,
+    "license": "CC BY-SA 4.0"
+  },
+  {
+    "index": 15,
+    "file": "015.jpg",
     "caption": "StonehengeCompare (Artist: Mavratti 2008 and Philip Rupert Acott 1877 | License: Public domain)",
     "title": "StonehengeCompare.jpg",
     "source_url": "https://commons.wikimedia.org/wiki/File:StonehengeCompare.jpg",
@@ -40,43 +150,13 @@
     "license": "Public domain"
   },
   {
-    "index": 5,
-    "file": "005.jpg",
+    "index": 16,
+    "file": "016.jpg",
     "caption": "View of Stonehenge, reconstruction. (License: CC BY 4.0)",
     "title": "View of Stonehenge, reconstruction. Wellcome M0015952.jpg",
     "source_url": "https://commons.wikimedia.org/wiki/File:View_of_Stonehenge,_reconstruction._Wellcome_M0015952.jpg",
     "query": "Stonehenge reconstruction",
     "score": 9,
     "license": "CC BY 4.0"
-  },
-  {
-    "index": 6,
-    "file": "006.jpg",
-    "caption": "An eastern view of a reconstructed Stonehenge, 1971. Alan Sorrell (c ... (License: Unspecified (web source))",
-    "title": "An eastern view of a reconstructed Stonehenge, 1971. Alan Sorrell (c ...",
-    "source_url": "https://www.pinterest.com/pin/89227636351771752/",
-    "query": "Stonehenge artist impression",
-    "score": 5,
-    "license": "Unspecified (web source)"
-  },
-  {
-    "index": 7,
-    "file": "007.jpg",
-    "caption": "Postcard early artist rendering of Stonehenge | Stonehenge, Ancient ... (License: Unspecified (web source))",
-    "title": "Postcard early artist rendering of Stonehenge | Stonehenge, Ancient ...",
-    "source_url": "https://www.pinterest.com/pin/631066966507729369/",
-    "query": "Stonehenge artist impression",
-    "score": 5,
-    "license": "Unspecified (web source)"
-  },
-  {
-    "index": 8,
-    "file": "008.jpg",
-    "caption": "Premium Photo | Watercolor Painting of Stonehenge A Majestic Sunrise ... (License: Unspecified (web source))",
-    "title": "Premium Photo | Watercolor Painting of Stonehenge A Majestic Sunrise ...",
-    "source_url": "https://www.freepik.com/premium-ai-image/watercolor-painting-stonehenge-majestic-sunrise-ancient-stones_212230513.htm",
-    "query": "Stonehenge artist impression",
-    "score": 5,
-    "license": "Unspecified (web source)"
   }
 ]

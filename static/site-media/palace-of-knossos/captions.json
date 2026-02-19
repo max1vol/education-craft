@@ -2,6 +2,16 @@
   {
     "index": 1,
     "file": "001.jpg",
+    "caption": "Evans Fresco Drawing P8a Priest King relief (Artist: Gilliron, Ðmile fils | License: CC BY 4.0)",
+    "title": "Evans Fresco Drawing P8a Priest King relief.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Evans_Fresco_Drawing_P8a_Priest_King_relief.jpg",
+    "query": "Palace of Knossos digital reconstruction",
+    "score": 15,
+    "license": "CC BY 4.0"
+  },
+  {
+    "index": 2,
+    "file": "002.jpg",
     "caption": "Blue Boy collect saffron, Minoan fresco from Knossos, AMH, 145375 (Artist: Zde (photograph); Émile Gilliéron pere (fresco reconstruction) | License: Public domain)",
     "title": "Blue Boy collect saffron, Minoan fresco from Knossos, AMH, 145375.jpg",
     "source_url": "https://commons.wikimedia.org/wiki/File:Blue_Boy_collect_saffron,_Minoan_fresco_from_Knossos,_AMH,_145375.jpg",
@@ -10,8 +20,8 @@
     "license": "Public domain"
   },
   {
-    "index": 2,
-    "file": "002.jpg",
+    "index": 3,
+    "file": "003.jpg",
     "caption": "Wall painting of the Saffron Gatherer from Knossos (room of the saffron gatherer) - Heraklion AM - 01 (Artist: ArchaiOptix | License: CC BY-SA 4.0)",
     "title": "Wall painting of the Saffron Gatherer from Knossos (room of the saffron gatherer) - Heraklion AM - 01.jpg",
     "source_url": "https://commons.wikimedia.org/wiki/File:Wall_painting_of_the_Saffron_Gatherer_from_Knossos_(room_of_the_saffron_gatherer)_-_Heraklion_AM_-_01.jpg",
@@ -20,8 +30,8 @@
     "license": "CC BY-SA 4.0"
   },
   {
-    "index": 3,
-    "file": "003.jpg",
+    "index": 4,
+    "file": "004.jpg",
     "caption": "Wall painting of the Saffron Gatherer from Knossos (room of the saffron gatherer) - Heraklion AM - 02 (Artist: ArchaiOptix | License: CC BY-SA 4.0)",
     "title": "Wall painting of the Saffron Gatherer from Knossos (room of the saffron gatherer) - Heraklion AM - 02.jpg",
     "source_url": "https://commons.wikimedia.org/wiki/File:Wall_painting_of_the_Saffron_Gatherer_from_Knossos_(room_of_the_saffron_gatherer)_-_Heraklion_AM_-_02.jpg",
@@ -30,8 +40,8 @@
     "license": "CC BY-SA 4.0"
   },
   {
-    "index": 4,
-    "file": "004.jpg",
+    "index": 5,
+    "file": "005.jpg",
     "caption": "The palace of Minos - a comparative account of the successive stages of the early Cretan civilization as illustrated by the discoveries at Knossos (1921) (14586936390) (Artist: Internet Archive Book Images | License: No restrictions)",
     "title": "The palace of Minos - a comparative account of the successive stages of the early Cretan civilization as illustrated by the discoveries at Knossos (1921) (14586936390).jpg",
     "source_url": "https://commons.wikimedia.org/wiki/File:The_palace_of_Minos_-_a_comparative_account_of_the_successive_stages_of_the_early_Cretan_civilization_as_illustrated_by_the_discoveries_at_Knossos_(1921)_(14586936390).jpg",
@@ -40,8 +50,18 @@
     "license": "No restrictions"
   },
   {
-    "index": 5,
-    "file": "005.jpg",
+    "index": 6,
+    "file": "006.jpg",
+    "caption": "Anastylose Evans Cnossos 1 (Artist: Jebulon | License: CC0)",
+    "title": "Anastylose Evans Cnossos 1.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Anastylose_Evans_Cnossos_1.jpg",
+    "query": "Palace of Knossos reconstruction",
+    "score": 9,
+    "license": "CC0"
+  },
+  {
+    "index": 7,
+    "file": "007.jpg",
     "caption": "Camp-stool Fresco, Minoan, from Knossos, AMH, T28, 258456 (Artist: Zde | License: CC BY-SA 4.0)",
     "title": "Camp-stool Fresco, Minoan, from Knossos, AMH, T28, 258456.jpg",
     "source_url": "https://commons.wikimedia.org/wiki/File:Camp-stool_Fresco,_Minoan,_from_Knossos,_AMH,_T28,_258456.jpg",
@@ -50,8 +70,48 @@
     "license": "CC BY-SA 4.0"
   },
   {
-    "index": 6,
-    "file": "006.jpg",
+    "index": 8,
+    "file": "008.jpg",
+    "caption": "Captain of the Blacks Knossos (Artist: Émile Gilliéron fils (d. 1939) (reconstruction); Arthur Evans (d. 1941) (book) | License: Public domain)",
+    "title": "Captain of the Blacks Knossos.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Captain_of_the_Blacks_Knossos.jpg",
+    "query": "Palace of Knossos reconstruction",
+    "score": 9,
+    "license": "Public domain"
+  },
+  {
+    "index": 9,
+    "file": "009.jpg",
+    "caption": "Cnossos 5 bull fresco (Artist: Jebulon | License: CC0)",
+    "title": "Cnossos 5 bull fresco.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Cnossos_5_bull_fresco.jpg",
+    "query": "Palace of Knossos reconstruction",
+    "score": 9,
+    "license": "CC0"
+  },
+  {
+    "index": 10,
+    "file": "010.jpg",
+    "caption": "Column capital, Throne room Knossos Palace (Artist: Jebulon | License: CC0)",
+    "title": "Column capital, Throne room Knossos Palace.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Column_capital,_Throne_room_Knossos_Palace.jpg",
+    "query": "Palace of Knossos reconstruction",
+    "score": 9,
+    "license": "CC0"
+  },
+  {
+    "index": 11,
+    "file": "011.jpg",
+    "caption": "Knosos2 (Artist: Santiago Castells | License: CC BY-SA 4.0)",
+    "title": "Knosos2.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Knosos2.jpg",
+    "query": "Palace of Knossos reconstruction",
+    "score": 9,
+    "license": "CC BY-SA 4.0"
+  },
+  {
+    "index": 12,
+    "file": "012.jpg",
     "caption": "Snake Goddess - Heraklion Achaeological Museum retouched (Artist: George Groutas | License: CC BY 2.0)",
     "title": "Snake Goddess - Heraklion Achaeological Museum retouched.jpg",
     "source_url": "https://commons.wikimedia.org/wiki/File:Snake_Goddess_-_Heraklion_Achaeological_Museum_retouched.jpg",
@@ -60,8 +120,8 @@
     "license": "CC BY 2.0"
   },
   {
-    "index": 7,
-    "file": "007.jpg",
+    "index": 13,
+    "file": "013.jpg",
     "caption": "Snake Goddess - Heraklion Achaeological Museum (Artist: George Groutas | License: CC BY 2.0)",
     "title": "Snake Goddess - Heraklion Achaeological Museum.jpg",
     "source_url": "https://commons.wikimedia.org/wiki/File:Snake_Goddess_-_Heraklion_Achaeological_Museum.jpg",
@@ -70,81 +130,31 @@
     "license": "CC BY 2.0"
   },
   {
-    "index": 8,
-    "file": "008.jpg",
-    "caption": "The palace of Minos - a comparative account of the successive stages of the early Cretan civilization as illustrated by the discoveries at Knossos (1921) (14586776408) (Artist: Internet Archive Book Images | License: No restrictions)",
-    "title": "The palace of Minos - a comparative account of the successive stages of the early Cretan civilization as illustrated by the discoveries at Knossos (1921) (14586776408).jpg",
-    "source_url": "https://commons.wikimedia.org/wiki/File:The_palace_of_Minos_-_a_comparative_account_of_the_successive_stages_of_the_early_Cretan_civilization_as_illustrated_by_the_discoveries_at_Knossos_(1921)_(14586776408).jpg",
-    "query": "Palace of Knossos illustration",
-    "score": 8,
-    "license": "No restrictions"
-  },
-  {
-    "index": 9,
-    "file": "009.jpg",
-    "caption": "The palace of Minos - a comparative account of the successive stages of the early Cretan civilization as illustrated by the discoveries at Knossos (1921) (14587006869) (Artist: Internet Archive Book Images | License: No restrictions)",
-    "title": "The palace of Minos - a comparative account of the successive stages of the early Cretan civilization as illustrated by the discoveries at Knossos (1921) (14587006869).jpg",
-    "source_url": "https://commons.wikimedia.org/wiki/File:The_palace_of_Minos_-_a_comparative_account_of_the_successive_stages_of_the_early_Cretan_civilization_as_illustrated_by_the_discoveries_at_Knossos_(1921)_(14587006869).jpg",
-    "query": "Palace of Knossos illustration",
-    "score": 8,
-    "license": "No restrictions"
-  },
-  {
-    "index": 10,
-    "file": "010.jpg",
-    "caption": "The palace of Minos - a comparative account of the successive stages of the early Cretan civilization as illustrated by the discoveries at Knossos (1921) (14750556386) (Artist: Internet Archive Book Images | License: No restrictions)",
-    "title": "The palace of Minos - a comparative account of the successive stages of the early Cretan civilization as illustrated by the discoveries at Knossos (1921) (14750556386).jpg",
-    "source_url": "https://commons.wikimedia.org/wiki/File:The_palace_of_Minos_-_a_comparative_account_of_the_successive_stages_of_the_early_Cretan_civilization_as_illustrated_by_the_discoveries_at_Knossos_(1921)_(14750556386).jpg",
-    "query": "Palace of Knossos illustration",
-    "score": 8,
-    "license": "No restrictions"
-  },
-  {
-    "index": 11,
-    "file": "011.jpg",
-    "caption": "The palace of Minos - a comparative account of the successive stages of the early Cretan civilization as illustrated by the discoveries at Knossos (1921) (14750570066) (Artist: Internet Archive Book Images | License: No restrictions)",
-    "title": "The palace of Minos - a comparative account of the successive stages of the early Cretan civilization as illustrated by the discoveries at Knossos (1921) (14750570066).jpg",
-    "source_url": "https://commons.wikimedia.org/wiki/File:The_palace_of_Minos_-_a_comparative_account_of_the_successive_stages_of_the_early_Cretan_civilization_as_illustrated_by_the_discoveries_at_Knossos_(1921)_(14750570066).jpg",
-    "query": "Palace of Knossos illustration",
-    "score": 8,
-    "license": "No restrictions"
-  },
-  {
-    "index": 12,
-    "file": "012.jpg",
-    "caption": "The palace of Minos - a comparative account of the successive stages of the early Cretan civilization as illustrated by the discoveries at Knossos (1921) (14750570586) (Artist: Internet Archive Book Images | License: No restrictions)",
-    "title": "The palace of Minos - a comparative account of the successive stages of the early Cretan civilization as illustrated by the discoveries at Knossos (1921) (14750570586).jpg",
-    "source_url": "https://commons.wikimedia.org/wiki/File:The_palace_of_Minos_-_a_comparative_account_of_the_successive_stages_of_the_early_Cretan_civilization_as_illustrated_by_the_discoveries_at_Knossos_(1921)_(14750570586).jpg",
-    "query": "Palace of Knossos illustration",
-    "score": 8,
-    "license": "No restrictions"
-  },
-  {
-    "index": 13,
-    "file": "013.jpg",
-    "caption": "The palace of Minos - a comparative account of the successive stages of the early Cretan civilization as illustrated by the discoveries at Knossos (1921) (14770366731) (Artist: Internet Archive Book Images | License: No restrictions)",
-    "title": "The palace of Minos - a comparative account of the successive stages of the early Cretan civilization as illustrated by the discoveries at Knossos (1921) (14770366731).jpg",
-    "source_url": "https://commons.wikimedia.org/wiki/File:The_palace_of_Minos_-_a_comparative_account_of_the_successive_stages_of_the_early_Cretan_civilization_as_illustrated_by_the_discoveries_at_Knossos_(1921)_(14770366731).jpg",
-    "query": "Palace of Knossos illustration",
-    "score": 8,
-    "license": "No restrictions"
-  },
-  {
     "index": 14,
-    "file": "014.jpg",
-    "caption": "The palace of Minos - a comparative account of the successive stages of the early Cretan civilization as illustrated by the discoveries at Knossos (1921) (14770522571) (Artist: Internet Archive Book Images | License: No restrictions)",
-    "title": "The palace of Minos - a comparative account of the successive stages of the early Cretan civilization as illustrated by the discoveries at Knossos (1921) (14770522571).jpg",
-    "source_url": "https://commons.wikimedia.org/wiki/File:The_palace_of_Minos_-_a_comparative_account_of_the_successive_stages_of_the_early_Cretan_civilization_as_illustrated_by_the_discoveries_at_Knossos_(1921)_(14770522571).jpg",
-    "query": "Palace of Knossos illustration",
-    "score": 8,
-    "license": "No restrictions"
+    "file": "014.gif",
+    "caption": "Stiersprung 01 (Artist: Arthur Evans (8 July 1851 – 11 July 1941) | License: Public domain)",
+    "title": "Stiersprung 01.gif",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Stiersprung_01.gif",
+    "query": "Palace of Knossos reconstruction",
+    "score": 9,
+    "license": "Public domain"
   },
   {
     "index": 15,
-    "file": "015.jpg",
-    "caption": "The palace of Minos - a comparative account of the successive stages of the early Cretan civilization as illustrated by the discoveries at Knossos (1921) (14773111162) (Artist: Internet Archive Book Images | License: No restrictions)",
-    "title": "The palace of Minos - a comparative account of the successive stages of the early Cretan civilization as illustrated by the discoveries at Knossos (1921) (14773111162).jpg",
-    "source_url": "https://commons.wikimedia.org/wiki/File:The_palace_of_Minos_-_a_comparative_account_of_the_successive_stages_of_the_early_Cretan_civilization_as_illustrated_by_the_discoveries_at_Knossos_(1921)_(14773111162).jpg",
+    "file": "015.png",
+    "caption": "1911 Britannica - Aegean - Cnossus13 (Artist: Encyclopædia Britannica, 1911 | License: Public domain)",
+    "title": "1911 Britannica - Aegean - Cnossus13.png",
+    "source_url": "https://commons.wikimedia.org/wiki/File:1911_Britannica_-_Aegean_-_Cnossus13.png",
+    "query": "Palace of Knossos illustration",
+    "score": 8,
+    "license": "Public domain"
+  },
+  {
+    "index": 16,
+    "file": "016.jpg",
+    "caption": "Mazes and labyrinths; a general account of their history and developments (1922) (14597930899) (Artist: Internet Archive Book Images | License: No restrictions)",
+    "title": "Mazes and labyrinths; a general account of their history and developments (1922) (14597930899).jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Mazes_and_labyrinths;_a_general_account_of_their_history_and_developments_(1922)_(14597930899).jpg",
     "query": "Palace of Knossos illustration",
     "score": 8,
     "license": "No restrictions"

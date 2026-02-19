@@ -1,0 +1,2255 @@
+[
+  {
+    "slug": "great-pyramid-of-giza",
+    "siteName": "Great Pyramid of Giza",
+    "wikipediaTitle": "Great Pyramid of Giza",
+    "wikidataId": "Q37200",
+    "materials": [
+      "limestone",
+      "granite"
+    ],
+    "constructionMethods": [
+      "Stone masonry and block dressing"
+    ],
+    "constructionTools": [
+      "Rope systems",
+      "Wooden sledges/rollers",
+      "Levering poles"
+    ],
+    "toolsInferred": true,
+    "sources": [
+      {
+        "title": "Wikipedia: Great Pyramid of Giza",
+        "url": "https://en.wikipedia.org/wiki/Great_Pyramid_of_Giza",
+        "type": "wikipedia"
+      },
+      {
+        "title": "Wikidata: Q37200",
+        "url": "https://www.wikidata.org/wiki/Q37200",
+        "type": "wikidata"
+      }
+    ],
+    "notes": "Tools are inferred from the site's documented materials and construction method terms. Treat them as classroom-level likely toolkits.",
+    "searchSnippet": "The  Great   Pyramid   of   Giza  is the largest Egyptian  pyramid . It served as the tomb  of  pharaoh Khufu (&quot;Cheops&quot;), who ruled during the Fourth Dynasty  of  the",
+    "lastUpdated": "2026-02-19"
+  },
+  {
+    "slug": "hanging-gardens-of-babylon",
+    "siteName": "Hanging Gardens of Babylon",
+    "wikipediaTitle": "Hanging Gardens of Babylon",
+    "wikidataId": "Q41931",
+    "materials": [
+      "Fired brick"
+    ],
+    "constructionMethods": [
+      "Fired-brick masonry"
+    ],
+    "constructionTools": [
+      "Brick moulds",
+      "Kilns",
+      "Trowels"
+    ],
+    "toolsInferred": true,
+    "sources": [
+      {
+        "title": "Wikipedia: Hanging Gardens of Babylon",
+        "url": "https://en.wikipedia.org/wiki/Hanging_Gardens_of_Babylon",
+        "type": "wikipedia"
+      },
+      {
+        "title": "Wikidata: Q41931",
+        "url": "https://www.wikidata.org/wiki/Q41931",
+        "type": "wikidata"
+      }
+    ],
+    "notes": "Tools are inferred from the site's documented materials and construction method terms. Treat them as classroom-level likely toolkits.",
+    "searchSnippet": "",
+    "lastUpdated": "2026-02-19"
+  },
+  {
+    "slug": "statue-of-zeus-at-olympia",
+    "siteName": "Statue of Zeus at Olympia",
+    "wikipediaTitle": "Statue of Zeus at Olympia",
+    "wikidataId": "Q46239",
+    "materials": [
+      "ivory",
+      "gold",
+      "ebony",
+      "wood"
+    ],
+    "constructionMethods": [
+      "Timber framing or timber structures"
+    ],
+    "constructionTools": [
+      "Axes/adzes",
+      "Saws",
+      "Boring tools/augers"
+    ],
+    "toolsInferred": true,
+    "sources": [
+      {
+        "title": "Wikipedia: Statue of Zeus at Olympia",
+        "url": "https://en.wikipedia.org/wiki/Statue_of_Zeus_at_Olympia",
+        "type": "wikipedia"
+      },
+      {
+        "title": "Wikidata: Q46239",
+        "url": "https://www.wikidata.org/wiki/Q46239",
+        "type": "wikidata"
+      }
+    ],
+    "notes": "Tools are inferred from the site's documented materials and construction method terms. Treat them as classroom-level likely toolkits.",
+    "searchSnippet": "",
+    "lastUpdated": "2026-02-19"
+  },
+  {
+    "slug": "temple-of-artemis-at-ephesus",
+    "siteName": "Temple of Artemis at Ephesus",
+    "wikipediaTitle": "Temple of Artemis",
+    "wikidataId": "Q43018",
+    "materials": [
+      "Stone",
+      "Fired brick",
+      "Lime mortar"
+    ],
+    "constructionMethods": [
+      "Stone masonry and block dressing",
+      "Fired-brick masonry"
+    ],
+    "constructionTools": [
+      "Brick moulds",
+      "Kilns",
+      "Trowels",
+      "Rope systems",
+      "Wooden sledges/rollers",
+      "Levering poles"
+    ],
+    "toolsInferred": true,
+    "sources": [
+      {
+        "title": "Wikipedia: Temple of Artemis",
+        "url": "https://en.wikipedia.org/wiki/Temple_of_Artemis",
+        "type": "wikipedia"
+      },
+      {
+        "title": "Wikidata: Q43018",
+        "url": "https://www.wikidata.org/wiki/Q43018",
+        "type": "wikidata"
+      }
+    ],
+    "notes": "Tools are inferred from the site's documented materials and construction method terms. Treat them as classroom-level likely toolkits.",
+    "searchSnippet": "",
+    "lastUpdated": "2026-02-19"
+  },
+  {
+    "slug": "mausoleum-at-halicarnassus",
+    "siteName": "Mausoleum at Halicarnassus",
+    "wikipediaTitle": "Mausoleum at Halicarnassus",
+    "wikidataId": "Q45368",
+    "materials": [
+      "Earth"
+    ],
+    "constructionMethods": [
+      "Large earthen earthworks"
+    ],
+    "constructionTools": [
+      "Manual stone/earth shaping tools",
+      "Rope and lever systems"
+    ],
+    "toolsInferred": true,
+    "sources": [
+      {
+        "title": "Wikipedia: Mausoleum at Halicarnassus",
+        "url": "https://en.wikipedia.org/wiki/Mausoleum_at_Halicarnassus",
+        "type": "wikipedia"
+      },
+      {
+        "title": "Wikidata: Q45368",
+        "url": "https://www.wikidata.org/wiki/Q45368",
+        "type": "wikidata"
+      }
+    ],
+    "notes": "Tools are inferred from the site's documented materials and construction method terms. Treat them as classroom-level likely toolkits.",
+    "searchSnippet": "",
+    "lastUpdated": "2026-02-19"
+  },
+  {
+    "slug": "colossus-of-rhodes",
+    "siteName": "Colossus of Rhodes",
+    "wikipediaTitle": "Colossus of Rhodes",
+    "wikidataId": "Q41553",
+    "materials": [
+      "bronze"
+    ],
+    "constructionMethods": [
+      "Masonry and earthwork construction"
+    ],
+    "constructionTools": [
+      "Rope systems",
+      "Wooden sledges/rollers",
+      "Levering poles"
+    ],
+    "toolsInferred": true,
+    "sources": [
+      {
+        "title": "Wikipedia: Colossus of Rhodes",
+        "url": "https://en.wikipedia.org/wiki/Colossus_of_Rhodes",
+        "type": "wikipedia"
+      },
+      {
+        "title": "Wikidata: Q41553",
+        "url": "https://www.wikidata.org/wiki/Q41553",
+        "type": "wikidata"
+      }
+    ],
+    "notes": "Tools are inferred from the site's documented materials and construction method terms. Treat them as classroom-level likely toolkits.",
+    "searchSnippet": "",
+    "lastUpdated": "2026-02-19"
+  },
+  {
+    "slug": "lighthouse-of-alexandria",
+    "siteName": "Lighthouse of Alexandria",
+    "wikipediaTitle": "Lighthouse of Alexandria",
+    "wikidataId": "Q43244",
+    "materials": [
+      "Earth",
+      "Stone"
+    ],
+    "constructionMethods": [
+      "Stone masonry and block dressing",
+      "Large earthen earthworks"
+    ],
+    "constructionTools": [
+      "Rope systems",
+      "Wooden sledges/rollers",
+      "Levering poles"
+    ],
+    "toolsInferred": true,
+    "sources": [
+      {
+        "title": "Wikipedia: Lighthouse of Alexandria",
+        "url": "https://en.wikipedia.org/wiki/Lighthouse_of_Alexandria",
+        "type": "wikipedia"
+      },
+      {
+        "title": "Wikidata: Q43244",
+        "url": "https://www.wikidata.org/wiki/Q43244",
+        "type": "wikidata"
+      }
+    ],
+    "notes": "Tools are inferred from the site's documented materials and construction method terms. Treat them as classroom-level likely toolkits.",
+    "searchSnippet": "",
+    "lastUpdated": "2026-02-19"
+  },
+  {
+    "slug": "stonehenge",
+    "siteName": "Stonehenge",
+    "wikipediaTitle": "Stonehenge",
+    "wikidataId": "Q39671",
+    "materials": [
+      "sarsen",
+      "bluestone"
+    ],
+    "constructionMethods": [
+      "Large earthen earthworks"
+    ],
+    "constructionTools": [
+      "Antler/wood picks",
+      "Wooden shovels",
+      "Carrying baskets",
+      "Rope systems",
+      "Wooden sledges/rollers",
+      "Levering poles"
+    ],
+    "toolsInferred": true,
+    "sources": [
+      {
+        "title": "Wikipedia: Stonehenge",
+        "url": "https://en.wikipedia.org/wiki/Stonehenge",
+        "type": "wikipedia"
+      },
+      {
+        "title": "Wikidata: Q39671",
+        "url": "https://www.wikidata.org/wiki/Q39671",
+        "type": "wikidata"
+      }
+    ],
+    "notes": "Tools are inferred from the site's documented materials and construction method terms. Treat them as classroom-level likely toolkits.",
+    "searchSnippet": "Stonehenge  is a prehistoric megalithic structure on Salisbury Plain in Wiltshire, England, two miles (3 km) west of Amesbury. It consists of an outer ring",
+    "lastUpdated": "2026-02-19"
+  },
+  {
+    "slug": "avebury-henge",
+    "siteName": "Avebury Henge",
+    "wikipediaTitle": "Avebury",
+    "wikidataId": "Q661855",
+    "materials": [
+      "Stone"
+    ],
+    "constructionMethods": [
+      "Large earthen earthworks"
+    ],
+    "constructionTools": [
+      "Antler/wood picks",
+      "Wooden shovels",
+      "Carrying baskets",
+      "Rope systems",
+      "Wooden sledges/rollers",
+      "Levering poles"
+    ],
+    "toolsInferred": true,
+    "sources": [
+      {
+        "title": "Wikipedia: Avebury",
+        "url": "https://en.wikipedia.org/wiki/Avebury",
+        "type": "wikipedia"
+      },
+      {
+        "title": "Wikidata: Q661855",
+        "url": "https://www.wikidata.org/wiki/Q661855",
+        "type": "wikidata"
+      }
+    ],
+    "notes": "Tools are inferred from the site's documented materials and construction method terms. Treat them as classroom-level likely toolkits.",
+    "searchSnippet": "Avebury  (/ˈeɪvbəri/) is a Neolithic  henge  monument containing three stone circles, around the village of  Avebury  in Wiltshire, in south-west England. One",
+    "lastUpdated": "2026-02-19"
+  },
+  {
+    "slug": "skara-brae",
+    "siteName": "Skara Brae",
+    "wikipediaTitle": "Skara Brae",
+    "wikidataId": "Q816437",
+    "materials": [
+      "Earth",
+      "Stone"
+    ],
+    "constructionMethods": [
+      "Large earthen earthworks"
+    ],
+    "constructionTools": [
+      "Antler/wood picks",
+      "Wooden shovels",
+      "Carrying baskets",
+      "Rope systems",
+      "Wooden sledges/rollers",
+      "Levering poles"
+    ],
+    "toolsInferred": true,
+    "sources": [
+      {
+        "title": "Wikipedia: Skara Brae",
+        "url": "https://en.wikipedia.org/wiki/Skara_Brae",
+        "type": "wikipedia"
+      },
+      {
+        "title": "Wikidata: Q816437",
+        "url": "https://www.wikidata.org/wiki/Q816437",
+        "type": "wikidata"
+      }
+    ],
+    "notes": "Tools are inferred from the site's documented materials and construction method terms. Treat them as classroom-level likely toolkits.",
+    "searchSnippet": "Skara   Brae  /ˈskærə ˈbreɪ/ is a stone-built Neolithic settlement, located on the Bay of Skaill in the parish of Sandwick, on the west coast of Mainland",
+    "lastUpdated": "2026-02-19"
+  },
+  {
+    "slug": "hadrians-wall",
+    "siteName": "Hadrian's Wall",
+    "wikipediaTitle": "Hadrian's Wall",
+    "wikidataId": "Q57357",
+    "materials": [
+      "Stone"
+    ],
+    "constructionMethods": [
+      "Large earthen earthworks"
+    ],
+    "constructionTools": [
+      "Antler/wood picks",
+      "Wooden shovels",
+      "Carrying baskets",
+      "Rope systems",
+      "Wooden sledges/rollers",
+      "Levering poles"
+    ],
+    "toolsInferred": true,
+    "sources": [
+      {
+        "title": "Wikipedia: Hadrian's Wall",
+        "url": "https://en.wikipedia.org/wiki/Hadrian%27s_Wall",
+        "type": "wikipedia"
+      },
+      {
+        "title": "Wikidata: Q57357",
+        "url": "https://www.wikidata.org/wiki/Q57357",
+        "type": "wikidata"
+      }
+    ],
+    "notes": "Tools are inferred from the site's documented materials and construction method terms. Treat them as classroom-level likely toolkits.",
+    "searchSnippet": "Hadrian&#039;s   Wall  (Latin: Vallum Hadriani; also known as the Roman  Wall , Picts&#039;  Wall , or Vallum Aelium in Latin) is a former defensive fortification of the",
+    "lastUpdated": "2026-02-19"
+  },
+  {
+    "slug": "roman-colosseum",
+    "siteName": "Roman Colosseum",
+    "wikipediaTitle": "Colosseum",
+    "wikidataId": "Q10285",
+    "materials": [
+      "Roman travertine",
+      "tuff",
+      "concrete"
+    ],
+    "constructionMethods": [
+      "Lime mortar / concrete construction"
+    ],
+    "constructionTools": [
+      "Mixing tools",
+      "Trowels",
+      "Wooden centering/formwork"
+    ],
+    "toolsInferred": true,
+    "sources": [
+      {
+        "title": "Wikipedia: Colosseum",
+        "url": "https://en.wikipedia.org/wiki/Colosseum",
+        "type": "wikipedia"
+      },
+      {
+        "title": "Wikidata: Q10285",
+        "url": "https://www.wikidata.org/wiki/Q10285",
+        "type": "wikidata"
+      }
+    ],
+    "notes": "Tools are inferred from the site's documented materials and construction method terms. Treat them as classroom-level likely toolkits.",
+    "searchSnippet": "",
+    "lastUpdated": "2026-02-19"
+  },
+  {
+    "slug": "roman-forum",
+    "siteName": "Roman Forum",
+    "wikipediaTitle": "Roman Forum",
+    "wikidataId": "Q180212",
+    "materials": [
+      "Stone",
+      "Fired brick",
+      "Lime mortar"
+    ],
+    "constructionMethods": [
+      "Stone masonry and block dressing",
+      "Fired-brick masonry"
+    ],
+    "constructionTools": [
+      "Brick moulds",
+      "Kilns",
+      "Trowels",
+      "Rope systems",
+      "Wooden sledges/rollers",
+      "Levering poles"
+    ],
+    "toolsInferred": true,
+    "sources": [
+      {
+        "title": "Wikipedia: Roman Forum",
+        "url": "https://en.wikipedia.org/wiki/Roman_Forum",
+        "type": "wikipedia"
+      },
+      {
+        "title": "Wikidata: Q180212",
+        "url": "https://www.wikidata.org/wiki/Q180212",
+        "type": "wikidata"
+      }
+    ],
+    "notes": "Tools are inferred from the site's documented materials and construction method terms. Treat them as classroom-level likely toolkits.",
+    "searchSnippet": "The  Roman   Forum  (Italian: Foro Romano), also known by its Latin name  Forum  Romanum, is a rectangular  forum  (plaza) surrounded by the ruins of several important",
+    "lastUpdated": "2026-02-19"
+  },
+  {
+    "slug": "pompeii",
+    "siteName": "Pompeii",
+    "wikipediaTitle": "Pompeii",
+    "wikidataId": "Q43332",
+    "materials": [
+      "Timber"
+    ],
+    "constructionMethods": [
+      "Timber framing or timber structures"
+    ],
+    "constructionTools": [
+      "Axes/adzes",
+      "Saws",
+      "Boring tools/augers"
+    ],
+    "toolsInferred": true,
+    "sources": [
+      {
+        "title": "Wikipedia: Pompeii",
+        "url": "https://en.wikipedia.org/wiki/Pompeii",
+        "type": "wikipedia"
+      },
+      {
+        "title": "Wikidata: Q43332",
+        "url": "https://www.wikidata.org/wiki/Q43332",
+        "type": "wikidata"
+      }
+    ],
+    "notes": "Tools are inferred from the site's documented materials and construction method terms. Treat them as classroom-level likely toolkits.",
+    "searchSnippet": "Pompeii  (/pɒmˈpeɪ(i)/ ; Latin: [pɔmˈpei̯.iː]) was a city in what is now the municipality of Pompei, near Naples, in the Campania region of Italy. Along",
+    "lastUpdated": "2026-02-19"
+  },
+  {
+    "slug": "pantheon-rome",
+    "siteName": "Pantheon (Rome)",
+    "wikipediaTitle": "Pantheon, Rome",
+    "wikidataId": "Q99309",
+    "materials": [
+      "concrete"
+    ],
+    "constructionMethods": [
+      "Lime mortar / concrete construction"
+    ],
+    "constructionTools": [
+      "Mixing tools",
+      "Trowels",
+      "Wooden centering/formwork"
+    ],
+    "toolsInferred": true,
+    "sources": [
+      {
+        "title": "Wikipedia: Pantheon, Rome",
+        "url": "https://en.wikipedia.org/wiki/Pantheon,_Rome",
+        "type": "wikipedia"
+      },
+      {
+        "title": "Wikidata: Q99309",
+        "url": "https://www.wikidata.org/wiki/Q99309",
+        "type": "wikidata"
+      }
+    ],
+    "notes": "Tools are inferred from the site's documented materials and construction method terms. Treat them as classroom-level likely toolkits.",
+    "searchSnippet": "",
+    "lastUpdated": "2026-02-19"
+  },
+  {
+    "slug": "circus-maximus",
+    "siteName": "Circus Maximus",
+    "wikipediaTitle": "Circus Maximus",
+    "wikidataId": "Q207808",
+    "materials": [
+      "Stone",
+      "Fired brick",
+      "Lime mortar"
+    ],
+    "constructionMethods": [
+      "Stone masonry and block dressing",
+      "Fired-brick masonry"
+    ],
+    "constructionTools": [
+      "Brick moulds",
+      "Kilns",
+      "Trowels",
+      "Rope systems",
+      "Wooden sledges/rollers",
+      "Levering poles"
+    ],
+    "toolsInferred": true,
+    "sources": [
+      {
+        "title": "Wikipedia: Circus Maximus",
+        "url": "https://en.wikipedia.org/wiki/Circus_Maximus",
+        "type": "wikipedia"
+      },
+      {
+        "title": "Wikidata: Q207808",
+        "url": "https://www.wikidata.org/wiki/Q207808",
+        "type": "wikidata"
+      }
+    ],
+    "notes": "Tools are inferred from the site's documented materials and construction method terms. Treat them as classroom-level likely toolkits.",
+    "searchSnippet": "The  Circus   Maximus  (Latin for &quot;largest  circus &quot;; Italian: Circo Massimo) is an ancient Roman chariot-racing stadium and mass entertainment venue in Rome",
+    "lastUpdated": "2026-02-19"
+  },
+  {
+    "slug": "acropolis-of-athens",
+    "siteName": "Acropolis of Athens",
+    "wikipediaTitle": "Acropolis of Athens",
+    "wikidataId": "Q131013",
+    "materials": [
+      "Stone",
+      "Fired brick",
+      "Lime mortar"
+    ],
+    "constructionMethods": [
+      "Stone masonry and block dressing",
+      "Fired-brick masonry"
+    ],
+    "constructionTools": [
+      "Brick moulds",
+      "Kilns",
+      "Trowels",
+      "Rope systems",
+      "Wooden sledges/rollers",
+      "Levering poles"
+    ],
+    "toolsInferred": true,
+    "sources": [
+      {
+        "title": "Wikipedia: Acropolis of Athens",
+        "url": "https://en.wikipedia.org/wiki/Acropolis_of_Athens",
+        "type": "wikipedia"
+      },
+      {
+        "title": "Wikidata: Q131013",
+        "url": "https://www.wikidata.org/wiki/Q131013",
+        "type": "wikidata"
+      }
+    ],
+    "notes": "Tools are inferred from the site's documented materials and construction method terms. Treat them as classroom-level likely toolkits.",
+    "searchSnippet": "",
+    "lastUpdated": "2026-02-19"
+  },
+  {
+    "slug": "parthenon",
+    "siteName": "Parthenon",
+    "wikipediaTitle": "Parthenon",
+    "wikidataId": "Q10288",
+    "materials": [
+      "Pentelic marble"
+    ],
+    "constructionMethods": [
+      "Stone masonry and block dressing"
+    ],
+    "constructionTools": [
+      "Manual stone/earth shaping tools",
+      "Rope and lever systems"
+    ],
+    "toolsInferred": true,
+    "sources": [
+      {
+        "title": "Wikipedia: Parthenon",
+        "url": "https://en.wikipedia.org/wiki/Parthenon",
+        "type": "wikipedia"
+      },
+      {
+        "title": "Wikidata: Q10288",
+        "url": "https://www.wikidata.org/wiki/Q10288",
+        "type": "wikidata"
+      }
+    ],
+    "notes": "Tools are inferred from the site's documented materials and construction method terms. Treat them as classroom-level likely toolkits.",
+    "searchSnippet": "The  Parthenon  (/ˈpɑːrθəˌnɒn, -nən/; Ancient Greek: Παρθενών, romanised:  Parthenōn  [par.tʰe.nɔ̌ːn]; Greek: Παρθενώνας, romanised: Parthenónas [parθeˈnonas])",
+    "lastUpdated": "2026-02-19"
+  },
+  {
+    "slug": "palace-of-knossos",
+    "siteName": "Palace of Knossos",
+    "wikipediaTitle": "Knossos",
+    "wikidataId": "Q173527",
+    "materials": [
+      "Earth",
+      "Bronze"
+    ],
+    "constructionMethods": [
+      "Large earthen earthworks"
+    ],
+    "constructionTools": [
+      "Manual stone/earth shaping tools",
+      "Rope and lever systems"
+    ],
+    "toolsInferred": true,
+    "sources": [
+      {
+        "title": "Wikipedia: Knossos",
+        "url": "https://en.wikipedia.org/wiki/Knossos",
+        "type": "wikipedia"
+      },
+      {
+        "title": "Wikidata: Q173527",
+        "url": "https://www.wikidata.org/wiki/Q173527",
+        "type": "wikidata"
+      }
+    ],
+    "notes": "Tools are inferred from the site's documented materials and construction method terms. Treat them as classroom-level likely toolkits.",
+    "searchSnippet": "",
+    "lastUpdated": "2026-02-19"
+  },
+  {
+    "slug": "akrotiri-thera",
+    "siteName": "Akrotiri (Thera)",
+    "wikipediaTitle": "Akrotiri (prehistoric city)",
+    "wikidataId": "Q421232",
+    "materials": [
+      "Bronze"
+    ],
+    "constructionMethods": [
+      "Masonry and earthwork construction"
+    ],
+    "constructionTools": [
+      "Manual stone/earth shaping tools",
+      "Rope and lever systems"
+    ],
+    "toolsInferred": true,
+    "sources": [
+      {
+        "title": "Wikipedia: Akrotiri (prehistoric city)",
+        "url": "https://en.wikipedia.org/wiki/Akrotiri_(prehistoric_city)",
+        "type": "wikipedia"
+      },
+      {
+        "title": "Wikidata: Q421232",
+        "url": "https://www.wikidata.org/wiki/Q421232",
+        "type": "wikidata"
+      }
+    ],
+    "notes": "Tools are inferred from the site's documented materials and construction method terms. Treat them as classroom-level likely toolkits.",
+    "searchSnippet": "Akrotiri  (Greek: Ακρωτήρι, pronounced Greek: [ akroˈtiri ]) is a Cycladic Bronze Age settlement site on the volcanic Greek island of Santorini. The name",
+    "lastUpdated": "2026-02-19"
+  },
+  {
+    "slug": "troy",
+    "siteName": "Troy",
+    "wikipediaTitle": "Troy",
+    "wikidataId": "Q22647",
+    "materials": [
+      "Bronze"
+    ],
+    "constructionMethods": [
+      "Masonry and earthwork construction"
+    ],
+    "constructionTools": [
+      "Manual stone/earth shaping tools",
+      "Rope and lever systems"
+    ],
+    "toolsInferred": true,
+    "sources": [
+      {
+        "title": "Wikipedia: Troy",
+        "url": "https://en.wikipedia.org/wiki/Troy",
+        "type": "wikipedia"
+      },
+      {
+        "title": "Wikidata: Q22647",
+        "url": "https://www.wikidata.org/wiki/Q22647",
+        "type": "wikidata"
+      }
+    ],
+    "notes": "Tools are inferred from the site's documented materials and construction method terms. Treat them as classroom-level likely toolkits.",
+    "searchSnippet": "refer to these layers using Roman numerals,  Troy  I being the earliest and  Troy  IX being the latest.  Troy  was first settled around 3600 BC and grew into",
+    "lastUpdated": "2026-02-19"
+  },
+  {
+    "slug": "mycenae",
+    "siteName": "Mycenae",
+    "wikipediaTitle": "Mycenae",
+    "wikidataId": "Q132564",
+    "materials": [
+      "Stone",
+      "Timber",
+      "Earth"
+    ],
+    "constructionMethods": [
+      "Stone masonry and block dressing",
+      "Large earthen earthworks",
+      "Timber framing or timber structures"
+    ],
+    "constructionTools": [
+      "Axes/adzes",
+      "Saws",
+      "Boring tools/augers",
+      "Rope systems",
+      "Wooden sledges/rollers",
+      "Levering poles"
+    ],
+    "toolsInferred": true,
+    "sources": [
+      {
+        "title": "Wikipedia: Mycenae",
+        "url": "https://en.wikipedia.org/wiki/Mycenae",
+        "type": "wikipedia"
+      },
+      {
+        "title": "Wikidata: Q132564",
+        "url": "https://www.wikidata.org/wiki/Q132564",
+        "type": "wikidata"
+      }
+    ],
+    "notes": "Tools are inferred from the site's documented materials and construction method terms. Treat them as classroom-level likely toolkits.",
+    "searchSnippet": "rendering support, you may see question marks, boxes, or other symbols.  Mycenae  (/maɪˈsiːni/ my-SEE-nee; Ancient Greek: Μυκῆναι or Μυκήνη, Mykē̂nai or",
+    "lastUpdated": "2026-02-19"
+  },
+  {
+    "slug": "delphi-sanctuary",
+    "siteName": "Delphi Sanctuary",
+    "wikipediaTitle": "Delphi",
+    "wikidataId": "Q75459",
+    "materials": [
+      "Stone"
+    ],
+    "constructionMethods": [
+      "Stone masonry and block dressing"
+    ],
+    "constructionTools": [
+      "Rope systems",
+      "Wooden sledges/rollers",
+      "Levering poles"
+    ],
+    "toolsInferred": true,
+    "sources": [
+      {
+        "title": "Wikipedia: Delphi",
+        "url": "https://en.wikipedia.org/wiki/Delphi",
+        "type": "wikipedia"
+      },
+      {
+        "title": "Wikidata: Q75459",
+        "url": "https://www.wikidata.org/wiki/Q75459",
+        "type": "wikidata"
+      }
+    ],
+    "notes": "Tools are inferred from the site's documented materials and construction method terms. Treat them as classroom-level likely toolkits.",
+    "searchSnippet": "the  archaeological   site  of  Delphi  is the Roman Agora, which was just outside the peribolos, or precinct walls, of the  sanctuary  of Apollo at  Delphi . The",
+    "lastUpdated": "2026-02-19"
+  },
+  {
+    "slug": "theatre-of-epidaurus",
+    "siteName": "Theatre of Epidaurus",
+    "wikipediaTitle": "Ancient Theatre of Epidaurus",
+    "wikidataId": "Q608198",
+    "materials": [
+      "Stone"
+    ],
+    "constructionMethods": [
+      "Stone masonry and block dressing"
+    ],
+    "constructionTools": [
+      "Rope systems",
+      "Wooden sledges/rollers",
+      "Levering poles"
+    ],
+    "toolsInferred": true,
+    "sources": [
+      {
+        "title": "Wikipedia: Ancient Theatre of Epidaurus",
+        "url": "https://en.wikipedia.org/wiki/Ancient_Theatre_of_Epidaurus",
+        "type": "wikipedia"
+      },
+      {
+        "title": "Wikidata: Q608198",
+        "url": "https://www.wikidata.org/wiki/Q608198",
+        "type": "wikidata"
+      }
+    ],
+    "notes": "Tools are inferred from the site's documented materials and construction method terms. Treat them as classroom-level likely toolkits.",
+    "searchSnippet": "",
+    "lastUpdated": "2026-02-19"
+  },
+  {
+    "slug": "pergamon-acropolis",
+    "siteName": "Pergamon Acropolis",
+    "wikipediaTitle": "Pergamon",
+    "wikidataId": "Q18986",
+    "materials": [
+      "Stone"
+    ],
+    "constructionMethods": [
+      "Stone masonry and block dressing"
+    ],
+    "constructionTools": [
+      "Rope systems",
+      "Wooden sledges/rollers",
+      "Levering poles"
+    ],
+    "toolsInferred": true,
+    "sources": [
+      {
+        "title": "Wikipedia: Pergamon",
+        "url": "https://en.wikipedia.org/wiki/Pergamon",
+        "type": "wikipedia"
+      },
+      {
+        "title": "Wikidata: Q18986",
+        "url": "https://www.wikidata.org/wiki/Q18986",
+        "type": "wikidata"
+      }
+    ],
+    "notes": "Tools are inferred from the site's documented materials and construction method terms. Treat them as classroom-level likely toolkits.",
+    "searchSnippet": "",
+    "lastUpdated": "2026-02-19"
+  },
+  {
+    "slug": "carthage",
+    "siteName": "Carthage",
+    "wikipediaTitle": "Carthage",
+    "wikidataId": "Q6343",
+    "materials": [
+      "Stone",
+      "Fired brick",
+      "Lime mortar"
+    ],
+    "constructionMethods": [
+      "Stone masonry and block dressing",
+      "Fired-brick masonry"
+    ],
+    "constructionTools": [
+      "Brick moulds",
+      "Kilns",
+      "Trowels",
+      "Rope systems",
+      "Wooden sledges/rollers",
+      "Levering poles"
+    ],
+    "toolsInferred": true,
+    "sources": [
+      {
+        "title": "Wikipedia: Carthage",
+        "url": "https://en.wikipedia.org/wiki/Carthage",
+        "type": "wikipedia"
+      },
+      {
+        "title": "Wikidata: Q6343",
+        "url": "https://www.wikidata.org/wiki/Q6343",
+        "type": "wikidata"
+      }
+    ],
+    "notes": "Tools are inferred from the site's documented materials and construction method terms. Treat them as classroom-level likely toolkits.",
+    "searchSnippet": "Carthage  (Arabic: قرطاج, Qarṭāj) was an ancient city in Northern Africa, on the eastern side of the Lake of Tunis in what is now Tunisia.  Carthage  was",
+    "lastUpdated": "2026-02-19"
+  },
+  {
+    "slug": "leptis-magna",
+    "siteName": "Leptis Magna",
+    "wikipediaTitle": "Leptis Magna",
+    "wikidataId": "Q191504",
+    "materials": [
+      "Earth"
+    ],
+    "constructionMethods": [
+      "Large earthen earthworks"
+    ],
+    "constructionTools": [
+      "Manual stone/earth shaping tools",
+      "Rope and lever systems"
+    ],
+    "toolsInferred": true,
+    "sources": [
+      {
+        "title": "Wikipedia: Leptis Magna",
+        "url": "https://en.wikipedia.org/wiki/Leptis_Magna",
+        "type": "wikipedia"
+      },
+      {
+        "title": "Wikidata: Q191504",
+        "url": "https://www.wikidata.org/wiki/Q191504",
+        "type": "wikidata"
+      }
+    ],
+    "notes": "Tools are inferred from the site's documented materials and construction method terms. Treat them as classroom-level likely toolkits.",
+    "searchSnippet": "Leptis  or Lepcis  Magna , (Arabic: لبدة الكبرى, romanized: Libda al-Kubrā) also known by other names in antiquity, was a prominent city of the Carthaginian",
+    "lastUpdated": "2026-02-19"
+  },
+  {
+    "slug": "palmyra",
+    "siteName": "Palmyra",
+    "wikipediaTitle": "Palmyra",
+    "wikidataId": "Q5747",
+    "materials": [
+      "Stone",
+      "Fired brick",
+      "Lime mortar"
+    ],
+    "constructionMethods": [
+      "Stone masonry and block dressing",
+      "Fired-brick masonry"
+    ],
+    "constructionTools": [
+      "Brick moulds",
+      "Kilns",
+      "Trowels",
+      "Rope systems",
+      "Wooden sledges/rollers",
+      "Levering poles"
+    ],
+    "toolsInferred": true,
+    "sources": [
+      {
+        "title": "Wikipedia: Palmyra",
+        "url": "https://en.wikipedia.org/wiki/Palmyra",
+        "type": "wikipedia"
+      },
+      {
+        "title": "Wikidata: Q5747",
+        "url": "https://www.wikidata.org/wiki/Q5747",
+        "type": "wikidata"
+      }
+    ],
+    "notes": "Tools are inferred from the site's documented materials and construction method terms. Treat them as classroom-level likely toolkits.",
+    "searchSnippet": "Palmyra  (/pælˈmaɪrə/ pal-MY-rə; Palmyrene Aramaic: 𐡶𐡣𐡬𐡥𐡴‎, romanized: Tadmor; Arabic: تَدْمُر‎, romanized: Tadmur) is an ancient city in central",
+    "lastUpdated": "2026-02-19"
+  },
+  {
+    "slug": "jerash-gerasa",
+    "siteName": "Jerash (Gerasa)",
+    "wikipediaTitle": "Jerash",
+    "wikidataId": "Q31565",
+    "materials": [
+      "Earth"
+    ],
+    "constructionMethods": [
+      "Large earthen earthworks"
+    ],
+    "constructionTools": [
+      "Manual stone/earth shaping tools",
+      "Rope and lever systems"
+    ],
+    "toolsInferred": true,
+    "sources": [
+      {
+        "title": "Wikipedia: Jerash",
+        "url": "https://en.wikipedia.org/wiki/Jerash",
+        "type": "wikipedia"
+      },
+      {
+        "title": "Wikidata: Q31565",
+        "url": "https://www.wikidata.org/wiki/Q31565",
+        "type": "wikidata"
+      }
+    ],
+    "notes": "Tools are inferred from the site's documented materials and construction method terms. Treat them as classroom-level likely toolkits.",
+    "searchSnippet": "Jerash  or Jarash (Arabic: جرش, romanized: Ǧaraš, Arabic pronunciation: [dʒa.raʃ]; Greek: Γέρασα, romanized:  Gérasa , Attic Greek pronunciation: [ɡérasa]",
+    "lastUpdated": "2026-02-19"
+  },
+  {
+    "slug": "petra",
+    "siteName": "Petra",
+    "wikipediaTitle": "Petra",
+    "wikidataId": "Q5788",
+    "materials": [
+      "sandstone"
+    ],
+    "constructionMethods": [
+      "Rock-cut architecture"
+    ],
+    "constructionTools": [
+      "Metal chisels",
+      "Hammerstones/mallets",
+      "Picks",
+      "Rope systems",
+      "Wooden sledges/rollers",
+      "Levering poles"
+    ],
+    "toolsInferred": true,
+    "sources": [
+      {
+        "title": "Wikipedia: Petra",
+        "url": "https://en.wikipedia.org/wiki/Petra",
+        "type": "wikipedia"
+      },
+      {
+        "title": "Wikidata: Q5788",
+        "url": "https://www.wikidata.org/wiki/Q5788",
+        "type": "wikidata"
+      }
+    ],
+    "notes": "Tools are inferred from the site's documented materials and construction method terms. Treat them as classroom-level likely toolkits.",
+    "searchSnippet": "Petra  (Arabic: ٱلْبَتْراء‎, romanized: Al-Batrāʾ; Ancient Greek: Πέτρα, lit. &#039;Rock&#039;), originally known to its inhabitants as Raqmu (Nabataean Aramaic:",
+    "lastUpdated": "2026-02-19"
+  },
+  {
+    "slug": "persepolis",
+    "siteName": "Persepolis",
+    "wikipediaTitle": "Persepolis",
+    "wikidataId": "Q129072",
+    "materials": [
+      "Timber"
+    ],
+    "constructionMethods": [
+      "Timber framing or timber structures"
+    ],
+    "constructionTools": [
+      "Axes/adzes",
+      "Saws",
+      "Boring tools/augers"
+    ],
+    "toolsInferred": true,
+    "sources": [
+      {
+        "title": "Wikipedia: Persepolis",
+        "url": "https://en.wikipedia.org/wiki/Persepolis",
+        "type": "wikipedia"
+      },
+      {
+        "title": "Wikidata: Q129072",
+        "url": "https://www.wikidata.org/wiki/Q129072",
+        "type": "wikidata"
+      }
+    ],
+    "notes": "Tools are inferred from the site's documented materials and construction method terms. Treat them as classroom-level likely toolkits.",
+    "searchSnippet": "external front. General view of the  Persepolis  Aerial architectural plan of  Persepolis  Animated reconstruction of  Persepolis  After invading Achaemenid Persia",
+    "lastUpdated": "2026-02-19"
+  },
+  {
+    "slug": "ziggurat-of-ur",
+    "siteName": "Ziggurat of Ur",
+    "wikipediaTitle": "Ziggurat of Ur",
+    "wikidataId": "Q202927",
+    "materials": [
+      "Bronze"
+    ],
+    "constructionMethods": [
+      "Masonry and earthwork construction"
+    ],
+    "constructionTools": [
+      "Manual stone/earth shaping tools",
+      "Rope and lever systems"
+    ],
+    "toolsInferred": true,
+    "sources": [
+      {
+        "title": "Wikipedia: Ziggurat of Ur",
+        "url": "https://en.wikipedia.org/wiki/Ziggurat_of_Ur",
+        "type": "wikipedia"
+      },
+      {
+        "title": "Wikidata: Q202927",
+        "url": "https://www.wikidata.org/wiki/Q202927",
+        "type": "wikidata"
+      }
+    ],
+    "notes": "Tools are inferred from the site's documented materials and construction method terms. Treat them as classroom-level likely toolkits.",
+    "searchSnippet": "The  Ziggurat  (or Great  Ziggurat )  of   Ur  (Sumerian: 𒂍𒋼𒅎𒅍 é-temen-ní-gùru &quot;Etemenniguru&quot;, meaning &quot;house whose foundation creates terror&quot;) is a Neo-Sumerian",
+    "lastUpdated": "2026-02-19"
+  },
+  {
+    "slug": "babylon",
+    "siteName": "Babylon",
+    "wikipediaTitle": "Babylon",
+    "wikidataId": "Q5684",
+    "materials": [
+      "Clay"
+    ],
+    "constructionMethods": [
+      "Fired-brick masonry"
+    ],
+    "constructionTools": [
+      "Brick moulds",
+      "Kilns",
+      "Trowels"
+    ],
+    "toolsInferred": true,
+    "sources": [
+      {
+        "title": "Wikipedia: Babylon",
+        "url": "https://en.wikipedia.org/wiki/Babylon",
+        "type": "wikipedia"
+      },
+      {
+        "title": "Wikidata: Q5684",
+        "url": "https://www.wikidata.org/wiki/Q5684",
+        "type": "wikidata"
+      }
+    ],
+    "notes": "Tools are inferred from the site's documented materials and construction method terms. Treat them as classroom-level likely toolkits.",
+    "searchSnippet": "rendering support, you may see question marks, boxes, or other symbols.  Babylon  (/ˈbæbɪlɒn/ BAB-il-on) was an ancient city located on the lower Euphrates",
+    "lastUpdated": "2026-02-19"
+  },
+  {
+    "slug": "memphis-ancient-egypt",
+    "siteName": "Memphis (Ancient Egypt)",
+    "wikipediaTitle": "Memphis, Egypt",
+    "wikidataId": "Q5715",
+    "materials": [
+      "Stone",
+      "Fired brick",
+      "Lime mortar",
+      "Limestone",
+      "Sandstone"
+    ],
+    "constructionMethods": [
+      "Stone masonry and block dressing",
+      "Fired-brick masonry"
+    ],
+    "constructionTools": [
+      "Brick moulds",
+      "Kilns",
+      "Trowels",
+      "Rope systems",
+      "Wooden sledges/rollers",
+      "Levering poles"
+    ],
+    "toolsInferred": true,
+    "sources": [
+      {
+        "title": "Wikipedia: Memphis, Egypt",
+        "url": "https://en.wikipedia.org/wiki/Memphis,_Egypt",
+        "type": "wikipedia"
+      },
+      {
+        "title": "Wikidata: Q5715",
+        "url": "https://www.wikidata.org/wiki/Q5715",
+        "type": "wikidata"
+      }
+    ],
+    "notes": "Tools are inferred from the site's documented materials and construction method terms. Treat them as classroom-level likely toolkits.",
+    "searchSnippet": "",
+    "lastUpdated": "2026-02-19"
+  },
+  {
+    "slug": "karnak-temple",
+    "siteName": "Karnak Temple",
+    "wikipediaTitle": "Karnak",
+    "wikidataId": "Q522862",
+    "materials": [
+      "Stone",
+      "Limestone",
+      "Sandstone"
+    ],
+    "constructionMethods": [
+      "Stone masonry and block dressing"
+    ],
+    "constructionTools": [
+      "Rope systems",
+      "Wooden sledges/rollers",
+      "Levering poles"
+    ],
+    "toolsInferred": true,
+    "sources": [
+      {
+        "title": "Wikipedia: Karnak",
+        "url": "https://en.wikipedia.org/wiki/Karnak",
+        "type": "wikipedia"
+      },
+      {
+        "title": "Wikidata: Q522862",
+        "url": "https://www.wikidata.org/wiki/Q522862",
+        "type": "wikidata"
+      }
+    ],
+    "notes": "Tools are inferred from the site's documented materials and construction method terms. Treat them as classroom-level likely toolkits.",
+    "searchSnippet": "The  Karnak   Temple  Complex, commonly known as  Karnak  (/ˈkɑːr.næk/), comprises a vast mix of  temples , pylons, chapels, and other buildings near Luxor, Egypt",
+    "lastUpdated": "2026-02-19"
+  },
+  {
+    "slug": "luxor-temple",
+    "siteName": "Luxor Temple",
+    "wikipediaTitle": "Luxor Temple",
+    "wikidataId": "Q319841",
+    "materials": [
+      "Stone",
+      "Fired brick",
+      "Lime mortar",
+      "Limestone",
+      "Sandstone"
+    ],
+    "constructionMethods": [
+      "Stone masonry and block dressing",
+      "Fired-brick masonry"
+    ],
+    "constructionTools": [
+      "Brick moulds",
+      "Kilns",
+      "Trowels",
+      "Rope systems",
+      "Wooden sledges/rollers",
+      "Levering poles"
+    ],
+    "toolsInferred": true,
+    "sources": [
+      {
+        "title": "Wikipedia: Luxor Temple",
+        "url": "https://en.wikipedia.org/wiki/Luxor_Temple",
+        "type": "wikipedia"
+      },
+      {
+        "title": "Wikidata: Q319841",
+        "url": "https://www.wikidata.org/wiki/Q319841",
+        "type": "wikidata"
+      }
+    ],
+    "notes": "Tools are inferred from the site's documented materials and construction method terms. Treat them as classroom-level likely toolkits.",
+    "searchSnippet": "The  Luxor   Temple  (Arabic: معبد الأقصر) is a large Ancient Egyptian  temple  complex located on the east bank of the Nile River in the city today known as",
+    "lastUpdated": "2026-02-19"
+  },
+  {
+    "slug": "abu-simbel",
+    "siteName": "Abu Simbel",
+    "wikipediaTitle": "Abu Simbel",
+    "wikidataId": "Q134140",
+    "materials": [
+      "Stone"
+    ],
+    "constructionMethods": [
+      "Rock-cut architecture"
+    ],
+    "constructionTools": [
+      "Metal chisels",
+      "Hammerstones/mallets",
+      "Picks",
+      "Rope systems",
+      "Wooden sledges/rollers",
+      "Levering poles"
+    ],
+    "toolsInferred": true,
+    "sources": [
+      {
+        "title": "Wikipedia: Abu Simbel",
+        "url": "https://en.wikipedia.org/wiki/Abu_Simbel",
+        "type": "wikipedia"
+      },
+      {
+        "title": "Wikidata: Q134140",
+        "url": "https://www.wikidata.org/wiki/Q134140",
+        "type": "wikidata"
+      }
+    ],
+    "notes": "Tools are inferred from the site's documented materials and construction method terms. Treat them as classroom-level likely toolkits.",
+    "searchSnippet": "Abu   Simbel  is a historic site comprising two massive rock-cut temples in the village of  Abu   Simbel  (Arabic: أبو سمبل), Aswan Governorate, Upper Egypt,",
+    "lastUpdated": "2026-02-19"
+  },
+  {
+    "slug": "saqqara-necropolis",
+    "siteName": "Saqqara Necropolis",
+    "wikipediaTitle": "Saqqara",
+    "wikidataId": "Q192134",
+    "materials": [
+      "Stone"
+    ],
+    "constructionMethods": [
+      "Stone masonry and block dressing"
+    ],
+    "constructionTools": [
+      "Rope systems",
+      "Wooden sledges/rollers",
+      "Levering poles"
+    ],
+    "toolsInferred": true,
+    "sources": [
+      {
+        "title": "Wikipedia: Saqqara",
+        "url": "https://en.wikipedia.org/wiki/Saqqara",
+        "type": "wikipedia"
+      },
+      {
+        "title": "Wikidata: Q192134",
+        "url": "https://www.wikidata.org/wiki/Q192134",
+        "type": "wikidata"
+      }
+    ],
+    "notes": "Tools are inferred from the site's documented materials and construction method terms. Treat them as classroom-level likely toolkits.",
+    "searchSnippet": "crypts of Egyptian royalty, serving as the  necropolis  for the ancient Egyptian capital, Memphis.  Saqqara  contains numerous pyramids, including the Pyramid",
+    "lastUpdated": "2026-02-19"
+  },
+  {
+    "slug": "great-zimbabwe",
+    "siteName": "Great Zimbabwe",
+    "wikipediaTitle": "Great Zimbabwe",
+    "wikidataId": "Q209217",
+    "materials": [
+      "Stone"
+    ],
+    "constructionMethods": [
+      "Stone masonry and block dressing"
+    ],
+    "constructionTools": [
+      "Rope systems",
+      "Wooden sledges/rollers",
+      "Levering poles"
+    ],
+    "toolsInferred": true,
+    "sources": [
+      {
+        "title": "Wikipedia: Great Zimbabwe",
+        "url": "https://en.wikipedia.org/wiki/Great_Zimbabwe",
+        "type": "wikipedia"
+      },
+      {
+        "title": "Wikidata: Q209217",
+        "url": "https://www.wikidata.org/wiki/Q209217",
+        "type": "wikidata"
+      }
+    ],
+    "notes": "Tools are inferred from the site's documented materials and construction method terms. Treat them as classroom-level likely toolkits.",
+    "searchSnippet": "Great   Zimbabwe  was a city in the south-eastern hills of the modern country of  Zimbabwe , near Masvingo. It was settled from around 1000 CE, and served as",
+    "lastUpdated": "2026-02-19"
+  },
+  {
+    "slug": "aksum-obelisks",
+    "siteName": "Aksum Obelisks",
+    "wikipediaTitle": "Obelisk of Axum",
+    "wikidataId": "Q2308606",
+    "materials": [
+      "Stone",
+      "Fired brick",
+      "Lime mortar"
+    ],
+    "constructionMethods": [
+      "Stone masonry and block dressing",
+      "Fired-brick masonry"
+    ],
+    "constructionTools": [
+      "Brick moulds",
+      "Kilns",
+      "Trowels",
+      "Rope systems",
+      "Wooden sledges/rollers",
+      "Levering poles"
+    ],
+    "toolsInferred": true,
+    "sources": [
+      {
+        "title": "Wikipedia: Obelisk of Axum",
+        "url": "https://en.wikipedia.org/wiki/Obelisk_of_Axum",
+        "type": "wikipedia"
+      },
+      {
+        "title": "Wikidata: Q2308606",
+        "url": "https://www.wikidata.org/wiki/Q2308606",
+        "type": "wikidata"
+      }
+    ],
+    "notes": "Tools are inferred from the site's documented materials and construction method terms. Treat them as classroom-level likely toolkits.",
+    "searchSnippet": "",
+    "lastUpdated": "2026-02-19"
+  },
+  {
+    "slug": "lalibela-churches",
+    "siteName": "Lalibela Churches",
+    "wikipediaTitle": "Lalibela",
+    "wikidataId": "Q207590",
+    "materials": [
+      "Stone"
+    ],
+    "constructionMethods": [
+      "Rock-cut architecture"
+    ],
+    "constructionTools": [
+      "Metal chisels",
+      "Hammerstones/mallets",
+      "Picks",
+      "Rope systems",
+      "Wooden sledges/rollers",
+      "Levering poles"
+    ],
+    "toolsInferred": true,
+    "sources": [
+      {
+        "title": "Wikipedia: Lalibela",
+        "url": "https://en.wikipedia.org/wiki/Lalibela",
+        "type": "wikipedia"
+      },
+      {
+        "title": "Wikidata: Q207590",
+        "url": "https://www.wikidata.org/wiki/Q207590",
+        "type": "wikidata"
+      }
+    ],
+    "notes": "Tools are inferred from the site's documented materials and construction method terms. Treat them as classroom-level likely toolkits.",
+    "searchSnippet": "",
+    "lastUpdated": "2026-02-19"
+  },
+  {
+    "slug": "mohenjo-daro",
+    "siteName": "Mohenjo-daro",
+    "wikipediaTitle": "Mohenjo-daro",
+    "wikidataId": "Q5725",
+    "materials": [
+      "Earth"
+    ],
+    "constructionMethods": [
+      "Large earthen earthworks"
+    ],
+    "constructionTools": [
+      "Antler/wood picks",
+      "Wooden shovels",
+      "Carrying baskets"
+    ],
+    "toolsInferred": true,
+    "sources": [
+      {
+        "title": "Wikipedia: Mohenjo-daro",
+        "url": "https://en.wikipedia.org/wiki/Mohenjo-daro",
+        "type": "wikipedia"
+      },
+      {
+        "title": "Wikidata: Q5725",
+        "url": "https://www.wikidata.org/wiki/Q5725",
+        "type": "wikidata"
+      }
+    ],
+    "notes": "Tools are inferred from the site's documented materials and construction method terms. Treat them as classroom-level likely toolkits.",
+    "searchSnippet": "Mohenjo - daro  (/moʊˌhɛndʒoʊ ˈdɑːroʊ/; Sindhi: موهن جو دڙو‎, lit. &#039;Mound of the Dead Men&#039;; Urdu: موئن جو دڑو [muˑənⁱ dʑoˑ  d̪əɽoˑ ]) is an archaeological site",
+    "lastUpdated": "2026-02-19"
+  },
+  {
+    "slug": "harappa",
+    "siteName": "Harappa",
+    "wikipediaTitle": "Harappa",
+    "wikidataId": "Q185562",
+    "materials": [
+      "Fired brick",
+      "Earth",
+      "Clay"
+    ],
+    "constructionMethods": [
+      "Large earthen earthworks",
+      "Fired-brick masonry"
+    ],
+    "constructionTools": [
+      "Brick moulds",
+      "Kilns",
+      "Trowels"
+    ],
+    "toolsInferred": true,
+    "sources": [
+      {
+        "title": "Wikipedia: Harappa",
+        "url": "https://en.wikipedia.org/wiki/Harappa",
+        "type": "wikipedia"
+      },
+      {
+        "title": "Wikidata: Q185562",
+        "url": "https://www.wikidata.org/wiki/Q185562",
+        "type": "wikidata"
+      }
+    ],
+    "notes": "Tools are inferred from the site's documented materials and construction method terms. Treat them as classroom-level likely toolkits.",
+    "searchSnippet": "Harappa  (Punjabi pronunciation: [ɦəɽəˈpaː]) is an archaeological site in Punjab, Pakistan, about 24 kilometres (15 miles) west of Sahiwal, that takes",
+    "lastUpdated": "2026-02-19"
+  },
+  {
+    "slug": "nalanda-mahavihara",
+    "siteName": "Nalanda Mahavihara",
+    "wikipediaTitle": "Nalanda mahavihara",
+    "wikidataId": "Q216243",
+    "materials": [
+      "Stone",
+      "Timber",
+      "Earth"
+    ],
+    "constructionMethods": [
+      "Stone masonry and block dressing",
+      "Large earthen earthworks",
+      "Timber framing or timber structures"
+    ],
+    "constructionTools": [
+      "Axes/adzes",
+      "Saws",
+      "Boring tools/augers",
+      "Rope systems",
+      "Wooden sledges/rollers",
+      "Levering poles"
+    ],
+    "toolsInferred": true,
+    "sources": [
+      {
+        "title": "Wikipedia: Nalanda mahavihara",
+        "url": "https://en.wikipedia.org/wiki/Nalanda_mahavihara",
+        "type": "wikipedia"
+      },
+      {
+        "title": "Wikidata: Q216243",
+        "url": "https://www.wikidata.org/wiki/Q216243",
+        "type": "wikidata"
+      }
+    ],
+    "notes": "Tools are inferred from the site's documented materials and construction method terms. Treat them as classroom-level likely toolkits.",
+    "searchSnippet": "Nalanda  (IAST:  Nālandā , pronounced [ naːlən̪d̪aː ]) was a renowned Buddhist  mahavihara  (great monastery) in medieval Magadha (modern-day Bihar), eastern",
+    "lastUpdated": "2026-02-19"
+  },
+  {
+    "slug": "sigiriya",
+    "siteName": "Sigiriya",
+    "wikipediaTitle": "Sigiriya",
+    "wikidataId": "Q272153",
+    "materials": [
+      "Granite"
+    ],
+    "constructionMethods": [
+      "Stone masonry and block dressing"
+    ],
+    "constructionTools": [
+      "Manual stone/earth shaping tools",
+      "Rope and lever systems"
+    ],
+    "toolsInferred": true,
+    "sources": [
+      {
+        "title": "Wikipedia: Sigiriya",
+        "url": "https://en.wikipedia.org/wiki/Sigiriya",
+        "type": "wikipedia"
+      },
+      {
+        "title": "Wikidata: Q272153",
+        "url": "https://www.wikidata.org/wiki/Q272153",
+        "type": "wikidata"
+      }
+    ],
+    "notes": "Tools are inferred from the site's documented materials and construction method terms. Treat them as classroom-level likely toolkits.",
+    "searchSnippet": "Sigiriya  or Sinhagiri (Lion Rock Sinhala: සීගිරිය, Tamil: சிகிரியா/சிங்ககிரி, pronounced SEE-gi-ri-yə) is an ancient rock fortress located in the northern",
+    "lastUpdated": "2026-02-19"
+  },
+  {
+    "slug": "borobudur",
+    "siteName": "Borobudur",
+    "wikipediaTitle": "Borobudur",
+    "wikidataId": "Q42798",
+    "materials": [
+      "Stone"
+    ],
+    "constructionMethods": [
+      "Stone masonry and block dressing"
+    ],
+    "constructionTools": [
+      "Rope systems",
+      "Wooden sledges/rollers",
+      "Levering poles"
+    ],
+    "toolsInferred": true,
+    "sources": [
+      {
+        "title": "Wikipedia: Borobudur",
+        "url": "https://en.wikipedia.org/wiki/Borobudur",
+        "type": "wikipedia"
+      },
+      {
+        "title": "Wikidata: Q42798",
+        "url": "https://www.wikidata.org/wiki/Q42798",
+        "type": "wikidata"
+      }
+    ],
+    "notes": "Tools are inferred from the site's documented materials and construction method terms. Treat them as classroom-level likely toolkits.",
+    "searchSnippet": "Borobudur , also transcribed Barabudur (Indonesian: Candi  Borobudur , Javanese: ꦕꦤ꧀ꦝꦶꦧꦫꦧꦸꦝꦸꦂ, romanized: Candhi Barabudhur), is a 9th-century Mahayana Buddhist",
+    "lastUpdated": "2026-02-19"
+  },
+  {
+    "slug": "prambanan",
+    "siteName": "Prambanan",
+    "wikipediaTitle": "Prambanan",
+    "wikidataId": "Q47721",
+    "materials": [
+      "Stone"
+    ],
+    "constructionMethods": [
+      "Stone masonry and block dressing"
+    ],
+    "constructionTools": [
+      "Rope systems",
+      "Wooden sledges/rollers",
+      "Levering poles"
+    ],
+    "toolsInferred": true,
+    "sources": [
+      {
+        "title": "Wikipedia: Prambanan",
+        "url": "https://en.wikipedia.org/wiki/Prambanan",
+        "type": "wikipedia"
+      },
+      {
+        "title": "Wikidata: Q47721",
+        "url": "https://www.wikidata.org/wiki/Q47721",
+        "type": "wikidata"
+      }
+    ],
+    "notes": "Tools are inferred from the site's documented materials and construction method terms. Treat them as classroom-level likely toolkits.",
+    "searchSnippet": "Prambanan  (Indonesian: Candi  Prambanan , Javanese: Rara Jonggrang, Hanacaraka: ꦫꦫꦗꦺꦴꦁꦒꦿꦁ) is a 9th-century Hindu temple compound in the Special Region of",
+    "lastUpdated": "2026-02-19"
+  },
+  {
+    "slug": "angkor-wat",
+    "siteName": "Angkor Wat",
+    "wikipediaTitle": "Angkor Wat",
+    "wikidataId": "Q43473",
+    "materials": [
+      "Stone"
+    ],
+    "constructionMethods": [
+      "Stone masonry and block dressing"
+    ],
+    "constructionTools": [
+      "Rope systems",
+      "Wooden sledges/rollers",
+      "Levering poles"
+    ],
+    "toolsInferred": true,
+    "sources": [
+      {
+        "title": "Wikipedia: Angkor Wat",
+        "url": "https://en.wikipedia.org/wiki/Angkor_Wat",
+        "type": "wikipedia"
+      },
+      {
+        "title": "Wikidata: Q43473",
+        "url": "https://www.wikidata.org/wiki/Q43473",
+        "type": "wikidata"
+      }
+    ],
+    "notes": "Tools are inferred from the site's documented materials and construction method terms. Treat them as classroom-level likely toolkits.",
+    "searchSnippet": "Angkor   Wat  (/ˌæŋkɔːr  ˈwɒt /; Khmer: អង្គរវត្ត, &#039;City/Capital of Temples&#039;) is a Theravada Buddhist temple complex and the largest religious complex in the",
+    "lastUpdated": "2026-02-19"
+  },
+  {
+    "slug": "angkor-thom",
+    "siteName": "Angkor Thom",
+    "wikipediaTitle": "Angkor Thom",
+    "wikidataId": "Q223665",
+    "materials": [
+      "Stone"
+    ],
+    "constructionMethods": [
+      "Stone masonry and block dressing"
+    ],
+    "constructionTools": [
+      "Rope systems",
+      "Wooden sledges/rollers",
+      "Levering poles"
+    ],
+    "toolsInferred": true,
+    "sources": [
+      {
+        "title": "Wikipedia: Angkor Thom",
+        "url": "https://en.wikipedia.org/wiki/Angkor_Thom",
+        "type": "wikipedia"
+      },
+      {
+        "title": "Wikidata: Q223665",
+        "url": "https://www.wikidata.org/wiki/Q223665",
+        "type": "wikidata"
+      }
+    ],
+    "notes": "Tools are inferred from the site's documented materials and construction method terms. Treat them as classroom-level likely toolkits.",
+    "searchSnippet": "",
+    "lastUpdated": "2026-02-19"
+  },
+  {
+    "slug": "bagan",
+    "siteName": "Bagan",
+    "wikipediaTitle": "Bagan",
+    "wikidataId": "Q29317",
+    "materials": [
+      "Bronze"
+    ],
+    "constructionMethods": [
+      "Masonry and earthwork construction"
+    ],
+    "constructionTools": [
+      "Manual stone/earth shaping tools",
+      "Rope and lever systems"
+    ],
+    "toolsInferred": true,
+    "sources": [
+      {
+        "title": "Wikipedia: Bagan",
+        "url": "https://en.wikipedia.org/wiki/Bagan",
+        "type": "wikipedia"
+      },
+      {
+        "title": "Wikidata: Q29317",
+        "url": "https://www.wikidata.org/wiki/Q29317",
+        "type": "wikidata"
+      }
+    ],
+    "notes": "Tools are inferred from the site's documented materials and construction method terms. Treat them as classroom-level likely toolkits.",
+    "searchSnippet": "Bagan  (/bəˈɡæn/ bə-GAN; Burmese: ပုဂံ Băgam [bəɡàɰ̃]; formerly Pagan) is an ancient city and a UNESCO World Heritage Site in the Mandalay Region of Myanmar",
+    "lastUpdated": "2026-02-19"
+  },
+  {
+    "slug": "ayutthaya",
+    "siteName": "Ayutthaya",
+    "wikipediaTitle": "Ayutthaya Kingdom",
+    "wikidataId": "Q841364",
+    "materials": [
+      "Stone",
+      "Timber",
+      "Earth"
+    ],
+    "constructionMethods": [
+      "Stone masonry and block dressing",
+      "Large earthen earthworks",
+      "Timber framing or timber structures"
+    ],
+    "constructionTools": [
+      "Axes/adzes",
+      "Saws",
+      "Boring tools/augers",
+      "Rope systems",
+      "Wooden sledges/rollers",
+      "Levering poles"
+    ],
+    "toolsInferred": true,
+    "sources": [
+      {
+        "title": "Wikipedia: Ayutthaya Kingdom",
+        "url": "https://en.wikipedia.org/wiki/Ayutthaya_Kingdom",
+        "type": "wikipedia"
+      },
+      {
+        "title": "Wikidata: Q841364",
+        "url": "https://www.wikidata.org/wiki/Q841364",
+        "type": "wikidata"
+      }
+    ],
+    "notes": "Tools are inferred from the site's documented materials and construction method terms. Treat them as classroom-level likely toolkits.",
+    "searchSnippet": "",
+    "lastUpdated": "2026-02-19"
+  },
+  {
+    "slug": "sanchi-stupa",
+    "siteName": "Sanchi Stupa",
+    "wikipediaTitle": "Sanchi Stupa",
+    "wikidataId": "Q181123",
+    "materials": [
+      "Fired brick",
+      "Stone"
+    ],
+    "constructionMethods": [
+      "Stone masonry and block dressing",
+      "Fired-brick masonry"
+    ],
+    "constructionTools": [
+      "Brick moulds",
+      "Kilns",
+      "Trowels",
+      "Rope systems",
+      "Wooden sledges/rollers",
+      "Levering poles"
+    ],
+    "toolsInferred": true,
+    "sources": [
+      {
+        "title": "Wikipedia: Sanchi Stupa",
+        "url": "https://en.wikipedia.org/wiki/Sanchi_Stupa",
+        "type": "wikipedia"
+      },
+      {
+        "title": "Wikidata: Q181123",
+        "url": "https://www.wikidata.org/wiki/Q181123",
+        "type": "wikidata"
+      }
+    ],
+    "notes": "Tools are inferred from the site's documented materials and construction method terms. Treat them as classroom-level likely toolkits.",
+    "searchSnippet": "Sanchi   Stupa  is a Buddhist complex, famous for its Great  Stupa , on a hilltop at  Sanchi  Town in Raisen District of the State of Madhya Pradesh, India. It",
+    "lastUpdated": "2026-02-19"
+  },
+  {
+    "slug": "terracotta-army-mausoleum",
+    "siteName": "Terracotta Army Mausoleum",
+    "wikipediaTitle": "Terracotta Army",
+    "wikidataId": "Q47672",
+    "materials": [
+      "Fired brick",
+      "Clay"
+    ],
+    "constructionMethods": [
+      "Terracotta or fired-clay production"
+    ],
+    "constructionTools": [
+      "Clay moulds",
+      "Modeling/carving tools",
+      "Kilns"
+    ],
+    "toolsInferred": true,
+    "sources": [
+      {
+        "title": "Wikipedia: Terracotta Army",
+        "url": "https://en.wikipedia.org/wiki/Terracotta_Army",
+        "type": "wikipedia"
+      },
+      {
+        "title": "Wikidata: Q47672",
+        "url": "https://www.wikidata.org/wiki/Q47672",
+        "type": "wikidata"
+      }
+    ],
+    "notes": "Tools are inferred from the site's documented materials and construction method terms. Treat them as classroom-level likely toolkits.",
+    "searchSnippet": "The  Terracotta   Army  is a collection of  terracotta  sculptures depicting the  armies  of Qin Shi Huang, the first emperor of China. It is a form of funerary",
+    "lastUpdated": "2026-02-19"
+  },
+  {
+    "slug": "machu-picchu",
+    "siteName": "Machu Picchu",
+    "wikipediaTitle": "Machu Picchu",
+    "wikidataId": "Q676203",
+    "materials": [
+      "Stone"
+    ],
+    "constructionMethods": [
+      "Stone masonry and block dressing"
+    ],
+    "constructionTools": [
+      "Rope systems",
+      "Wooden sledges/rollers",
+      "Levering poles"
+    ],
+    "toolsInferred": true,
+    "sources": [
+      {
+        "title": "Wikipedia: Machu Picchu",
+        "url": "https://en.wikipedia.org/wiki/Machu_Picchu",
+        "type": "wikipedia"
+      },
+      {
+        "title": "Wikidata: Q676203",
+        "url": "https://www.wikidata.org/wiki/Q676203",
+        "type": "wikidata"
+      }
+    ],
+    "notes": "Tools are inferred from the site's documented materials and construction method terms. Treat them as classroom-level likely toolkits.",
+    "searchSnippet": "Machu   Picchu  is a 15th-century Inca citadel located in the Eastern Cordillera of southern Peru on a mountain ridge at 2,430 meters (7,970 ft). It is situated",
+    "lastUpdated": "2026-02-19"
+  },
+  {
+    "slug": "cusco-inca-capital",
+    "siteName": "Cusco (Inca Capital)",
+    "wikipediaTitle": "Cusco",
+    "wikidataId": "Q5582862",
+    "materials": [
+      "Stone",
+      "Adobe"
+    ],
+    "constructionMethods": [
+      "Stone masonry and block dressing",
+      "Mudbrick/adobe construction"
+    ],
+    "constructionTools": [
+      "Mudbrick moulds",
+      "Trowels",
+      "Plastering tools",
+      "Rope systems",
+      "Wooden sledges/rollers",
+      "Levering poles"
+    ],
+    "toolsInferred": true,
+    "sources": [
+      {
+        "title": "Wikipedia: Cusco",
+        "url": "https://en.wikipedia.org/wiki/Cusco",
+        "type": "wikipedia"
+      },
+      {
+        "title": "Wikidata: Q5582862",
+        "url": "https://www.wikidata.org/wiki/Q5582862",
+        "type": "wikidata"
+      }
+    ],
+    "notes": "Tools are inferred from the site's documented materials and construction method terms. Treat them as classroom-level likely toolkits.",
+    "searchSnippet": "",
+    "lastUpdated": "2026-02-19"
+  },
+  {
+    "slug": "teotihuacan",
+    "siteName": "Teotihuacan",
+    "wikipediaTitle": "Teotihuacan",
+    "wikidataId": "Q172613",
+    "materials": [
+      "Stone",
+      "Limestone"
+    ],
+    "constructionMethods": [
+      "Stone masonry and block dressing"
+    ],
+    "constructionTools": [
+      "Rope systems",
+      "Wooden sledges/rollers",
+      "Levering poles"
+    ],
+    "toolsInferred": true,
+    "sources": [
+      {
+        "title": "Wikipedia: Teotihuacan",
+        "url": "https://en.wikipedia.org/wiki/Teotihuacan",
+        "type": "wikipedia"
+      },
+      {
+        "title": "Wikidata: Q172613",
+        "url": "https://www.wikidata.org/wiki/Q172613",
+        "type": "wikidata"
+      }
+    ],
+    "notes": "Tools are inferred from the site's documented materials and construction method terms. Treat them as classroom-level likely toolkits.",
+    "searchSnippet": "69250; -98.84389  Teotihuacan  (/teɪˌoʊtiːwəˈkɑːn/; Spanish:  Teotihuacán , Spanish pronunciation: [teotiwaˈkan] ; Classical Nahuatl:  Teōtīhuacān , Classical Nahuatl",
+    "lastUpdated": "2026-02-19"
+  },
+  {
+    "slug": "chichen-itza",
+    "siteName": "Chichen Itza",
+    "wikipediaTitle": "Chichen Itza",
+    "wikidataId": "Q5859",
+    "materials": [
+      "Limestone"
+    ],
+    "constructionMethods": [
+      "Stone masonry and block dressing"
+    ],
+    "constructionTools": [
+      "Rope systems",
+      "Wooden sledges/rollers",
+      "Levering poles"
+    ],
+    "toolsInferred": true,
+    "sources": [
+      {
+        "title": "Wikipedia: Chichen Itza",
+        "url": "https://en.wikipedia.org/wiki/Chichen_Itza",
+        "type": "wikipedia"
+      },
+      {
+        "title": "Wikidata: Q5859",
+        "url": "https://www.wikidata.org/wiki/Q5859",
+        "type": "wikidata"
+      }
+    ],
+    "notes": "Tools are inferred from the site's documented materials and construction method terms. Treat them as classroom-level likely toolkits.",
+    "searchSnippet": "Chichén   Itzá  (often spelled  Chichen   Itza  in English and traditional Yucatec Maya) Yucatec Maya pronunciation was a large pre-Columbian city built by the",
+    "lastUpdated": "2026-02-19"
+  },
+  {
+    "slug": "tulum",
+    "siteName": "Tulum",
+    "wikipediaTitle": "Tulum",
+    "wikidataId": "Q725883",
+    "materials": [
+      "Stone",
+      "Fired brick",
+      "Lime mortar",
+      "Limestone"
+    ],
+    "constructionMethods": [
+      "Stone masonry and block dressing",
+      "Fired-brick masonry"
+    ],
+    "constructionTools": [
+      "Brick moulds",
+      "Kilns",
+      "Trowels",
+      "Rope systems",
+      "Wooden sledges/rollers",
+      "Levering poles"
+    ],
+    "toolsInferred": true,
+    "sources": [
+      {
+        "title": "Wikipedia: Tulum",
+        "url": "https://en.wikipedia.org/wiki/Tulum",
+        "type": "wikipedia"
+      },
+      {
+        "title": "Wikidata: Q725883",
+        "url": "https://www.wikidata.org/wiki/Q725883",
+        "type": "wikidata"
+      }
+    ],
+    "notes": "Tools are inferred from the site's documented materials and construction method terms. Treat them as classroom-level likely toolkits.",
+    "searchSnippet": "Tulum  (Spanish pronunciation: [tuˈlun]; Yucatec Maya: Tulu&#039;um) is the site of a pre-Columbian Mayan walled city which served as a major port for Coba",
+    "lastUpdated": "2026-02-19"
+  },
+  {
+    "slug": "palenque",
+    "siteName": "Palenque",
+    "wikipediaTitle": "Palenque",
+    "wikidataId": "Q181427",
+    "materials": [
+      "Limestone"
+    ],
+    "constructionMethods": [
+      "Stone masonry and block dressing"
+    ],
+    "constructionTools": [
+      "Rope systems",
+      "Wooden sledges/rollers",
+      "Levering poles"
+    ],
+    "toolsInferred": true,
+    "sources": [
+      {
+        "title": "Wikipedia: Palenque",
+        "url": "https://en.wikipedia.org/wiki/Palenque",
+        "type": "wikipedia"
+      },
+      {
+        "title": "Wikidata: Q181427",
+        "url": "https://www.wikidata.org/wiki/Q181427",
+        "type": "wikidata"
+      }
+    ],
+    "notes": "Tools are inferred from the site's documented materials and construction method terms. Treat them as classroom-level likely toolkits.",
+    "searchSnippet": "Palenque  (Spanish pronunciation: [pa&#039;leŋke]; Yucatec Maya: Bàakʼ [ɓaːkʼ]), also anciently known in the Itzaʼ language as Lakamha (&quot;big water&quot; or &quot;big waters&quot;)",
+    "lastUpdated": "2026-02-19"
+  },
+  {
+    "slug": "tikal",
+    "siteName": "Tikal",
+    "wikipediaTitle": "Tikal",
+    "wikidataId": "Q181172",
+    "materials": [
+      "Limestone"
+    ],
+    "constructionMethods": [
+      "Stone masonry and block dressing"
+    ],
+    "constructionTools": [
+      "Rope systems",
+      "Wooden sledges/rollers",
+      "Levering poles"
+    ],
+    "toolsInferred": true,
+    "sources": [
+      {
+        "title": "Wikipedia: Tikal",
+        "url": "https://en.wikipedia.org/wiki/Tikal",
+        "type": "wikipedia"
+      },
+      {
+        "title": "Wikidata: Q181172",
+        "url": "https://www.wikidata.org/wiki/Q181172",
+        "type": "wikidata"
+      }
+    ],
+    "notes": "Tools are inferred from the site's documented materials and construction method terms. Treat them as classroom-level likely toolkits.",
+    "searchSnippet": "Tikal  (/ tiˈkɑːl /; Tik&#039;al in modern Mayan orthography) is the ruin of an ancient city, which was likely to have been called Yax Mutal, found in a rainforest",
+    "lastUpdated": "2026-02-19"
+  },
+  {
+    "slug": "copan",
+    "siteName": "Copan",
+    "wikipediaTitle": "Copán",
+    "wikidataId": "Q214827",
+    "materials": [
+      "Limestone"
+    ],
+    "constructionMethods": [
+      "Stone masonry and block dressing"
+    ],
+    "constructionTools": [
+      "Rope systems",
+      "Wooden sledges/rollers",
+      "Levering poles"
+    ],
+    "toolsInferred": true,
+    "sources": [
+      {
+        "title": "Wikipedia: Copán",
+        "url": "https://en.wikipedia.org/wiki/Cop%C3%A1n",
+        "type": "wikipedia"
+      },
+      {
+        "title": "Wikidata: Q214827",
+        "url": "https://www.wikidata.org/wiki/Q214827",
+        "type": "wikidata"
+      }
+    ],
+    "notes": "Tools are inferred from the site's documented materials and construction method terms. Treat them as classroom-level likely toolkits.",
+    "searchSnippet": "",
+    "lastUpdated": "2026-02-19"
+  },
+  {
+    "slug": "mesa-verde-cliff-palace",
+    "siteName": "Mesa Verde Cliff Palace",
+    "wikipediaTitle": "Cliff Palace",
+    "wikidataId": "Q2979068",
+    "materials": [
+      "Stone",
+      "Timber",
+      "Earth"
+    ],
+    "constructionMethods": [
+      "Stone masonry and block dressing",
+      "Large earthen earthworks",
+      "Timber framing or timber structures"
+    ],
+    "constructionTools": [
+      "Axes/adzes",
+      "Saws",
+      "Boring tools/augers",
+      "Rope systems",
+      "Wooden sledges/rollers",
+      "Levering poles"
+    ],
+    "toolsInferred": true,
+    "sources": [
+      {
+        "title": "Wikipedia: Cliff Palace",
+        "url": "https://en.wikipedia.org/wiki/Cliff_Palace",
+        "type": "wikipedia"
+      },
+      {
+        "title": "Wikidata: Q2979068",
+        "url": "https://www.wikidata.org/wiki/Q2979068",
+        "type": "wikidata"
+      }
+    ],
+    "notes": "Tools are inferred from the site's documented materials and construction method terms. Treat them as classroom-level likely toolkits.",
+    "searchSnippet": "",
+    "lastUpdated": "2026-02-19"
+  },
+  {
+    "slug": "cahokia-mounds",
+    "siteName": "Cahokia Mounds",
+    "wikipediaTitle": "Cahokia",
+    "wikidataId": "Q333661",
+    "materials": [
+      "Earth"
+    ],
+    "constructionMethods": [
+      "Large earthen earthworks"
+    ],
+    "constructionTools": [
+      "Antler/wood picks",
+      "Wooden shovels",
+      "Carrying baskets"
+    ],
+    "toolsInferred": true,
+    "sources": [
+      {
+        "title": "Wikipedia: Cahokia",
+        "url": "https://en.wikipedia.org/wiki/Cahokia",
+        "type": "wikipedia"
+      },
+      {
+        "title": "Wikidata: Q333661",
+        "url": "https://www.wikidata.org/wiki/Q333661",
+        "type": "wikidata"
+      }
+    ],
+    "notes": "Tools are inferred from the site's documented materials and construction method terms. Treat them as classroom-level likely toolkits.",
+    "searchSnippet": "The  Cahokia   Mounds  (also simply known as  Cahokia ) /kəˈhoʊkiə/ (11 MS 2) is the site of a Native American city (which existed c. 1050–1350 CE) directly",
+    "lastUpdated": "2026-02-19"
+  },
+  {
+    "slug": "chan-chan",
+    "siteName": "Chan Chan",
+    "wikipediaTitle": "Chan Chan",
+    "wikidataId": "Q277540",
+    "materials": [
+      "Adobe",
+      "Clay",
+      "Stone"
+    ],
+    "constructionMethods": [
+      "Stone masonry and block dressing",
+      "Mudbrick/adobe construction",
+      "Fired-brick masonry"
+    ],
+    "constructionTools": [
+      "Mudbrick moulds",
+      "Trowels",
+      "Plastering tools",
+      "Brick moulds",
+      "Kilns",
+      "Rope systems",
+      "Wooden sledges/rollers",
+      "Levering poles"
+    ],
+    "toolsInferred": true,
+    "sources": [
+      {
+        "title": "Wikipedia: Chan Chan",
+        "url": "https://en.wikipedia.org/wiki/Chan_Chan",
+        "type": "wikipedia"
+      },
+      {
+        "title": "Wikidata: Q277540",
+        "url": "https://www.wikidata.org/wiki/Q277540",
+        "type": "wikidata"
+      }
+    ],
+    "notes": "Tools are inferred from the site's documented materials and construction method terms. Treat them as classroom-level likely toolkits.",
+    "searchSnippet": "Chan   Chan  (Spanish pronunciation: [tʃaɲ ˈtʃaŋ]), sometimes called Chimor itself, was the capital city of the Chimor kingdom. It was the largest city of",
+    "lastUpdated": "2026-02-19"
+  }
+]

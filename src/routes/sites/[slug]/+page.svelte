@@ -79,6 +79,64 @@
     </article>
   </section>
 
+  <section class="construction-grid">
+    <article class="panel">
+      <h2>Building Materials</h2>
+      {#if data.construction?.materials?.length}
+        <ul class="bullet-list">
+          {#each data.construction.materials as material}
+            <li>{material}</li>
+          {/each}
+        </ul>
+      {:else}
+        <p>Material records are still being curated for this site.</p>
+      {/if}
+    </article>
+
+    <article class="panel">
+      <h2>Construction Methods & Tools</h2>
+      {#if data.construction?.constructionMethods?.length}
+        <p class="mini-head">Methods</p>
+        <ul class="bullet-list">
+          {#each data.construction.constructionMethods as method}
+            <li>{method}</li>
+          {/each}
+        </ul>
+      {/if}
+      {#if data.construction?.constructionTools?.length}
+        <p class="mini-head">Likely tools used</p>
+        <ul class="bullet-list">
+          {#each data.construction.constructionTools as tool}
+            <li>{tool}</li>
+          {/each}
+        </ul>
+      {:else}
+        <p>Tools are still being curated for this site.</p>
+      {/if}
+      {#if data.construction?.toolsInferred}
+        <p class="small-note">{data.construction.notes}</p>
+      {/if}
+    </article>
+
+    <article class="panel">
+      <h2>Construction Data Sources</h2>
+      {#if data.construction?.sources?.length}
+        <ul class="source-list">
+          {#each data.construction.sources as source}
+            <li>
+              <a href={source.url} target="_blank" rel="noreferrer">{source.title}</a>
+            </li>
+          {/each}
+        </ul>
+      {:else}
+        <p>Source links will be added during curation updates.</p>
+      {/if}
+      {#if data.construction?.lastUpdated}
+        <p class="small-note">Updated: {data.construction.lastUpdated}</p>
+      {/if}
+    </article>
+  </section>
+
   <section class="gallery">
     <div class="gallery-head">
       <h2>Reconstruction Gallery</h2>
@@ -87,14 +145,17 @@
 
     <div class="grid">
       {#each data.images as image, index}
-        <button class="card" on:click={() => openModal(index)}>
-          <img
-            src={`/site-media/${data.site.slug}/${image.file}`}
-            alt={image.caption || `Reconstruction of ${data.site.name}`}
-            loading="lazy"
-          />
+        <article class="card">
+          <button class="thumb-button" on:click={() => openModal(index)}>
+            <img
+              src={`/site-media/${data.site.slug}/${image.file}`}
+              alt={image.caption || `Reconstruction of ${data.site.name}`}
+              loading="lazy"
+            />
+          </button>
           <span>{image.caption}</span>
-        </button>
+          <a class="image-source-link" href={image.source_url} target="_blank" rel="noreferrer">Image source</a>
+        </article>
       {/each}
     </div>
   </section>
@@ -184,6 +245,13 @@
     gap: 0.8rem;
   }
 
+  .construction-grid {
+    margin-top: 0.8rem;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.8rem;
+  }
+
   .panel {
     border: 1px solid #d1b083;
     border-radius: 12px;
@@ -199,6 +267,19 @@
   .panel p {
     margin: 0.3rem 0;
     line-height: 1.45;
+  }
+
+  .mini-head {
+    margin-top: 0.55rem;
+    margin-bottom: 0.25rem;
+    font-weight: 700;
+    color: #4b391f;
+  }
+
+  .small-note {
+    margin-top: 0.45rem;
+    color: #6a5231;
+    font-size: 0.82rem;
   }
 
   ol {
@@ -226,6 +307,32 @@
     margin: 0.2rem 0 0;
     color: #5d492f;
     font-size: 0.9rem;
+  }
+
+  .bullet-list {
+    margin: 0.15rem 0 0;
+    padding-left: 1.05rem;
+  }
+
+  .bullet-list li {
+    margin: 0.2rem 0;
+    border: 0;
+    padding: 0;
+    display: list-item;
+    grid-template-columns: none;
+  }
+
+  .source-list {
+    margin: 0.15rem 0 0;
+    padding-left: 1.1rem;
+  }
+
+  .source-list li {
+    margin: 0.25rem 0;
+    border: 0;
+    padding: 0;
+    display: list-item;
+    grid-template-columns: none;
   }
 
   .gallery {
@@ -258,7 +365,6 @@
     border-radius: 10px;
     background: #fff9ee;
     padding: 0.45rem;
-    cursor: pointer;
     color: inherit;
     transition: transform 130ms ease, box-shadow 130ms ease;
   }
@@ -266,6 +372,15 @@
   .card:hover {
     transform: translateY(-1px);
     box-shadow: 0 8px 20px rgba(104, 69, 21, 0.15);
+  }
+
+  .thumb-button {
+    display: block;
+    width: 100%;
+    border: 0;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
   }
 
   .card img {
@@ -286,6 +401,19 @@
     font-size: 0.8rem;
     line-height: 1.32;
     color: #553f24;
+  }
+
+  .image-source-link {
+    display: inline-block;
+    margin-top: 0.35rem;
+    color: #1a5b7c;
+    font-size: 0.78rem;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(26, 91, 124, 0.35);
+  }
+
+  .image-source-link:hover {
+    border-bottom-color: rgba(26, 91, 124, 0.8);
   }
 
   .lightbox {
@@ -373,6 +501,10 @@
 
   @media (max-width: 860px) {
     .story-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .construction-grid {
       grid-template-columns: 1fr;
     }
 

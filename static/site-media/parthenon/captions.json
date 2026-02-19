@@ -12,31 +12,151 @@
   {
     "index": 2,
     "file": "002.jpg",
-    "caption": "Archaeological Site of Eleusis - Telesterion 10 (Artist: TimeTravelRome | License: CC BY 2.0)",
-    "title": "Archaeological Site of Eleusis - Telesterion 10.jpg",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Archaeological_Site_of_Eleusis_-_Telesterion_10.jpg",
+    "caption": "Athena Parthenos (Artist: Illustrator unknown | License: Public domain)",
+    "title": "Athena Parthenos.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Athena_Parthenos.jpg",
     "query": "Parthenon reconstruction",
-    "score": 9,
-    "license": "CC BY 2.0"
+    "score": 12,
+    "license": "Public domain"
   },
   {
     "index": 3,
     "file": "003.jpg",
-    "caption": "Study for Reconstruction of West Pediment of the Parthenon (Artist: John Flaxman | License: CC0)",
-    "title": "John Flaxman, Study for Reconstruction of West Pediment of the Parthenon, in or after 1805, NGA 58238.jpg",
-    "source_url": "https://commons.wikimedia.org/wiki/File:John_Flaxman,_Study_for_Reconstruction_of_West_Pediment_of_the_Parthenon,_in_or_after_1805,_NGA_58238.jpg",
+    "caption": "Benoît-Édouard Loviot – Parthénon (détail) (Artist: Benoît Édouard Loviot | License: Public domain)",
+    "title": "Benoît-Édouard Loviot – Parthénon (détail).jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Beno%C3%AEt-%C3%89douard_Loviot_%E2%80%93_Parth%C3%A9non_(d%C3%A9tail).jpg",
     "query": "Parthenon reconstruction",
-    "score": 9,
-    "license": "CC0"
+    "score": 12,
+    "license": "Public domain"
   },
   {
     "index": 4,
     "file": "004.jpg",
-    "caption": "Parthenon colour (Artist: Twospoonfuls | License: CC BY-SA 4.0)",
-    "title": "Parthenon colour.jpg",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Parthenon_colour.jpg",
+    "caption": "East pediment of the Parthenon (Artist: Tilemahos Efthimiadis https://www.flickr.com/photos/64379474@N00 | License: CC BY-SA 2.5)",
+    "title": "East pediment of the Parthenon.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:East_pediment_of_the_Parthenon.jpg",
+    "query": "Parthenon reconstruction",
+    "score": 12,
+    "license": "CC BY-SA 2.5"
+  },
+  {
+    "index": 5,
+    "file": "005.jpg",
+    "caption": "Old and New London (Artist: Edward Walford | License: Public domain)",
+    "title": "Old and New London, vol. 4.djvu",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Old_and_New_London,_vol._4.djvu",
+    "query": "Parthenon reconstruction",
+    "score": 12,
+    "license": "Public domain"
+  },
+  {
+    "index": 6,
+    "file": "006.jpg",
+    "caption": "Reconstruction des Parthenon mit seiner Umgebung - Boetticher Adolf - 1888 (Artist: Adolf Bötticher | License: Public domain)",
+    "title": "Reconstruction des Parthenon mit seiner Umgebung - Boetticher Adolf - 1888.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Reconstruction_des_Parthenon_mit_seiner_Umgebung_-_Boetticher_Adolf_-_1888.jpg",
+    "query": "Parthenon reconstruction",
+    "score": 12,
+    "license": "Public domain"
+  },
+  {
+    "index": 7,
+    "file": "007.jpg",
+    "caption": "Reconstruction of the east pediment of the Parthenon 2 (Artist: Tilemahos Efthimiadis | License: CC BY-SA 2.0)",
+    "title": "Reconstruction of the east pediment of the Parthenon 2.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Reconstruction_of_the_east_pediment_of_the_Parthenon_2.jpg",
+    "query": "Parthenon reconstruction",
+    "score": 12,
+    "license": "CC BY-SA 2.0"
+  },
+  {
+    "index": 8,
+    "file": "008.jpg",
+    "caption": "Reconstruction of the east pediment of the Parthenon 3 (Artist: Tilemahos Efthimiadis | License: CC BY-SA 2.0)",
+    "title": "Reconstruction of the east pediment of the Parthenon 3.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Reconstruction_of_the_east_pediment_of_the_Parthenon_3.jpg",
+    "query": "Parthenon reconstruction",
+    "score": 12,
+    "license": "CC BY-SA 2.0"
+  },
+  {
+    "index": 9,
+    "file": "009.jpg",
+    "caption": "Reconstruction of the west pediment of the Parthenon 1 (License: CC BY-SA 2.0)",
+    "title": "Reconstruction of the west pediment of the Parthenon 1.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Reconstruction_of_the_west_pediment_of_the_Parthenon_1.jpg",
+    "query": "Parthenon reconstruction",
+    "score": 12,
+    "license": "CC BY-SA 2.0"
+  },
+  {
+    "index": 10,
+    "file": "010.jpg",
+    "caption": "Resurrection of the parthenon.... (22415895504) (Artist: lensnmatter | License: CC BY 2.0)",
+    "title": "Resurrection of the parthenon.... (22415895504).jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Resurrection_of_the_parthenon...._(22415895504).jpg",
+    "query": "Parthenon reconstruction",
+    "score": 12,
+    "license": "CC BY 2.0"
+  },
+  {
+    "index": 11,
+    "file": "011.jpg",
+    "caption": "02 2020 Grecia photo Paolo Villa FO190140 (Acropoli di Atene) Tempio del Partenone, visto da Nord Est, Arte Greca Classica, ordine dorico, cielo blu, senza gimp (Artist: Paolo Villa | License: CC BY-SA 4.0)",
+    "title": "02 2020 Grecia photo Paolo Villa FO190140 (Acropoli di Atene) Tempio del Partenone, visto da Nord Est, Arte Greca Classica, ordine dorico, cielo blu, senza gimp.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:02_2020_Grecia_photo_Paolo_Villa_FO190140_(Acropoli_di_Atene)_Tempio_del_Partenone,_visto_da_Nord_Est,_Arte_Greca_Classica,_ordine_dorico,_cielo_blu,_senza_gimp.jpg",
     "query": "Parthenon reconstruction",
     "score": 9,
     "license": "CC BY-SA 4.0"
+  },
+  {
+    "index": 12,
+    "file": "012.jpg",
+    "caption": "02 2020 Grecia photo Paolo Villa FO190140 bis (Acropoli di Atene) Tempio del Partenone, visto da Nord Est, Arte Greca Classica, ordine dorico, cielo blu, con gimp correzione prosp… (Artist: Paolo Villa | License: CC BY-SA 4.0)",
+    "title": "02 2020 Grecia photo Paolo Villa FO190140 bis (Acropoli di Atene) Tempio del Partenone, visto da Nord Est, Arte Greca Classica, ordine dorico, cielo blu, con gimp correzione prospettica e luci.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:02_2020_Grecia_photo_Paolo_Villa_FO190140_bis_(Acropoli_di_Atene)_Tempio_del_Partenone,_visto_da_Nord_Est,_Arte_Greca_Classica,_ordine_dorico,_cielo_blu,_con_gimp_correzione_prospettica_e_luci.jpg",
+    "query": "Parthenon reconstruction",
+    "score": 9,
+    "license": "CC BY-SA 4.0"
+  },
+  {
+    "index": 13,
+    "file": "013.jpg",
+    "caption": "02 2020 Grecia photo Paolo Villa FO190140 tris (Acropoli di Atene) Tempio del Partenone, visto da Nord Est, Arte Greca Classica, ordine dorico, cielo blu, (gimp ricostruzione dei… (Artist: Paolo Villa | License: CC BY-SA 4.0)",
+    "title": "02 2020 Grecia photo Paolo Villa FO190140 tris (Acropoli di Atene) Tempio del Partenone, visto da Nord Est, Arte Greca Classica, ordine dorico, cielo blu, (gimp ricostruzione dei lapidari laterali, correzione prospettica e luci).jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:02_2020_Grecia_photo_Paolo_Villa_FO190140_tris_(Acropoli_di_Atene)_Tempio_del_Partenone,_visto_da_Nord_Est,_Arte_Greca_Classica,_ordine_dorico,_cielo_blu,_(gimp_ricostruzione_dei_lapidari_laterali,_correzione_prospettica_e_luci).jpg",
+    "query": "Parthenon reconstruction",
+    "score": 9,
+    "license": "CC BY-SA 4.0"
+  },
+  {
+    "index": 14,
+    "file": "014.jpg",
+    "caption": "A Short History of the World (Artist: H. G. Wells | License: Public domain)",
+    "title": "A Short History of the World.djvu",
+    "source_url": "https://commons.wikimedia.org/wiki/File:A_Short_History_of_the_World.djvu",
+    "query": "Parthenon reconstruction",
+    "score": 9,
+    "license": "Public domain"
+  },
+  {
+    "index": 15,
+    "file": "015.jpg",
+    "caption": "Akropolis-detail (Artist: Leo von Klenze | License: Public domain)",
+    "title": "Akropolis-detail.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Akropolis-detail.jpg",
+    "query": "Parthenon reconstruction",
+    "score": 9,
+    "license": "Public domain"
+  },
+  {
+    "index": 16,
+    "file": "016.jpg",
+    "caption": "Ancient Greek architecture reconstruction (Artist: Kev Bourne | License: Public domain)",
+    "title": "Ancient Greek architecture reconstruction.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Ancient_Greek_architecture_reconstruction.jpg",
+    "query": "Parthenon reconstruction",
+    "score": 9,
+    "license": "Public domain"
   }
 ]

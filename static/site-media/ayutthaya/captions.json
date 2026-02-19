@@ -2,41 +2,61 @@
   {
     "index": 1,
     "file": "001.jpg",
-    "caption": "Color Paintings in the Ayutthaya Period Stock Image - Image of ... (License: Unspecified (web source))",
-    "title": "Color Paintings in the Ayutthaya Period Stock Image - Image of ...",
-    "source_url": "https://www.dreamstime.com/color-paintings-ayutthaya-period-ayutthaya-paintings-reign-king-narai-great-last-king-golden-image196463545",
-    "query": "Ayutthaya artist impression",
-    "score": 11,
-    "license": "Unspecified (web source)"
+    "caption": "Ayutthaya Wat Phra Si Sanphet (Site of Royal Palace) Reconstruction (46421127872) (Artist: Gary Todd from Xinzheng, China | License: CC0)",
+    "title": "Ayutthaya Wat Phra Si Sanphet (Site of Royal Palace) Reconstruction (46421127872).jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Ayutthaya_Wat_Phra_Si_Sanphet_(Site_of_Royal_Palace)_Reconstruction_(46421127872).jpg",
+    "query": "Ayutthaya reconstruction",
+    "score": 9,
+    "license": "CC0"
   },
   {
     "index": 2,
     "file": "002.jpg",
-    "caption": "Large Buddha Head Statue Made Bronze Ayutthaya Art Illustrations ... (License: Unspecified (web source))",
-    "title": "Large Buddha Head Statue Made Bronze Ayutthaya Art Illustrations ...",
-    "source_url": "https://depositphotos.com/illustration/large-buddha-head-statue-made-bronze-ayutthaya-art-illustrations-creates-372335262.html",
-    "query": "Ayutthaya artist impression",
-    "score": 11,
-    "license": "Unspecified (web source)"
+    "caption": "Ayutthaya Wat Phra Si Sanphet (Site of Royal Palace) Reconstruction (46472184231) (Artist: Gary Todd from Xinzheng, China | License: CC0)",
+    "title": "Ayutthaya Wat Phra Si Sanphet (Site of Royal Palace) Reconstruction (46472184231).jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Ayutthaya_Wat_Phra_Si_Sanphet_(Site_of_Royal_Palace)_Reconstruction_(46472184231).jpg",
+    "query": "Ayutthaya reconstruction",
+    "score": 9,
+    "license": "CC0"
   },
   {
     "index": 3,
-    "file": "003.jpg",
-    "caption": "Watercolor of Old Temple at Ayutthaya Stock Illustration - Illustration ... (License: Unspecified (web source))",
-    "title": "Watercolor of Old Temple at Ayutthaya Stock Illustration - Illustration ...",
-    "source_url": "https://www.dreamstime.com/watercolor-old-temple-ayutthaya-art-image155492072",
-    "query": "Ayutthaya artist impression",
-    "score": 11,
-    "license": "Unspecified (web source)"
+    "file": "003.png",
+    "caption": "Royal Land Procession King Phetracha by Jeremias van Vliet 1692 (Artist: Jeremias van Vliet (1602-1663) | License: Public domain)",
+    "title": "Royal Land Procession King Phetracha by Jeremias van Vliet 1692.png",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Royal_Land_Procession_King_Phetracha_by_Jeremias_van_Vliet_1692.png",
+    "query": "Ayutthaya illustration",
+    "score": 8,
+    "license": "Public domain"
   },
   {
     "index": 4,
     "file": "004.jpg",
-    "caption": "Ayutthaya (License: Unspecified (web source))",
-    "title": "Ayutthaya",
-    "source_url": "https://www.pinterest.com/pin/417708934167494661/",
-    "query": "Ayutthaya artist impression",
-    "score": 8,
-    "license": "Unspecified (web source)"
+    "caption": "Bird's eye view of the city of Iudiad (Artist: Johannes Vingboons | License: Public domain)",
+    "title": "Bird's Eye View of Iudiad City (Ayutthaya) c1665.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Bird%27s_Eye_View_of_Iudiad_City_(Ayutthaya)_c1665.jpg",
+    "query": "Ayutthaya ancient view",
+    "score": 5,
+    "license": "Public domain"
+  },
+  {
+    "index": 5,
+    "file": "005.jpg",
+    "caption": "Damri Patthamasiri (Artist: Unknown author Unknown author | License: Public domain)",
+    "title": "Damri Patthamasiri.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Damri_Patthamasiri.jpg",
+    "query": "Ayutthaya illustration",
+    "score": 5,
+    "license": "Public domain"
+  },
+  {
+    "index": 6,
+    "file": "006.jpg",
+    "caption": "Phap Nang Ngam Nai Wannakhadi (1964, p 10) (Artist: Hem Vejakorn | License: Public domain)",
+    "title": "Phap Nang Ngam Nai Wannakhadi (1964, p 10).jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Phap_Nang_Ngam_Nai_Wannakhadi_(1964,_p_10).jpg",
+    "query": "Ayutthaya illustration",
+    "score": 5,
+    "license": "Public domain"
   }
 ]

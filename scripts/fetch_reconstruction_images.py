@@ -520,7 +520,13 @@ def process_site(
             if time.time() > site_deadline:
                 break
             used_queries.append(query)
-            for page in commons_search(query, max_results=max_per_query):
+            try:
+                commons_pages = commons_search(query, max_results=max_per_query)
+            except Exception as exc:  # noqa: BLE001
+                print(f"  ! commons search failed for '{query}': {exc}")
+                commons_pages = []
+
+            for page in commons_pages:
                 if time.time() > site_deadline:
                     break
                 candidate = to_candidate(page, query=query, site_words=words, relaxed=relaxed)
@@ -541,7 +547,13 @@ def process_site(
         for query in build_queries(site.name):
             if time.time() > site_deadline:
                 break
-            for item in ddgs_search(query, max_results=max_per_query):
+            try:
+                ddgs_items = ddgs_search(query, max_results=max_per_query)
+            except Exception as exc:  # noqa: BLE001
+                print(f"  ! ddgs search failed for '{query}': {exc}")
+                ddgs_items = []
+
+            for item in ddgs_items:
                 if time.time() > site_deadline:
                     break
                 candidate = ddgs_to_candidate(item, query=query, site_words=words, relaxed=relaxed)

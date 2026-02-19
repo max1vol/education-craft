@@ -1,12 +1,162 @@
 [
   {
     "index": 1,
-    "file": "001.jpeg",
-    "caption": "Illustration of the mythical Hanging Gardens of Babylon (Artist: Maerten van Heemskerck (1498-1574) | License: Public domain)",
-    "title": "Illustration of the mythical Hanging Gardens of Babylon.jpeg",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Illustration_of_the_mythical_Hanging_Gardens_of_Babylon.jpeg",
+    "file": "001.jpg",
+    "caption": "Media, Babylon and Persia - including a study of the Zend-Avesta or religion of Zoroaster, from the fall of Nineveh to the Persian war (1889) (14780855402) (Artist: Internet Archive Book Images | License: No restrictions)",
+    "title": "Media, Babylon and Persia - including a study of the Zend-Avesta or religion of Zoroaster, from the fall of Nineveh to the Persian war (1889) (14780855402).jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Media,_Babylon_and_Persia_-_including_a_study_of_the_Zend-Avesta_or_religion_of_Zoroaster,_from_the_fall_of_Nineveh_to_the_Persian_war_(1889)_(14780855402).jpg",
+    "query": "Hanging Gardens of Babylon digital reconstruction",
+    "score": 17,
+    "license": "No restrictions"
+  },
+  {
+    "index": 2,
+    "file": "002.jpg",
+    "caption": "Herodotus and the empires of the East : based on Nikel's Herodot und die Keilschriftforschung (Artist: Tolman, Herbert Cushing, b. 1865 | License: Public domain)",
+    "title": "Herodotus and the Empires of the East.djvu",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Herodotus_and_the_Empires_of_the_East.djvu",
+    "query": "Hanging Gardens of Babylon historical reconstruction",
+    "score": 16,
+    "license": "Public domain"
+  },
+  {
+    "index": 3,
+    "file": "003.jpg",
+    "caption": "The Dial (License: Public domain)",
+    "title": "The Dial (Volume 60).djvu",
+    "source_url": "https://commons.wikimedia.org/wiki/File:The_Dial_(Volume_60).djvu",
+    "query": "Hanging Gardens of Babylon historical reconstruction",
+    "score": 16,
+    "license": "Public domain"
+  },
+  {
+    "index": 4,
+    "file": "004.jpg",
+    "caption": "J.F.Bertuch-Weltwunder2 (License: Public domain)",
+    "title": "J.F.Bertuch-Weltwunder2.JPG",
+    "source_url": "https://commons.wikimedia.org/wiki/File:J.F.Bertuch-Weltwunder2.JPG",
+    "query": "Hanging Gardens of Babylon reconstruction",
+    "score": 13,
+    "license": "Public domain"
+  },
+  {
+    "index": 5,
+    "file": "005.jpg",
+    "caption": "A history of art in ancient Egypt (Artist: Perrot, Georges, 1832-1914 | License: Public domain)",
+    "title": "A History of Art in Ancient Egypt Vol 2.djvu",
+    "source_url": "https://commons.wikimedia.org/wiki/File:A_History_of_Art_in_Ancient_Egypt_Vol_2.djvu",
+    "query": "Hanging Gardens of Babylon artist impression",
+    "score": 12,
+    "license": "Public domain"
+  },
+  {
+    "index": 6,
+    "file": "006.jpg",
+    "caption": "An elementary history of art : architecture, sculpture, painting (Artist: d. 1933 N. D'Anvers | License: Public domain)",
+    "title": "An Elementary History of Art.djvu",
+    "source_url": "https://commons.wikimedia.org/wiki/File:An_Elementary_History_of_Art.djvu",
     "query": "Hanging Gardens of Babylon illustration",
-    "score": 9,
+    "score": 12,
+    "license": "Public domain"
+  },
+  {
+    "index": 7,
+    "file": "007.jpg",
+    "caption": "Arts Monthly Pictorial v02n04 1925-05 (Darwination-IA) (License: Public domain)",
+    "title": "Arts Monthly Pictorial v02n04 1925-05 (Darwination-IA).djvu",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Arts_Monthly_Pictorial_v02n04_1925-05_(Darwination-IA).djvu",
+    "query": "Hanging Gardens of Babylon artist impression",
+    "score": 12,
+    "license": "Public domain"
+  },
+  {
+    "index": 8,
+    "file": "008.jpg",
+    "caption": "The Aryan origin of the Gaelic race and language. The Round Towers, the Brehon law, truth of the Pentateuch (Artist: Ulick Joseph Bourke | License: Public domain)",
+    "title": "Aryan Origin of the Gaelic Race and Language.djvu",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Aryan_Origin_of_the_Gaelic_Race_and_Language.djvu",
+    "query": "Hanging Gardens of Babylon artist impression",
+    "score": 12,
+    "license": "Public domain"
+  },
+  {
+    "index": 9,
+    "file": "009.jpg",
+    "caption": "Athanasius Kircher - Turris Babel - 1679 (page 99 crop) (Artist: Athanasius Kircher | License: Public domain)",
+    "title": "Athanasius Kircher - Turris Babel - 1679 (page 99 crop).jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Athanasius_Kircher_-_Turris_Babel_-_1679_(page_99_crop).jpg",
+    "query": "Hanging Gardens of Babylon illustration",
+    "score": 12,
+    "license": "Public domain"
+  },
+  {
+    "index": 10,
+    "file": "010.jpg",
+    "caption": "Athanasius Kircher - Turris Babel - Hanging gardens of Babylon (Artist: Athanasius Kircher | License: Public domain)",
+    "title": "Athanasius Kircher - Turris Babel - Hanging gardens of Babylon.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Athanasius_Kircher_-_Turris_Babel_-_Hanging_gardens_of_Babylon.jpg",
+    "query": "Hanging Gardens of Babylon illustration",
+    "score": 12,
+    "license": "Public domain"
+  },
+  {
+    "index": 11,
+    "file": "011.jpg",
+    "caption": "Cradle tales of Hinduism (Artist: Nivedita, Sister, 1867-1911 | License: Public domain)",
+    "title": "Cradle Tales of Hinduism .djvu",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Cradle_Tales_of_Hinduism_.djvu",
+    "query": "Hanging Gardens of Babylon artist impression",
+    "score": 12,
+    "license": "Public domain"
+  },
+  {
+    "index": 12,
+    "file": "012.jpg",
+    "caption": "From the Hebrides to the Himalayas : a sketch of eighteen months' wanderings in western isles and eastern highlands (Artist: Gordon Cumming, C. F. (Constance Frederica), 1837-1924 | License: Public domain)",
+    "title": "From the Hebrides to the Himalayas- A Sketch of Eighteen Months' Wanderings in Western Isles and Eastern Highlands.djvu",
+    "source_url": "https://commons.wikimedia.org/wiki/File:From_the_Hebrides_to_the_Himalayas-_A_Sketch_of_Eighteen_Months%27_Wanderings_in_Western_Isles_and_Eastern_Highlands.djvu",
+    "query": "Hanging Gardens of Babylon artist impression",
+    "score": 12,
+    "license": "Public domain"
+  },
+  {
+    "index": 13,
+    "file": "013.jpg",
+    "caption": "Hanging Gardens of Babylon (Artist: Unknown author Unknown author | License: Public domain)",
+    "title": "Hanging Gardens of Babylon.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Hanging_Gardens_of_Babylon.jpg",
+    "query": "Hanging Gardens of Babylon illustration",
+    "score": 12,
+    "license": "Public domain"
+  },
+  {
+    "index": 14,
+    "file": "014.jpg",
+    "caption": "Imperial India; an artist's journals (Artist: Prinsep, Val C. (Valentine Cameron), 1838-1904 | License: Public domain)",
+    "title": "Imperial India — An Artist's Journals.djvu",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Imperial_India_%E2%80%94_An_Artist%27s_Journals.djvu",
+    "query": "Hanging Gardens of Babylon artist impression",
+    "score": 12,
+    "license": "Public domain"
+  },
+  {
+    "index": 15,
+    "file": "015.jpg",
+    "caption": "Myths of Babylonia and Assyria (Artist: Donald Alexander Mackenzie | License: Public domain)",
+    "title": "Myths of Babylonia and Assyria.djvu",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Myths_of_Babylonia_and_Assyria.djvu",
+    "query": "Hanging Gardens of Babylon artist impression",
+    "score": 12,
+    "license": "Public domain"
+  },
+  {
+    "index": 16,
+    "file": "016.jpg",
+    "caption": "Works (Artist: William Makepeace Thackeray | License: Public domain)",
+    "title": "Thackeray - 2, 1899.djvu",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Thackeray_-_2,_1899.djvu",
+    "query": "Hanging Gardens of Babylon artist impression",
+    "score": 12,
     "license": "Public domain"
   }
 ]

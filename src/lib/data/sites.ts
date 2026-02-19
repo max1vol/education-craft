@@ -1,5 +1,6 @@
 import manifestData from './sites-manifest.json';
 import factData from './site-facts.json';
+import constructionData from './site-construction.json';
 
 export type SiteManifestEntry = {
   slug: string;
@@ -19,6 +20,27 @@ export type SiteFact = {
   culture: string;
   idea: string;
   originStory: string;
+};
+
+export type ConstructionSource = {
+  title: string;
+  url: string;
+  type: string;
+};
+
+export type SiteConstruction = {
+  slug: string;
+  siteName: string;
+  wikipediaTitle: string;
+  wikidataId: string | null;
+  materials: string[];
+  constructionMethods: string[];
+  constructionTools: string[];
+  toolsInferred: boolean;
+  sources: ConstructionSource[];
+  notes: string;
+  searchSnippet: string;
+  lastUpdated: string;
 };
 
 export type TimelineEvent = {
@@ -43,7 +65,9 @@ type TurningPoint = { year: number; title: string; text: string };
 
 const manifest = manifestData as SiteManifestEntry[];
 const facts = factData as SiteFact[];
+const constructions = constructionData as SiteConstruction[];
 const factBySlug = new Map(facts.map((item) => [item.slug, item]));
+const constructionBySlug = new Map(constructions.map((item) => [item.slug, item]));
 
 const turningPoints: Record<string, TurningPoint> = {
   'pompeii': { year: 79, title: 'Vesuvius Eruption', text: 'Mount Vesuvius erupted and buried the city.' },
@@ -90,6 +114,10 @@ export function getSiteSummary(slug: string): SiteSummary | null {
     epoch,
     yearRange: rangeLabel(fact.startYear, fact.endYear)
   };
+}
+
+export function getSiteConstruction(slug: string): SiteConstruction | null {
+  return constructionBySlug.get(slug) ?? null;
 }
 
 export function getAllSites(): SiteSummary[] {
