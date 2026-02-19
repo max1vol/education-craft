@@ -33,9 +33,6 @@
       <p class="summary">
         Browse by epoch, compare regions, and open each site for image galleries, origin stories, and timeline events.
       </p>
-      <p class="extra-link-wrap">
-        <a class="extra-link" href="/sites/extra/info">Open extra materials/tools/source index →</a>
-      </p>
       <div class="metrics">
         <div>
           <strong>{data.stats.totalSites}</strong>
@@ -139,21 +136,6 @@
     max-width: 75ch;
     color: #4b3b27;
     font-size: 1rem;
-  }
-
-  .extra-link-wrap {
-    margin: 0.45rem 0 0;
-  }
-
-  .extra-link {
-    color: #1c5e80;
-    font-weight: 700;
-    text-decoration: none;
-    border-bottom: 1px solid rgba(28, 94, 128, 0.35);
-  }
-
-  .extra-link:hover {
-    border-bottom-color: rgba(28, 94, 128, 0.8);
   }
 
   .metrics {
