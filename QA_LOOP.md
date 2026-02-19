@@ -55,6 +55,8 @@ Focus on:
 Version route checks:
 - Open `/version` and verify commit hash/label + recent changelog entries are present and readable on desktop/mobile.
 - Verify latest commit age (relative time) and explicit timestamps for latest + previous entries.
+- Verify changelog count is `1 latest + 10 previous` entries (no manual hardcoded list).
+- Verify snapshot timestamp updates after `npm run build` (build-time artifact generation).
 
 Texture proof checks:
 - Verify `docs/images/debug/texture-proof-*-panel.png` show legacy-vs-winner plus candidate swatches.

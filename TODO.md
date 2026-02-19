@@ -1,6 +1,10 @@
 # TODO
 
 ## In Progress
+- [x] Automate `/version` snapshot generation at build/deploy time so latest commit is always current (no stale hardcoded snapshot).
+- [x] Generate `/version` history as latest + previous 10 commits programmatically with zero manual list maintenance.
+- [x] Make `/version` route runtime-independent from git by consuming build-time artifact only (Vercel-safe runtime fallback).
+- [x] Verify `/version` automation locally via `npm run build` + route output check, then commit/push.
 - [x] Apply latest touch mapping override: single-finger tap destroys, two-finger tap places/builds.
 - [x] Verify both touch actions still use crosshair/raycast target (not raw tap location) with max-distance guard.
 - [x] Re-verify iPhone safe-area HUD placement for location/FPS/status UI in portrait and landscape.
@@ -73,6 +77,7 @@
 - 2026-02-19: Extended capture verification with `touch-hotbar-proof.json` (portrait+landscape slot selection) and `touch-hud-safe-area-proof.json` (fps/location/status/hotbar bounds checks), then re-ran full screenshot capture suite.
 - 2026-02-19: Monument Realms screenshot QA Batch 14 (sub-agent, 8 screenshots + touch/hotbar/HUD proof JSON) found no blocking regressions and accepted functional pass for latest override and hotbar safe-area/tap behavior.
 - 2026-02-19: Monument Realms screenshot QA Batch 15 (sub-agent, 8 screenshots + three proof JSON files) confirmed functional pass for single-tap destroy + two-finger place and hotbar safe-area/tap reliability; follow-up note is that Playwright iPhone emulation reported zero safe inset values, so final notch/home-indicator validation should still be rechecked on physical iPhone hardware.
+- 2026-02-19: Implemented fully programmatic `/version` build artifact flow (`prebuild` -> `generate:version`), switched route loader to artifact-only (no runtime git dependency), generated latest + previous 10 commits automatically, and verified with `npm run build` plus local `/version` output check.
 
 ## Notes
 - Forbidden term must not appear in repo content, UI text, commit messages, or generated assets.

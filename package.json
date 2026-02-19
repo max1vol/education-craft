@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite dev",
+    "prebuild": "npm run generate:version",
     "build": "vite build",
     "preview": "vite preview",
     "deploy": "wrangler deploy",

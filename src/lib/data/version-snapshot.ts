@@ -22,22 +22,62 @@ export interface VersionSnapshot {
 }
 
 export const VERSION_SNAPSHOT: VersionSnapshot = {
-  "generatedAt": "2026-02-18T19:15:03.683Z",
+  "generatedAt": "2026-02-19T16:13:44.581Z",
   "packageVersion": "0.1.0",
-  "commitHash": "0db530c0b67c0ac47855c114170958ce2d41b3c8",
-  "commitShort": "0db530c",
+  "commitHash": "ffe99aef78025d59ee61a78f4e9d90cc6fed85eb",
+  "commitShort": "ffe99ae",
   "branch": "main",
-  "describe": "0db530c-dirty",
-  "label": "v0.1.0 (0db530c-dirty)",
+  "describe": "ffe99ae-dirty",
+  "label": "v0.1.0 (ffe99ae-dirty)",
   "latest": {
-    "hash": "0db530c0b67c0ac47855c114170958ce2d41b3c8",
-    "shortHash": "0db530c",
-    "date": "2026-02-18",
-    "timestamp": "2026-02-18T04:34:48-08:00",
-    "unixTime": 1771418088,
-    "title": "Replace BGM, add /version route, and fix safe-area HUD QA"
+    "hash": "ffe99aef78025d59ee61a78f4e9d90cc6fed85eb",
+    "shortHash": "ffe99ae",
+    "date": "2026-02-19",
+    "timestamp": "2026-02-19T05:02:32-08:00",
+    "unixTime": 1771506152,
+    "title": "Apply latest touch override and iPhone hotbar safe-area verification"
   },
   "history": [
+    {
+      "hash": "941e69c08de789cf3652955c14cd8bb6e67c4457",
+      "shortHash": "941e69c",
+      "date": "2026-02-19",
+      "timestamp": "2026-02-19T12:13:31+00:00",
+      "unixTime": 1771503211,
+      "title": "Merge branch 'origin-main-ssh2'"
+    },
+    {
+      "hash": "7974ce4040855fcb3c9d2fcbe12b0a442c7ced1f",
+      "shortHash": "7974ce4",
+      "date": "2026-02-19",
+      "timestamp": "2026-02-19T12:12:25+00:00",
+      "unixTime": 1771503145,
+      "title": "Add sourced construction data and expand site galleries with per-image sources"
+    },
+    {
+      "hash": "9e148bf14282b8e09853e8df7c206ff57914a8c8",
+      "shortHash": "9e148bf",
+      "date": "2026-02-19",
+      "timestamp": "2026-02-19T01:44:00-08:00",
+      "unixTime": 1771494240,
+      "title": "Implement touch targeting parity and Stonehenge standing-stone QA pass"
+    },
+    {
+      "hash": "52a587127a00d93fe167440089fcbc29e265a461",
+      "shortHash": "52a5871",
+      "date": "2026-02-18",
+      "timestamp": "2026-02-18T21:21:08-08:00",
+      "unixTime": 1771478468,
+      "title": "Finalize monument realms QA pass and capture proofs"
+    },
+    {
+      "hash": "0db530c0b67c0ac47855c114170958ce2d41b3c8",
+      "shortHash": "0db530c",
+      "date": "2026-02-18",
+      "timestamp": "2026-02-18T04:34:48-08:00",
+      "unixTime": 1771418088,
+      "title": "Replace BGM, add /version route, and fix safe-area HUD QA"
+    },
     {
       "hash": "1ac5cd64fdd4c11488509a6f858ee3ec40dcedef",
       "shortHash": "1ac5cd6",
@@ -77,118 +117,6 @@ export const VERSION_SNAPSHOT: VersionSnapshot = {
       "timestamp": "2026-02-18T01:47:16-08:00",
       "unixTime": 1771408036,
       "title": "Add texture/audio assets and QA capture workflow"
-    },
-    {
-      "hash": "e59d179094b50d7c821e133979d9a7d432abeaca",
-      "shortHash": "e59d179",
-      "date": "2026-02-18",
-      "timestamp": "2026-02-18T01:46:10-08:00",
-      "unixTime": 1771407970,
-      "title": "Refactor core game runtime and add shared debug renderer"
-    },
-    {
-      "hash": "fb6e6b87800fdc208de930b95ee20e87eb32d1e9",
-      "shortHash": "fb6e6b8",
-      "date": "2026-02-17",
-      "timestamp": "2026-02-17T12:15:00-08:00",
-      "unixTime": 1771359300,
-      "title": "feat: rebuild voxel game and fix sites portrait layout"
-    },
-    {
-      "hash": "8f822e3464d9b81ab28cd17bce56db7b07be27e7",
-      "shortHash": "8f822e3",
-      "date": "2026-02-16",
-      "timestamp": "2026-02-16T21:27:44+00:00",
-      "unixTime": 1771277264,
-      "title": "Merge remote main and integrate PR #10 into main"
-    },
-    {
-      "hash": "ad1d1561967a8486f03b127e249ac229072667f2",
-      "shortHash": "ad1d156",
-      "date": "2026-02-16",
-      "timestamp": "2026-02-16T21:23:55+00:00",
-      "unixTime": 1771277035,
-      "title": "Refine Stonehenge world generation and monument research panel"
-    },
-    {
-      "hash": "4b3871d68a2978d534085a9cfbfe8b586cfe99d9",
-      "shortHash": "4b3871d",
-      "date": "2026-02-16",
-      "timestamp": "2026-02-16T21:23:28+00:00",
-      "unixTime": 1771277008,
-      "title": "Expand Stonehenge world with classic controls and monument map"
-    },
-    {
-      "hash": "197fc3db71488ce5e113023ccf3b2a5339d216ab",
-      "shortHash": "197fc3d",
-      "date": "2026-02-16",
-      "timestamp": "2026-02-16T21:21:34+00:00",
-      "unixTime": 1771276894,
-      "title": "Add /sites timeline experience, migrate galleries, and switch to adapter-auto"
-    },
-    {
-      "hash": "50851770d7aa5f575ef732b42a4dc2a25329b7a7",
-      "shortHash": "5085177",
-      "date": "2026-02-16",
-      "timestamp": "2026-02-16T15:48:41+00:00",
-      "unixTime": 1771256921,
-      "title": "Merge pull request #12 from max1vol/codex/fix-merge-conflicts-in-svelte-code-j9s56d"
-    },
-    {
-      "hash": "46e20d4ef5e0e52c8d09ee1c82b4850535881945",
-      "shortHash": "46e20d4",
-      "date": "2026-02-16",
-      "timestamp": "2026-02-16T15:48:27+00:00",
-      "unixTime": 1771256907,
-      "title": "Resolve Svelte merge conflict choices in world data"
-    },
-    {
-      "hash": "7cc39e86c9e987caf1389f498f1463c19d3ca090",
-      "shortHash": "7cc39e8",
-      "date": "2026-02-16",
-      "timestamp": "2026-02-16T12:29:00+00:00",
-      "unixTime": 1771244940,
-      "title": "Merge pull request #11 from max1vol/codex/fix-merge-conflicts-in-svelte-code"
-    },
-    {
-      "hash": "c5c46e07dfaab9bef3e90ba247be628df7079716",
-      "shortHash": "c5c46e0",
-      "date": "2026-02-16",
-      "timestamp": "2026-02-16T12:27:39+00:00",
-      "unixTime": 1771244859,
-      "title": "Resolve Svelte merge conflicts for expanded monument world"
-    },
-    {
-      "hash": "0840a3ca766c6060610bb41c2ab02a22b88aba29",
-      "shortHash": "0840a3c",
-      "date": "2026-02-16",
-      "timestamp": "2026-02-16T11:57:47+00:00",
-      "unixTime": 1771243067,
-      "title": "Merge pull request #9 from max1vol/codex/fix-movement-and-interaction-bugs"
-    },
-    {
-      "hash": "4205ac5f57d0613d8ae6dc5b1dd26c0b06581aee",
-      "shortHash": "4205ac5",
-      "date": "2026-02-16",
-      "timestamp": "2026-02-16T11:57:35+00:00",
-      "unixTime": 1771243055,
-      "title": "Fix movement and mining without pointer lock"
-    },
-    {
-      "hash": "b5d733dc23db983e195a0f058e2ea60d4838d40e",
-      "shortHash": "b5d733d",
-      "date": "2026-02-16",
-      "timestamp": "2026-02-16T11:51:09+00:00",
-      "unixTime": 1771242669,
-      "title": "Add tmux game launch reminder instructions"
-    },
-    {
-      "hash": "1c4d7a7ec995e399edc6bd5bc30485273137d44e",
-      "shortHash": "1c4d7a7",
-      "date": "2026-02-15",
-      "timestamp": "2026-02-15T11:31:25+00:00",
-      "unixTime": 1771155085,
-      "title": "Merge pull request #8 from max1vol/codex/convert-to-3d-game-and-check-for-bugs"
     }
   ]
 };
