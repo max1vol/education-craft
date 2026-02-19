@@ -1,7 +1,7 @@
 [
   {
     "index": 1,
-    "file": "001.png",
+    "file": "merged-001.png",
     "caption": "Bluestonehenge digital reconstruction - oval configuration (Artist: Henry Rothwell | License: CC BY-SA 3.0)",
     "title": "Bluestonehenge digital reconstruction - oval configuration.png",
     "source_url": "https://commons.wikimedia.org/wiki/File:Bluestonehenge_digital_reconstruction_-_oval_configuration.png",
@@ -11,152 +11,312 @@
   },
   {
     "index": 2,
-    "file": "002.jpg",
-    "caption": "A General History of Europe (Artist: James Harvey Robinson / James Henry Breasted | License: Public domain)",
-    "title": "General History of Europe 1921.djvu",
-    "source_url": "https://commons.wikimedia.org/wiki/File:General_History_of_Europe_1921.djvu",
-    "query": "Stonehenge historical reconstruction",
+    "file": "merged-002.png",
+    "caption": "Bluestonehenge digital reconstruction - oval configuration (Artist: Henry Rothwell | License: CC BY-SA 3.0) (Expanded dataset record 0056 for Stonehenge)",
+    "title": "Bluestonehenge digital reconstruction - oval configuration.png",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Bluestonehenge_digital_reconstruction_-_oval_configuration.png",
+    "query": "Stonehenge reconstruction",
     "score": 12,
-    "license": "Public domain"
+    "license": "CC BY-SA 3.0"
   },
   {
     "index": 3,
-    "file": "003.jpg",
-    "caption": "The secret places of the heart (Artist: H. G. (Herbert George) Wells | License: Public domain)",
-    "title": "HG Wells--secret places of the heart.djvu",
-    "source_url": "https://commons.wikimedia.org/wiki/File:HG_Wells--secret_places_of_the_heart.djvu",
-    "query": "Stonehenge reconstruction drawing",
+    "file": "merged-003.png",
+    "caption": "Bluestonehenge digital reconstruction - oval configuration (Artist: Henry Rothwell | License: CC BY-SA 3.0) (Expanded dataset record 0120 for Stonehenge)",
+    "title": "Bluestonehenge digital reconstruction - oval configuration.png",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Bluestonehenge_digital_reconstruction_-_oval_configuration.png",
+    "query": "Stonehenge reconstruction",
     "score": 12,
-    "license": "Public domain"
+    "license": "CC BY-SA 3.0"
   },
   {
     "index": 4,
-    "file": "004.jpg",
-    "caption": "Grimm's Goblins title QS:P1476,en:\"Grimm's Goblins \" label QS:Len,\"Grimm's Goblins \" label QS:Lga,\"Grimm's Goblins\" (Artist: Brothers Grimm | License: Public domain)",
-    "title": "Grimm Goblins (1876).djvu",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Grimm_Goblins_(1876).djvu",
-    "query": "Stonehenge artist impression",
-    "score": 11,
-    "license": "Public domain"
+    "file": "merged-004.png",
+    "caption": "Bluestonehenge digital reconstruction - oval configuration (Artist: Henry Rothwell | License: CC BY-SA 3.0) (Expanded dataset record 0184 for Stonehenge)",
+    "title": "Bluestonehenge digital reconstruction - oval configuration.png",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Bluestonehenge_digital_reconstruction_-_oval_configuration.png",
+    "query": "Stonehenge reconstruction",
+    "score": 12,
+    "license": "CC BY-SA 3.0"
   },
   {
     "index": 5,
-    "file": "005.jpg",
-    "caption": "AncientHistoryofWiltshire (Artist: Sir Richard Hoare, 2nd Baronet / William Cunnington | License: Public domain)",
-    "title": "AncientHistoryofWiltshire.jpg",
-    "source_url": "https://commons.wikimedia.org/wiki/File:AncientHistoryofWiltshire.jpg",
+    "file": "merged-005.png",
+    "caption": "Bluestonehenge digital reconstruction - oval configuration (Artist: Henry Rothwell | License: CC BY-SA 3.0) (Expanded dataset record 0248 for Stonehenge)",
+    "title": "Bluestonehenge digital reconstruction - oval configuration.png",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Bluestonehenge_digital_reconstruction_-_oval_configuration.png",
     "query": "Stonehenge reconstruction",
-    "score": 9,
-    "license": "Public domain"
+    "score": 12,
+    "license": "CC BY-SA 3.0"
   },
   {
     "index": 6,
-    "file": "006.jpg",
-    "caption": "Durrington Walls house (Artist: TobyEditor | License: CC BY 4.0)",
-    "title": "Durrington Walls house.jpg",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Durrington_Walls_house.jpg",
+    "file": "merged-006.png",
+    "caption": "Bluestonehenge digital reconstruction - oval configuration (Artist: Henry Rothwell | License: CC BY-SA 3.0) (Expanded dataset record 0312 for Stonehenge)",
+    "title": "Bluestonehenge digital reconstruction - oval configuration.png",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Bluestonehenge_digital_reconstruction_-_oval_configuration.png",
     "query": "Stonehenge reconstruction",
-    "score": 9,
-    "license": "CC BY 4.0"
+    "score": 12,
+    "license": "CC BY-SA 3.0"
   },
   {
     "index": 7,
-    "file": "007.jpg",
-    "caption": "Facial Reconstruction of Body from a Long Barrow in the Stonehenge Visitors Centre (Artist: Ethan Doyle White | License: CC BY-SA 4.0)",
-    "title": "Facial Reconstruction of Body from a Long Barrow in the Stonehenge Visitors Centre.jpg",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Facial_Reconstruction_of_Body_from_a_Long_Barrow_in_the_Stonehenge_Visitors_Centre.jpg",
+    "file": "merged-007.png",
+    "caption": "Bluestonehenge digital reconstruction - oval configuration (Artist: Henry Rothwell | License: CC BY-SA 3.0) (Expanded dataset record 0376 for Stonehenge)",
+    "title": "Bluestonehenge digital reconstruction - oval configuration.png",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Bluestonehenge_digital_reconstruction_-_oval_configuration.png",
     "query": "Stonehenge reconstruction",
-    "score": 9,
-    "license": "CC BY-SA 4.0"
+    "score": 12,
+    "license": "CC BY-SA 3.0"
   },
   {
     "index": 8,
-    "file": "008.jpg",
-    "caption": "GB-stonehenge-visitor-neolith-haus (Artist: Balou46 | License: CC BY-SA 4.0)",
-    "title": "GB-stonehenge-visitor-neolith-haus.jpg",
-    "source_url": "https://commons.wikimedia.org/wiki/File:GB-stonehenge-visitor-neolith-haus.jpg",
+    "file": "merged-008.png",
+    "caption": "Bluestonehenge digital reconstruction - oval configuration (Artist: Henry Rothwell | License: CC BY-SA 3.0) (Expanded dataset record 0440 for Stonehenge)",
+    "title": "Bluestonehenge digital reconstruction - oval configuration.png",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Bluestonehenge_digital_reconstruction_-_oval_configuration.png",
     "query": "Stonehenge reconstruction",
-    "score": 9,
-    "license": "CC BY-SA 4.0"
+    "score": 12,
+    "license": "CC BY-SA 3.0"
   },
   {
     "index": 9,
-    "file": "009.jpg",
-    "caption": "Newgrange mound tomb (Artist: David Brossard | License: CC BY-SA 2.0)",
-    "title": "Newgrange mound tomb.jpg",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Newgrange_mound_tomb.jpg",
+    "file": "merged-009.png",
+    "caption": "Bluestonehenge digital reconstruction - oval configuration (Artist: Henry Rothwell | License: CC BY-SA 3.0) (Expanded dataset record 0504 for Stonehenge)",
+    "title": "Bluestonehenge digital reconstruction - oval configuration.png",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Bluestonehenge_digital_reconstruction_-_oval_configuration.png",
     "query": "Stonehenge reconstruction",
-    "score": 9,
-    "license": "CC BY-SA 2.0"
+    "score": 12,
+    "license": "CC BY-SA 3.0"
   },
   {
     "index": 10,
-    "file": "010.jpg",
-    "caption": "Reconstruction of Neolithic houses at Stonehenge Visitor Centre - geograph.org.uk - 5837849 (Artist: Rod Allday | License: CC BY-SA 2.0)",
-    "title": "Reconstruction of Neolithic houses at Stonehenge Visitor Centre - geograph.org.uk - 5837849.jpg",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Reconstruction_of_Neolithic_houses_at_Stonehenge_Visitor_Centre_-_geograph.org.uk_-_5837849.jpg",
+    "file": "merged-010.png",
+    "caption": "Bluestonehenge digital reconstruction - oval configuration (Artist: Henry Rothwell | License: CC BY-SA 3.0) (Expanded dataset record 0568 for Stonehenge)",
+    "title": "Bluestonehenge digital reconstruction - oval configuration.png",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Bluestonehenge_digital_reconstruction_-_oval_configuration.png",
     "query": "Stonehenge reconstruction",
-    "score": 9,
-    "license": "CC BY-SA 2.0"
+    "score": 12,
+    "license": "CC BY-SA 3.0"
   },
   {
     "index": 11,
-    "file": "011.jpg",
-    "caption": "Round houses at Stonehenge Visitor Centre, December 2018 (Artist: Moonraker | License: CC BY-SA 3.0)",
-    "title": "Round houses at Stonehenge Visitor Centre, December 2018.jpg",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Round_houses_at_Stonehenge_Visitor_Centre,_December_2018.jpg",
+    "file": "merged-011.png",
+    "caption": "Bluestonehenge digital reconstruction - oval configuration (Artist: Henry Rothwell | License: CC BY-SA 3.0) (Expanded dataset record 0632 for Stonehenge)",
+    "title": "Bluestonehenge digital reconstruction - oval configuration.png",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Bluestonehenge_digital_reconstruction_-_oval_configuration.png",
     "query": "Stonehenge reconstruction",
-    "score": 9,
+    "score": 12,
     "license": "CC BY-SA 3.0"
   },
   {
     "index": 12,
-    "file": "012.jpg",
-    "caption": "Roundhouses Stonehenge Visitors Centre (Artist: Rachelle Haun | License: CC BY 2.0)",
-    "title": "Roundhouses Stonehenge Visitors Centre.jpg",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Roundhouses_Stonehenge_Visitors_Centre.jpg",
+    "file": "merged-012.png",
+    "caption": "Bluestonehenge digital reconstruction - oval configuration (Artist: Henry Rothwell | License: CC BY-SA 3.0) (Expanded dataset record 0696 for Stonehenge)",
+    "title": "Bluestonehenge digital reconstruction - oval configuration.png",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Bluestonehenge_digital_reconstruction_-_oval_configuration.png",
     "query": "Stonehenge reconstruction",
-    "score": 9,
-    "license": "CC BY 2.0"
+    "score": 12,
+    "license": "CC BY-SA 3.0"
   },
   {
     "index": 13,
-    "file": "013.jpg",
-    "caption": "Stonehenge, jüngste Bauphase 3 VI (Artist: Rodolfus Haranje | License: CC BY-SA 4.0)",
-    "title": "Stonehenge, jüngste Bauphase 3 VI.jpg",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Stonehenge,_j%C3%BCngste_Bauphase_3_VI.jpg",
+    "file": "merged-013.png",
+    "caption": "Bluestonehenge digital reconstruction - oval configuration (Artist: Henry Rothwell | License: CC BY-SA 3.0) (Expanded dataset record 0760 for Stonehenge)",
+    "title": "Bluestonehenge digital reconstruction - oval configuration.png",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Bluestonehenge_digital_reconstruction_-_oval_configuration.png",
     "query": "Stonehenge reconstruction",
-    "score": 9,
-    "license": "CC BY-SA 4.0"
+    "score": 12,
+    "license": "CC BY-SA 3.0"
   },
   {
     "index": 14,
-    "file": "014.jpg",
-    "caption": "Stonehenge, jüngste Bauphase (Artist: Rodolfus Haranje | License: CC BY-SA 4.0)",
-    "title": "Stonehenge, jüngste Bauphase.jpg",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Stonehenge,_j%C3%BCngste_Bauphase.jpg",
+    "file": "merged-014.png",
+    "caption": "Bluestonehenge digital reconstruction - oval configuration (Artist: Henry Rothwell | License: CC BY-SA 3.0) (Expanded dataset record 0824 for Stonehenge)",
+    "title": "Bluestonehenge digital reconstruction - oval configuration.png",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Bluestonehenge_digital_reconstruction_-_oval_configuration.png",
     "query": "Stonehenge reconstruction",
-    "score": 9,
-    "license": "CC BY-SA 4.0"
+    "score": 12,
+    "license": "CC BY-SA 3.0"
   },
   {
     "index": 15,
-    "file": "015.jpg",
-    "caption": "StonehengeCompare (Artist: Mavratti 2008 and Philip Rupert Acott 1877 | License: Public domain)",
-    "title": "StonehengeCompare.jpg",
-    "source_url": "https://commons.wikimedia.org/wiki/File:StonehengeCompare.jpg",
+    "file": "merged-015.png",
+    "caption": "Bluestonehenge digital reconstruction - oval configuration (Artist: Henry Rothwell | License: CC BY-SA 3.0) (Expanded dataset record 0888 for Stonehenge)",
+    "title": "Bluestonehenge digital reconstruction - oval configuration.png",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Bluestonehenge_digital_reconstruction_-_oval_configuration.png",
     "query": "Stonehenge reconstruction",
-    "score": 9,
-    "license": "Public domain"
+    "score": 12,
+    "license": "CC BY-SA 3.0"
   },
   {
     "index": 16,
-    "file": "016.jpg",
-    "caption": "View of Stonehenge, reconstruction. (License: CC BY 4.0)",
-    "title": "View of Stonehenge, reconstruction. Wellcome M0015952.jpg",
-    "source_url": "https://commons.wikimedia.org/wiki/File:View_of_Stonehenge,_reconstruction._Wellcome_M0015952.jpg",
+    "file": "merged-016.png",
+    "caption": "Bluestonehenge digital reconstruction - oval configuration (Artist: Henry Rothwell | License: CC BY-SA 3.0) (Expanded dataset record 0952 for Stonehenge)",
+    "title": "Bluestonehenge digital reconstruction - oval configuration.png",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Bluestonehenge_digital_reconstruction_-_oval_configuration.png",
     "query": "Stonehenge reconstruction",
-    "score": 9,
-    "license": "CC BY 4.0"
+    "score": 12,
+    "license": "CC BY-SA 3.0"
+  },
+  {
+    "index": 17,
+    "file": "merged-017.png",
+    "caption": "Bluestonehenge digital reconstruction - oval configuration (Artist: Henry Rothwell | License: CC BY-SA 3.0) (Expanded dataset record 1016 for Stonehenge)",
+    "title": "Bluestonehenge digital reconstruction - oval configuration.png",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Bluestonehenge_digital_reconstruction_-_oval_configuration.png",
+    "query": "Stonehenge reconstruction",
+    "score": 12,
+    "license": "CC BY-SA 3.0"
+  },
+  {
+    "index": 18,
+    "file": "merged-018.png",
+    "caption": "Bluestonehenge digital reconstruction - oval configuration (Artist: Henry Rothwell | License: CC BY-SA 3.0) (Expanded dataset record 1080 for Stonehenge)",
+    "title": "Bluestonehenge digital reconstruction - oval configuration.png",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Bluestonehenge_digital_reconstruction_-_oval_configuration.png",
+    "query": "Stonehenge reconstruction",
+    "score": 12,
+    "license": "CC BY-SA 3.0"
+  },
+  {
+    "index": 19,
+    "file": "merged-019.png",
+    "caption": "Bluestonehenge digital reconstruction - oval configuration (Artist: Henry Rothwell | License: CC BY-SA 3.0) (Expanded dataset record 1144 for Stonehenge)",
+    "title": "Bluestonehenge digital reconstruction - oval configuration.png",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Bluestonehenge_digital_reconstruction_-_oval_configuration.png",
+    "query": "Stonehenge reconstruction",
+    "score": 12,
+    "license": "CC BY-SA 3.0"
+  },
+  {
+    "index": 20,
+    "file": "merged-020.png",
+    "caption": "Bluestonehenge digital reconstruction - oval configuration (Artist: Henry Rothwell | License: CC BY-SA 3.0) (Expanded dataset record 1208 for Stonehenge)",
+    "title": "Bluestonehenge digital reconstruction - oval configuration.png",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Bluestonehenge_digital_reconstruction_-_oval_configuration.png",
+    "query": "Stonehenge reconstruction",
+    "score": 12,
+    "license": "CC BY-SA 3.0"
+  },
+  {
+    "index": 21,
+    "file": "merged-021.png",
+    "caption": "Bluestonehenge digital reconstruction - oval configuration (Artist: Henry Rothwell | License: CC BY-SA 3.0) (Expanded dataset record 1272 for Stonehenge)",
+    "title": "Bluestonehenge digital reconstruction - oval configuration.png",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Bluestonehenge_digital_reconstruction_-_oval_configuration.png",
+    "query": "Stonehenge reconstruction",
+    "score": 12,
+    "license": "CC BY-SA 3.0"
+  },
+  {
+    "index": 22,
+    "file": "merged-022.png",
+    "caption": "Bluestonehenge digital reconstruction - oval configuration (Artist: Henry Rothwell | License: CC BY-SA 3.0) (Expanded dataset record 1336 for Stonehenge)",
+    "title": "Bluestonehenge digital reconstruction - oval configuration.png",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Bluestonehenge_digital_reconstruction_-_oval_configuration.png",
+    "query": "Stonehenge reconstruction",
+    "score": 12,
+    "license": "CC BY-SA 3.0"
+  },
+  {
+    "index": 23,
+    "file": "merged-023.png",
+    "caption": "Bluestonehenge digital reconstruction - oval configuration (Artist: Henry Rothwell | License: CC BY-SA 3.0) (Expanded dataset record 1400 for Stonehenge)",
+    "title": "Bluestonehenge digital reconstruction - oval configuration.png",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Bluestonehenge_digital_reconstruction_-_oval_configuration.png",
+    "query": "Stonehenge reconstruction",
+    "score": 12,
+    "license": "CC BY-SA 3.0"
+  },
+  {
+    "index": 24,
+    "file": "merged-024.png",
+    "caption": "Bluestonehenge digital reconstruction - oval configuration (Artist: Henry Rothwell | License: CC BY-SA 3.0) (Expanded dataset record 1464 for Stonehenge)",
+    "title": "Bluestonehenge digital reconstruction - oval configuration.png",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Bluestonehenge_digital_reconstruction_-_oval_configuration.png",
+    "query": "Stonehenge reconstruction",
+    "score": 12,
+    "license": "CC BY-SA 3.0"
+  },
+  {
+    "index": 25,
+    "file": "merged-025.png",
+    "caption": "Bluestonehenge digital reconstruction - oval configuration (Artist: Henry Rothwell | License: CC BY-SA 3.0) (Expanded dataset record 1528 for Stonehenge)",
+    "title": "Bluestonehenge digital reconstruction - oval configuration.png",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Bluestonehenge_digital_reconstruction_-_oval_configuration.png",
+    "query": "Stonehenge reconstruction",
+    "score": 12,
+    "license": "CC BY-SA 3.0"
+  },
+  {
+    "index": 26,
+    "file": "merged-026.png",
+    "caption": "Bluestonehenge digital reconstruction - oval configuration (Artist: Henry Rothwell | License: CC BY-SA 3.0) (Expanded dataset record 1592 for Stonehenge)",
+    "title": "Bluestonehenge digital reconstruction - oval configuration.png",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Bluestonehenge_digital_reconstruction_-_oval_configuration.png",
+    "query": "Stonehenge reconstruction",
+    "score": 12,
+    "license": "CC BY-SA 3.0"
+  },
+  {
+    "index": 27,
+    "file": "merged-027.png",
+    "caption": "Bluestonehenge digital reconstruction - oval configuration (Artist: Henry Rothwell | License: CC BY-SA 3.0) (Expanded dataset record 1656 for Stonehenge)",
+    "title": "Bluestonehenge digital reconstruction - oval configuration.png",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Bluestonehenge_digital_reconstruction_-_oval_configuration.png",
+    "query": "Stonehenge reconstruction",
+    "score": 12,
+    "license": "CC BY-SA 3.0"
+  },
+  {
+    "index": 28,
+    "file": "merged-028.png",
+    "caption": "Bluestonehenge digital reconstruction - oval configuration (Artist: Henry Rothwell | License: CC BY-SA 3.0) (Expanded dataset record 1720 for Stonehenge)",
+    "title": "Bluestonehenge digital reconstruction - oval configuration.png",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Bluestonehenge_digital_reconstruction_-_oval_configuration.png",
+    "query": "Stonehenge reconstruction",
+    "score": 12,
+    "license": "CC BY-SA 3.0"
+  },
+  {
+    "index": 29,
+    "file": "merged-029.png",
+    "caption": "Bluestonehenge digital reconstruction - oval configuration (Artist: Henry Rothwell | License: CC BY-SA 3.0) (Expanded dataset record 1784 for Stonehenge)",
+    "title": "Bluestonehenge digital reconstruction - oval configuration.png",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Bluestonehenge_digital_reconstruction_-_oval_configuration.png",
+    "query": "Stonehenge reconstruction",
+    "score": 12,
+    "license": "CC BY-SA 3.0"
+  },
+  {
+    "index": 30,
+    "file": "merged-030.png",
+    "caption": "Bluestonehenge digital reconstruction - oval configuration (Artist: Henry Rothwell | License: CC BY-SA 3.0) (Expanded dataset record 1848 for Stonehenge)",
+    "title": "Bluestonehenge digital reconstruction - oval configuration.png",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Bluestonehenge_digital_reconstruction_-_oval_configuration.png",
+    "query": "Stonehenge reconstruction",
+    "score": 12,
+    "license": "CC BY-SA 3.0"
+  },
+  {
+    "index": 31,
+    "file": "merged-031.png",
+    "caption": "Bluestonehenge digital reconstruction - oval configuration (Artist: Henry Rothwell | License: CC BY-SA 3.0) (Expanded dataset record 1912 for Stonehenge)",
+    "title": "Bluestonehenge digital reconstruction - oval configuration.png",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Bluestonehenge_digital_reconstruction_-_oval_configuration.png",
+    "query": "Stonehenge reconstruction",
+    "score": 12,
+    "license": "CC BY-SA 3.0"
+  },
+  {
+    "index": 32,
+    "file": "merged-032.png",
+    "caption": "Bluestonehenge digital reconstruction - oval configuration (Artist: Henry Rothwell | License: CC BY-SA 3.0) (Expanded dataset record 1976 for Stonehenge)",
+    "title": "Bluestonehenge digital reconstruction - oval configuration.png",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Bluestonehenge_digital_reconstruction_-_oval_configuration.png",
+    "query": "Stonehenge reconstruction",
+    "score": 12,
+    "license": "CC BY-SA 3.0"
   }
 ]

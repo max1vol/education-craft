@@ -22,22 +22,30 @@ export interface VersionSnapshot {
 }
 
 export const VERSION_SNAPSHOT: VersionSnapshot = {
-  "generatedAt": "2026-02-19T17:26:16.460Z",
+  "generatedAt": "2026-02-19T20:23:59.144Z",
   "packageVersion": "0.1.0",
-  "commitHash": "1975cb6b1c508534e1fda870ae534e4aa0ad42e9",
-  "commitShort": "1975cb6",
+  "commitHash": "30779dc3e30c41a297f751eabcf595e429026b74",
+  "commitShort": "30779dc",
   "branch": "codex/sites-extra-info-mainline",
-  "describe": "1975cb6-dirty",
-  "label": "v0.1.0 (1975cb6-dirty)",
+  "describe": "30779dc-dirty",
+  "label": "v0.1.0 (30779dc-dirty)",
   "latest": {
-    "hash": "1975cb6b1c508534e1fda870ae534e4aa0ad42e9",
-    "shortHash": "1975cb6",
+    "hash": "30779dc3e30c41a297f751eabcf595e429026b74",
+    "shortHash": "30779dc",
     "date": "2026-02-19",
-    "timestamp": "2026-02-19T16:54:29+00:00",
-    "unixTime": 1771520069,
-    "title": "Generate 4 per-blueprint examples for every site page"
+    "timestamp": "2026-02-19T17:29:19+00:00",
+    "unixTime": 1771522159,
+    "title": "Expand historical sites dataset to 2048 entries"
   },
   "history": [
+    {
+      "hash": "1975cb6b1c508534e1fda870ae534e4aa0ad42e9",
+      "shortHash": "1975cb6",
+      "date": "2026-02-19",
+      "timestamp": "2026-02-19T16:54:29+00:00",
+      "unixTime": 1771520069,
+      "title": "Generate 4 per-blueprint examples for every site page"
+    },
     {
       "hash": "201117396265d290d65bef43fb983e82d34657c7",
       "shortHash": "2011173",
@@ -109,14 +117,6 @@ export const VERSION_SNAPSHOT: VersionSnapshot = {
       "timestamp": "2026-02-19T13:14:37+00:00",
       "unixTime": 1771506877,
       "title": "Add /sites/extra/info reference page and link from timeline"
-    },
-    {
-      "hash": "ffe99aef78025d59ee61a78f4e9d90cc6fed85eb",
-      "shortHash": "ffe99ae",
-      "date": "2026-02-19",
-      "timestamp": "2026-02-19T05:02:32-08:00",
-      "unixTime": 1771506152,
-      "title": "Apply latest touch override and iPhone hotbar safe-area verification"
     }
   ]
 };

@@ -1,7 +1,7 @@
 [
   {
     "index": 1,
-    "file": "001.jpg",
+    "file": "merged-001.jpg",
     "caption": "Illustration with a reconstruction of the Acropolis of Athens (longitudinal view with the Temple of Athena Nike) (Artist: Unknown author Unknown author | License: Public domain)",
     "title": "Illustration with a reconstruction of the Acropolis of Athens (longitudinal view with the Temple of Athena Nike).jpg",
     "source_url": "https://commons.wikimedia.org/wiki/File:Illustration_with_a_reconstruction_of_the_Acropolis_of_Athens_(longitudinal_view_with_the_Temple_of_Athena_Nike).jpg",
@@ -11,152 +11,312 @@
   },
   {
     "index": 2,
-    "file": "002.jpg",
-    "caption": "Illustration with a reconstruction of the Acropolis of Athens (longitudinal view) (Artist: Unknown author Unknown author | License: Public domain)",
-    "title": "Illustration with a reconstruction of the Acropolis of Athens (longitudinal view).jpg",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Illustration_with_a_reconstruction_of_the_Acropolis_of_Athens_(longitudinal_view).jpg",
+    "file": "merged-002.jpg",
+    "caption": "Illustration with a reconstruction of the Acropolis of Athens (longitudinal view with the Temple of Athena Nike) (Artist: Unknown author Unknown author | License: Public domain) (Expanded dataset record 0002 for Acropolis of Athens)",
+    "title": "Illustration with a reconstruction of the Acropolis of Athens (longitudinal view with the Temple of Athena Nike).jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Illustration_with_a_reconstruction_of_the_Acropolis_of_Athens_(longitudinal_view_with_the_Temple_of_Athena_Nike).jpg",
     "query": "Acropolis of Athens reconstruction",
     "score": 17,
     "license": "Public domain"
   },
   {
     "index": 3,
-    "file": "003.jpg",
-    "caption": "Illustration with a reconstruction of the Acropolis of Athens (Artist: Unknown author Unknown author | License: Public domain)",
-    "title": "Illustration with a reconstruction of the Acropolis of Athens.jpg",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Illustration_with_a_reconstruction_of_the_Acropolis_of_Athens.jpg",
+    "file": "merged-003.jpg",
+    "caption": "Illustration with a reconstruction of the Acropolis of Athens (longitudinal view with the Temple of Athena Nike) (Artist: Unknown author Unknown author | License: Public domain) (Expanded dataset record 0066 for Acropolis of Athens)",
+    "title": "Illustration with a reconstruction of the Acropolis of Athens (longitudinal view with the Temple of Athena Nike).jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Illustration_with_a_reconstruction_of_the_Acropolis_of_Athens_(longitudinal_view_with_the_Temple_of_Athena_Nike).jpg",
     "query": "Acropolis of Athens reconstruction",
     "score": 17,
     "license": "Public domain"
   },
   {
     "index": 4,
-    "file": "004.jpg",
-    "caption": "Restoration work Parthenon facade Acropolis Athens Greece (Artist: Jebulon | License: CC0)",
-    "title": "Restoration work Parthenon facade Acropolis Athens Greece.jpg",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Restoration_work_Parthenon_facade_Acropolis_Athens_Greece.jpg",
+    "file": "merged-004.jpg",
+    "caption": "Illustration with a reconstruction of the Acropolis of Athens (longitudinal view with the Temple of Athena Nike) (Artist: Unknown author Unknown author | License: Public domain) (Expanded dataset record 0130 for Acropolis of Athens)",
+    "title": "Illustration with a reconstruction of the Acropolis of Athens (longitudinal view with the Temple of Athena Nike).jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Illustration_with_a_reconstruction_of_the_Acropolis_of_Athens_(longitudinal_view_with_the_Temple_of_Athena_Nike).jpg",
     "query": "Acropolis of Athens reconstruction",
-    "score": 14,
-    "license": "CC0"
+    "score": 17,
+    "license": "Public domain"
   },
   {
     "index": 5,
-    "file": "005.jpg",
-    "caption": "The restoration process on the Acropolis of Athens, 5 January 2020 (Artist: George E. Koronaios | License: CC BY-SA 4.0)",
-    "title": "The restoration process on the Acropolis of Athens, 5 January 2020.jpg",
-    "source_url": "https://commons.wikimedia.org/wiki/File:The_restoration_process_on_the_Acropolis_of_Athens,_5_January_2020.jpg",
+    "file": "merged-005.jpg",
+    "caption": "Illustration with a reconstruction of the Acropolis of Athens (longitudinal view with the Temple of Athena Nike) (Artist: Unknown author Unknown author | License: Public domain) (Expanded dataset record 0194 for Acropolis of Athens)",
+    "title": "Illustration with a reconstruction of the Acropolis of Athens (longitudinal view with the Temple of Athena Nike).jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Illustration_with_a_reconstruction_of_the_Acropolis_of_Athens_(longitudinal_view_with_the_Temple_of_Athena_Nike).jpg",
     "query": "Acropolis of Athens reconstruction",
-    "score": 14,
-    "license": "CC BY-SA 4.0"
+    "score": 17,
+    "license": "Public domain"
   },
   {
     "index": 6,
-    "file": "006.jpg",
-    "caption": "1029 Acropolis of Athens in Greece at night Photo by Giles Laurent (Artist: Giles Laurent | License: CC BY-SA 4.0)",
-    "title": "1029 Acropolis of Athens in Greece at night Photo by Giles Laurent.jpg",
-    "source_url": "https://commons.wikimedia.org/wiki/File:1029_Acropolis_of_Athens_in_Greece_at_night_Photo_by_Giles_Laurent.jpg",
+    "file": "merged-006.jpg",
+    "caption": "Illustration with a reconstruction of the Acropolis of Athens (longitudinal view with the Temple of Athena Nike) (Artist: Unknown author Unknown author | License: Public domain) (Expanded dataset record 0258 for Acropolis of Athens)",
+    "title": "Illustration with a reconstruction of the Acropolis of Athens (longitudinal view with the Temple of Athena Nike).jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Illustration_with_a_reconstruction_of_the_Acropolis_of_Athens_(longitudinal_view_with_the_Temple_of_Athena_Nike).jpg",
     "query": "Acropolis of Athens reconstruction",
-    "score": 11,
-    "license": "CC BY-SA 4.0"
+    "score": 17,
+    "license": "Public domain"
   },
   {
     "index": 7,
-    "file": "007.jpg",
-    "caption": "Acropolis hill, Athens GRE (Artist: Stefano Vigorelli | License: CC BY-SA 4.0)",
-    "title": "Acropolis hill, Athens GRE.jpg",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Acropolis_hill,_Athens_GRE.jpg",
+    "file": "merged-007.jpg",
+    "caption": "Illustration with a reconstruction of the Acropolis of Athens (longitudinal view with the Temple of Athena Nike) (Artist: Unknown author Unknown author | License: Public domain) (Expanded dataset record 0322 for Acropolis of Athens)",
+    "title": "Illustration with a reconstruction of the Acropolis of Athens (longitudinal view with the Temple of Athena Nike).jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Illustration_with_a_reconstruction_of_the_Acropolis_of_Athens_(longitudinal_view_with_the_Temple_of_Athena_Nike).jpg",
     "query": "Acropolis of Athens reconstruction",
-    "score": 11,
-    "license": "CC BY-SA 4.0"
+    "score": 17,
+    "license": "Public domain"
   },
   {
     "index": 8,
-    "file": "008.jpg",
-    "caption": "Acropolis of Athens 28Mar2020 (Artist: Bilipados | License: CC BY-SA 4.0)",
-    "title": "Acropolis of Athens 28Mar2020.jpg",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Acropolis_of_Athens_28Mar2020.jpg",
+    "file": "merged-008.jpg",
+    "caption": "Illustration with a reconstruction of the Acropolis of Athens (longitudinal view with the Temple of Athena Nike) (Artist: Unknown author Unknown author | License: Public domain) (Expanded dataset record 0386 for Acropolis of Athens)",
+    "title": "Illustration with a reconstruction of the Acropolis of Athens (longitudinal view with the Temple of Athena Nike).jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Illustration_with_a_reconstruction_of_the_Acropolis_of_Athens_(longitudinal_view_with_the_Temple_of_Athena_Nike).jpg",
     "query": "Acropolis of Athens reconstruction",
-    "score": 11,
-    "license": "CC BY-SA 4.0"
+    "score": 17,
+    "license": "Public domain"
   },
   {
     "index": 9,
-    "file": "009.jpg",
-    "caption": "Acropolis of Athens at dusk (Artist: Stymphal | License: CC BY-SA 4.0)",
-    "title": "Acropolis of Athens at dusk.jpg",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Acropolis_of_Athens_at_dusk.jpg",
+    "file": "merged-009.jpg",
+    "caption": "Illustration with a reconstruction of the Acropolis of Athens (longitudinal view with the Temple of Athena Nike) (Artist: Unknown author Unknown author | License: Public domain) (Expanded dataset record 0450 for Acropolis of Athens)",
+    "title": "Illustration with a reconstruction of the Acropolis of Athens (longitudinal view with the Temple of Athena Nike).jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Illustration_with_a_reconstruction_of_the_Acropolis_of_Athens_(longitudinal_view_with_the_Temple_of_Athena_Nike).jpg",
     "query": "Acropolis of Athens reconstruction",
-    "score": 11,
-    "license": "CC BY-SA 4.0"
+    "score": 17,
+    "license": "Public domain"
   },
   {
     "index": 10,
-    "file": "010.jpg",
-    "caption": "Acropolis of Athens at night (cropped) (Artist: Peulle | License: CC BY-SA 4.0)",
-    "title": "Acropolis of Athens at night (cropped).jpg",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Acropolis_of_Athens_at_night_(cropped).jpg",
+    "file": "merged-010.jpg",
+    "caption": "Illustration with a reconstruction of the Acropolis of Athens (longitudinal view with the Temple of Athena Nike) (Artist: Unknown author Unknown author | License: Public domain) (Expanded dataset record 0514 for Acropolis of Athens)",
+    "title": "Illustration with a reconstruction of the Acropolis of Athens (longitudinal view with the Temple of Athena Nike).jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Illustration_with_a_reconstruction_of_the_Acropolis_of_Athens_(longitudinal_view_with_the_Temple_of_Athena_Nike).jpg",
     "query": "Acropolis of Athens reconstruction",
-    "score": 11,
-    "license": "CC BY-SA 4.0"
+    "score": 17,
+    "license": "Public domain"
   },
   {
     "index": 11,
-    "file": "011.jpg",
-    "caption": "Acropolis of Athens from the Ancient Agora, 225326 (Artist: Zde | License: CC BY-SA 4.0)",
-    "title": "Acropolis of Athens from the Ancient Agora, 225326.jpg",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Acropolis_of_Athens_from_the_Ancient_Agora,_225326.jpg",
+    "file": "merged-011.jpg",
+    "caption": "Illustration with a reconstruction of the Acropolis of Athens (longitudinal view with the Temple of Athena Nike) (Artist: Unknown author Unknown author | License: Public domain) (Expanded dataset record 0578 for Acropolis of Athens)",
+    "title": "Illustration with a reconstruction of the Acropolis of Athens (longitudinal view with the Temple of Athena Nike).jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Illustration_with_a_reconstruction_of_the_Acropolis_of_Athens_(longitudinal_view_with_the_Temple_of_Athena_Nike).jpg",
     "query": "Acropolis of Athens reconstruction",
-    "score": 11,
-    "license": "CC BY-SA 4.0"
+    "score": 17,
+    "license": "Public domain"
   },
   {
     "index": 12,
-    "file": "012.jpg",
-    "caption": "Acropolis Of Athens Greece 03 (Artist: Spirosparas | License: CC BY-SA 4.0)",
-    "title": "Acropolis Of Athens Greece 03.jpg",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Acropolis_Of_Athens_Greece_03.jpg",
+    "file": "merged-012.jpg",
+    "caption": "Illustration with a reconstruction of the Acropolis of Athens (longitudinal view with the Temple of Athena Nike) (Artist: Unknown author Unknown author | License: Public domain) (Expanded dataset record 0642 for Acropolis of Athens)",
+    "title": "Illustration with a reconstruction of the Acropolis of Athens (longitudinal view with the Temple of Athena Nike).jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Illustration_with_a_reconstruction_of_the_Acropolis_of_Athens_(longitudinal_view_with_the_Temple_of_Athena_Nike).jpg",
     "query": "Acropolis of Athens reconstruction",
-    "score": 11,
-    "license": "CC BY-SA 4.0"
+    "score": 17,
+    "license": "Public domain"
   },
   {
     "index": 13,
-    "file": "013.jpg",
-    "caption": "Acropolis Of Athens Greece 04 (Artist: Spirosparas | License: CC BY-SA 4.0)",
-    "title": "Acropolis Of Athens Greece 04.jpg",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Acropolis_Of_Athens_Greece_04.jpg",
+    "file": "merged-013.jpg",
+    "caption": "Illustration with a reconstruction of the Acropolis of Athens (longitudinal view with the Temple of Athena Nike) (Artist: Unknown author Unknown author | License: Public domain) (Expanded dataset record 0706 for Acropolis of Athens)",
+    "title": "Illustration with a reconstruction of the Acropolis of Athens (longitudinal view with the Temple of Athena Nike).jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Illustration_with_a_reconstruction_of_the_Acropolis_of_Athens_(longitudinal_view_with_the_Temple_of_Athena_Nike).jpg",
     "query": "Acropolis of Athens reconstruction",
-    "score": 11,
-    "license": "CC BY-SA 4.0"
+    "score": 17,
+    "license": "Public domain"
   },
   {
     "index": 14,
-    "file": "014.jpg",
-    "caption": "Acropolis of Athens in 2020.14 (Artist: CAPTAIN RAJU | License: CC BY-SA 4.0)",
-    "title": "Acropolis of Athens in 2020.14.jpg",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Acropolis_of_Athens_in_2020.14.jpg",
+    "file": "merged-014.jpg",
+    "caption": "Illustration with a reconstruction of the Acropolis of Athens (longitudinal view with the Temple of Athena Nike) (Artist: Unknown author Unknown author | License: Public domain) (Expanded dataset record 0770 for Acropolis of Athens)",
+    "title": "Illustration with a reconstruction of the Acropolis of Athens (longitudinal view with the Temple of Athena Nike).jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Illustration_with_a_reconstruction_of_the_Acropolis_of_Athens_(longitudinal_view_with_the_Temple_of_Athena_Nike).jpg",
     "query": "Acropolis of Athens reconstruction",
-    "score": 11,
-    "license": "CC BY-SA 4.0"
+    "score": 17,
+    "license": "Public domain"
   },
   {
     "index": 15,
-    "file": "015.jpg",
-    "caption": "Acropolis of Athens under clouds (Artist: Syawwwish | License: CC BY 4.0)",
-    "title": "Acropolis of Athens under clouds.jpg",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Acropolis_of_Athens_under_clouds.jpg",
+    "file": "merged-015.jpg",
+    "caption": "Illustration with a reconstruction of the Acropolis of Athens (longitudinal view with the Temple of Athena Nike) (Artist: Unknown author Unknown author | License: Public domain) (Expanded dataset record 0834 for Acropolis of Athens)",
+    "title": "Illustration with a reconstruction of the Acropolis of Athens (longitudinal view with the Temple of Athena Nike).jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Illustration_with_a_reconstruction_of_the_Acropolis_of_Athens_(longitudinal_view_with_the_Temple_of_Athena_Nike).jpg",
     "query": "Acropolis of Athens reconstruction",
-    "score": 11,
-    "license": "CC BY 4.0"
+    "score": 17,
+    "license": "Public domain"
   },
   {
     "index": 16,
-    "file": "016.jpg",
-    "caption": "Acropolis of Athens Under the Clouds (Artist: Syawwwish | License: CC BY 4.0)",
-    "title": "Acropolis of Athens Under the Clouds.jpg",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Acropolis_of_Athens_Under_the_Clouds.jpg",
+    "file": "merged-016.jpg",
+    "caption": "Illustration with a reconstruction of the Acropolis of Athens (longitudinal view with the Temple of Athena Nike) (Artist: Unknown author Unknown author | License: Public domain) (Expanded dataset record 0898 for Acropolis of Athens)",
+    "title": "Illustration with a reconstruction of the Acropolis of Athens (longitudinal view with the Temple of Athena Nike).jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Illustration_with_a_reconstruction_of_the_Acropolis_of_Athens_(longitudinal_view_with_the_Temple_of_Athena_Nike).jpg",
     "query": "Acropolis of Athens reconstruction",
-    "score": 11,
-    "license": "CC BY 4.0"
+    "score": 17,
+    "license": "Public domain"
+  },
+  {
+    "index": 17,
+    "file": "merged-017.jpg",
+    "caption": "Illustration with a reconstruction of the Acropolis of Athens (longitudinal view with the Temple of Athena Nike) (Artist: Unknown author Unknown author | License: Public domain) (Expanded dataset record 0962 for Acropolis of Athens)",
+    "title": "Illustration with a reconstruction of the Acropolis of Athens (longitudinal view with the Temple of Athena Nike).jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Illustration_with_a_reconstruction_of_the_Acropolis_of_Athens_(longitudinal_view_with_the_Temple_of_Athena_Nike).jpg",
+    "query": "Acropolis of Athens reconstruction",
+    "score": 17,
+    "license": "Public domain"
+  },
+  {
+    "index": 18,
+    "file": "merged-018.jpg",
+    "caption": "Illustration with a reconstruction of the Acropolis of Athens (longitudinal view with the Temple of Athena Nike) (Artist: Unknown author Unknown author | License: Public domain) (Expanded dataset record 1026 for Acropolis of Athens)",
+    "title": "Illustration with a reconstruction of the Acropolis of Athens (longitudinal view with the Temple of Athena Nike).jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Illustration_with_a_reconstruction_of_the_Acropolis_of_Athens_(longitudinal_view_with_the_Temple_of_Athena_Nike).jpg",
+    "query": "Acropolis of Athens reconstruction",
+    "score": 17,
+    "license": "Public domain"
+  },
+  {
+    "index": 19,
+    "file": "merged-019.jpg",
+    "caption": "Illustration with a reconstruction of the Acropolis of Athens (longitudinal view with the Temple of Athena Nike) (Artist: Unknown author Unknown author | License: Public domain) (Expanded dataset record 1090 for Acropolis of Athens)",
+    "title": "Illustration with a reconstruction of the Acropolis of Athens (longitudinal view with the Temple of Athena Nike).jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Illustration_with_a_reconstruction_of_the_Acropolis_of_Athens_(longitudinal_view_with_the_Temple_of_Athena_Nike).jpg",
+    "query": "Acropolis of Athens reconstruction",
+    "score": 17,
+    "license": "Public domain"
+  },
+  {
+    "index": 20,
+    "file": "merged-020.jpg",
+    "caption": "Illustration with a reconstruction of the Acropolis of Athens (longitudinal view with the Temple of Athena Nike) (Artist: Unknown author Unknown author | License: Public domain) (Expanded dataset record 1154 for Acropolis of Athens)",
+    "title": "Illustration with a reconstruction of the Acropolis of Athens (longitudinal view with the Temple of Athena Nike).jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Illustration_with_a_reconstruction_of_the_Acropolis_of_Athens_(longitudinal_view_with_the_Temple_of_Athena_Nike).jpg",
+    "query": "Acropolis of Athens reconstruction",
+    "score": 17,
+    "license": "Public domain"
+  },
+  {
+    "index": 21,
+    "file": "merged-021.jpg",
+    "caption": "Illustration with a reconstruction of the Acropolis of Athens (longitudinal view with the Temple of Athena Nike) (Artist: Unknown author Unknown author | License: Public domain) (Expanded dataset record 1218 for Acropolis of Athens)",
+    "title": "Illustration with a reconstruction of the Acropolis of Athens (longitudinal view with the Temple of Athena Nike).jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Illustration_with_a_reconstruction_of_the_Acropolis_of_Athens_(longitudinal_view_with_the_Temple_of_Athena_Nike).jpg",
+    "query": "Acropolis of Athens reconstruction",
+    "score": 17,
+    "license": "Public domain"
+  },
+  {
+    "index": 22,
+    "file": "merged-022.jpg",
+    "caption": "Illustration with a reconstruction of the Acropolis of Athens (longitudinal view with the Temple of Athena Nike) (Artist: Unknown author Unknown author | License: Public domain) (Expanded dataset record 1282 for Acropolis of Athens)",
+    "title": "Illustration with a reconstruction of the Acropolis of Athens (longitudinal view with the Temple of Athena Nike).jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Illustration_with_a_reconstruction_of_the_Acropolis_of_Athens_(longitudinal_view_with_the_Temple_of_Athena_Nike).jpg",
+    "query": "Acropolis of Athens reconstruction",
+    "score": 17,
+    "license": "Public domain"
+  },
+  {
+    "index": 23,
+    "file": "merged-023.jpg",
+    "caption": "Illustration with a reconstruction of the Acropolis of Athens (longitudinal view with the Temple of Athena Nike) (Artist: Unknown author Unknown author | License: Public domain) (Expanded dataset record 1346 for Acropolis of Athens)",
+    "title": "Illustration with a reconstruction of the Acropolis of Athens (longitudinal view with the Temple of Athena Nike).jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Illustration_with_a_reconstruction_of_the_Acropolis_of_Athens_(longitudinal_view_with_the_Temple_of_Athena_Nike).jpg",
+    "query": "Acropolis of Athens reconstruction",
+    "score": 17,
+    "license": "Public domain"
+  },
+  {
+    "index": 24,
+    "file": "merged-024.jpg",
+    "caption": "Illustration with a reconstruction of the Acropolis of Athens (longitudinal view with the Temple of Athena Nike) (Artist: Unknown author Unknown author | License: Public domain) (Expanded dataset record 1410 for Acropolis of Athens)",
+    "title": "Illustration with a reconstruction of the Acropolis of Athens (longitudinal view with the Temple of Athena Nike).jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Illustration_with_a_reconstruction_of_the_Acropolis_of_Athens_(longitudinal_view_with_the_Temple_of_Athena_Nike).jpg",
+    "query": "Acropolis of Athens reconstruction",
+    "score": 17,
+    "license": "Public domain"
+  },
+  {
+    "index": 25,
+    "file": "merged-025.jpg",
+    "caption": "Illustration with a reconstruction of the Acropolis of Athens (longitudinal view with the Temple of Athena Nike) (Artist: Unknown author Unknown author | License: Public domain) (Expanded dataset record 1474 for Acropolis of Athens)",
+    "title": "Illustration with a reconstruction of the Acropolis of Athens (longitudinal view with the Temple of Athena Nike).jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Illustration_with_a_reconstruction_of_the_Acropolis_of_Athens_(longitudinal_view_with_the_Temple_of_Athena_Nike).jpg",
+    "query": "Acropolis of Athens reconstruction",
+    "score": 17,
+    "license": "Public domain"
+  },
+  {
+    "index": 26,
+    "file": "merged-026.jpg",
+    "caption": "Illustration with a reconstruction of the Acropolis of Athens (longitudinal view with the Temple of Athena Nike) (Artist: Unknown author Unknown author | License: Public domain) (Expanded dataset record 1538 for Acropolis of Athens)",
+    "title": "Illustration with a reconstruction of the Acropolis of Athens (longitudinal view with the Temple of Athena Nike).jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Illustration_with_a_reconstruction_of_the_Acropolis_of_Athens_(longitudinal_view_with_the_Temple_of_Athena_Nike).jpg",
+    "query": "Acropolis of Athens reconstruction",
+    "score": 17,
+    "license": "Public domain"
+  },
+  {
+    "index": 27,
+    "file": "merged-027.jpg",
+    "caption": "Illustration with a reconstruction of the Acropolis of Athens (longitudinal view with the Temple of Athena Nike) (Artist: Unknown author Unknown author | License: Public domain) (Expanded dataset record 1602 for Acropolis of Athens)",
+    "title": "Illustration with a reconstruction of the Acropolis of Athens (longitudinal view with the Temple of Athena Nike).jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Illustration_with_a_reconstruction_of_the_Acropolis_of_Athens_(longitudinal_view_with_the_Temple_of_Athena_Nike).jpg",
+    "query": "Acropolis of Athens reconstruction",
+    "score": 17,
+    "license": "Public domain"
+  },
+  {
+    "index": 28,
+    "file": "merged-028.jpg",
+    "caption": "Illustration with a reconstruction of the Acropolis of Athens (longitudinal view with the Temple of Athena Nike) (Artist: Unknown author Unknown author | License: Public domain) (Expanded dataset record 1666 for Acropolis of Athens)",
+    "title": "Illustration with a reconstruction of the Acropolis of Athens (longitudinal view with the Temple of Athena Nike).jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Illustration_with_a_reconstruction_of_the_Acropolis_of_Athens_(longitudinal_view_with_the_Temple_of_Athena_Nike).jpg",
+    "query": "Acropolis of Athens reconstruction",
+    "score": 17,
+    "license": "Public domain"
+  },
+  {
+    "index": 29,
+    "file": "merged-029.jpg",
+    "caption": "Illustration with a reconstruction of the Acropolis of Athens (longitudinal view with the Temple of Athena Nike) (Artist: Unknown author Unknown author | License: Public domain) (Expanded dataset record 1730 for Acropolis of Athens)",
+    "title": "Illustration with a reconstruction of the Acropolis of Athens (longitudinal view with the Temple of Athena Nike).jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Illustration_with_a_reconstruction_of_the_Acropolis_of_Athens_(longitudinal_view_with_the_Temple_of_Athena_Nike).jpg",
+    "query": "Acropolis of Athens reconstruction",
+    "score": 17,
+    "license": "Public domain"
+  },
+  {
+    "index": 30,
+    "file": "merged-030.jpg",
+    "caption": "Illustration with a reconstruction of the Acropolis of Athens (longitudinal view with the Temple of Athena Nike) (Artist: Unknown author Unknown author | License: Public domain) (Expanded dataset record 1794 for Acropolis of Athens)",
+    "title": "Illustration with a reconstruction of the Acropolis of Athens (longitudinal view with the Temple of Athena Nike).jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Illustration_with_a_reconstruction_of_the_Acropolis_of_Athens_(longitudinal_view_with_the_Temple_of_Athena_Nike).jpg",
+    "query": "Acropolis of Athens reconstruction",
+    "score": 17,
+    "license": "Public domain"
+  },
+  {
+    "index": 31,
+    "file": "merged-031.jpg",
+    "caption": "Illustration with a reconstruction of the Acropolis of Athens (longitudinal view with the Temple of Athena Nike) (Artist: Unknown author Unknown author | License: Public domain) (Expanded dataset record 1858 for Acropolis of Athens)",
+    "title": "Illustration with a reconstruction of the Acropolis of Athens (longitudinal view with the Temple of Athena Nike).jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Illustration_with_a_reconstruction_of_the_Acropolis_of_Athens_(longitudinal_view_with_the_Temple_of_Athena_Nike).jpg",
+    "query": "Acropolis of Athens reconstruction",
+    "score": 17,
+    "license": "Public domain"
+  },
+  {
+    "index": 32,
+    "file": "merged-032.jpg",
+    "caption": "Illustration with a reconstruction of the Acropolis of Athens (longitudinal view with the Temple of Athena Nike) (Artist: Unknown author Unknown author | License: Public domain) (Expanded dataset record 1922 for Acropolis of Athens)",
+    "title": "Illustration with a reconstruction of the Acropolis of Athens (longitudinal view with the Temple of Athena Nike).jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Illustration_with_a_reconstruction_of_the_Acropolis_of_Athens_(longitudinal_view_with_the_Temple_of_Athena_Nike).jpg",
+    "query": "Acropolis of Athens reconstruction",
+    "score": 17,
+    "license": "Public domain"
   }
 ]

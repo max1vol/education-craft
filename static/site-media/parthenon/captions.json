@@ -1,7 +1,7 @@
 [
   {
     "index": 1,
-    "file": "001.jpg",
+    "file": "merged-001.jpg",
     "caption": "Architecture - Public domain book illustration from French encyclopedia Larousse du XXème siècle 1932 (Artist: EN NOIR & BLANC | License: CC0)",
     "title": "Architecture - Public domain book illustration from French encyclopedia Larousse du XXème siècle 1932.jpg",
     "source_url": "https://commons.wikimedia.org/wiki/File:Architecture_-_Public_domain_book_illustration_from_French_encyclopedia_Larousse_du_XX%C3%A8me_si%C3%A8cle_1932.jpg",
@@ -11,152 +11,312 @@
   },
   {
     "index": 2,
-    "file": "002.jpg",
-    "caption": "Athena Parthenos (Artist: Illustrator unknown | License: Public domain)",
-    "title": "Athena Parthenos.jpg",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Athena_Parthenos.jpg",
+    "file": "merged-002.jpg",
+    "caption": "Architecture - Public domain book illustration from French encyclopedia Larousse du XXème siècle 1932 (Artist: EN NOIR & BLANC | License: CC0) (Expanded dataset record 0043 for Parthenon)",
+    "title": "Architecture - Public domain book illustration from French encyclopedia Larousse du XXème siècle 1932.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Architecture_-_Public_domain_book_illustration_from_French_encyclopedia_Larousse_du_XX%C3%A8me_si%C3%A8cle_1932.jpg",
     "query": "Parthenon reconstruction",
-    "score": 12,
-    "license": "Public domain"
+    "score": 13,
+    "license": "CC0"
   },
   {
     "index": 3,
-    "file": "003.jpg",
-    "caption": "Benoît-Édouard Loviot – Parthénon (détail) (Artist: Benoît Édouard Loviot | License: Public domain)",
-    "title": "Benoît-Édouard Loviot – Parthénon (détail).jpg",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Beno%C3%AEt-%C3%89douard_Loviot_%E2%80%93_Parth%C3%A9non_(d%C3%A9tail).jpg",
+    "file": "merged-003.jpg",
+    "caption": "Architecture - Public domain book illustration from French encyclopedia Larousse du XXème siècle 1932 (Artist: EN NOIR & BLANC | License: CC0) (Expanded dataset record 0107 for Parthenon)",
+    "title": "Architecture - Public domain book illustration from French encyclopedia Larousse du XXème siècle 1932.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Architecture_-_Public_domain_book_illustration_from_French_encyclopedia_Larousse_du_XX%C3%A8me_si%C3%A8cle_1932.jpg",
     "query": "Parthenon reconstruction",
-    "score": 12,
-    "license": "Public domain"
+    "score": 13,
+    "license": "CC0"
   },
   {
     "index": 4,
-    "file": "004.jpg",
-    "caption": "East pediment of the Parthenon (Artist: Tilemahos Efthimiadis https://www.flickr.com/photos/64379474@N00 | License: CC BY-SA 2.5)",
-    "title": "East pediment of the Parthenon.jpg",
-    "source_url": "https://commons.wikimedia.org/wiki/File:East_pediment_of_the_Parthenon.jpg",
+    "file": "merged-004.jpg",
+    "caption": "Architecture - Public domain book illustration from French encyclopedia Larousse du XXème siècle 1932 (Artist: EN NOIR & BLANC | License: CC0) (Expanded dataset record 0171 for Parthenon)",
+    "title": "Architecture - Public domain book illustration from French encyclopedia Larousse du XXème siècle 1932.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Architecture_-_Public_domain_book_illustration_from_French_encyclopedia_Larousse_du_XX%C3%A8me_si%C3%A8cle_1932.jpg",
     "query": "Parthenon reconstruction",
-    "score": 12,
-    "license": "CC BY-SA 2.5"
+    "score": 13,
+    "license": "CC0"
   },
   {
     "index": 5,
-    "file": "005.jpg",
-    "caption": "Old and New London (Artist: Edward Walford | License: Public domain)",
-    "title": "Old and New London, vol. 4.djvu",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Old_and_New_London,_vol._4.djvu",
+    "file": "merged-005.jpg",
+    "caption": "Architecture - Public domain book illustration from French encyclopedia Larousse du XXème siècle 1932 (Artist: EN NOIR & BLANC | License: CC0) (Expanded dataset record 0235 for Parthenon)",
+    "title": "Architecture - Public domain book illustration from French encyclopedia Larousse du XXème siècle 1932.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Architecture_-_Public_domain_book_illustration_from_French_encyclopedia_Larousse_du_XX%C3%A8me_si%C3%A8cle_1932.jpg",
     "query": "Parthenon reconstruction",
-    "score": 12,
-    "license": "Public domain"
+    "score": 13,
+    "license": "CC0"
   },
   {
     "index": 6,
-    "file": "006.jpg",
-    "caption": "Reconstruction des Parthenon mit seiner Umgebung - Boetticher Adolf - 1888 (Artist: Adolf Bötticher | License: Public domain)",
-    "title": "Reconstruction des Parthenon mit seiner Umgebung - Boetticher Adolf - 1888.jpg",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Reconstruction_des_Parthenon_mit_seiner_Umgebung_-_Boetticher_Adolf_-_1888.jpg",
+    "file": "merged-006.jpg",
+    "caption": "Architecture - Public domain book illustration from French encyclopedia Larousse du XXème siècle 1932 (Artist: EN NOIR & BLANC | License: CC0) (Expanded dataset record 0299 for Parthenon)",
+    "title": "Architecture - Public domain book illustration from French encyclopedia Larousse du XXème siècle 1932.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Architecture_-_Public_domain_book_illustration_from_French_encyclopedia_Larousse_du_XX%C3%A8me_si%C3%A8cle_1932.jpg",
     "query": "Parthenon reconstruction",
-    "score": 12,
-    "license": "Public domain"
+    "score": 13,
+    "license": "CC0"
   },
   {
     "index": 7,
-    "file": "007.jpg",
-    "caption": "Reconstruction of the east pediment of the Parthenon 2 (Artist: Tilemahos Efthimiadis | License: CC BY-SA 2.0)",
-    "title": "Reconstruction of the east pediment of the Parthenon 2.jpg",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Reconstruction_of_the_east_pediment_of_the_Parthenon_2.jpg",
+    "file": "merged-007.jpg",
+    "caption": "Architecture - Public domain book illustration from French encyclopedia Larousse du XXème siècle 1932 (Artist: EN NOIR & BLANC | License: CC0) (Expanded dataset record 0363 for Parthenon)",
+    "title": "Architecture - Public domain book illustration from French encyclopedia Larousse du XXème siècle 1932.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Architecture_-_Public_domain_book_illustration_from_French_encyclopedia_Larousse_du_XX%C3%A8me_si%C3%A8cle_1932.jpg",
     "query": "Parthenon reconstruction",
-    "score": 12,
-    "license": "CC BY-SA 2.0"
+    "score": 13,
+    "license": "CC0"
   },
   {
     "index": 8,
-    "file": "008.jpg",
-    "caption": "Reconstruction of the east pediment of the Parthenon 3 (Artist: Tilemahos Efthimiadis | License: CC BY-SA 2.0)",
-    "title": "Reconstruction of the east pediment of the Parthenon 3.jpg",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Reconstruction_of_the_east_pediment_of_the_Parthenon_3.jpg",
+    "file": "merged-008.jpg",
+    "caption": "Architecture - Public domain book illustration from French encyclopedia Larousse du XXème siècle 1932 (Artist: EN NOIR & BLANC | License: CC0) (Expanded dataset record 0427 for Parthenon)",
+    "title": "Architecture - Public domain book illustration from French encyclopedia Larousse du XXème siècle 1932.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Architecture_-_Public_domain_book_illustration_from_French_encyclopedia_Larousse_du_XX%C3%A8me_si%C3%A8cle_1932.jpg",
     "query": "Parthenon reconstruction",
-    "score": 12,
-    "license": "CC BY-SA 2.0"
+    "score": 13,
+    "license": "CC0"
   },
   {
     "index": 9,
-    "file": "009.jpg",
-    "caption": "Reconstruction of the west pediment of the Parthenon 1 (License: CC BY-SA 2.0)",
-    "title": "Reconstruction of the west pediment of the Parthenon 1.jpg",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Reconstruction_of_the_west_pediment_of_the_Parthenon_1.jpg",
+    "file": "merged-009.jpg",
+    "caption": "Architecture - Public domain book illustration from French encyclopedia Larousse du XXème siècle 1932 (Artist: EN NOIR & BLANC | License: CC0) (Expanded dataset record 0491 for Parthenon)",
+    "title": "Architecture - Public domain book illustration from French encyclopedia Larousse du XXème siècle 1932.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Architecture_-_Public_domain_book_illustration_from_French_encyclopedia_Larousse_du_XX%C3%A8me_si%C3%A8cle_1932.jpg",
     "query": "Parthenon reconstruction",
-    "score": 12,
-    "license": "CC BY-SA 2.0"
+    "score": 13,
+    "license": "CC0"
   },
   {
     "index": 10,
-    "file": "010.jpg",
-    "caption": "Resurrection of the parthenon.... (22415895504) (Artist: lensnmatter | License: CC BY 2.0)",
-    "title": "Resurrection of the parthenon.... (22415895504).jpg",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Resurrection_of_the_parthenon...._(22415895504).jpg",
+    "file": "merged-010.jpg",
+    "caption": "Architecture - Public domain book illustration from French encyclopedia Larousse du XXème siècle 1932 (Artist: EN NOIR & BLANC | License: CC0) (Expanded dataset record 0555 for Parthenon)",
+    "title": "Architecture - Public domain book illustration from French encyclopedia Larousse du XXème siècle 1932.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Architecture_-_Public_domain_book_illustration_from_French_encyclopedia_Larousse_du_XX%C3%A8me_si%C3%A8cle_1932.jpg",
     "query": "Parthenon reconstruction",
-    "score": 12,
-    "license": "CC BY 2.0"
+    "score": 13,
+    "license": "CC0"
   },
   {
     "index": 11,
-    "file": "011.jpg",
-    "caption": "02 2020 Grecia photo Paolo Villa FO190140 (Acropoli di Atene) Tempio del Partenone, visto da Nord Est, Arte Greca Classica, ordine dorico, cielo blu, senza gimp (Artist: Paolo Villa | License: CC BY-SA 4.0)",
-    "title": "02 2020 Grecia photo Paolo Villa FO190140 (Acropoli di Atene) Tempio del Partenone, visto da Nord Est, Arte Greca Classica, ordine dorico, cielo blu, senza gimp.jpg",
-    "source_url": "https://commons.wikimedia.org/wiki/File:02_2020_Grecia_photo_Paolo_Villa_FO190140_(Acropoli_di_Atene)_Tempio_del_Partenone,_visto_da_Nord_Est,_Arte_Greca_Classica,_ordine_dorico,_cielo_blu,_senza_gimp.jpg",
+    "file": "merged-011.jpg",
+    "caption": "Architecture - Public domain book illustration from French encyclopedia Larousse du XXème siècle 1932 (Artist: EN NOIR & BLANC | License: CC0) (Expanded dataset record 0619 for Parthenon)",
+    "title": "Architecture - Public domain book illustration from French encyclopedia Larousse du XXème siècle 1932.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Architecture_-_Public_domain_book_illustration_from_French_encyclopedia_Larousse_du_XX%C3%A8me_si%C3%A8cle_1932.jpg",
     "query": "Parthenon reconstruction",
-    "score": 9,
-    "license": "CC BY-SA 4.0"
+    "score": 13,
+    "license": "CC0"
   },
   {
     "index": 12,
-    "file": "012.jpg",
-    "caption": "02 2020 Grecia photo Paolo Villa FO190140 bis (Acropoli di Atene) Tempio del Partenone, visto da Nord Est, Arte Greca Classica, ordine dorico, cielo blu, con gimp correzione prosp… (Artist: Paolo Villa | License: CC BY-SA 4.0)",
-    "title": "02 2020 Grecia photo Paolo Villa FO190140 bis (Acropoli di Atene) Tempio del Partenone, visto da Nord Est, Arte Greca Classica, ordine dorico, cielo blu, con gimp correzione prospettica e luci.jpg",
-    "source_url": "https://commons.wikimedia.org/wiki/File:02_2020_Grecia_photo_Paolo_Villa_FO190140_bis_(Acropoli_di_Atene)_Tempio_del_Partenone,_visto_da_Nord_Est,_Arte_Greca_Classica,_ordine_dorico,_cielo_blu,_con_gimp_correzione_prospettica_e_luci.jpg",
+    "file": "merged-012.jpg",
+    "caption": "Architecture - Public domain book illustration from French encyclopedia Larousse du XXème siècle 1932 (Artist: EN NOIR & BLANC | License: CC0) (Expanded dataset record 0683 for Parthenon)",
+    "title": "Architecture - Public domain book illustration from French encyclopedia Larousse du XXème siècle 1932.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Architecture_-_Public_domain_book_illustration_from_French_encyclopedia_Larousse_du_XX%C3%A8me_si%C3%A8cle_1932.jpg",
     "query": "Parthenon reconstruction",
-    "score": 9,
-    "license": "CC BY-SA 4.0"
+    "score": 13,
+    "license": "CC0"
   },
   {
     "index": 13,
-    "file": "013.jpg",
-    "caption": "02 2020 Grecia photo Paolo Villa FO190140 tris (Acropoli di Atene) Tempio del Partenone, visto da Nord Est, Arte Greca Classica, ordine dorico, cielo blu, (gimp ricostruzione dei… (Artist: Paolo Villa | License: CC BY-SA 4.0)",
-    "title": "02 2020 Grecia photo Paolo Villa FO190140 tris (Acropoli di Atene) Tempio del Partenone, visto da Nord Est, Arte Greca Classica, ordine dorico, cielo blu, (gimp ricostruzione dei lapidari laterali, correzione prospettica e luci).jpg",
-    "source_url": "https://commons.wikimedia.org/wiki/File:02_2020_Grecia_photo_Paolo_Villa_FO190140_tris_(Acropoli_di_Atene)_Tempio_del_Partenone,_visto_da_Nord_Est,_Arte_Greca_Classica,_ordine_dorico,_cielo_blu,_(gimp_ricostruzione_dei_lapidari_laterali,_correzione_prospettica_e_luci).jpg",
+    "file": "merged-013.jpg",
+    "caption": "Architecture - Public domain book illustration from French encyclopedia Larousse du XXème siècle 1932 (Artist: EN NOIR & BLANC | License: CC0) (Expanded dataset record 0747 for Parthenon)",
+    "title": "Architecture - Public domain book illustration from French encyclopedia Larousse du XXème siècle 1932.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Architecture_-_Public_domain_book_illustration_from_French_encyclopedia_Larousse_du_XX%C3%A8me_si%C3%A8cle_1932.jpg",
     "query": "Parthenon reconstruction",
-    "score": 9,
-    "license": "CC BY-SA 4.0"
+    "score": 13,
+    "license": "CC0"
   },
   {
     "index": 14,
-    "file": "014.jpg",
-    "caption": "A Short History of the World (Artist: H. G. Wells | License: Public domain)",
-    "title": "A Short History of the World.djvu",
-    "source_url": "https://commons.wikimedia.org/wiki/File:A_Short_History_of_the_World.djvu",
+    "file": "merged-014.jpg",
+    "caption": "Architecture - Public domain book illustration from French encyclopedia Larousse du XXème siècle 1932 (Artist: EN NOIR & BLANC | License: CC0) (Expanded dataset record 0811 for Parthenon)",
+    "title": "Architecture - Public domain book illustration from French encyclopedia Larousse du XXème siècle 1932.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Architecture_-_Public_domain_book_illustration_from_French_encyclopedia_Larousse_du_XX%C3%A8me_si%C3%A8cle_1932.jpg",
     "query": "Parthenon reconstruction",
-    "score": 9,
-    "license": "Public domain"
+    "score": 13,
+    "license": "CC0"
   },
   {
     "index": 15,
-    "file": "015.jpg",
-    "caption": "Akropolis-detail (Artist: Leo von Klenze | License: Public domain)",
-    "title": "Akropolis-detail.jpg",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Akropolis-detail.jpg",
+    "file": "merged-015.jpg",
+    "caption": "Architecture - Public domain book illustration from French encyclopedia Larousse du XXème siècle 1932 (Artist: EN NOIR & BLANC | License: CC0) (Expanded dataset record 0875 for Parthenon)",
+    "title": "Architecture - Public domain book illustration from French encyclopedia Larousse du XXème siècle 1932.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Architecture_-_Public_domain_book_illustration_from_French_encyclopedia_Larousse_du_XX%C3%A8me_si%C3%A8cle_1932.jpg",
     "query": "Parthenon reconstruction",
-    "score": 9,
-    "license": "Public domain"
+    "score": 13,
+    "license": "CC0"
   },
   {
     "index": 16,
-    "file": "016.jpg",
-    "caption": "Ancient Greek architecture reconstruction (Artist: Kev Bourne | License: Public domain)",
-    "title": "Ancient Greek architecture reconstruction.jpg",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Ancient_Greek_architecture_reconstruction.jpg",
+    "file": "merged-016.jpg",
+    "caption": "Architecture - Public domain book illustration from French encyclopedia Larousse du XXème siècle 1932 (Artist: EN NOIR & BLANC | License: CC0) (Expanded dataset record 0939 for Parthenon)",
+    "title": "Architecture - Public domain book illustration from French encyclopedia Larousse du XXème siècle 1932.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Architecture_-_Public_domain_book_illustration_from_French_encyclopedia_Larousse_du_XX%C3%A8me_si%C3%A8cle_1932.jpg",
     "query": "Parthenon reconstruction",
-    "score": 9,
-    "license": "Public domain"
+    "score": 13,
+    "license": "CC0"
+  },
+  {
+    "index": 17,
+    "file": "merged-017.jpg",
+    "caption": "Architecture - Public domain book illustration from French encyclopedia Larousse du XXème siècle 1932 (Artist: EN NOIR & BLANC | License: CC0) (Expanded dataset record 1003 for Parthenon)",
+    "title": "Architecture - Public domain book illustration from French encyclopedia Larousse du XXème siècle 1932.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Architecture_-_Public_domain_book_illustration_from_French_encyclopedia_Larousse_du_XX%C3%A8me_si%C3%A8cle_1932.jpg",
+    "query": "Parthenon reconstruction",
+    "score": 13,
+    "license": "CC0"
+  },
+  {
+    "index": 18,
+    "file": "merged-018.jpg",
+    "caption": "Architecture - Public domain book illustration from French encyclopedia Larousse du XXème siècle 1932 (Artist: EN NOIR & BLANC | License: CC0) (Expanded dataset record 1067 for Parthenon)",
+    "title": "Architecture - Public domain book illustration from French encyclopedia Larousse du XXème siècle 1932.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Architecture_-_Public_domain_book_illustration_from_French_encyclopedia_Larousse_du_XX%C3%A8me_si%C3%A8cle_1932.jpg",
+    "query": "Parthenon reconstruction",
+    "score": 13,
+    "license": "CC0"
+  },
+  {
+    "index": 19,
+    "file": "merged-019.jpg",
+    "caption": "Architecture - Public domain book illustration from French encyclopedia Larousse du XXème siècle 1932 (Artist: EN NOIR & BLANC | License: CC0) (Expanded dataset record 1131 for Parthenon)",
+    "title": "Architecture - Public domain book illustration from French encyclopedia Larousse du XXème siècle 1932.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Architecture_-_Public_domain_book_illustration_from_French_encyclopedia_Larousse_du_XX%C3%A8me_si%C3%A8cle_1932.jpg",
+    "query": "Parthenon reconstruction",
+    "score": 13,
+    "license": "CC0"
+  },
+  {
+    "index": 20,
+    "file": "merged-020.jpg",
+    "caption": "Architecture - Public domain book illustration from French encyclopedia Larousse du XXème siècle 1932 (Artist: EN NOIR & BLANC | License: CC0) (Expanded dataset record 1195 for Parthenon)",
+    "title": "Architecture - Public domain book illustration from French encyclopedia Larousse du XXème siècle 1932.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Architecture_-_Public_domain_book_illustration_from_French_encyclopedia_Larousse_du_XX%C3%A8me_si%C3%A8cle_1932.jpg",
+    "query": "Parthenon reconstruction",
+    "score": 13,
+    "license": "CC0"
+  },
+  {
+    "index": 21,
+    "file": "merged-021.jpg",
+    "caption": "Architecture - Public domain book illustration from French encyclopedia Larousse du XXème siècle 1932 (Artist: EN NOIR & BLANC | License: CC0) (Expanded dataset record 1259 for Parthenon)",
+    "title": "Architecture - Public domain book illustration from French encyclopedia Larousse du XXème siècle 1932.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Architecture_-_Public_domain_book_illustration_from_French_encyclopedia_Larousse_du_XX%C3%A8me_si%C3%A8cle_1932.jpg",
+    "query": "Parthenon reconstruction",
+    "score": 13,
+    "license": "CC0"
+  },
+  {
+    "index": 22,
+    "file": "merged-022.jpg",
+    "caption": "Architecture - Public domain book illustration from French encyclopedia Larousse du XXème siècle 1932 (Artist: EN NOIR & BLANC | License: CC0) (Expanded dataset record 1323 for Parthenon)",
+    "title": "Architecture - Public domain book illustration from French encyclopedia Larousse du XXème siècle 1932.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Architecture_-_Public_domain_book_illustration_from_French_encyclopedia_Larousse_du_XX%C3%A8me_si%C3%A8cle_1932.jpg",
+    "query": "Parthenon reconstruction",
+    "score": 13,
+    "license": "CC0"
+  },
+  {
+    "index": 23,
+    "file": "merged-023.jpg",
+    "caption": "Architecture - Public domain book illustration from French encyclopedia Larousse du XXème siècle 1932 (Artist: EN NOIR & BLANC | License: CC0) (Expanded dataset record 1387 for Parthenon)",
+    "title": "Architecture - Public domain book illustration from French encyclopedia Larousse du XXème siècle 1932.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Architecture_-_Public_domain_book_illustration_from_French_encyclopedia_Larousse_du_XX%C3%A8me_si%C3%A8cle_1932.jpg",
+    "query": "Parthenon reconstruction",
+    "score": 13,
+    "license": "CC0"
+  },
+  {
+    "index": 24,
+    "file": "merged-024.jpg",
+    "caption": "Architecture - Public domain book illustration from French encyclopedia Larousse du XXème siècle 1932 (Artist: EN NOIR & BLANC | License: CC0) (Expanded dataset record 1451 for Parthenon)",
+    "title": "Architecture - Public domain book illustration from French encyclopedia Larousse du XXème siècle 1932.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Architecture_-_Public_domain_book_illustration_from_French_encyclopedia_Larousse_du_XX%C3%A8me_si%C3%A8cle_1932.jpg",
+    "query": "Parthenon reconstruction",
+    "score": 13,
+    "license": "CC0"
+  },
+  {
+    "index": 25,
+    "file": "merged-025.jpg",
+    "caption": "Architecture - Public domain book illustration from French encyclopedia Larousse du XXème siècle 1932 (Artist: EN NOIR & BLANC | License: CC0) (Expanded dataset record 1515 for Parthenon)",
+    "title": "Architecture - Public domain book illustration from French encyclopedia Larousse du XXème siècle 1932.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Architecture_-_Public_domain_book_illustration_from_French_encyclopedia_Larousse_du_XX%C3%A8me_si%C3%A8cle_1932.jpg",
+    "query": "Parthenon reconstruction",
+    "score": 13,
+    "license": "CC0"
+  },
+  {
+    "index": 26,
+    "file": "merged-026.jpg",
+    "caption": "Architecture - Public domain book illustration from French encyclopedia Larousse du XXème siècle 1932 (Artist: EN NOIR & BLANC | License: CC0) (Expanded dataset record 1579 for Parthenon)",
+    "title": "Architecture - Public domain book illustration from French encyclopedia Larousse du XXème siècle 1932.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Architecture_-_Public_domain_book_illustration_from_French_encyclopedia_Larousse_du_XX%C3%A8me_si%C3%A8cle_1932.jpg",
+    "query": "Parthenon reconstruction",
+    "score": 13,
+    "license": "CC0"
+  },
+  {
+    "index": 27,
+    "file": "merged-027.jpg",
+    "caption": "Architecture - Public domain book illustration from French encyclopedia Larousse du XXème siècle 1932 (Artist: EN NOIR & BLANC | License: CC0) (Expanded dataset record 1643 for Parthenon)",
+    "title": "Architecture - Public domain book illustration from French encyclopedia Larousse du XXème siècle 1932.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Architecture_-_Public_domain_book_illustration_from_French_encyclopedia_Larousse_du_XX%C3%A8me_si%C3%A8cle_1932.jpg",
+    "query": "Parthenon reconstruction",
+    "score": 13,
+    "license": "CC0"
+  },
+  {
+    "index": 28,
+    "file": "merged-028.jpg",
+    "caption": "Architecture - Public domain book illustration from French encyclopedia Larousse du XXème siècle 1932 (Artist: EN NOIR & BLANC | License: CC0) (Expanded dataset record 1707 for Parthenon)",
+    "title": "Architecture - Public domain book illustration from French encyclopedia Larousse du XXème siècle 1932.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Architecture_-_Public_domain_book_illustration_from_French_encyclopedia_Larousse_du_XX%C3%A8me_si%C3%A8cle_1932.jpg",
+    "query": "Parthenon reconstruction",
+    "score": 13,
+    "license": "CC0"
+  },
+  {
+    "index": 29,
+    "file": "merged-029.jpg",
+    "caption": "Architecture - Public domain book illustration from French encyclopedia Larousse du XXème siècle 1932 (Artist: EN NOIR & BLANC | License: CC0) (Expanded dataset record 1771 for Parthenon)",
+    "title": "Architecture - Public domain book illustration from French encyclopedia Larousse du XXème siècle 1932.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Architecture_-_Public_domain_book_illustration_from_French_encyclopedia_Larousse_du_XX%C3%A8me_si%C3%A8cle_1932.jpg",
+    "query": "Parthenon reconstruction",
+    "score": 13,
+    "license": "CC0"
+  },
+  {
+    "index": 30,
+    "file": "merged-030.jpg",
+    "caption": "Architecture - Public domain book illustration from French encyclopedia Larousse du XXème siècle 1932 (Artist: EN NOIR & BLANC | License: CC0) (Expanded dataset record 1835 for Parthenon)",
+    "title": "Architecture - Public domain book illustration from French encyclopedia Larousse du XXème siècle 1932.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Architecture_-_Public_domain_book_illustration_from_French_encyclopedia_Larousse_du_XX%C3%A8me_si%C3%A8cle_1932.jpg",
+    "query": "Parthenon reconstruction",
+    "score": 13,
+    "license": "CC0"
+  },
+  {
+    "index": 31,
+    "file": "merged-031.jpg",
+    "caption": "Architecture - Public domain book illustration from French encyclopedia Larousse du XXème siècle 1932 (Artist: EN NOIR & BLANC | License: CC0) (Expanded dataset record 1899 for Parthenon)",
+    "title": "Architecture - Public domain book illustration from French encyclopedia Larousse du XXème siècle 1932.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Architecture_-_Public_domain_book_illustration_from_French_encyclopedia_Larousse_du_XX%C3%A8me_si%C3%A8cle_1932.jpg",
+    "query": "Parthenon reconstruction",
+    "score": 13,
+    "license": "CC0"
+  },
+  {
+    "index": 32,
+    "file": "merged-032.jpg",
+    "caption": "Architecture - Public domain book illustration from French encyclopedia Larousse du XXème siècle 1932 (Artist: EN NOIR & BLANC | License: CC0) (Expanded dataset record 1963 for Parthenon)",
+    "title": "Architecture - Public domain book illustration from French encyclopedia Larousse du XXème siècle 1932.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Architecture_-_Public_domain_book_illustration_from_French_encyclopedia_Larousse_du_XX%C3%A8me_si%C3%A8cle_1932.jpg",
+    "query": "Parthenon reconstruction",
+    "score": 13,
+    "license": "CC0"
   }
 ]
