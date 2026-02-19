@@ -1,0 +1,73 @@
+{
+  "verifiedAt": "2026-02-19T08:52:31.027Z",
+  "baseUrl": "http://127.0.0.1:4173",
+  "before": {
+    "minedCount": 0,
+    "placedCount": 0,
+    "status": "Click to capture the pointer. Break blocks with left click and place with right click.",
+    "biome": "Salisbury Plain",
+    "monument": "Stonehenge",
+    "player": {
+      "x": -21.5,
+      "y": 15.003047659533962,
+      "z": 10.5
+    },
+    "target": {
+      "x": -17,
+      "y": 16,
+      "z": 8
+    },
+    "targetType": "grass"
+  },
+  "afterSingleTapPlace": {
+    "minedCount": 0,
+    "placedCount": 1,
+    "status": "Placed Dirt.",
+    "biome": "Salisbury Plain",
+    "monument": "Stonehenge",
+    "player": {
+      "x": -21.5,
+      "y": 15.003047659533962,
+      "z": 10.5
+    },
+    "target": {
+      "x": -18,
+      "y": 16,
+      "z": 8
+    },
+    "targetType": "dirt"
+  },
+  "singleTapPlaceSuccess": true,
+  "placeSuccessPoint": {
+    "x": 197,
+    "y": 383
+  },
+  "twoFingerDestroy": {
+    "method": "cdp-two-finger",
+    "success": true,
+    "before": 0,
+    "after": 1,
+    "statusBefore": "Placed Dirt.",
+    "statusAfter": "Collected Dirt.",
+    "fallbackUsed": false
+  },
+  "after": {
+    "minedCount": 1,
+    "placedCount": 1,
+    "status": "Collected Dirt.",
+    "biome": "Salisbury Plain",
+    "monument": "Stonehenge",
+    "player": {
+      "x": -21.5,
+      "y": 15.003047659533962,
+      "z": 10.5
+    },
+    "target": {
+      "x": -17,
+      "y": 16,
+      "z": 8
+    },
+    "targetType": "grass"
+  },
+  "success": true
+}
